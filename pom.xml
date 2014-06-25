@@ -3,13 +3,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.mapdb</groupId>
-    <artifactId>mapdb</artifactId>
+    <artifactId>mapdb-site</artifactId>
     <version>1.1.0-SNAPSHOT</version>
-    <name>mapdb</name>
-    <description>MapDB provides concurrent Maps, Sets and Queues backed by disk storage or off-heap memory. It is a fast, scalable and easy to use embedded Java database.</description>
+    <name>mapdb-site</name>
+    <description>This is site module for MapDB.</description>
     <url>http://www.mapdb.org</url>
 
-    <packaging>bundle</packaging>
+    <!-- <packaging>bundle</packaging> -->
 
     <licenses>
         <license>
@@ -27,86 +27,33 @@
     </developers>
 
     <scm>
-        <connection>scm:git:git@github.com:jankotek/MapDB.git</connection>
-        <developerConnection>scm:git:git@github.com:jankotek/MapDB.git</developerConnection>
-        <url>git@github.com:jankotek/MapDB.git</url>
+        <connection>scm:git:git@github.com:stekot/mapdb-site.git</connection>
+        <developerConnection>scm:git:git@github.com:stekot/mapdb-site.git</developerConnection>
+        <url>git@github.com:stekot/mapdb-site.git</url>
     </scm>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.11</version>
-            <type>jar</type>
-            <scope>test</scope>
-            <optional>false</optional>
-        </dependency>
-    </dependencies>
 
     <build>
         <plugins>
             <plugin>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>maven-bundle-plugin</artifactId>
-                <version>2.3.7</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <instructions>
-                        <Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
-                        <Bundle-Name>${project.name}</Bundle-Name>
-                        <Bundle-Version>${project.version}</Bundle-Version>
-                        <Import-Package>*</Import-Package>
-                    </instructions>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.0</version>
-                <configuration>
-                    <target>1.6</target>
-                    <source>1.6</source>
-                    <encoding>${project.build.sourceEncoding}</encoding>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>2.5</version>
-                <configuration>
-                    <encoding>${project.build.sourceEncoding}</encoding>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <version>2.1.2</version>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>jar</goal>
-                            <goal>test-jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.doxia</groupId>
-                <artifactId>doxia-module-markdown</artifactId>
-                <version>1.5</version>
-                <configuration>
-                    <inputEncoding>UTF-8</inputEncoding>
-                    <outputEncoding>UTF-8</outputEncoding>
-                </configuration>
+              <artifactId>exec-maven-plugin</artifactId>
+              <groupId>org.codehaus.mojo</groupId>
+              <executions>
+                <execution><!-- Download mapdb apidoc -->
+                  <id>Version Calculation</id>
+                  <phase>pre-site</phase>
+                  <goals>
+                    <goal>exec</goal>
+                  </goals>
+                  <configuration>
+                    <executable>${basedir}/src/scripts/down_apidocs.sh</executable>
+                  </configuration>
+                </execution>
+              </executions>
             </plugin>
 
             <!-- Configure Maven site plugin for Reflow skin and Markdown support -->
@@ -142,7 +89,6 @@
                 </configuration>
             </plugin>
 
-
             <plugin>
                 <groupId>com.github.github</groupId>
                 <artifactId>site-maven-plugin</artifactId>
@@ -160,7 +106,6 @@
                     </execution>
                 </executions>
             </plugin>
-
 
             <!-- uncomment to enable proguard (strip down jar)-->
             <!--
