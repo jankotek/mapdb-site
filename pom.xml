@@ -49,7 +49,7 @@
               <groupId>org.codehaus.mojo</groupId>
               <executions>
                 <execution><!-- Download mapdb javadoc -->
-                  <id>Version Calculation</id>
+                  <id>Download javadocs</id>
                   <phase>pre-site</phase>
                   <goals>
                     <goal>exec</goal>
@@ -63,6 +63,24 @@
                 </execution>
               </executions>
             </plugin>
+
+            <plugin>
+              <artifactId>exec-maven-plugin</artifactId>
+              <groupId>org.codehaus.mojo</groupId>
+              <executions>
+                <execution><!-- Create ebooks -->
+                  <id>Create ebooks</id>
+                  <phase>pre-site</phase>
+                  <goals>
+                    <goal>exec</goal>
+                  </goals>
+                  <configuration>
+                    <executable>${project.basedir}/src/scripts/create_ebook.sh </executable>
+                  </configuration>
+                </execution>
+              </executions>
+            </plugin>
+
 
             <!-- Configure Maven site plugin for Reflow skin and Markdown support -->
             <plugin>
