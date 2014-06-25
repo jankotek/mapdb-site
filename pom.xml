@@ -24,6 +24,10 @@
             <name>Jan Kotek</name>
             <id>jan</id>
         </developer>
+        <developer>
+            <name>Stepan Kotek</name>
+            <id>st</id>
+        </developer>
     </developers>
 
     <scm>
@@ -34,6 +38,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <javadoc>1.0.3</javadoc>
     </properties>
 
 
@@ -43,14 +48,17 @@
               <artifactId>exec-maven-plugin</artifactId>
               <groupId>org.codehaus.mojo</groupId>
               <executions>
-                <execution><!-- Download mapdb apidoc -->
+                <execution><!-- Download mapdb javadoc -->
                   <id>Version Calculation</id>
                   <phase>pre-site</phase>
                   <goals>
                     <goal>exec</goal>
                   </goals>
                   <configuration>
-                    <executable>${basedir}/src/scripts/down_apidocs.sh</executable>
+                    <executable>${project.basedir}/src/scripts/down_apidocs.sh </executable>
+                    <arguments>
+                      <argument>${javadoc}</argument>
+                    </arguments>
                   </configuration>
                 </execution>
               </executions>
@@ -106,53 +114,6 @@
                     </execution>
                 </executions>
             </plugin>
-
-            <!-- uncomment to enable proguard (strip down jar)-->
-            <!--
-                        <plugin>
-                            <groupId>com.pyx4me</groupId>
-                            <artifactId>proguard-maven-plugin</artifactId>
-                            <executions>
-                                <execution>
-                                    <phase>package</phase>
-                                    <goals>
-                                        <goal>proguard</goal>
-                                    </goals>
-                                </execution>
-                            </executions>
-                            <configuration>
-                                <options>
-                                    <option>-allowaccessmodification</option>
-                                    <option>-keep public class org.mapdb.DB { public *; public static *; }</option>
-                                    <option>-keep public class org.mapdb.DBMaker { public *; public static *; }</option>
-                                </options>
-                                <libs>
-                                    <lib>${java.home}/lib/rt.jar</lib>
-                                    <lib>${java.home}/lib/jce.jar</lib>
-                                </libs>
-                            </configuration>
-                        </plugin>
-                -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.16</version>
-                <configuration>
-
-                    <!-- do not run tests in parallel, it causes out of memory errors -->
-                    <forkCount>1</forkCount>
-
-                    <includes>
-                        <include>**/*</include>
-                    </includes>
-                    <excludes>
-                        <!-- must be here, otherwise inner classes are ignored-->
-                        <exclude>AAAAAAAAAA</exclude>
-                    </excludes>
-
-                </configuration>
-            </plugin>
-
 
         </plugins>
     </build>
