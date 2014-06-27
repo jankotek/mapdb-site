@@ -50,7 +50,7 @@
               <executions>
                 <execution><!-- Download mapdb javadoc -->
                   <id>Download javadocs</id>
-                  <phase>pre-site</phase>
+                  <phase>site</phase>
                   <goals>
                     <goal>exec</goal>
                   </goals>
@@ -70,7 +70,7 @@
               <executions>
                 <execution><!-- Create ebooks -->
                   <id>Create ebooks</id>
-                  <phase>pre-site</phase>
+                  <phase>site</phase>
                   <goals>
                     <goal>exec</goal>
                   </goals>

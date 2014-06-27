@@ -1,12 +1,12 @@
 #!/bin/sh
-touch /tmp/$$.mk
-for f in `find . | grep -e "/src/site/markdown/[0-9]" | sort`
+
+touch /tmp/$$.html
+for f in `find . | grep -e "/target/site/[0-9]" | sort`
 do
- awk 1 $f >> /tmp/$$.mk
+ awk 1 $f | sed -n '/<!-- Masthead/,/<!-- \/container -->/p' >> /tmp/$$.html
 done
-mkdir ./target/site/doc/
-pandoc -s -o ./target/site/doc/mapdb-ebook.html --toc --toc-depth=2 /tmp/$$.mk
-pandoc -s -o ./target/site/doc/mapdb-ebook.pdf --toc --toc-depth=2 /tmp/$$.mk
-pandoc -s -o ./target/site/doc/mapdb-ebook.epub --toc --toc-depth=2 /tmp/$$.mk
+pandoc -s -o ./target/site/doc/mapdb-ebook.html --toc --toc-depth=2 /tmp/$$.html -f html
+pandoc -s -o ./target/site/doc/mapdb-ebook.pdf --toc --toc-depth=2 /tmp/$$.html -f html
+pandoc -s -o ./target/site/doc/mapdb-ebook.epub --toc --toc-depth=2 /tmp/$$.html -f html
 ebook-convert ./target/site/doc/mapdb-ebook.epub ./target/site/doc/mapdb-ebook.mobi >/dev/null 2>/dev/null
-rm /tmp/$$.mk
+rm /tmp/$$.html
