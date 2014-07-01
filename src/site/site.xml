@@ -44,7 +44,7 @@ MapDB is free as speech and free as beer under <a href="https://github.com/janko
 ]]>
             </bottomDescription>
             <pages>
-                <index project="mapdb">
+                <index project="mapdb-site">
                     <!-- Override the title -->
                     <titleTemplate>MapDB</titleTemplate>
                     <!-- no breadcrumbs on the main index page -->
