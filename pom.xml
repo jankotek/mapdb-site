@@ -31,9 +31,9 @@
     </developers>
 
     <scm>
-        <connection>scm:git:git@github.com:stekot/mapdb-site.git</connection>
-        <developerConnection>scm:git:git@github.com:stekot/mapdb-site.git</developerConnection>
-        <url>git@github.com:stekot/mapdb-site.git</url>
+        <connection>scm:git:git@github.com:jankotek/mapdb-site.git</connection>
+        <developerConnection>scm:git:git@github.com:jankotek/mapdb-site.git</developerConnection>
+        <url>git@github.com:jankotek/mapdb-site.git</url>
     </scm>
 
     <properties>
@@ -135,71 +135,6 @@
 
         </plugins>
     </build>
-
-
-    <profiles>
-
-        <profile>
-            <!-- profile activated to generate additional reports -->
-            <id>reports</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.jacoco</groupId>
-                        <artifactId>jacoco-maven-plugin</artifactId>
-                        <version>0.6.3.201306030806</version>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>prepare-agent</goal>
-                                    <goal>report</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
-
-    <reporting>
-        <plugins>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-project-info-reports-plugin</artifactId>
-                <version>2.7</version>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.9</version>
-                <reportSets>
-                    <reportSet>
-                        <id>html</id>
-                        <reports>
-                            <report>javadoc</report>
-                        </reports>
-                    </reportSet>
-                </reportSets>
-
-                <configuration>
-                    <doclet>ch.raffael.doclets.pegdown.PegdownDoclet</doclet>
-                    <docletArtifact>
-                        <groupId>ch.raffael.pegdown-doclet</groupId>
-                        <artifactId>pegdown-doclet</artifactId>
-                        <version>1.1</version>
-                    </docletArtifact>
-                    <useStandardDocletOptions>true</useStandardDocletOptions>
-                    <notimestamp>true</notimestamp>
-                </configuration>
-            </plugin>
-
-        </plugins>
-
-    </reporting>
-
 
 
     <parent>
