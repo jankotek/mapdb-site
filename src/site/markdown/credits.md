@@ -83,7 +83,9 @@ Other
 Donations
 -----------
 
-So far we got those donations:.
+MapDB development is generously sponsored by [CodeFutures](http://www.codefutures.com). 
+
+Before CodeFutures we got those donations:
 
 * Chronon Systems donated [time traveling debugger](http://chrononsystems.com/). It is great help for fixing complex and hard to reproduce concurrent issues.
 
