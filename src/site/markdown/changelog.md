@@ -10,7 +10,7 @@ Changes:
 
  * Fix #346: WAL log corruption when killing the mapdb process. Discarding corrupted log was not reliable.  
  * Fix #356: `asyncWriteEnable()` had race condition in record preallocation. Could result to data loss. Feature is too complex to  fix, so was removed. Expect minor performance regression.
- * Fix DB: TreeMap Pump keyExtractor was not used. Would cause with Tuple2 pairs
+ * Fix DB: TreeMap Pump keyExtractor was not used. Would cause problem with Tuple2 pairs
  * Fix #358: set correct hasher when open exist hash tree map 
  * Atomic classes now expose recid via public `getRecid()` method
  * DB now exposes Name Catalog via public methods. External libraries can manipulate catalog content.
