@@ -7,6 +7,14 @@
         <link>http://www.mapdb.org/</link>
         <description>MapDB</description>
 
+        <item>
+            <title>MapDB 1.0.5 released</title>
+            <link>http://www.mapdb.org/changelog.html#Version_105_2014-07-15</link>
+            <date>July 15 2014</date>
+            <description>
+                Fixed transaction log replay failure. Fixed race condition in async writes.
+            </description>
+        </item>
 
         <item>
             <title>MapDB 1.0.4 released</title>
