@@ -51,6 +51,10 @@ Follow news:
 [Mail-List](https://groups.google.com/forum/?fromgroups#!forum/mapdb-news) |
 [Twitter](http://twitter.com/MapDBnews)
 
+New news
+------------
+{news}
+
 Features
 --------
 * **Concurrent** - MapDB has record level locking and state-of-art concurrent engine. Its performance scales nearly linearly with number of cores. Data can be written by multiple parallel threads.

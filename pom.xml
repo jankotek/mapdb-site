@@ -39,6 +39,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <javadoc>1.0.5</javadoc>
+        <blog_idx_words>50</blog_idx_words>
     </properties>
 
 
@@ -48,17 +49,14 @@
               <artifactId>exec-maven-plugin</artifactId>
               <groupId>org.codehaus.mojo</groupId>
               <executions>
-                <execution><!-- Download mapdb javadoc -->
-                  <id>Download javadocs</id>
-                  <phase>site</phase>
+                <execution>
+                  <id>Pre-site scripts</id>
+                  <phase>pre-site</phase>
                   <goals>
                     <goal>exec</goal>
                   </goals>
                   <configuration>
-                    <executable>${project.basedir}/src/scripts/down_apidocs.sh </executable>
-                    <arguments>
-                      <argument>${javadoc}</argument>
-                    </arguments>
+                    <executable>${project.basedir}/src/scripts/pre-site.sh </executable>
                   </configuration>
                 </execution>
               </executions>
@@ -68,19 +66,23 @@
               <artifactId>exec-maven-plugin</artifactId>
               <groupId>org.codehaus.mojo</groupId>
               <executions>
-                <execution><!-- Create ebooks -->
-                  <id>Create ebooks</id>
+                <execution>
+                  <id>Site scripts</id>
                   <phase>site</phase>
                   <goals>
                     <goal>exec</goal>
                   </goals>
                   <configuration>
-                    <executable>${project.basedir}/src/scripts/create_ebook.sh </executable>
+                    <executable>${project.basedir}/src/scripts/site.sh </executable>
+                    <arguments>
+                      <argument>${project.basedir}</argument>
+                      <argument>${javadoc}</argument>
+                      <argument>${blog_idx_words}</argument>
+                    </arguments>
                   </configuration>
                 </execution>
               </executions>
             </plugin>
-
 
             <!-- Configure Maven site plugin for Reflow skin and Markdown support -->
             <plugin>

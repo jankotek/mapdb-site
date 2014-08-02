@@ -1,48 +1,18 @@
 #!/usr/bin/python
+from libs import *
+import sys
 
-import re, os, subprocess
-
-PATH = './target/site/blog/'
-PATH_MD = './src/site/markdown/' #FIXME: add blog folder
-def get_file_list():
-    files = [ f for f in os.listdir(PATH)
-        if os.path.isfile(os.path.join(PATH,f)) and f[-5:] == '.html']
-    files.remove("index.html")
-    return files
-
-def get_date(f):
-    d = subprocess.check_output(
-        'git log --format=%ai {f} | tail -1'.format(
-            f=PATH_MD + f[:-5]+'.md'
-        ), shell=True)
-    return "2014-04-23"#d[:10]
-
-def get_header(f):
-    with open (PATH+f, "r") as myfile:
-        html=myfile.read()
-    header = re.findall(r'<[h,H]1[^>]*?>(.*?)</[h,H]1>', html)[0]
-    return header
-
-def get_preview(f):
-    with open (PATH+f, "r") as myfile:
-        html=myfile.read()
-    preview = re.findall(r'<[p,P][^>]*?>(.*?)</[p,P]>', html)[0]
-    preview = re.sub('<[^<]+?>', '', preview)
-    return preview
-
-data = []
-for f in get_file_list():
-    data.append((get_date(f), get_header(f), get_preview(f), f))
-data.sort()    
+data = [(get_date(f).strftime("%Y-%m-%d") , get_header(f), get_preview(f,max_words=int(sys.argv[1])), f) for f in get_files("blog/") if get_header(f)]
+data.sort()
 lines = "<hr>".join([
         """
     <h2><a href="{url}">{header}</a></h2>
     <p class="perex"><b>{date}</b> | {preview}</p>
         """.format(date=d[0], header=d[1], preview=d[2], url=d[3])
         for d in data])
-f = open(PATH + 'index.html', 'r')
+f = codecs.open(PATH + 'blog/index.html', 'r', 'utf-8')
 text = f.read().replace('{lines}',lines)
 f.close()
-f = open(PATH + 'index.html', 'w')
+f = codecs.open(PATH + 'blog/index.html', 'w', 'utf-8')
 f.write(text)
 f.close()
