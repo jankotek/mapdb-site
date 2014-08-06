@@ -48,7 +48,8 @@ In general MapDB is about 30% compared to on-heap. But it fits more data per GB 
 over large data sets. 
 
 
-On-disk 
---------
+On Disk
+-------------
+
 
 Will be added soon...
