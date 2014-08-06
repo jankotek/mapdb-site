@@ -14,7 +14,7 @@ Graphs bellow compare off-heap in-memory `BTreeMap` from MapDB and `ConcurrentSk
 MapDB speed is comparable to Java collections, despite using serialization and its own 
 memory management. 
 
-Test was performed on HP Proliant 585 G2 with 24 cores and 32GB memory. 
+Test was performed on HP Proliant 585 G2 with 24 physical cores and 32GB memory. 
 Y-Axis is thousands operations per second, higher is better. 
 Data set size is 100 millions. Key size is 8 bytes, value size is 16 bytes (`Map<Long,UUID>`).
 
