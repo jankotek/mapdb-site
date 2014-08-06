@@ -41,8 +41,8 @@ and [here](https://github.com/jankotek/mapdb-benchmarks/blob/master/src/org/mapd
 There is no trick here. MapDB is greatly optimized. With large keys/vals the deserialization overhead would 
 increase and MapDB would become slower compared to heap collections (we are working on partial deserialization to fix it).
 
-On other side large data sets increase garbage collection overhead and slow-down on-heap Java collections. 
-In this case JVM had enough memory and GC was bellow 1%. 
+On other side larger data set would increase GV overhead and make on-heap Java collections slower. 
+In this test JVM had enough memory and GC was bellow 1%. 
 
 In general MapDB is about 30% compared to on-heap. But it fits more data per GB and does not degrade its performance 
 over large data sets. 
