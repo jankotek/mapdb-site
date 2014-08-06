@@ -44,8 +44,8 @@ increase and MapDB would become slower compared to heap collections (we are work
 On other side larger data set would increase GV overhead and make on-heap Java collections slower. 
 In this test JVM had enough memory and GC was bellow 1%. 
 
-In general MapDB is about 30% compared to on-heap. But it fits more data per GB and does not degrade its performance 
-over large data sets. 
+In general MapDB is about 30% slower compared to on-heap. 
+But it fits more data into same memory and its performance does not degrade with data size. 
 
 
 On Disk
