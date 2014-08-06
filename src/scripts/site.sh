@@ -12,4 +12,7 @@ python src/scripts/blog_preview.py $3
 echo "Create rss and news"
 python src/scripts/create_rss.py $3
 
+echo "Include Disqus"
+python src/scripts/disqus.py
+
 rm src/scripts/libs.pyc
