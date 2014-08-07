@@ -8,6 +8,15 @@
         <description>MapDB</description>
 
         <item>
+            <title>MapDB 1.0.6 released</title>
+            <link>http://www.mapdb.org/changelog.html#Version_106_2014-08-07</link>
+            <date>August 7 2014</date>
+            <description>
+                Fixed problem in transaction log replay after unclean shutdown.
+            </description>
+        </item>
+
+        <item>
             <title>MapDB 1.0.5 released</title>
             <link>http://www.mapdb.org/changelog.html#Version_105_2014-07-15</link>
             <date>July 15 2014</date>

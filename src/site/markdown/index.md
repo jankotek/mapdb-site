@@ -37,6 +37,8 @@ CRUD, off-heap, append only store.. we have them all. MapDB is highly modular an
 News
 ----
 
+* 2014-08-07 [MapDB 1.0.6 released](http://www.mapdb.org/changelog.html#Version_106_2014-08-07). Fixed transaction log replay after unclean shutdown.
+
 * 2014-07-15 [MapDB 1.0.5 released](http://www.mapdb.org/changelog.html#Version_105_2014-07-15). Fixed transaction log replay failure. Fixed race condition in async writes.
 
 * 2014-06-26 [MapDB 1.0.4 released](http://www.mapdb.org/changelog.html#Version_104_2014-06-26). Fixed file locking on Windows.

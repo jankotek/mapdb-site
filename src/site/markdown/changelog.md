@@ -1,6 +1,16 @@
 Changelog
 ============
 
+Version 1.0.6 (2014-08-07)
+---------------------------
+Fixed problem in transaction log replay after unclean shutdown
+WAL checksum was broken, so it was disabled.
+
+Changes:
+
+ * Fix #359: WAL log replay could fail after unclean shutdown
+ * Workaround #366: WAL checksum was broken, disable WAL checksum.
+
 Version 1.0.5 (2014-07-15)
 --------------------------
 Fixed transaction log replay failure. Fixed race condition in async writes. 
