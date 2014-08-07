@@ -112,3 +112,5 @@ And `TxMaker` is than used to create multiple `DB` objects, each representing si
   tx2.commit();  
   // second commit fails  with write conflict, both maps share single BTree node, 
   // this does not happend on large maps with sufficent number of BTree nodes. 
+  
+```
