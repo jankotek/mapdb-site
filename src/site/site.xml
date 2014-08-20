@@ -19,7 +19,7 @@
             <brand>
                 <!-- Brand text in top-left part of the site -->
                 <name><![CDATA[
-                <img src="images/logo.png" border="0" alt="MapDB"/> - java beyond heap
+                <img src="/images/logo.png" border="0" alt="MapDB"/> - java beyond heap
                 ]]></name>
                 <href>http://www.mapdb.org/</href>
             </brand>
