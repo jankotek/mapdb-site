@@ -1,3 +1,3 @@
-BLOG preview
+Blog
 ============
 {lines}
