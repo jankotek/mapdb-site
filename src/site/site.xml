@@ -94,6 +94,11 @@ It is a fast embedded Java database engine with Apache license.
                 @media (max-width:979px){.navbar .nav-collapse .nav li a .navbar .nav-collapse .nav li a:hover, .navbar-inverse .nav-collapse .nav li a:hover, .nav-collapse .navbar-form,.nav-collapse .navbar-search}{
                 font-family:Arial, sans-serif;
                 }
+
+                .navbar-fixed-top {
+                    position: absolute !important;
+                }
+
             </style>
         </head>
 
