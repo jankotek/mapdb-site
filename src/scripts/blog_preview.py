@@ -2,10 +2,10 @@
 from libs import *
 import sys
 
-data = [(get_date(f).strftime("%Y-%m-%d") , get_header(f), get_preview(f,max_words=int(sys.argv[1])), f) for f in get_files("blog/") if get_header(f)]
+data = [(get_date(f).strftime("%Y-%m-%d"), f) for f in get_files("blog/") if get_header(f)]
 data.sort()
-lines = "<hr>".join([
-        """
+lines = u"<hr>".join([
+        u"""
     <h2><a href="{url}">{header}</a></h2>
     <p class="perex"><b>{date}</b> | {preview}</p>
         """.format(date=d, header=get_header(f),
