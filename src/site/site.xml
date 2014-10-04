@@ -119,7 +119,7 @@ It is a fast embedded Java database engine with Apache license.
         <menu name="Documentation">
             <item name="Getting started" href="02-getting-started.html"/>
             <item name="Overview Video" href="http://www.youtube.com/watch?v=FdZmyEHcWLI"/>
-            <item name="Examples" href="https://github.com/jankotek/MapDB/tree/master/src/test/java/examples"/>
+            <item name="Examples" href="https://github.com/jankotek/MapDB/tree/release-1.0/src/test/java/examples"/>
             <item name="JavaDoc" href="apidocs/index.html"/>
             <item name="Cheat Sheet" href="doc/cheatsheet.pdf"/>
         </menu>

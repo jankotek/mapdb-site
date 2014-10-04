@@ -370,7 +370,7 @@ Changes:
  * FIX Issue #139 - rolled back TX should not throw exception on close.
  * FIX Issue #135 - SerializerPojo registered classes problem. Credit Jan Sileny
  * ADD `DBMaker.syncOnCommitDisable()` parameter
- * ADD all stuff in `DataOutput2` and `DataInput2` is public. It also extends In/OutputStream now.
+ * ADD all stuff in `DataIO.ByteArrayDataOutput` and `DataInput2` is public. It also extends In/OutputStream now.
 
 
 
