@@ -51,9 +51,6 @@ Follow news:
 [Mail-List](https://groups.google.com/forum/?fromgroups#!forum/mapdb-news) |
 [Twitter](http://twitter.com/MapDBnews)
 
-New news
-------------
-{news}
 
 Features
 --------
