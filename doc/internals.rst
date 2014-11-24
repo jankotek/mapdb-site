@@ -1,26 +1,27 @@
-Quick intro to MapDB internals
+MapDB internals
 ==============================
 
-This chapter gives 5 minutes introduction to MapDB internal
-architecture. Rest of this manual assume that you have read this
+This chapter gives quick  introduction to MapDB internal
+architecture. Rest of this manual assume that you you are familiar with this
 chapter.
 
 MapDB originally evolved as store for astronomical desktop application.
-As such it has a bit different design from most DBs. Major goal was to
-minimise overhead of any sort (garbage collection, memory, CPU, stack
-trace length...).
+Over time it growth into full database engine with concurrent access, durability etc.
+But it evolved differently from most DBs, Pentium at 200MHz with 128 MB RAM does not give much space.
+Major goal was tight integration with Java and  to minimize overhead of any sort
+(garbage collection, memory, CPU, stack trace length...).
 
-Also serialization lifecycle is very different here. In most DB engines
-user has to serialize data himself and pass binary data into db. API
+What makes MapDB most different is serialization lifecycle is very different here.
+In most DB engines user has to serialize data himself and pass binary data into db. API
 than looks similar to this:
 
-::
+.. code:: java
 
         engine.update(long recid, byte[] data);
 
 But MapDB serializes data itself by using user supplied serializer:
 
-::
+.. code:: java
 
         engine.update(long recid, Person data, Serializer<Person> serializer);
 

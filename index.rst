@@ -36,7 +36,7 @@ MapDB is great in following situations: TODO links to doc
 
 
 Get started
--------
+------------
 
 Add `maven dependency <http://mvnrepository.com/artifact/org.mapdb/mapdb>`_:
 
@@ -69,7 +69,7 @@ Documentation
 -----------------
 
 - :doc:`doc/index`
-- `JavaDoc <javadoc/>`_
+- :doc:`javadoc/org/mapdb/package-index`
 - `Examples <https://github.com/jankotek/MapDB/tree/master/src/test/java/examples>`_
 
 

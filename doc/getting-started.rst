@@ -11,7 +11,7 @@ storage. It has methods for accessing Maps and other collections. It
 also controls DB life-cycle with commit, rollback and close methods.
 
 Best place to checkout various features of MapDB are
-`Examples <https://github.com/jankotek/MapDB/tree/release-1.0/src/test/java/examples>`__.
+`Examples <https://github.com/jankotek/MapDB/tree/master/src/test/java/examples>`__.
 There is also
 `screencast <http://www.youtube.com/watch?v=FdZmyEHcWLI>`__ which
 describes most aspects of MapDB.

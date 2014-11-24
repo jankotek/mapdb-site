@@ -1,5 +1,5 @@
-\`DBMaker and DB
-================
+DB and DBMaker
+==============q
 
 MapDB is set of loosely coupled components. One could wire classes such
 as ``CacheMRU``, ``StoreWAL`` and ``BTreeMap`` manually, byt there are
@@ -67,6 +67,7 @@ fail, but returns existing collection.
 
 Transactions
 ------------
+
 
 ``DB`` has methods to handle transaction lifecycle: ``commit()``,
 ``rollback()`` and ``close()``.

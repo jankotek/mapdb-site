@@ -2,14 +2,13 @@ MapDB documentation
 ======================
 
 .. toctree::
-
-   intro-getting-started
-   caches
-   db-and-dbmaker
+   getting-started
    durability-versus-speed
+   db-and-dbmaker
+   what-for
+   caches
    htreemap
-   index
-   internals-quick-intro
+   internals
    queues
    secondary-collections
    transactions
