@@ -136,3 +136,43 @@ Taking value:
 4) if tail pointer is 0 (empty), delete current chunk and update master pointer to previous page
 
 
+Write Ahead Log
+-------------------------
+
+WAL protects storage from data corruption if transactions are enabled. Technically it is sequence of instructions written to append-only file. Each
+instruction says something like: 'write this data at this offset'. TODO explain WAL.
+
+WAL is stored in sequence of files.
+
+WAL lifecycle
+~~~~~~~~~~~~~~~~~
+- open (or create) WAL
+- replay if unwritten data exists (described in separate section)
+- start new file
+- write instruction as they come
+- on commit start new file
+- sync old file, once sync is done exit commit
+- once log is full replay all files
+- discard logs and start over
+
+WAL file format
+~~~~~~~~~~~~~~~~~~~
+- **byte 1-4** header and file number
+- **byte 5-8** CRC32 checksum of entire log file.  TODO perhaps Adler32?
+- **byte 9-16** Log Seal, written as last data just before sync.
+- rest of file are instructions
+- **end of file** - End Of File instruction
+
+WAL Instructions
+~~~~~~~~~~~~~~~~~~
+Each instruction starts with single byte header. First 3 bits indicate type of instruction. Last 5 bits contain
+checksum to verify instruction.
+
+Type of instructions:
+
+0) **end of file**. Last instruction of file. Checksum is ``bit parity from offset % 16``
+1) **write long**. Is followed by 8 bytes value and 6 byte offset. Checksum is ``(bit parity from 15 bytes + 1)%32``
+2) **write byte[]**. Is followed by 2 bytes size, 6 byte offset and data itself. Checksum is ``(bit parity from 9 bytes + 1 + sum(byte[]))%32 ``
+3) **skip N bytes**. Is followed by 3 bytes value, number of bytes to skip . Used so data do not overlap page size. Checksum is ``(bit parity from 4 bytes + 1)%32``
+
+
