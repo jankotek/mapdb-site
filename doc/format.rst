@@ -120,7 +120,12 @@ Structure of Long Stack Chunk is as follow:
 - **byte 5-6** total size of this chunk.
 - **byte 7-12** pointer to previous chunk in this long stack. Parity 4, parity is shared with total size at byte
 5-6.
-- rest of chunk is filled with bidi-packed longs.
+- rest of chunk is filled with bidi-packed longs with parity 1
+
+Master Link structure:
+
+ - **byte 1-2** tail pointer, points where long values are ending at current chunk. Its value changes on every take/put.
+ - **byte 3-8** chunk offset, parity 4.
 
 Adding value to Long Stack goes as follow:
 
