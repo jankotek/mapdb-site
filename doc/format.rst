@@ -175,9 +175,9 @@ checksum to verify instruction.
 
 Type of instructions:
 
-0) **end of file**. Last instruction of file. Checksum is ``bit parity from offset % 16``
-1) **write long**. Is followed by 8 bytes value and 6 byte offset. Checksum is ``(bit parity from 15 bytes + 1)%32``
-2) **write byte[]**. Is followed by 2 bytes size, 6 byte offset and data itself. Checksum is ``(bit parity from 9 bytes + 1 + sum(byte[]))%32 ``
-3) **skip N bytes**. Is followed by 3 bytes value, number of bytes to skip . Used so data do not overlap page size. Checksum is ``(bit parity from 4 bytes + 1)%32``
-
+0) **end of file**. Last instruction of file. Checksum is ``bit parity from offset & 31``
+1) **write long**. Is followed by 8 bytes value and 6 byte offset. Checksum is ``(bit parity from 15 bytes + 1)&31``
+2) **write byte[]**. Is followed by 2 bytes size, 6 byte offset and data itself. Checksum is ``(bit parity from 9 bytes + 1 + sum(byte[]))&31 ``
+3) **skip N bytes**. Is followed by 3 bytes value, number of bytes to skip . Used so data do not overlap page size. Checksum is ``(bit parity from 3 bytes + 1)&31``
+4) **skip single byte**. Skip single byte in WAL. Checksum is ``bit parity from offset & 31``
 
