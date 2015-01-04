@@ -181,3 +181,21 @@ Type of instructions:
 3) **skip N bytes**. Is followed by 3 bytes value, number of bytes to skip . Used so data do not overlap page size. Checksum is ``(bit parity from 3 bytes + 1)&31``
 4) **skip single byte**. Skip single byte in WAL. Checksum is ``bit parity from offset & 31``
 
+
+Append Only Store
+--------------------
+StoreAppend implements Append-Only log files storage. It is sequence of instructions such as 'update record', 'delete record'
+and so on. Optionally store can be split between multiple files, to support online compaction.
+
+Instructions
+~~~~~~~~~~~
+
+1) record update. Followed by recid, size and binary data
+2) delete record. Places tombstone in index table. Followed by recid.
+3) record insert. Followed by recid, size and binary data
+4) preallocate record. Followed by recid
+5) skip N bytes. Followed by number of bytes to skip.
+6) skip single byte
+7) EOF current file. Move to next file
+8) Current transaction is valid. Start new transaction
+9) Current transaction is invalid. Rollback all changes since end of previous transaction. Start new transaction
