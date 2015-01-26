@@ -7,7 +7,7 @@ make clean html
 cd ../gh-pages
 git pull
 
-mv ../mapdb-site/_build/html/* . -f
+cp ../mapdb-site/_build/html/* . -rv
 
 git add -A
 git commit -m "update site"
