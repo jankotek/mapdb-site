@@ -1,52 +1,69 @@
 Benchmarks
 ==========
 
-.. raw:: html
+Goal for MapDB is to have speed comparable to ``java.util.concurrent`` collections such ``ConcurrentSkipListMap``.
+MapDB does things like serialization on background, so it is not always possible, but its very close.
 
-   <script src="js/jquery-1.8.3.min.js" />
-   <script src="js/excanvas.js" />
-   <script src="js/js-class.js" />
-   <script src="js/bluff.js" />
-   <script src="js/benchmarks.js" />
+This benchmark compares various ``Map`` implementations. Benchmark sources are available in
+`Github repo <https://github.com/jankotek/mapdb-benchmarks>`_.
 
-In memory
----------
 
-Graphs bellow compare off-heap in-memory ``BTreeMap`` from MapDB and
-``ConcurrentSkipListMap`` from JDK. MapDB speed is comparable to Java
-collections, despite using serialization and its own memory management.
 
-Test was performed on HP Proliant 585 G2 with 24 physical cores and 32GB
-memory. Y-Axis is thousands operations per second, higher is better.
-Data set size is 100 millions. Key size is 8 bytes, value size is 16
-bytes (``Map<Long,UUID>``).
+Long - UUID map
+~~~~~~~~~~~~~~~~
 
-Read-only lookups. MapDB is comparable to Java collections:
+First benchmark tests ``Map<Long,UUID>`` map. It chooses small entry size (24 bytes), since its size affect performance.
 
-Random updates. MapDB scales upto 6 cores, than concurrency overhead
-increases and limits its performance:
+TODO metrics
 
-Combined random updates (33%) and lookups (66%):
+.. image:: img/charts/org.mapdb.benchmarks.InMemoryLongTest-single-thread.png
 
-Raw benchmark results are available `here <benchmarks-raw.html>`__.
-Benchmark source code is
-`here <https://github.com/jankotek/mapdb-benchmarks>`__ and
-`here <https://github.com/jankotek/mapdb-benchmarks/blob/master/src/org/mapdb/benchmarks/InMemoryUUIDTest.java>`__
+``ConcurrentHashMap`` is about 8x faster than MapDB. Map size is 10 million items,
+so there is practically zero GC overhead. With larger sizes ``ConcurrentHashMap``
+performance degrades due to GC overhead and MapDB will eventually become faster.
 
-There is no trick here. MapDB is greatly optimized. With large keys/vals
-the deserialization overhead would increase and MapDB would become
-slower compared to heap collections (we are working on partial
-deserialization to fix it).
+Also MapDB uses compression, so it consumes much less memory.
 
-On other side larger data set would increase GV overhead and make
-on-heap Java collections slower. In this test JVM had enough memory and
-GC was bellow 1%.
+TODO chart of size scalability
 
-In general MapDB is about 30% slower compared to on-heap. But it fits
-more data into same memory and its performance does not degrade with
-data size.
+TODO chart of memory usage depending on collection size
+
+
+Chart bellow shows performance of ``BTreeMap`` from MapDB with number of threads on quad core CPU with 8 virtual cores.
+
+.. image:: img/charts/org.mapdb.benchmarks.InMemoryLongTest-org.mapdb.BTreeMap-scalability.png
+
+And this is multi-threaded performance for ``HTreeMap`` (HashMap). There is bug in segment hashing,
+so it wont scale over 2 threads.
+
+.. image:: img/charts/org.mapdb.benchmarks.InMemoryLongTest-org.mapdb.HTreeMap-scalability.png
+
+Long - UUID map
+~~~~~~~~~~~~~~~~
+
+Second benchmark tests ``Map<String,String>`` with key and value size 32 bytes.
+This is unfortunate situation for MapDB since deserialization overhead is high.
+
+.. image:: img/charts/org.mapdb.benchmarks.InMemoryStringTest-single-thread.png
+
+MapDB 2.0 was all about optimizing deserialization costs and it pays of.
+Please notice performance difference between MapDB 1.0 and 2.0 collections.
+
+Also ``HTreeMap`` is surprisingly fast compared to ``ConcurrentHashMap``.
+String hashing probably adds fixed overhead.
+
+And here is multi-threaded performance with String keys and values
+
+.. image:: img/charts/org.mapdb.benchmarks.InMemoryStringTest-org.mapdb.BTreeMap-scalability.png
+
+.. image:: img/charts/org.mapdb.benchmarks.InMemoryStringTest-org.mapdb.HTreeMap-scalability.png
+
+TODO BTreeMap external values
+
+TODO BTreeMap node size
+
 
 On Disk
 -------
 
-Will be added soon...
+TODO: On disk benchmarks Will be added soon...
