@@ -1,0 +1,17 @@
+#!/bin/sh
+
+make clean html
+
+
+
+cd ../gh-pages
+git pull
+
+mv ../mapdb-site/_build/html/* . -f
+
+git add -A
+git commit -m "update site"
+git push
+
+
+cd ../mapdb-site
