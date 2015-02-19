@@ -32,11 +32,11 @@ it. You may also download jar file directly from
     <dependency>
         <groupId>org.mapdb</groupId>
         <artifactId>mapdb</artifactId>
-        <version>1.0.6</version>
+        <version>1.0.7</version>
     </dependency>
 
-There is also repository with `daily
-builds <https://oss.sonatype.org/content/repositories/snapshots/org/mapdb/mapdb/>`__:
+We are working on new generation of MapDB. It is faster and more reliable. Latest semi-stable build is at
+`snapshot repository <https://oss.sonatype.org/content/repositories/snapshots/org/mapdb/mapdb/>`__:
 
 .. code:: xml
 
@@ -51,7 +51,7 @@ builds <https://oss.sonatype.org/content/repositories/snapshots/org/mapdb/mapdb/
         <dependency>
             <groupId>org.mapdb</groupId>
             <artifactId>mapdb</artifactId>
-            <version>1.1.0-SNAPSHOT</version>
+            <version>2.0.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 

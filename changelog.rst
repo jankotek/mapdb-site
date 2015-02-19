@@ -1,6 +1,43 @@
 Changelog
 =========
 
+Version 1.0.7 (2015-02-19)
+--------------------------
+
+Fixed bugs in Write-Ahead-Log and ``HTreeMap`` entry expiration.
+
+Changes:
+
+- Fixed serializer for newer android versions. `Link <https://github.com/koa/MapDB/commit/da938caac36f807c9f737ec6b06c7b4d72a91a2a>`_
+
+- Fixed `#443 <https://github.com/jankotek/MapDB/issues/443>`_ In-memory compaction does not delete temp files
+
+- Fixed `#442 <https://github.com/jankotek/MapDB/issues/442>`_ DirectByteBuffer unmapping and Async Write could cause JVM crash on compaction and commit
+
+- Fixed `#419 <https://github.com/jankotek/MapDB/issues/419>`_ DB.getHashSet() does not restore expiration settings
+
+- Fixed `#418 <https://github.com/jankotek/MapDB/issues/418>`_ HTreeMap expiration was broken
+
+- Fixed `#400 <https://github.com/jankotek/MapDB/issues/400>`_ HTreeMap.get() resets TTL to zero in some cases
+
+- Fixed `#417 <https://github.com/jankotek/MapDB/issues/417>`_ Infinite loop in Store.calculateStatistics()
+
+- Fixed `#374 <https://github.com/jankotek/MapDB/issues/374>`_ Map value creator is never called!
+
+- Fixed `#414 <https://github.com/jankotek/MapDB/issues/414>`_ Snapshots were not working under some conditions
+
+- Fixed `#381 <https://github.com/jankotek/MapDB/issues/381>`_ WAL corruption with deletes
+
+- Fixed `#364 <https://github.com/jankotek/MapDB/issues/364>`_ WAL corruption with async writes
+
+- Fixed `#373 <https://github.com/jankotek/MapDB/issues/373>`_ SerializerPojo throws NotSerializableException for Class field
+
+- Fixed `#445 <https://github.com/jankotek/MapDB/issues/445>`_ Race condition in Hashtable cache caused ClassCastException
+
+Open issues:
+
+- `A few <https://github.com/jankotek/MapDB/labels/1.0>`_ I could not replicate.
+
 Version 1.0.6 (2014-08-07)
 --------------------------
 

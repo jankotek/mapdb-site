@@ -7,6 +7,16 @@
         <link>http://www.mapdb.org/</link>
         <description>MapDB</description>
 
+
+        <item>
+            <title>MapDB 1.0.7 released</title>
+            <link>http://www.mapdb.org/changelog.html#Version_107_2015-02-19</link>
+            <date>February 19 2015</date>
+            <description>
+                Fixed bugs in Write-Ahead-Log and HTreeMap entry expiration.
+            </description>
+        </item>
+
         <item>
             <title>MapDB 1.0.6 released</title>
             <link>http://www.mapdb.org/changelog.html#Version_106_2014-08-07</link>

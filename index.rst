@@ -15,6 +15,11 @@ And finally MapDB is pure-java single 400K JAR and only depends on JRE 6+ or And
 News
 ----
 
+-  2015-02-19 `MapDB 1.0.7
+   released <http://www.mapdb.org/changelog.html#Version_107_2015-02-19>`__.
+   Fixed WAL corruption and others.
+
+
 -  2014-08-07 `MapDB 1.0.6
    released <http://www.mapdb.org/changelog.html#Version_106_2014-08-07>`__.
    Fixed transaction log replay after unclean shutdown.
@@ -62,14 +67,14 @@ And simple in-memory example:
     db.commit();
     db.close();
 
-Continue at :doc:`doc/intro-getting-started` chapter in documentation.
+Continue at :doc:`doc/getting-started` chapter in documentation.
 
 
 Documentation
 -----------------
 
 - :doc:`doc/index`
-- :doc:`javadoc/org/mapdb/package-index`
+- `Javadoc <http://www.mapdb.org/apidocs/>`_
 - `Examples <https://github.com/jankotek/MapDB/tree/master/src/test/java/examples>`_
 
 
