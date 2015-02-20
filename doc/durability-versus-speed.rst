@@ -65,9 +65,6 @@ setting.
 One can also activate mmap files only if 64bit platform is detected:
 ``DBMaker.mmapFileEnableIfSupported()``.
 
-And finally you can take advantage of mmap files in 32bit platforms by
-using mmap file only for small but frequently used part of storage:
-``DBMaker.mmapFileEnableIfSupported()``
 
 Mmap files are highly dependent on operating system. For example on
 Windows you can not delete mmap file while it is locked by JVM. If
