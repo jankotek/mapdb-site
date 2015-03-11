@@ -57,7 +57,7 @@ Add `maven dependency <http://mvnrepository.com/artifact/org.mapdb/mapdb>`_:
  <dependency>
     <groupId>org.mapdb</groupId>
     <artifactId>mapdb</artifactId>
-    <version>1.0.6</version>
+    <version>1.0.7</version>
  </dependency>
 
 And simple in-memory example:
