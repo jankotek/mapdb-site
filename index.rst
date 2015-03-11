@@ -12,6 +12,11 @@ MapDB has excellent performance comparable to `java.util.HashMap` and other coll
 It is also very flexible engine with many storage backend, cache algorithms,  and so on.
 And finally MapDB is pure-java single 400K JAR and only depends on JRE 6+ or Android 2.1+.
 
+MapDB development is sponsored by `CodeFutures Corporation <http://codefutures.com/>`__.
+It is a leading supplier of database performance
+tools that reduce the time and effort required to develop database applications and dramatically increase deployed database
+scalability and performance. MapDB author works for CodeFutures on `next generation distributed database <http://codefutures.com/agildata/>`__.
+
 News
 ----
 
@@ -38,6 +43,8 @@ MapDB is great in following situations: TODO links to doc
 - Huge indexes
 - Persistent data model
 - Alternative memory model if you are limited by GC
+
+MapDB is used by number of companies, checkout :doc:`success`
 
 
 Get started
@@ -80,6 +87,7 @@ Documentation
 
 
 
+
 Support
 --------------
 
@@ -99,4 +107,5 @@ Bug reports are hosted on `Github <https://github.com/jankotek/MapDB/issues>`_.
 Finally last option is to `contact me directly <mailto:jan(at)kotek.net>`_. Unless you mark your mail as private,
 I reserve right to forward technical questions and answers into mailing-list.
 
-I usually respond to non-paying users within a few days. Contact me if you need more direct support or consultation.
+I usually respond to non-paying users within a few days. Paid support and consulting is provided by
+`CodeFutures <http://codefutures.com/mapdb>`__ (or contact me directly).
