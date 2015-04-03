@@ -180,6 +180,8 @@ Type of instructions:
 2) **write byte[]**. Is followed by 2 bytes size, 6 byte offset and data itself. Checksum is ``(bit parity from 9 bytes + 1 + sum(byte[]))&31 ``
 3) **skip N bytes**. Is followed by 3 bytes value, number of bytes to skip . Used so data do not overlap page size. Checksum is ``(bit parity from 3 bytes + 1)&31``
 4) **skip single byte**. Skip single byte in WAL. Checksum is ``bit parity from offset & 31``
+5) **record**. Is followed by 6 bytes recid, than 4 bytes record size and an record data. Is used in Record format. Size==-2 is tombstone, size==-1 is null record
+    TODO checksum for record inst
 
 
 Append Only Store
