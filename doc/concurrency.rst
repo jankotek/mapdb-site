@@ -45,7 +45,7 @@ is hardcoded into its design and can not be changed. However its has simpler
 design compared to ``BTreeMap`` and more predictable performance. 
 It is also easy to use separate storage for each segment top boost its performance.
 
-Sequential safety
+Consistency safety
 ~~~~~~~~~~~~~~~~~~
 
 Map.put() translates into multiple operations at ``Engine`` level.
@@ -62,13 +62,13 @@ There are two ways to solve this. First are sequential safe collections
 (usually lock-free) which can handle inconsistency at expense of fragmentation and lower performance. 
 ``BTreeMap`` is sequentially safe, its nodes are updated in way which handles inconsistency.
 
-Second way is *Sequential Lock*. It is ``ReadWriteLock`` provided by ``DB.getSequentialLock()``.
+Second way is *Consistency Lock*. It is ``ReadWriteLock`` provided by ``DB.getConsistencyLock()``.
 Sequentially unsafe operations (such as ``HTreeMap.put()``) should be performed under read lock.
-Consistent state for snapshot, commit or close operation should be done under write lock.   
+Operations which require consistent state (taking snapshot, commit or close) should be performed under write lock.
 
 ``DB`` provides sequential lock:
 
-{@code concurrency-sequential-lock}
+{@code concurrency-consistency-lock}
 
 
 Executors
