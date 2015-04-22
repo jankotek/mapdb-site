@@ -24,9 +24,13 @@ Inside segment locks is global lock called 'structural lock' which
 protects memory allocator. It is locked when record layout changes,
 for example space is allocated, record was resided or free space released.
 
-{@code concurrency-segment-locking}
+.. literalinclude:: ../../mapdb/src/test/java/doc/concurrency_segment_locking.java
+    :start-after: //a
+    :end-before: //z
+    :language: java
+    :dedent: 8
 
-Memory allocator under global lock limits vertical scalability, so there 
+Memory allocator under global lock limits vertical scalability, so there
 are various workarounds. 
 For example each segment can have its own storage file, so no shared state exists.
 
@@ -66,9 +70,14 @@ Second way is *Consistency Lock*. It is ``ReadWriteLock`` provided by ``DB.getCo
 Sequentially unsafe operations (such as ``HTreeMap.put()``) should be performed under read lock.
 Operations which require consistent state (taking snapshot, commit or close) should be performed under write lock.
 
-``DB`` provides sequential lock:
+``DB`` provides consistency lock:
 
-{@code concurrency-consistency-lock}
+.. literalinclude:: ../../mapdb/src/test/java/doc/concurrency_consistency_lock.java
+    :start-after: //a
+    :end-before: //z
+    :language: java
+    :dedent: 8
+
 
 
 Executors
@@ -81,21 +90,40 @@ of slowing them down.
 Other option is to give MapDB an executor which could perform those tasks on background. In this case
 some tasks will be executed asynchronously (writes) or in parallel (compaction). Simplest is to enable executor globally:
 
-{@code concurrency-executor-global}
+.. literalinclude:: ../../mapdb/src/test/java/doc/concurrency_executor_global.java
+    :start-after: //a
+    :end-before: //z
+    :language: java
+    :dedent: 8
+
 
 Concurrent execution usually improves performance, but sometimes it might make it worse. For that MapDB has several
 options to enable Executor only for specific tasks. For example parallel in-memory compaction has no benefit,
 but on-disk it has large improvement, since IO can be done in parallel:
 
-{@code concurrency-executor-compaction}
+.. literalinclude:: ../../mapdb/src/test/java/doc/concurrency_executor_compaction.java
+    :start-after: //a
+    :end-before: //z
+    :language: java
+    :dedent: 8
 
 Other option is to enable executor just for asynchronous writes:
 
-{@code concurrency-executor-async-write}
+.. literalinclude:: ../../mapdb/src/test/java/doc/concurrency_executor_async_write.java
+    :start-after: //a
+    :end-before: //z
+    :language: java
+    :dedent: 8
+
 
 And finally for cache expiration in reference based cache (hard, soft or weak cache):
 
-{@code concurrency-executor-cache}
+.. literalinclude:: ../../mapdb/src/test/java/doc/concurrency_executor_cache.java
+    :start-after: //a
+    :end-before: //z
+    :language: java
+    :dedent: 8
+
 
 There is also question how many threads and what type of Executor one should use. MapDB uses
 `ScheduledExecutorService <https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ScheduledExecutorService.html>`__
@@ -103,7 +131,12 @@ to execute its tasks. Previous MapDB versions were starting threads directly, bu
 such as J2EE containers. It is possible to supply your own Executor directly, usually you can use one of factory methods in
 ``Executors``:
 
-{@code concurrency-executor-custom}
+.. literalinclude:: ../../mapdb/src/test/java/doc/concurrency_executor_custom.java
+    :start-after: //a
+    :end-before: //z
+    :language: java
+    :dedent: 8
+
 
 TODO how many threads and executor selection
 

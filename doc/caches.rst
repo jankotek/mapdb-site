@@ -21,28 +21,11 @@ immutable. On every modification you must create copy of object and
 persist new version. You also can not modify object fetched from db, an
 example:
 
-.. code:: java
-
-
-        //wrong
-        Person person = new Person();
-        map.put("John",person);
-        person.setName("John");
-
-        //right
-        Person person = new Person();
-        person.setName("John");
-        map.put("John",person);
-
-        //wrong
-        Person person = map.get("John");
-        person.setAge(15);
-
-        //right
-        Person person = map.get("John");
-        person = person.clone();
-        person.setAge(15);
-        map.put("John",person);
+.. literalinclude:: ../../mapdb/src/test/java/doc/caches_right_and_wrong.java
+    :start-after: //a
+    :end-before: //z
+    :language: java
+    :dedent: 8
 
 MapDB offers 5 cache implementations. Some are unbounded and could cause
 ``OutOfMemoryError`` when used incorrectly.
@@ -53,24 +36,23 @@ Hash Table cache
 This cache is fixed size hash table (an array), where elements are
 placed by recid hash. Old entries are evicted by hash collisions. It has
 almost zero performance overhead, but provides good results, so this
-cache is on by default.
+cache is recommended.
 
 It does not have automatic entry eviction, so some records may remain in
 cache (on heap) for very long time. This cache should be used in
 combination with small records, there is no auto-removal and it could
 cause ``OOME``
 
-Default cache size is 32000 records, there is DBMaker parameter to
+Default cache size is 2048 records, there is DBMaker parameter to
 regulate its size. This cache is on by default, so it does not need to
 be enabled in DBMaker. An example:
 
-.. code:: java
+.. literalinclude:: ../../mapdb/src/test/java/doc/caches_hash_table.java
+    :start-after: //a
+    :end-before: //z
+    :language: java
+    :dedent: 8
 
-
-        DB db = DBMaker
-            .newFileDB(file)          //or memory db
-            .cacheSize(1000000)     //optionally change cache size
-            .make()
 
 Least-Recently-Used cache
 -------------------------
@@ -88,16 +70,14 @@ around maximal size. Please consult ``LongConcurrentLRUMap`` source for
 example.
 
 This cache is activated by ``cacheLRUEnable()`` DBMaker parameter. You
-can also change maximal size, default size is 32000 records. An example:
+can also change maximal size, default size is 2048 records. An example:
 
-.. code:: java
+.. literalinclude:: ../../mapdb/src/test/java/doc/caches_lru.java
+    :start-after: //a
+    :end-before: //z
+    :language: java
+    :dedent: 8
 
-
-        DB db = DBMaker
-            .newFileDB(file)        //or memory db
-            .cacheLRUEnable()
-            .cacheSize(1000000)     //optionally change cache size
-            .make()
 
 Hard reference cache
 --------------------
@@ -118,20 +98,18 @@ memory.
 This cache is activated with ``cacheHardRefEnable()`` DBMaker parameter.
 It does not have maximal size. An example:
 
-.. code:: java
 
+.. literalinclude:: ../../mapdb/src/test/java/doc/caches_hardref.java
+    :start-after: //a
+    :end-before: //z
+    :language: java
+    :dedent: 8
 
-        DB db = DBMaker
-            .newFileDB(file)          //or memory db
-            .cacheHardRefEnable()
-            .make()
+TODO is this cache cleared if free memory is bellow threshold?
 
 No records are automatically removed from this cache. But you can still
-clear all records manually:
+clear all records manually: ``db.getEngine().clearCache();``
 
-.. code:: java
-
-        db.getEngine().clearCache();
 
 Soft and Weak reference cache
 -----------------------------
@@ -151,44 +129,25 @@ references.
 This caches are activated by ``cacheWeakRefEnable()`` and
 ``cacheSoftRefEnable()`` DBMaker parameters:
 
-.. code:: java
 
 
-        //weak
-        DB db = DBMaker
-            .newFileDB(file)            //or memory db
-            .cacheWeakRefEnable()
-            .make()
-
-        //or soft
-        DB db = DBMaker
-            .newMemoryDB()              //or file db
-            .cacheSoftRefEnable()
-            .make()
+.. literalinclude:: ../../mapdb/src/test/java/doc/caches_weak_soft.java
+    :start-after: //a
+    :end-before: //z
+    :language: java
+    :dedent: 8
 
 Disabled cache or reduce size
 -----------------------------
 
-Instance cache is enabled by default. On small devices you may want to
-disable it to reduce memory usage. This is done by ``cacheDisable()``
-parameter:
-
-.. code:: java
-
-
-        DB db = DBMaker
-            .newFileDB(file)          //or memory db
-            .cacheDisable()
-            .make()
-
-Completely disabling cache hurts performance. So there are could be
+Instance cache is disabled by default. On small devices you may not want to
+disable it to save memory. On other side disabled cache hurts performance. So there are could be
 better alternatives:
 
-First you could clear cache after every operation. Checkout howto clearc
-cache in chapter bellow:
+First you could clear cache after every operation. Cache can be cleared using: ``db.getEngine().clearCache()``
 
 Other alternative is to reduce cache size. By default cache size is
-32,000 records, probably too much for most Android phones:
+2048 records, probably too much for most Android phones:
 
 .. code:: java
 
@@ -200,8 +159,9 @@ Other alternative is to reduce cache size. By default cache size is
 Clear cache
 -----------
 
-If you only use MapDB in batches, you can reduce cache memory overhead,
-by clearing cache at end of batch:
+If you use MapDB in batch operations, you can reduce cache memory overhead,
+by clearing cache at end of batch each batch. If cache is empty, it gets faster
+populated by new content from new batch:
 
 .. code:: java
 

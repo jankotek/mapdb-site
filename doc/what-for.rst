@@ -35,8 +35,8 @@ Recommendations:
 - disable transactions unless you need them. Uncommited data are kept on heap. Write-ahead-log means data are written twice.
 
 - there is ``DBMaker.newMemoryDB()`` and ``DBMaker.newMemoryDirectDB()``. It uses on-heap ``byte[]`` versus
-``DirectByteBuffer``. Both are not limited by GC, but there is difference in deployment and setting memory limits.
-TODO memory limits
+  ``DirectByteBuffer``. Both are not limited by GC, but there is difference in deployment and setting memory limits.
+  TODO memory limits
 
 - MapDB does not shrink storage after data are deleted. You should run ``DB.compact()`` sometimes.
 

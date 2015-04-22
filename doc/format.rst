@@ -41,12 +41,17 @@ Header is composed by number of 8 byte longs:
 
 
 0) **header** and **head checksum**. Checksum is CRC of entire HEAD and is recalculated on
- every sync/close. Invalid checksum means that store was not closed correctly,
- is very likely corrupted and MapDB should fail to open it. See ``StoreDirect.headChecksum()``
+every sync/close. Invalid checksum means that store was not closed correctly,
+is very likely corrupted and MapDB should fail to open it. See ``StoreDirect.headChecksum()``
+
 1) bit field indicating **format features**. IE what type of checksums are enabled, compression enabled etc...
+
 2) **store size** pointer to last allocated page inside store. Parity 16.
+
 3) **max recid** maximal allocated recid. Shifted <<<3 for parity 3
+
 4) **index page registry** points to page with list of index pages. Parity 16.
+
 5) **free recids** longs stack
 
 TODO free longstacks
@@ -74,13 +79,16 @@ Index value translates Record ID (recid) into offset in file and record size. Po
 change as data are updated, that makes index tables necessary. Index Value is 8 byte long with parity 1
 
 - **bite 49-64** - 16 bite record size. Use ``val>>48`` to get it
+
 - **bite 5-48** - 48 bite offset, records are aligned to 16 bytes, so last four bites can be used for something else.
-Use ``val&MOFFSET` to get it
-- **bite 4** - linked or null, indicates if record is linked (see section TODO link to section). Also ``linked &&
-size==0`` indicates null record. Use ``val&MLINKED`.
-- **bite 3** - indicates unused (preallocated or deleted) record. This record is destroyed by compaction. Use
-``val&MUNUSED`
-- **bite 2** - archive flag. Set by every modification, cleared by incremental backup. Use ``val&MARCHIVE`
+  Use ``val&MOFFSET`` to get it
+
+- **bite 4** - linked or null, indicates if record is linked (see section TODO link to section). Also ``linked && size==0`` indicates null record. Use ``val&MLINKED``.
+
+- **bite 3** - indicates unused (preallocated or deleted) record. This record is destroyed by compaction. Use ``val&MUNUSED``
+
+- **bite 2** - archive flag. Set by every modification, cleared by incremental backup. Use ``val&MARCHIVE``
+
 - **bite 1** - parity bit
 
 Linked records
@@ -92,8 +100,8 @@ is reserved for record data. If Linked bit is set, than first 8 bytes store offs
 Structure of Record Link is similar to Index Value. Except parity is 3.
 
 - **bite 49-64** - 16 bite record size of next link. Use ``val>>48`` to get it
-- **bite 5-48** - 48 bite offset of next record alligned to 16 bytes. Use ``val&MOFFSET` to get it
-- **bite 4** - true if next record is linked, false if next record is last and not linked (is tail of linked record). Use ``val&MLINKED`
+- **bite 5-48** - 48 bite offset of next record alligned to 16 bytes. Use ``val&MOFFSET`` to get it
+- **bite 4** - true if next record is linked, false if next record is last and not linked (is tail of linked record). Use ``val&MLINKED``
 - **bite 1-3** - parity bits
 
 Tail of linked record (last part) does not have 8-byte Record Link at beginning.
@@ -104,7 +112,7 @@ Long Stack
 Long Stack is linked queue of longs stored as part of storage. It supports two operations: put and take, longs are
 returned in FIFO order. StoreDirect uses this structure to keep track of free space. Space allocation involves
 taking long from stack. There are more stack, one to keep track of free recids. For space usage there are in total
- ``64K / 16 = 4096`` Long Stacks (maximal non-linked record size is 64K and records are aligned to 16 bytes).
+``64K / 16 = 4096`` Long Stacks (maximal non-linked record size is 64K and records are aligned to 16 bytes).
 
 Long stack is organized similar way as linked record. It is stored in chunks, each chunks contains multiple long
 values and link to next chunk. Chunks size varies. Long values are stored in bidirectional-packed form, to make
@@ -118,8 +126,7 @@ Structure of Long Stack Chunk is as follow:
 
 - **byte 1-4** optional checksum of this chunk
 - **byte 5-6** total size of this chunk.
-- **byte 7-12** pointer to previous chunk in this long stack. Parity 4, parity is shared with total size at byte
-5-6.
+- **byte 7-12** pointer to previous chunk in this long stack. Parity 4, parity is shared with total size at byte 5-6.
 - rest of chunk is filled with bidi-packed longs with parity 1
 
 Master Link structure:
@@ -177,7 +184,7 @@ Type of instructions:
 
 0) **end of file**. Last instruction of file. Checksum is ``bit parity from offset & 31``
 1) **write long**. Is followed by 8 bytes value and 6 byte offset. Checksum is ``(bit parity from 15 bytes + 1)&31``
-2) **write byte[]**. Is followed by 2 bytes size, 6 byte offset and data itself. Checksum is ``(bit parity from 9 bytes + 1 + sum(byte[]))&31 ``
+2) **write byte[]**. Is followed by 2 bytes size, 6 byte offset and data itself. Checksum is ``(bit parity from 9 bytes + 1 + sum(byte[]))&31``
 3) **skip N bytes**. Is followed by 3 bytes value, number of bytes to skip . Used so data do not overlap page size. Checksum is ``(bit parity from 3 bytes + 1)&31``
 4) **skip single byte**. Skip single byte in WAL. Checksum is ``bit parity from offset & 31``
 5) **record**. Is followed by 6 bytes recid, than 4 bytes record size and an record data. Is used in Record format. Size==-2 is tombstone, size==-1 is null record
@@ -190,7 +197,7 @@ StoreAppend implements Append-Only log files storage. It is sequence of instruct
 and so on. Optionally store can be split between multiple files, to support online compaction.
 
 Instructions
-~~~~~~~~~~~
+~~~~~~~~~~~~~
 
 1) record update. Followed by recid, size and binary data
 2) delete record. Places tombstone in index table. Followed by recid.

@@ -1,5 +1,5 @@
 DB and DBMaker
-==============q
+==============
 
 MapDB is set of loosely coupled components. One could wire classes such
 as ``CacheMRU``, ``StoreWAL`` and ``BTreeMap`` manually, byt there are
@@ -26,12 +26,12 @@ files and so on.
 method which applyes all options and returns ``DB`` object. This example
 opens file storage with encryption enabled:
 
-.. code:: java
+.. literalinclude:: ../../mapdb/src/test/java/doc/dbmaker_basic_option.java
+    :start-after: //a
+    :end-before: //z
+    :language: java
+    :dedent: 8
 
-      DB db = DBMaker
-        .newAppendFileDB(new File("/some/file"))
-        .encryptionEnable("password")
-        .make();
 
 Once you have DB you may open collection or other record. DB has two
 types of factory methods:
@@ -40,17 +40,21 @@ types of factory methods:
 given name does not exist, it is silently created with default settings
 and returned. An example:
 
-.. code:: java
-
-      NavigableSet treeSet = db.getTreeSet("treeSet");
+.. literalinclude:: ../../mapdb/src/test/java/doc/dbmaker_treeset.java
+    :start-after: //a
+    :end-before: //z
+    :language: java
+    :dedent: 8
 
 ``createXXX()`` creates new collection (or settings) with customized
 settings. Specialized serializers, node size, entry compression and so
 on affect performance a lot and they are customizable here.
 
-.. code:: java
-
-      Atomic.Var<Person> var = = db.createAtomicVar("mainPerson", Person.SERIALIZER);
+.. literalinclude:: ../../mapdb/src/test/java/doc/dbmaker_atomicvar.java
+    :start-after: //a
+    :end-before: //z
+    :language: java
+    :dedent: 8
 
 Some ``create`` method may use builder style configuration. In that case
 you may finish with two methods: ``make()`` creates new collection, if
@@ -58,12 +62,12 @@ collection with given name already exists it throws an exception.
 ``makerOrGet()`` is same, except if collection already exist it does not
 fail, but returns existing collection.
 
-.. code:: java
+.. literalinclude:: ../../mapdb/src/test/java/doc/dbmaker_treeset_create.java
+    :start-after: //a
+    :end-before: //z
+    :language: java
+    :dedent: 8
 
-      NavigableSet<String> treeSet = db.createTreeSet("treeSet);
-        .nodeSize(112)
-        .serializer(BTreeKeySerializer.STRING) 
-        .makeOrGet();
 
 Transactions
 ------------
@@ -72,22 +76,12 @@ Transactions
 ``DB`` has methods to handle transaction lifecycle: ``commit()``,
 ``rollback()`` and ``close()``.
 
-.. code:: java
+.. literalinclude:: ../../mapdb/src/test/java/doc/dbmaker_basic_tx.java
+    :start-after: //a
+    :end-before: //z
+    :language: java
+    :dedent: 8
 
-      ConcurrentNavigableMap<Integer,String> map = db.getTreeMap("collectionName");
-
-      map.put(1,"one");
-      map.put(2,"two");
-      //map.keySet() is now [1,2] even before commit
-
-      db.commit();  //persist changes into disk
-
-      map.put(3,"three");
-      //map.keySet() is now [1,2,3]
-      db.rollback(); //revert recent changes
-      //map.keySet() is now [1,2]
-
-      db.close();
 
 One ``DB`` object represents single transactions. Examples above use
 single global transaction, which is sufficient for some usages. MapDB
@@ -97,38 +91,18 @@ one extra factory which creates transactions: ``TxMaker``. We use
 ``DBMaker`` to create it, but instead of ``make()`` we call
 ``makeTxMaker()``
 
-.. code:: java
+.. literalinclude:: ../../mapdb/src/test/java/doc/dbmaker_txmaker_create.java
+    :start-after: //a
+    :end-before: //z
+    :language: java
+    :dedent: 8
 
-      TxMaker txMaker = DBMaker
-        .newMemoryDB()
-        .makeTxMaker();
 
 And ``TxMaker`` is than used to create multiple ``DB`` objects, each
 representing single transaction:
 
-.. code:: java
-
-      DB tx0 = txMaker.makeTx();
-      Map map0 = tx0.getTreeMap("testMap");
-      map0.put(0,"zero");
-
-      DB tx1 = txMaker.makeTx();
-      Map map1 = tx1.getTreeMap("testMap");
-      
-      DB tx2 = txMaker.makeTx();
-      Map map2 = tx1.getTreeMap("testMap");
-        
-      map1.put(1,"one");
-      map2.put(2,"two");
-      
-      //each map sees only its modifications,
-      //map1.keySet() contains [0,1]
-      //map2.keySet() contains [0,2]
-      
-      //persist changes
-      tx1.commit();
-      tx2.commit();  
-      // second commit fails  with write conflict, both maps share single BTree node, 
-      // this does not happend on large maps with sufficent number of BTree nodes. 
-      
-
+.. literalinclude:: ../../mapdb/src/test/java/doc/dbmaker_txmaker_basic.java
+    :start-after: //a
+    :end-before: //z
+    :language: java
+    :dedent: 8

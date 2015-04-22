@@ -16,7 +16,7 @@ storage engine. For that it needs permissive license and even LGPL could
 ruin its chances.
 
 Is MapDB commercial project?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Yes and no. It started as a hobby project.
 Now MapDB is sponsored by company Codefutures and I work on MapDB full-time.
@@ -42,7 +42,7 @@ Two design goals: minimal overhead and simplicity without compromising features.
 MapDB evolved differently than most dbs, so internally it is very different.
 
 Does it have ACID transactions?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Yes. MapDB has several storage modes, two of them are transactional Write-Ahead-Log and Append-Only.
 Than there is optional layer on top which provides MVCC isolation.
@@ -56,14 +56,14 @@ HashMap has build in expiration based on Time-To-Live or maximal collection size
 TODO: link to doc
 
 Does MapDB have network server?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 No. It is embedded database engine. Network interface should be provided by
 other project which sits on top.
 TODO: There is plan to implement Redis server protocol, so MapDB would be drop in replacement for Redis server
 
 Does it have replication/clustering?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 No. I work on other DB `AgilData <http://codefutures.com/agildata/>`_ which is clustered database inspired by MapDB
 
@@ -105,7 +105,7 @@ internal error or disk failure. Disabling cache
 with code to reproduce this issue.
 
 OutOfMemoryError: GC overhead limit exceeded
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Your app is creating new object instances faster then GC can collect
 them. This assertion is triggered if Garbage Collection consumes 98% of
@@ -115,7 +115,7 @@ Workaround is to disable this assertion by JVM switch
 ``-XX:-UseGCOverheadLimit``
 
 Can not delete or rename db files on Windows
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 MapDB uses memory mapped files, Windows locks them exclusively and
 prevents deletion. Solution is to close MapDB properly before JVM exits.
@@ -123,7 +123,7 @@ Make sure you have latest JVM. Disable memory mapped files of those are
 enabled (``mmapFileEnable()``) Also restarting Windows may help.
 
 Computer becomes very slow during DB writes
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 MapDB uses most of available CPU to speedup writes. Try to insert
 Thread.sleep(1) into your code, or set lower thread priority.

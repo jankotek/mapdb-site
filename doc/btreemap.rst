@@ -33,7 +33,7 @@ TODO provide statistics to calculate BTreeMap fragmentation
 In future we will provide BTreeMap wrapper which will do this compaction automatically. It will use three collections:
 First ``BTreeMap`` will be read-only and contain data. Second small map will contain updates. Periodically third map
 will be produced as merge of first two, and swapped with primary.
-``SSTable``s in Cassandra and other databases works similar way.
+``SSTable``'s in Cassandra and other databases works similar way.
 
 TODO provide wrapper to compact/merge BTreeMap content automatically.
 

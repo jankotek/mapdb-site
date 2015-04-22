@@ -84,8 +84,14 @@ Documentation
 - `Javadoc <http://www.mapdb.org/apidocs/>`_
 - `Examples <https://github.com/jankotek/MapDB/tree/master/src/test/java/examples>`_
 
+.. toctree::
+    :maxdepth: 2
 
-
+    benchmarks
+    changelog
+    credits
+    features
+    success
 
 
 Support

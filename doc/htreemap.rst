@@ -1,7 +1,7 @@
 HTreeMap
 ========
 
-HTreeMap (provides HashMap and HashSet) is one of ``Map``s offered by MapDB. It has
+HTreeMap (provides HashMap and HashSet) is one of ``Map``'s offered by MapDB. It has
 great performance with large keys. It also offers entry expiration based on size or time-to-live
 
 HTreeMap is *segmented Hash Tree*. Most hash collections use hash table based in fixed size array, 
