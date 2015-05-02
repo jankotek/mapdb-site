@@ -4,7 +4,7 @@ MapDB
 MapDB is embedded database engine for java. It provides java collections backed by on-disk or in-memory storage. 
 It has great performance and many configuration options. Its not limited by garbage collector and in-memory 
 collections outperform their on-heap counterparts such as ``java.util.HashMap``. MapDB has tiny overhead
-and excelent vertical scalability. It runs from Android phone to multi CPU server with several terabyte stores. 
+and excellent vertical scalability. It runs from Android phone to multi CPU server with several terabyte stores.
 
 MapDB is old project. It started in 2001 under name JDBM. Originally it was storage engine for astronomical application. 
 Over years it evolved, got new features and better performance. It started as a hobby project, and eventually turned 
@@ -13,13 +13,13 @@ Current MapDB 2.0 is 5th generation of this project.
 
 MapDB followed different evolution than other database engine. Rather than db engine it could be better described
 as alternative memory model for java. There are several components: storage engines, memory allocator, serialization, trees,
-caches... Those can be used together, or independenly, swapped, wrapped etc. MapDB has very modular and flexible design
+caches... Those can be used together, or independently, swapped, wrapped etc. MapDB has very modular and flexible design
 so it is very easy to implement your own things such as RAID or in-memory cache with on-disk overflow. 
 
 Compared to others MapDB also handles serialization differently. It uses traditional objects to represent btree nodes 
-or other data model parts. This means that traditional heap based collections or datamodels 
-can be refactored to use MapDB easily. This also fits very nicely with GC preference for short-lived objects and 
-has suprising performance. And finally in one mode MapDB does not use binary storage and serialization, 
+or other data model parts. This means that traditional heap based collections or data models
+can be easily refactored to use MapDB. This also fits well with GC preference for short-lived objects and
+has surprising performance. And finally in one mode MapDB does not use binary storage and serialization,
 all data can stays on-heap and MapDB behaves same way as other heap base collections (including performance)
 
 MapDB also has concurrent design in sense that it allows multiple threads to write (and read) data in parallel. Default configuration

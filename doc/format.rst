@@ -48,10 +48,10 @@ Currently used feature bits are:
 8) Compaction disabled. Some features might prevent compaction, for example StoreAppend in single file. 
 
 9) Paranoid. Store was created by patched MapDB it added extra information to catch bugs and data corrupton. 
-  This store can not be opened with normal mapdb.
+This store can not be opened with normal mapdb.
   
 10) Disable parity bit checks. Stor was created by patched MapDB. For extra performance some checksums were disabled.
-  This store can not be opened with normal mapdb.
+This store can not be opened with normal mapdb.
    
 
 StoreDirect

@@ -100,12 +100,12 @@ one extra factory which creates transactions: ``TxMaker``. We use
 
 Single ``TxMaker`` represents opened store. ``TxMaker`` is used to create multiple 
 ``DB`` objects, each representing single transaction. In that case ``DB.close()``
- closes one transaction, but  storage remains open by ``TxMaker``:
+closes one transaction, but  storage remains open by ``TxMaker``:
 
 .. literalinclude:: ../../mapdb/src/test/java/doc/dbmaker_txmaker_basic.java
     :start-after: //a
     :end-before: //z
     :language: java
     :dedent: 8
-    
- TODO snapshots and native snapshots
+
+TODO snapshots and native snapshots
