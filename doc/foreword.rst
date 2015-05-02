@@ -11,10 +11,16 @@ Over years it evolved, got new features and better performance. It started as a 
 into full time paid job, however it retains its qualities:  carefully crafted compact and quality code. 
 Current MapDB 2.0 is 5th generation of this project. 
 
-MapDB followed different evolution than other databases. Rather than db engine it could be better described
+MapDB followed different evolution than other database engine. Rather than db engine it could be better described
 as alternative memory model for java. There are several components: storage engines, memory allocator, serialization, trees,
 caches... Those can be used together, or independenly, swapped, wrapped etc. MapDB has very modular and flexible design
 so it is very easy to implement your own things such as RAID or in-memory cache with on-disk overflow. 
+
+Compared to others MapDB also handles serialization differently. It uses traditional objects to represent btree nodes 
+or other data model parts. This means that traditional heap based collections or datamodels 
+can be refactored to use MapDB easily. This also fits very nicely with GC preference for short-lived objects and 
+has suprising performance. And finally in one mode MapDB does not use binary storage and serialization, 
+all data can stays on-heap and MapDB behaves same way as other heap base collections (including performance)
 
 MapDB also has concurrent design in sense that it allows multiple threads to write (and read) data in parallel. Default configuration
 scales linearly to 4 CPU cores (parallel updates). However with different configuration (and trade-offs) it scales well even on 20+ cores. 

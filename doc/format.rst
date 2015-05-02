@@ -22,7 +22,37 @@ lowest bit is than set so total number of non-zero bits is odd:
 
 Methods: ``DataIO.parity1set()`` and ``DataIO.parity1get()``
 
+Feature bitmap header
+----------------------
+Feature bitmap is 64bits stored in header. It indicates features storage was created with.
+Some of those affect storage format (compression, checksums) and must be enabled to make store readable. 
+Some slots are not yet used and are reserved for future features. If such unknown bit is set, 
+MapDB might refuse to open storage, with exception that never version should be used
 
+Currently used feature bits are:
+
+1) LZW record compresson enabled
+
+2) XTEA record encryption enabled. User must supply password to open database.
+
+3) CRC32 record checksum enabled
+
+4) Store does not track free space. There might be unclaimed free space between records, this makes free space metrics invalid.
+
+5) Sharded engine. It means that name catalog or class catalog might not be present
+
+6) Created from backup. Storage was not created empty, but from existing database, as backup or from data pump
+
+7) External index table. Index table is not stored in this Volume (file), but somewhere outside, most likely in external file
+
+8) Compaction disabled. Some features might prevent compaction, for example StoreAppend in single file. 
+
+9) Paranoid. Store was created by patched MapDB it added extra information to catch bugs and data corrupton. 
+  This store can not be opened with normal mapdb.
+  
+10) Disable parity bit checks. Stor was created by patched MapDB. For extra performance some checksums were disabled.
+  This store can not be opened with normal mapdb.
+   
 
 StoreDirect
 ------------------

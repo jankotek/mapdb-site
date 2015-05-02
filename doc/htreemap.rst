@@ -1,8 +1,9 @@
 HTreeMap
 ========
 
-HTreeMap (provides HashMap and HashSet) is one of ``Map``'s offered by MapDB. It has
-great performance with large keys. It also offers entry expiration based on size or time-to-live
+HTreeMap provides ``HashMap`` and ``HashSet``. 
+It has great performance with large keys. 
+It also offers entry expiration based on size or time-to-live
 
 HTreeMap is *segmented Hash Tree*. Most hash collections use hash table based in fixed size array, 
 when it becomes full, all data has to be moved and rehashed into 
@@ -13,7 +14,7 @@ Its performance degrades with size, but maximal has dir node size is 255,
 so degradation is very small. 
 TODO performance degradation depending on size. Probably  log N.
 
-To achieve parallel scalability HTreeMap is split to 16  segments,
+To achieve parallel scalability HTreeMap is split into 16  segments,
 each with separate read-write lock. ``ConcurrentHashMap`` in JDK 7 works similar
 way. Number of segments (also called concurrency scale) is hard wired
 into design and can not be changed.
@@ -173,7 +174,7 @@ TODO expiration counts are approximate. Map size can go slightly over limits for
 
 TODO disk space limit has issues. Investigate how it works and document
 
-TODO expiration threads
+TODO expiration threads single and multithreaded. 
 
 Concurrent scalability
 ------------------------

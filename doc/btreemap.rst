@@ -2,7 +2,7 @@ BTreeMap
 ==========
 
 ``BTreeMap`` provides ``TreeMap`` and ``TreeSet`` for MapDB. It is based on lock-free concurrent B-Linked-Tree.
-It offers great performance for small keys and with parallel access.
+It offers great performance for small keys and has good vertical scalability.
 
 TODO explain compressions
 
@@ -13,7 +13,6 @@ Performance
 
 BTrees in general are affected by node size and number of directory levels. Larger node means shallow tree,
 and faster lookups, but slower updates. In MapDB you should adjust node size with average key size
-
 
 
 
