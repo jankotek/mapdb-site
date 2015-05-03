@@ -16,9 +16,8 @@ There is also
 `screencast <http://www.youtube.com/watch?v=FdZmyEHcWLI>`__ which
 describes most aspects of MapDB.
 
-There is `MapDB Cheat
-Sheet <http://www.mapdb.org/doc/cheatsheet.pdf>`__, on just two pages it
-is quick reminder of MapDB capabilities.
+There is :download:`MapDB Cheat Sheet <../down/cheatsheet.pdf>`,
+on just two pages it is quick reminder of MapDB capabilities.
 
 Maven
 -----
