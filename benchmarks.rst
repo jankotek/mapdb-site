@@ -16,7 +16,7 @@ First benchmark tests ``Map<Long,UUID>`` map. It chooses small entry size (24 by
 
 TODO metrics
 
-.. image:: img/charts/org.mapdb.benchmarks.InMemoryLongTest-single-thread.png
+.. image:: img/charts/org_mapdb_benchmarks_InMemoryLongTest-single-thread.png
 
 ``ConcurrentHashMap`` is about 8x faster than MapDB. Map size is 10 million items,
 so there is practically zero GC overhead. With larger sizes ``ConcurrentHashMap``
@@ -31,12 +31,12 @@ TODO chart of memory usage depending on collection size
 
 Chart bellow shows performance of ``BTreeMap`` from MapDB with number of threads on quad core CPU with 8 virtual cores.
 
-.. image:: img/charts/org.mapdb.benchmarks.InMemoryLongTest-org.mapdb.BTreeMap-scalability.png
+.. image:: img/charts/org_mapdb_benchmarks_InMemoryLongTest-org_mapdb_BTreeMap-scalability.png
 
 And this is multi-threaded performance for ``HTreeMap`` (HashMap). There is bug in segment hashing,
 so it wont scale over 2 threads.
 
-.. image:: img/charts/org.mapdb.benchmarks.InMemoryLongTest-org.mapdb.HTreeMap-scalability.png
+.. image:: img/charts/org_mapdb_benchmarks_InMemoryLongTest-org_mapdb_HTreeMap-scalability.png
 
 Long - UUID map
 ~~~~~~~~~~~~~~~~
@@ -44,7 +44,7 @@ Long - UUID map
 Second benchmark tests ``Map<String,String>`` with key and value size 32 bytes.
 This is unfortunate situation for MapDB since deserialization overhead is high.
 
-.. image:: img/charts/org.mapdb.benchmarks.InMemoryStringTest-single-thread.png
+.. image:: img/charts/org_mapdb_benchmarks_InMemoryStringTest-single-thread.png
 
 MapDB 2.0 was all about optimizing deserialization costs and it pays of.
 Please notice performance difference between MapDB 1.0 and 2.0 collections.
@@ -54,9 +54,9 @@ String hashing probably adds fixed overhead.
 
 And here is multi-threaded performance with String keys and values
 
-.. image:: img/charts/org.mapdb.benchmarks.InMemoryStringTest-org.mapdb.BTreeMap-scalability.png
+.. image:: img/charts/org_mapdb_benchmarks_InMemoryStringTest-org_mapdb_BTreeMap-scalability.png
 
-.. image:: img/charts/org.mapdb.benchmarks.InMemoryStringTest-org.mapdb.HTreeMap-scalability.png
+.. image:: img/charts/org_mapdb_benchmarks_InMemoryStringTest-org_mapdb_HTreeMap-scalability.png
 
 TODO BTreeMap external values
 

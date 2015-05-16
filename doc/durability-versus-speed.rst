@@ -22,12 +22,12 @@ close store before JVM shutdown, or you loose all your data. You may
 also use shutdown hook to close database before JVM exits, however this
 does not protect your data if JVM crashes or is killed:
 
-.. code:: java
 
-      DB db = DBMaker
-        .transactionDisable()
-        .closeOnJvmShutdown()
-        .make()
+.. literalinclude:: ../../mapdb/src/test/java/doc/durability_transaction_disable.java
+    :start-after: //a
+    :end-before: //z
+    :language: java
+    :dedent: 8
 
 Transaction disable (also called direct mode) will apply all changes
 directly into storage file. Combine this with in-memory store or mmap

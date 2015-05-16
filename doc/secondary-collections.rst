@@ -26,7 +26,7 @@ Secondary Collections are typically used in three ways:
 
 Primary Collection is typically stored in MapDB. The requirement is that
 it provides `modification
-listener </apidocs/org/mapdb/Bind.MapWithModificationListener.html>`__
+listener <http://www.mapdb.org/apidocs/org/mapdb/Bind.MapWithModificationListener.html>`__
 triggered on entry update, insert or removal. There is no such
 requirement for Secondary Collection. Secondary may be stored in MapDB,
 but it can also be usual Java Collection such as java.util.TreeSet.

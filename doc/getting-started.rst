@@ -60,43 +60,20 @@ Hello World
 Hereafter is a simple example. It opens TreeMap backed by file in temp
 directory, file is discarded after JVM exit:
 
-.. code:: java
-
-    import org.mapdb.*;
-    ConcurrentNavigableMap treeMap = DBMaker.newTempTreeMap()
-
-    // and now use disk based Map as any other Map
-    treeMap.put(111,"some value")
+.. literalinclude:: ../../mapdb/src/test/java/doc/start_hello_world.java
+    :start-after: //a
+    :end-before: //z
+    :language: java
+    :dedent: 8
 
 More advanced example with configuration and write-ahead-log
 transaction.
 
-.. code:: java
-
-        import org.mapdb.*;
-
-        // configure and open database using builder pattern.
-        // all options are available with code auto-completion.
-        DB db = DBMaker.newFileDB(new File("testdb"))
-                   .closeOnJvmShutdown()
-                   .encryptionEnable("password")
-                   .make();
-
-        // open existing an collection (or create new)
-        ConcurrentNavigableMap<Integer,String> map = db.getTreeMap("collectionName");
-
-        map.put(1, "one");
-        map.put(2, "two");
-        // map.keySet() is now [1,2]
-
-        db.commit();  //persist changes into disk
-
-        map.put(3, "three");
-        // map.keySet() is now [1,2,3]
-        db.rollback(); //revert recent changes
-        // map.keySet() is now [1,2]
-
-        db.close();
+.. literalinclude:: ../../mapdb/src/test/java/doc/start_advanced.java
+    :start-after: //a
+    :end-before: //z
+    :language: java
+    :dedent: 8
 
 What you should know
 --------------------

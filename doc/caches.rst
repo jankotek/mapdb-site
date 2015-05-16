@@ -21,7 +21,7 @@ immutable. On every modification you must create copy of object and
 persist new version. You also can not modify object fetched from db, an
 example:
 
-.. literalinclude:: ../../mapdb/src/test/java/doc/caches_right_and_wrong.java
+.. literalinclude:: ../../mapdb/src/test/java/doc/cache_right_and_wrong.java
     :start-after: //a
     :end-before: //z
     :language: java
@@ -47,7 +47,7 @@ Default cache size is 2048 records, there is DBMaker parameter to
 regulate its size. This cache is on by default, so it does not need to
 be enabled in DBMaker. An example:
 
-.. literalinclude:: ../../mapdb/src/test/java/doc/caches_hash_table.java
+.. literalinclude:: ../../mapdb/src/test/java/doc/cache_hash_table.java
     :start-after: //a
     :end-before: //z
     :language: java
@@ -72,7 +72,7 @@ example.
 This cache is activated by ``cacheLRUEnable()`` DBMaker parameter. You
 can also change maximal size, default size is 2048 records. An example:
 
-.. literalinclude:: ../../mapdb/src/test/java/doc/caches_lru.java
+.. literalinclude:: ../../mapdb/src/test/java/doc/cache_lru.java
     :start-after: //a
     :end-before: //z
     :language: java
@@ -99,7 +99,7 @@ This cache is activated with ``cacheHardRefEnable()`` DBMaker parameter.
 It does not have maximal size. An example:
 
 
-.. literalinclude:: ../../mapdb/src/test/java/doc/caches_hardref.java
+.. literalinclude:: ../../mapdb/src/test/java/doc/cache_hardref.java
     :start-after: //a
     :end-before: //z
     :language: java
@@ -129,9 +129,7 @@ references.
 This caches are activated by ``cacheWeakRefEnable()`` and
 ``cacheSoftRefEnable()`` DBMaker parameters:
 
-
-
-.. literalinclude:: ../../mapdb/src/test/java/doc/caches_weak_soft.java
+.. literalinclude:: ../../mapdb/src/test/java/doc/cache_weak_soft.java
     :start-after: //a
     :end-before: //z
     :language: java
@@ -149,12 +147,11 @@ First you could clear cache after every operation. Cache can be cleared using: `
 Other alternative is to reduce cache size. By default cache size is
 2048 records, probably too much for most Android phones:
 
-.. code:: java
-
-        DB db = DBMaker
-            .newFileDB(file)        //or memory db
-            .cacheSize(128)         //optionally change cache size
-            .make()
+.. literalinclude:: ../../mapdb/src/test/java/doc/cache_size.java
+    :start-after: //a
+    :end-before: //z
+    :language: java
+    :dedent: 8
 
 Clear cache
 -----------

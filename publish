@@ -1,8 +1,7 @@
 #!/bin/sh
 
+./pdf
 make clean html
-
-
 
 cd ../gh-pages
 git pull

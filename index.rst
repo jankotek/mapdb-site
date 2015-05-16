@@ -30,7 +30,7 @@ News
    Fixed transaction log replay after unclean shutdown.
 
 
-Follow news on `RSS <news.xml>`__ \|
+Follow news on `RSS <http://www.mapdb.org/news.xml>`__ \|
 `Mail-List <https://groups.google.com/forum/?fromgroups#!forum/mapdb-news>`__
 \| `Twitter <http://twitter.com/MapDBnews>`__
 
@@ -81,8 +81,11 @@ Documentation
 -----------------
 
 - :doc:`doc/index`
+- :download:`Manual in PDF <down/mapdb-manual.pdf>`,
+- :download:`Cheat Sheet <down/cheatsheet.pdf>`,
 - `Javadoc <http://www.mapdb.org/apidocs/>`_
 - `Examples <https://github.com/jankotek/MapDB/tree/master/src/test/java/examples>`_
+
 
 .. toctree::
     :maxdepth: 2

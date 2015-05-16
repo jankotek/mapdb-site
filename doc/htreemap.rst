@@ -35,7 +35,7 @@ segments (aka concurrency factor) is hard-coded to16 and can not be
 changed. Other params can be set only when map is created and can not be
 changed latter.
 
-Most important are probably **serializers**. General serialization has
+Most important are **serializers**. General serialization has
 some guessing and overhead, so it always has better performance to use
 more specific serializers. To specify key and value serializer use code
 bellow. There are dozens ready to use serializers available as static
@@ -48,7 +48,7 @@ fields on ``Serializer`` interface:
     :dedent: 8
 
 HTreeMap is recommended for handling large key/values. In same cases you
-may want to use compression. Enabling compression store-wide is not
+may want to use compression. Enabling compression store-wide is notr
 always best, since constantly (de)compressing index tree has overhead.
 Instead it is better to apply compression just to specific serializer on key or value.
 This is done by using serializer wrapper:

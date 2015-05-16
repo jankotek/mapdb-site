@@ -28,12 +28,12 @@ But MapDB serializes data itself by using user supplied serializer:
 So serialization lifecycle is driven by MapDB rather than by user. This
 small detail is reason why MapDB is so flexible. For example ``update``
 method could pass data-serializer pair to
-`background-writer <apidocs/org/mapdb/AsyncWriteEngine.html>`__ thread
+`background-writer <http://www.mapdb.org/apidocs/org/mapdb/AsyncWriteEngine.html>`__ thread
 and return almost instantly. Or ``Person`` instance could be stored in
-`instance cache <apidocs/org/mapdb/Caches.html>`__, to minimise
+`instance cache <http://www.mapdb.org/apidocs/org/mapdb/Caches.html>`__, to minimise
 deserilization overhead on multiple reads. ``Person`` does not even have
 to be serialized, but could be stored in ``Map<Long,Person>`` map `on
-heap <apidocs/org/mapdb/StoreHeap.html>`__, in this case MapDB has speed
+heap <http://www.mapdb.org/apidocs/org/mapdb/StoreHeap.html>`__, in this case MapDB has speed
 comparable to Java Collections.
 
 Colons can be used to align columns.
@@ -41,72 +41,92 @@ Colons can be used to align columns.
 Dictionary
 ----------
 
-+----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Term                                         | Explanation                                                                                                                                                                                                                                                                                                                |
-+==============================================+============================================================================================================================================================================================================================================================================================================================+
-| Record                                       | Atomically stored value. Usually tree node or similar. Transaction conflicts and locking is usually per record.                                                                                                                                                                                                            |
-+----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Index Table                                  | Table which translates recid into real offset and size in physical file.                                                                                                                                                                                                                                                   |
-+----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| `Engine <apidocs/org/mapdb/Engine.html>`__   | Primitive key-value store used by collections for storage. Most features are `Engine Wrappers <apidocs/org/mapdb/EngineWrapper.html>`__                                                                                                                                                                                    |
-+----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| `Store <apidocs/org/mapdb/Store.html>`__     | Engine implementation which actually persist data. Is wrapped by other Engines.                                                                                                                                                                                                                                            |
-+----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| `Volume <apidocs/org/mapdb/Volume.html>`__   | Abstraction over ByteBuffer or other raw data store. Used for files, memory, partition etc..                                                                                                                                                                                                                               |
-+----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Slice                                        | Non overlapping pages used in Volume. Slice size is 1MB. Older name was 'chunk'                                                                                                                                                                                                                                            |
-+----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Direct mode                                  | With disabled transactions, data are written directly into file. It is fast, but store is not protected from corruption during crasches.                                                                                                                                                                                   |
-+----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| WAL                                          | Write Ahead Log, way to protect store from corruption if db crashes during write.                                                                                                                                                                                                                                          |
-+----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| RAF                                          | Random Access File, way to access data on disk. Safer but slower method.                                                                                                                                                                                                                                                   |
-+----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| MMap file                                    | memory mapped file. On 32bit platform has size limit around 2GB. Faster than RAF.                                                                                                                                                                                                                                          |
-+----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| index file                                   | contains mapping between recid (index file offset) and record size and offset in physical file (index value). Is organized as sequence of 8-byte longs                                                                                                                                                                     |
-+----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| index value                                  | single 8-byte number from index file. Usually contains record offset in physical file.                                                                                                                                                                                                                                     |
-+----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| recid                                        | record identificator, an unique 8-byte long number which identifies record. Recid is offset in index file. After record is deleted, its recid may be reused for newly inserted record.                                                                                                                                     |
-+----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| record                                       | atomical value stored in storage (Engine) identified by record identifier (recid). In collections Record corresponds to tree nodes. In Maps record mey not correspond to Key->Value pair, as multiple keys may be stored inside single node.                                                                               |
-+----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| physical file                                | Contains record binary data                                                                                                                                                                                                                                                                                                |
-+----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| cache (or instance cache)                    | caches object instances (created with 'new' keyword). MapDB does not have traditional fixes-size-buffer cache for binary pages (it relies on OS to do this). Instead deserialized objects are cached on heap to minimise deserialization overhead. Instance cache is main reason why your keys/values must be immutable.   |
-+----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| BTreeMap                                     | tree implementation behind TreeMap and TreeSet provided by MapDB                                                                                                                                                                                                                                                           |
-+----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| HTreeMap                                     | tree implementation behind HashMap and HashSet provided by MapDB                                                                                                                                                                                                                                                           |
-+----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| delta packing                                | compression method to minimalise space used by keys in BTreeMap. Keys are sorted, so only difference between keys needs to be stored. You need to privide specialized serializer to enable delta packing.                                                                                                                  |
-+----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| append file db                               | alternative storage format. In this case no existing data are modified, but all changes are appended to end of file. This may improve write speed and durability, but introduces some tradeoffs.                                                                                                                           |
-+----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| temp map/set...                              | collection backed by file in temporary directory. Is usually configured to delete file after close or on JVM exit. Data written into temp collection are not persisted between JVM restarts.                                                                                                                               |
-+----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| async write                                  | writes may be queued and written into file on background thread. This does not affect commit durability (it blocks until queue is empty).                                                                                                                                                                                  |
-+----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| TX                                           | equals to Concurrent Transaction.                                                                                                                                                                                                                                                                                          |
-+----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| LongMap                                      | specialized map which uses primitive long for keys. It minimises boxing overhead.                                                                                                                                                                                                                                          |
-+----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| DB                                           | API class exposed by MapDB. It is an abstraction over Engine which manages MapDB collections and storage.                                                                                                                                                                                                                  |
-+----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| DMaker                                       | Builder style factory class, which opens and configures DB instances.                                                                                                                                                                                                                                                      |
-+----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Collection Binding                           | MapDB mechanism to keep two collections synchronized. It provides secondary keys and values, aggregations etc.. known from SQL and other databases. All functions are provided as static methods in Bind class.                                                                                                            |
-+----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Data Pump                                    | Tool to import and manipulate large collections and storages.                                                                                                                                                                                                                                                              |
-+----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+============================    ==========================================================================================================================================================================
+Term                            Explanation
+============================    ==========================================================================================================================================================================
+Record                          Atomically stored value. Usually tree node or similar. 
+                                Transaction conflicts and locking is usually per record.
+                                
+Index Table                     Table which translates recid into real offset and size in physical file.
+
+Engine                          Primitive key-value store used by collections for storage.
+
+Store                           Engine implementation which actually persist data. Is wrapped by other Engines.
+
+Volume                          Abstraction over ByteBuffer or other raw data store. Used for files, memory, partition etc..
+
+Slice                           Non overlapping pages used in Volume. Slice size is 1MB. Older name was 'chunk'
+
+Direct mode                     With disabled transactions, data are written directly into file. It is fast,
+                                but store is not protected from corruption during crasches.
+
+WAL                             Write Ahead Log, way to protect store from corruption if db crashes during write.
+
+RAF                             Random Access File, way to access data on disk. Safer but slower method.
+
+MMap file                       memory mapped file. On 32bit platform has size limit around 2GB. Faster than RAF.
+
+index file                      contains mapping between recid (index file offset) and record size and offset in
+                                physical file (index value). Is organized as sequence of 8-byte longs
+
+index value                     single 8-byte number from index file. Usually contains record offset in physical file.
+
+recid                           record identificator, an unique 8-byte long number which identifies record.
+                                Recid is offset in index file. After record is deleted, its recid may be reused for
+                                newly inserted record.
+
+record                          atomical value stored in storage (Engine) identified by record identifier (recid).
+                                In collections Record corresponds to tree nodes. In Maps record mey not correspond to
+                                Key->Value pair, as multiple keys may be stored inside single node.
+
+physical file                   Contains record binary data
+
+cache (or instance cache)       caches object instances (created with 'new' keyword).
+                                MapDB does not have traditional fixes-size-buffer cache for binary pages
+                                (it relies on OS to do this). Instead deserialized objects are cached on heap to
+                                minimise deserialization overhead.
+                                Instance cache is main reason why your keys/values must be immutable.
+
+BTreeMap                        tree implementation behind TreeMap and TreeSet provided by MapDB
+
+HTreeMap                        tree implementation behind HashMap and HashSet provided by MapDB
+
+delta packing                   compression method to minimalise space used by keys in BTreeMap. Keys are sorted,
+                                so only difference between keys needs to be stored. You need to privide specialized
+                                serializer to enable delta packing.
+
+append file db                  alternative storage format. In this case no existing data are modified, but all changes
+                                are appended to end of file. This may improve write speed and durability,
+                                but introduces some tradeoffs.
+
+temp map/set...                 collection backed by file in temporary directory. Is usually configured to delete file
+                                after close or on JVM exit. Data written into temp collection are not persisted between JVM restarts.
+
+async write                     writes may be queued and written into file on background thread. This does not affect commit
+                                durability (it blocks until queue is empty).
+
+TX                              equals to Concurrent Transaction.
+
+LongMap                         specialized map which uses primitive long for keys. It minimises boxing overhead.
+
+DB                              API class exposed by MapDB. It is an abstraction over Engine which manages MapDB collections
+                                and storage.
+
+DMaker                          Builder style factory class, which opens and configures DB instances.
+
+Collection Binding              MapDB mechanism to keep two collections synchronized. It provides secondary keys and values,
+                                aggregations etc.. known from SQL and other databases. All functions are provided as static
+                                methods in Bind class.
+
+Data Pump                       Tool to import and manipulate large collections and storages.
+============================    ==========================================================================================================================================================================
 
 DBMaker and DB
 --------------
 
 90% of users will only need two classes from MapDB.
-`DBMaker <apidocs/org/mapdb/DBMaker.html>`__ is builder style
-configurator which opens database. `DB <apidocs/org/mapdb/DB.html>`__
+`DBMaker <http://www.mapdb.org/apidocs/org/mapdb/DBMaker.html>`__ is builder style
+configurator which opens database. `DB <http://www.mapdb.org/apidocs/org/mapdb/DB.html>`__
 represents store, it creates and opens collections, commits or rollbacks
 data.
 
@@ -193,8 +213,8 @@ snapshots (MapDB snapshots are at different layer) or raw disks.
 Store
 -----
 
-`Engine <apidocs/org/mapdb/Engine.html>`__ (and
-`Store <apidocs/org/mapdb/Store.html>`__) is primitive key-value store
+`Engine <http://www.mapdb.org/apidocs/org/mapdb/Engine.html>`__ (and
+`Store <http://www.mapdb.org/apidocs/org/mapdb/Store.html>`__) is primitive key-value store
 which maps recid (8-byte long record id) to some data (record). It has 4
 methods for CRUD operations and 2 transaction methods:
 
@@ -212,7 +232,7 @@ By default MapDB stack supports only single transaction. However there
 is wrapper ``TxMaker`` which stores un-commited data on heap and
 provides concurrent ACID transactions.
 
-`DB <apidocs/org/mapdb/DB.html>`__ is low level implementation of
+`DB <http://www.mapdb.org/apidocs/org/mapdb/DB.html>`__ is low level implementation of
 ``Engine`` which stores data on raw ``Volume``. It usually has two files
 (or Volumes): index table and physical file. Recid (record ID) is
 usually fixed offset in index table, which contains pointer to physical
@@ -221,7 +241,7 @@ file.
 MapDB has multiple ``Store`` implementations, which differ in speed and
 durability guarantees. User can also supply their own implementation.
 
-First (and default) is `StoreWAL <apidocs/org/mapdb/StoreWAL.html>`__.
+First (and default) is `StoreWAL <http://www.mapdb.org/apidocs/org/mapdb/StoreWAL.html>`__.
 In this case Index Table contains record size and offset in physical
 file. Large records are stored as linked list. StoreWAL has free space
 management, so released space is reused. However over time it may
@@ -230,7 +250,7 @@ which is sequence of simple instructions such as *write byte at this
 offset*. On commit (or reopen) WAL is replayed into main store, and
 discarded after successful file sync. On rollback the WAL is discarded.
 
-`StoreDirect <apidocs/org/mapdb/StoreDirect.html>`__ shares the same
+`StoreDirect <http://www.mapdb.org/apidocs/org/mapdb/StoreDirect.html>`__ shares the same
 file format with ``StoreWAL``, however it does not use write ahead log.
 Instead it writes data directly data into files and performs file sync
 on commit and close. This implementation trades any sort of data
@@ -254,10 +274,10 @@ Engine Wrappers
 Big part of features in MapDB is implemented as ``Engine`` wrappers. For
 example ``update`` method does not have modify file directly, but it can
 forward modification into
-`background-writer <apidocs/org/mapdb/AsyncWriteEngine.html>`__
+`background-writer <http://www.mapdb.org/apidocs/org/mapdb/AsyncWriteEngine.html>`__
 
 Also deserialized records can be stored in `instance
-cache <apidocs/org/mapdb/Caches.html>`__, so it does not have to be
+cache <http://www.mapdb.org/apidocs/org/mapdb/Caches.html>`__, so it does not have to be
 deserialized on next read.
 
 TODO expand Engine Wrappers section
@@ -267,11 +287,11 @@ TxMaker
 
 MapDB ``Store``\ s support only single transaction. So concurrent
 transactions needs to be serialized and commited one by one. For this
-there is `TxMaker <apidocs/org/mapdb/TxMaker.html>`__. It is factory
+there is `TxMaker <http://www.mapdb.org/apidocs/org/mapdb/TxMaker.html>`__. It is factory
 which creates fake ``Engine`` for each transaction. Dirty (uncommited)
 data are stored on heap. Optimistic concurrency control is used to
 detect conflicts.
-`TxRollbackException <apidocs/org/mapdb/TxRollbackException.html>`__ is
+`TxRollbackException <http://www.mapdb.org/apidocs/org/mapdb/TxRollbackException.html>`__ is
 thrown on write or commit, if current transaction was rolled back thanks
 to an conflict.
 
@@ -288,15 +308,15 @@ Collections
 MapDB collection uses ``Engine`` as its parameter. There are two basic
 indexes:
 
-`BTreeMap <apidocs/org/mapdb/BTreeMap.html>`__ is ordered B-Linked-Tree.
+`BTreeMap <http://www.mapdb.org/apidocs/org/mapdb/BTreeMap.html>`__ is ordered B-Linked-Tree.
 It offers great concurrent performance. It is best for small sized keys.
 
-`HTreeMap <apidocs/org/mapdb/HTreeMap.html>`__ is segmented Hash-Tree.
+`HTreeMap <http://www.mapdb.org/apidocs/org/mapdb/HTreeMap.html>`__ is segmented Hash-Tree.
 It is good for large keys and values. It also supports entry expiration
 based on maximal size or time-to-live.
 
-There also also `Queues <apidocs/org/mapdb/Queues.html>`__ and
-`Atomic <apidocs/org/mapdb/Atomic.html>`__ variables
+There also also `Queues <http://www.mapdb.org/apidocs/org/mapdb/Queues.html>`__ and
+`Atomic <http://www.mapdb.org/apidocs/org/mapdb/Atomic.html>`__ variables
 
 TODO explain collections.
 

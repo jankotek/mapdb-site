@@ -1,21 +1,17 @@
-MapDB documentation
-======================
+MapDB Manual
+=============
 
 .. toctree::
    foreword
    getting-started
-   overview
-   durability-versus-speed
    db-and-dbmaker
-   what-for
+   durability-versus-speed
    caches
    btreemap
    htreemap
-   internals
-   queues
    secondary-collections
    transactions
+   internals
    concurrency
-   operations
    format
 

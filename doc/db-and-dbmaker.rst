@@ -7,11 +7,11 @@ two factory classes to do: ``DBMaker`` and ``DB``. They use
 maker (builder) pattern, so most configuration options are quickly
 available via code assistant in IDE.
 
-`DBMaker <apidocs/org/mapdb/DBMaker.html>`__ handles database
+`DBMaker <http://www.mapdb.org/apidocs/org/mapdb/DBMaker.html>`__ handles database
 configuration, creation and opening. MapDB has several modes and
 configuration options. Most of those can be set using this class.
 
-`DB <apidocs/org/mapdb/DB.html>`__ represents opened database (or single
+`DB <http://www.mapdb.org/apidocs/org/mapdb/DB.html>`__ represents opened database (or single
 transaction session). It creates and opens collections . It also handles
 transaction with methods such as ``commit()``, ``rollback()`` and
 ``close()``.
