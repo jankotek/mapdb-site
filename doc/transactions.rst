@@ -1,15 +1,14 @@
 Transactions
 ============
 
-Transactions in MapDB are considered heavyweight option. Often you can
-get similar result using atomic updates in
+Transactions in MapDB are considered a heavyweight option. Often you can
+get a similar result using atomic updates in
 `ConcurrentMap <http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ConcurrentMap.html>`__
 and `Atomic
 variables <http://www.mapdb.org/apidocs/org/mapdb/Atomic.html>`__
 
-On other side transactions are not just for concurrent updates, but also
-means to protect store from corruption. MapDB has two ways to handle
-rollback: Write-Ahead-Log and Append-Only-Log files.
+On the other hand transactions are not just for concurrent updates, but they can also protect the store from corruption.
+MapDB has two ways to handle rollback: Write-Ahead-Log and Append-Only-Log files.
 
 MapDB comes with several transactions options. From ultra-fast direct
 mode to concurrent transactions with MVCC snapshots and serializable
@@ -31,7 +30,7 @@ flush and sync all changes into underlying files.
 This mode is generally recommended for cases where data can be
 reconstructed easily. For example initial imports, caches etc.
 
-An example howto enable this mode:
+An example how to enable this mode:
 
 .. code:: java
 
@@ -42,8 +41,8 @@ An example howto enable this mode:
 Single global transaction
 -------------------------
 
-This mode is default option. In this case DB has single global
-transaction. It is very simple to use since user does not have to handle
+This mode is the default option. In this case DB has a single global
+transaction. It is very simple to use, since the user does not have to handle
 concurrent write conflicts and rollback. In this case the store is
 protected by Write-Ahead-Log.
 
@@ -55,9 +54,9 @@ protected by Write-Ahead-Log.
 Concurrent transactions
 -----------------------
 
-In this case user has multiple transactions. Each has its own snapshots
-with serializable isolation and optimistic locking. It offers strongest
-consistency possible. Changes are held in memory. On commit MapDB checks
+In this case the user has multiple transactions. Each has its own snapshots
+with serializable isolation and optimistic locking. It offers the strongest
+consistency possible. Any changes are held in memory. On commit MapDB checks
 for conflicts and commits or throws ``TxRollbackException`` and rollback
 changes.
 

@@ -1,33 +1,33 @@
 MapDB internals
 ==============================
 
-This chapter gives quick  introduction to MapDB internal
-architecture. Rest of this manual assume that you you are familiar with this
+This chapter gives a quick  introduction to MapDB internal
+architecture. The rest of this manual assumes that you are familiar with this
 chapter.
 
-MapDB originally evolved as store for astronomical desktop application.
-Over time it growth into full database engine with concurrent access, durability etc.
+MapDB originally evolved as a store for astronomical desktop applications.
+Over time it grew into a full database engine with concurrent access, durability etc.
 But it evolved differently from most DBs, Pentium at 200MHz with 128 MB RAM does not give much space.
-Major goal was tight integration with Java and  to minimize overhead of any sort
+The major goal was tight integration with Java and to minimize overhead of any sort
 (garbage collection, memory, CPU, stack trace length...).
 
-What makes MapDB most different is serialization lifecycle is very different here.
-In most DB engines user has to serialize data himself and pass binary data into db. API
-than looks similar to this:
+What makes MapDB most different is that the serialization lifecycle is very different here.
+In most DB engines the user has to serialize data himself and pass binary data into db. API
+that looks similar to this:
 
 .. code:: java
 
         engine.update(long recid, byte[] data);
 
-But MapDB serializes data itself by using user supplied serializer:
+But MapDB serializes data itself by using a user supplied serializer:
 
 .. code:: java
 
         engine.update(long recid, Person data, Serializer<Person> serializer);
 
-So serialization lifecycle is driven by MapDB rather than by user. This
-small detail is reason why MapDB is so flexible. For example ``update``
-method could pass data-serializer pair to
+So serialization lifecycle is driven by MapDB rather than by the user. This
+small detail is the reason why MapDB is so flexible. For example the ``update``
+method could pass the data-serializer pair to
 `background-writer <http://www.mapdb.org/apidocs/org/mapdb/AsyncWriteEngine.html>`__ thread
 and return almost instantly. Or ``Person`` instance could be stored in
 `instance cache <http://www.mapdb.org/apidocs/org/mapdb/Caches.html>`__, to minimise
@@ -58,7 +58,7 @@ Volume                          Abstraction over ByteBuffer or other raw data st
 Slice                           Non overlapping pages used in Volume. Slice size is 1MB. Older name was 'chunk'
 
 Direct mode                     With disabled transactions, data are written directly into file. It is fast,
-                                but store is not protected from corruption during crasches.
+                                but store is not protected from corruption during crashes.
 
 WAL                             Write Ahead Log, way to protect store from corruption if db crashes during write.
 
@@ -71,12 +71,12 @@ index file                      contains mapping between recid (index file offse
 
 index value                     single 8-byte number from index file. Usually contains record offset in physical file.
 
-recid                           record identificator, an unique 8-byte long number which identifies record.
+recid                           record identificator, a unique 8-byte long number which identifies record.
                                 Recid is offset in index file. After record is deleted, its recid may be reused for
                                 newly inserted record.
 
 record                          atomical value stored in storage (Engine) identified by record identifier (recid).
-                                In collections Record corresponds to tree nodes. In Maps record mey not correspond to
+                                In collections Record corresponds to tree nodes. In Maps record may not correspond to
                                 Key->Value pair, as multiple keys may be stored inside single node.
 
 physical file                   Contains record binary data
@@ -92,7 +92,7 @@ BTreeMap                        tree implementation behind TreeMap and TreeSet p
 HTreeMap                        tree implementation behind HashMap and HashSet provided by MapDB
 
 delta packing                   compression method to minimalise space used by keys in BTreeMap. Keys are sorted,
-                                so only difference between keys needs to be stored. You need to privide specialized
+                                so only difference between keys needs to be stored. You need to provide specialized
                                 serializer to enable delta packing.
 
 append file db                  alternative storage format. In this case no existing data are modified, but all changes
@@ -125,18 +125,20 @@ DBMaker and DB
 --------------
 
 90% of users will only need two classes from MapDB.
-`DBMaker <http://www.mapdb.org/apidocs/org/mapdb/DBMaker.html>`__ is builder style
-configurator which opens database. `DB <http://www.mapdb.org/apidocs/org/mapdb/DB.html>`__
-represents store, it creates and opens collections, commits or rollbacks
+`DBMaker <http://www.mapdb.org/apidocs/org/mapdb/DBMaker.html>`__ is a builder style
+configurator which opens the database. `DB <http://www.mapdb.org/apidocs/org/mapdb/DB.html>`__
+represents the store, it creates and opens collections, commits or rollbacks
 data.
 
 MapDB collections use ``Engine`` (simple key-value store) to persist its
-data and state. Most of functionality comes from mixing ``Engine``
-implementations and wrappers. For example off-heap store with
+data and state. Most of the functionality comes from mixing ``Engine``
+implementations and wrappers. For example, off-heap store with
 asynchronous writes and instance cache could be instantiated by this
 pseudo-code:
 
 .. code:: java
+
+        //TODO this is obsolete, cache and async are integrated to Store
 
         Engine engine = new Caches.HashTable(         //instance cache
                             new AsyncWriteEngine(     //asynchronous writes
@@ -144,26 +146,26 @@ pseudo-code:
                               new Volume.MemoryVol()  //raw buffer used for storage
                         )))
 
-Reality is even more complex since each wrapper takes extra parameters
+Reality is even more complex, since each wrapper takes extra parameters
 and there are more levels. So ``DBMaker`` is a factory which takes
 settings and wires all MapDB classes together.
 
-``DB`` has similar role. It is too hard to load and instantiate
+``DB`` has a similar role. It is too hard to load and instantiate
 collections manually (for example ``HTreeMap`` constructor takes 14
-parameters). So ``DB`` stores all settings in Named Catalog and handles
-collections. Named Catalog is ``Map<String,Object>`` which is persisted
+parameters). So ``DB`` stores all the settings in the Named Catalog and handles
+collections. Named Catalog is a ``Map<String,Object>`` which is persisted
 in store at fixed recid and contains parameters for all other named
-collections and named records. To rename collection one just has to
-rename relevant keys in Named Catalog.
+collections and named records. In order to rename a collection one just has to
+rename the relevant keys in the Named Catalog.
 
 Layers
 ------
 
-MapDB stack is little bit different from most DBs. It integrates
-instance cache and serialization usually found in ORM frameworks. On
-other side MapDB eliminated fixed-size page and disk cache.
+MapDB stack is a little bit different from most DBs. It integrates
+instance cache and serialization usually found in ORM frameworks. On the
+other hand MapDB eliminated fixed-size page and disk cache.
 
-From raw-files to ``Map`` interface it has following layers:
+From raw-files to ``Map`` interface it has the following layers:
 
 1) **Volume** - an ``ByteBuffer`` like abstraction over raw store. There
    are implementations for in-memory buffers or files.
@@ -189,24 +191,24 @@ From raw-files to ``Map`` interface it has following layers:
 Volume
 ------
 
-``ByteBuffer`` is best raw buffer abstraction Java has. However its size
+``ByteBuffer`` is the best raw buffer abstraction Java has. However, its size
 is limited by 31 bits addressing to 2GB. For that purpose MapDB uses
 ``Volume`` as raw buffer abstraction. It takes multiple
 ``ByteBuffer``\ s and uses them together with 64bit addressing. Each
-``ByteBuffer`` has 1GB size and represents *slice*. IO operations which
+``ByteBuffer`` has 1GB size and represents a *slice*. The IO operations which
 cross slice boundaries are not supported (``readLong(1GB-3)`` will throw
-an exception). It is responsibility of higher layer ``Store`` to ensure
+an exception at such offset). It is the responsibility of the higher layer ``Store`` to ensure
 data do not overlap slice boundaries.
 
 MapDB provides some Volume implementations: heap buffers, direct
 (off-heap) buffers, memory mapped files and random access file. Each
-implementation fits different situation. For example memory mapped files
-have great performance, however 32bit desktop app will probably prefer
+implementation fits a different situation. For example memory mapped files
+have great performance, however a 32bit desktop app will probably prefer
 random access files. All implementations share the same format, so it is
 possible to copy data (and entire store) between implementations.
 
-User can also supply their own ``Volume`` implementations. For example
-each 1Gb slice can be stored in separate file on multiple disks, to
+Users can also supply their own ``Volume`` implementations. For example,
+each 1Gb slice can be stored in a separate file on multiple disks, to
 create software RAID. ``Volume`` could also handle duplication, binary
 snapshots (MapDB snapshots are at different layer) or raw disks.
 
@@ -214,7 +216,7 @@ Store
 -----
 
 `Engine <http://www.mapdb.org/apidocs/org/mapdb/Engine.html>`__ (and
-`Store <http://www.mapdb.org/apidocs/org/mapdb/Store.html>`__) is primitive key-value store
+`Store <http://www.mapdb.org/apidocs/org/mapdb/Store.html>`__) is a primitive key-value store
 which maps recid (8-byte long record id) to some data (record). It has 4
 methods for CRUD operations and 2 transaction methods:
 
@@ -228,38 +230,38 @@ methods for CRUD operations and 2 transaction methods:
         void commit()
         void rollback()
 
-By default MapDB stack supports only single transaction. However there
-is wrapper ``TxMaker`` which stores un-commited data on heap and
+By default MapDB stack supports only a single transaction. However there
+is the wrapper ``TxMaker``, which stores un-commited data on heap and
 provides concurrent ACID transactions.
 
-`DB <http://www.mapdb.org/apidocs/org/mapdb/DB.html>`__ is low level implementation of
-``Engine`` which stores data on raw ``Volume``. It usually has two files
+`DB <http://www.mapdb.org/apidocs/org/mapdb/DB.html>`__ is a low level implementation of the
+``Engine``, which stores data on raw ``Volume``. It usually has two files
 (or Volumes): index table and physical file. Recid (record ID) is
-usually fixed offset in index table, which contains pointer to physical
+a usually fixed offset in the index table, which contains a pointer to the physical
 file.
 
 MapDB has multiple ``Store`` implementations, which differ in speed and
 durability guarantees. User can also supply their own implementation.
 
 First (and default) is `StoreWAL <http://www.mapdb.org/apidocs/org/mapdb/StoreWAL.html>`__.
-In this case Index Table contains record size and offset in physical
-file. Large records are stored as linked list. StoreWAL has free space
-management, so released space is reused. However over time it may
+In this case the Index Table contains the record size and offset in a physical
+file. Large records are stored as a linked list. StoreWAL has free space
+management, so released space is reused. However, over time it may
 require compaction. StoreWAL stores modifications in *Write Ahead Log*,
-which is sequence of simple instructions such as *write byte at this
-offset*. On commit (or reopen) WAL is replayed into main store, and
+which is a sequence of simple instructions, such as *write byte at this
+offset*. On commit (or reopen) WAL is replayed into the main store, and
 discarded after successful file sync. On rollback the WAL is discarded.
 
 `StoreDirect <http://www.mapdb.org/apidocs/org/mapdb/StoreDirect.html>`__ shares the same
 file format with ``StoreWAL``, however it does not use write ahead log.
-Instead it writes data directly data into files and performs file sync
+Instead, it writes data directly into files and performs file sync
 on commit and close. This implementation trades any sort of data
 protection for speed, so data are usually lost if ``StoreDirect`` is not
 closed correctly (or synced after last write). Because there is no WAL,
 this store does not support rollback. This store is used if transactions
 are disabled.
 
-Third implementation is ``StoreAppend`` which provides append-only file
+The third implementation is ``StoreAppend``, which provides append-only file
 store. Because data are never overwritten, it is very solid and stable.
 However space usage skyrockets, since it stores all modifications ever
 made. TODO This store is not finished yet, so for example advanced
@@ -268,35 +270,21 @@ explored (and documented yet). This store reads all data in sequence, in
 order to build Index Table which points to newest version of each
 record. The Index Table is stored on heap.
 
-Engine Wrappers
----------------
-
-Big part of features in MapDB is implemented as ``Engine`` wrappers. For
-example ``update`` method does not have modify file directly, but it can
-forward modification into
-`background-writer <http://www.mapdb.org/apidocs/org/mapdb/AsyncWriteEngine.html>`__
-
-Also deserialized records can be stored in `instance
-cache <http://www.mapdb.org/apidocs/org/mapdb/Caches.html>`__, so it does not have to be
-deserialized on next read.
-
-TODO expand Engine Wrappers section
-
 TxMaker
 -------
 
-MapDB ``Store``\ s support only single transaction. So concurrent
-transactions needs to be serialized and commited one by one. For this
-there is `TxMaker <http://www.mapdb.org/apidocs/org/mapdb/TxMaker.html>`__. It is factory
-which creates fake ``Engine`` for each transaction. Dirty (uncommited)
+MapDB ``Store`` support only a single transaction. So concurrent
+transactions need to be serialized and commited one by one. For this
+there is `TxMaker <http://www.mapdb.org/apidocs/org/mapdb/TxMaker.html>`__. It is a factory
+which creates a fake ``Engine`` for each transaction. Dirty (uncommited)
 data are stored on heap. Optimistic concurrency control is used to
 detect conflicts.
 `TxRollbackException <http://www.mapdb.org/apidocs/org/mapdb/TxRollbackException.html>`__ is
-thrown on write or commit, if current transaction was rolled back thanks
+thrown on write or commit, if the current transaction was rolled back thanks
 to an conflict.
 
-TxMaker has Serializable Isolation level, this level supports highest
-guarantees. Other isolation levels are not implemented, since author
+TxMaker has a Serializable Isolation level and this level supports highest
+guarantees. Other isolation levels are not implemented, since the author
 does not want to support (and explain) isolation problems.
 
 TODO Current TxMaker uses global lock, so concurrent performance sucks.
@@ -308,10 +296,10 @@ Collections
 MapDB collection uses ``Engine`` as its parameter. There are two basic
 indexes:
 
-`BTreeMap <http://www.mapdb.org/apidocs/org/mapdb/BTreeMap.html>`__ is ordered B-Linked-Tree.
+`BTreeMap <http://www.mapdb.org/apidocs/org/mapdb/BTreeMap.html>`__ is an ordered B-Linked-Tree.
 It offers great concurrent performance. It is best for small sized keys.
 
-`HTreeMap <http://www.mapdb.org/apidocs/org/mapdb/HTreeMap.html>`__ is segmented Hash-Tree.
+`HTreeMap <http://www.mapdb.org/apidocs/org/mapdb/HTreeMap.html>`__ is a segmented Hash-Tree.
 It is good for large keys and values. It also supports entry expiration
 based on maximal size or time-to-live.
 
