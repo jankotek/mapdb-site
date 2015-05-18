@@ -1,68 +1,80 @@
 What for?
 ==================
 
-MapDB works fairly well in several situation. However it has several features and it might be hard to tailor it to
-your needs. This chapter enumerates common usages and discusses best setting for each situation.
+MapDB works fairly well in most situation. 
+It combines speed and simplicity of Java collection with scalability of database engine. 
+Thanks to its versatility if could be used in many on traditional situations. 
+
+This chapter enumerates some usages and outlines good approach.
 It is TL;DR for this manual.
 
-TODO link to cheat sheet
-
-Huge on-disk collections
+Large in-memory collections
 ---------------------------
-Use data-pump to create huge BTrees. Data pump imports data in streaming fashion and its performance does not degrade
-over time.
 
-- use memory mapped files
+Traditional collections hit GC limit around 100M entries. 
+MapDB stores data outside heap so it does not share this limitation. 
+It works just fine with 10.000M entries and 1TB in-memory store. 
+It also adds some sugar to manage such data.
 
-TODO HashMap versus TreeMap
+First rule is to minimize memory usage. One should always use
+specialized key/value serializers. 
+TreeMap has several options to compress keys (delta, common prefix...)
+Also large values can be independently compressed. 
 
-TODO discus how transactions prevent data corruption
+To import, export and backup large collections one should use data pump. 
+It knows internal structure of collection and uses streaming.
+Data pump performance does not degrade with size, it can import 
+billion entries in minutes/hours. 
 
-TODO BTreeMap node fragmentation
+For in-memory store it is recomended to disable transactions. 
+However snapshots are independent, so one could use snapshots to backup store to on-disk.
 
 
-In-memory collections
+
+Cache with expiration
 ----------------------
-MapDB can be great alternative to java.util collections (aka heap collections). It packs data more tightly so
-it fits more data into same memory. And MapDB performance is great, it often outperforms heap collections even
-when GC activity is low. Heap collections are usually limited by GC overhead to 1e7 entries, MapDB performance
-is predictable and is only by available memory.
 
-Recommendations:
-
-- use correct serializers for entries, keys and values.
-
-- disable transactions unless you need them. Uncommited data are kept on heap. Write-ahead-log means data are written twice.
-
-- there is ``DBMaker.newMemoryDB()`` and ``DBMaker.newMemoryDirectDB()``. It uses on-heap ``byte[]`` versus
-  ``DirectByteBuffer``. Both are not limited by GC, but there is difference in deployment and setting memory limits.
-  TODO memory limits
-
-- MapDB does not shrink storage after data are deleted. You should run ``DB.compact()`` sometimes.
-
-- There is data-pump for moving data around very fast. TODO make chapter on this
-
-TODO discus on-heap mode
+HashMap has optonal expiraton based on time-to-live, maximal collection size or maximal memory usage.
+It also has disk overflow, one can have a two level cache (in-memory, on-disk) with different sizes. 
 
 
-Key-value cache with expiration
-----------------------------------
-HashMap has build in expiration based on time-to-live and maximal cache size.
+On-disk collections
+-----------------------
 
-Alternative memory model
---------------------------
+By default MapDB uses slow file access based on ``RandomAccessFile``. Memory mapped files
+are much faster, but have problems on 32 bit machines and Windows. On 64bit machine on should
+use memory mapped files. 
 
-If your data are limited by GC, to move completely into MapDB
+There are preallocation options. 
 
-- concurrency and locks are unchanged
+Also for on-disk one could use Append Only storage with different format. 
 
-- TODO reference locality and spliting
+By default MapDB has transaction enabled and protects storage from corruption by write-ahead-log.
+Transactions (WAL) can be disabled to make writes much faster. But in that 
+case there is zero crash protection and store will get corrupted if not closed correctly. 
 
-- TODO atomic variables and atomic vars.
+Performance
+-------------
+
+By default MapDB uses slow and safe settings. 
+
+Always use specialized serializers for keys and values. Generic serialization is ok, but specialized
+serialization is faster and uses less space.
+
+MapDB has several durability and consistency options. Study those and select 
+level you are comfortable with. It is wrong to protect temporary cache by ACID transactions.
+
+Store is protected by write-ahead-log. This slows down writes, since all data have to be copyed twice.
+Disable WAL and get faster writes at expense of durability
+
+There is instance cache which speeds up operation a lot. It is disabled by default.
+
+Memory mapped files are much faster. But need 64 bit JVM.
+
+MapDB has background executors for writes, cache eviction etc. All background operations
+are disabled by default. 
+
+Consistency and durability
+---------------------------
 
 
-
-TODO subchapters about transactions and MVCC
-
-
-TODO chapter about append-only store
