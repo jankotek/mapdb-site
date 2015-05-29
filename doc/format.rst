@@ -52,6 +52,8 @@ This store can not be opened with normal mapdb.
   
 10) Disable parity bit checks. Stor was created by patched MapDB. For extra performance some checksums were disabled.
 This store can not be opened with normal mapdb.
+
+11) Block encryption enabled
    
 
 StoreDirect
@@ -98,10 +100,10 @@ Composed of series of 8 byte values, most of page repeats:
 
 - index value
 
-End of page:
+Start of page:
 
-- one value before last is **pointer to next index page**, Parity 16
-- last value in page is **checksum of all values** on page (add all values)
+- first value is **pointer to next index page**, Parity 16
+- second value in page is **checksum of all values** on page (add all values)
 
 Index Value
 ~~~~~~~~~~~~~
