@@ -167,9 +167,8 @@ traverse Long Stack to get to head.
 
 Structure of Long Stack Chunk is as follow:
 
-- **byte 1-4** optional checksum of this chunk. TODO this has changed. Update doc
-- **byte 5-6** total size of this chunk.
-- **byte 7-12** pointer to previous chunk in this long stack. Parity 4, parity is shared with total size at byte 5-6.
+- **byte 1-2** total size of this chunk.
+- **byte 3-8** pointer to previous chunk in this long stack. Parity 4, parity is shared with total size at byte 1-2.
 - rest of chunk is filled with bidi-packed longs with parity 1
 
 Master Link structure:
