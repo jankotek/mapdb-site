@@ -7,6 +7,15 @@
         <link>http://www.mapdb.org/</link>
         <description>MapDB</description>
 
+        <item>
+            <title>MapDB 2.0 is near</title>
+            <link>http://kotek.net/blog/MapDB_20_is_near</link>
+            <date>June 16 2015</date>
+            <description>
+                Format and API freeze for MapDB 2.0 is just a few weeks away.
+            </description>
+        </item>
+
 
         <item>
             <title>MapDB 1.0.7 released</title>
