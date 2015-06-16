@@ -20,22 +20,18 @@ scalability and performance. MapDB author works for CodeFutures on `next generat
 News
 ----
 
--  2015-07-16 `MapDB 2.0 is near
-  <http://kotek.net/blog/MapDB_20_is_near>`__.
+-  2015-07-16 `MapDB 2.0 is near <http://kotek.net/blog/MapDB_20_is_near>`__.
    Format and API freeze for MapDB 2.0 is just a few weeks away.
 
--  2015-07-16 `MapDB 2.0-alpha3 released
-  <http://www.mapdb.org/changelog.html#Version_20-alpha3_2014-06-16>`__.
+-  2015-07-16 `MapDB 2.0-alpha3 released <http://www.mapdb.org/changelog.html#Version_20-alpha3_2014-06-16>`__.
    Last release before stabilization
 
 
--  2015-02-19 `MapDB 1.0.7
-   released <http://www.mapdb.org/changelog.html#Version_107_2015-02-19>`__.
+-  2015-02-19 `MapDB 1.0.7 released <http://www.mapdb.org/changelog.html#Version_107_2015-02-19>`__.
    Fixed WAL corruption and others.
 
 
--  2014-08-07 `MapDB 1.0.6
-   released <http://www.mapdb.org/changelog.html#Version_106_2014-08-07>`__.
+-  2014-08-07 `MapDB 1.0.6 released <http://www.mapdb.org/changelog.html#Version_106_2014-08-07>`__.
    Fixed transaction log replay after unclean shutdown.
 
 
