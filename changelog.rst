@@ -1,8 +1,8 @@
 Changelog for 2.X releases
-==========================
+============================
 
 Version 2.0-alpha3 (2015-07-16)
---------------------------
+-------------------------------------
 
 Last unstable version before beta release.
 
