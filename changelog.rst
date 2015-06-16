@@ -1,5 +1,15 @@
-Changelog
-=========
+Changelog for 2.X releases
+==========================
+
+Version 2.0-alpha3 (2015-07-16)
+--------------------------
+
+Last unstable version before beta release.
+
+
+Changelog for 1.X releases
+===========================
+
 
 Version 1.0.7 (2015-02-19)
 --------------------------

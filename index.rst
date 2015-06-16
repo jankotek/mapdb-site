@@ -24,6 +24,10 @@ News
   <http://kotek.net/blog/MapDB_20_is_near>`__.
    Format and API freeze for MapDB 2.0 is just a few weeks away.
 
+-  2015-07-16 `MapDB 2.0-alpha3 released
+  <http://www.mapdb.org/changelog.html#Version_20-alpha3_2014-06-16>`__.
+   Last release before stabilization
+
 
 -  2015-02-19 `MapDB 1.0.7
    released <http://www.mapdb.org/changelog.html#Version_107_2015-02-19>`__.
