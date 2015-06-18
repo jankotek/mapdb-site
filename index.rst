@@ -1,9 +1,3 @@
-.. MapDB documentation master file, created by
-   sphinx-quickstart on Tue Nov  4 19:14:09 2014.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
-
 MapDB
 =================================
 
@@ -100,6 +94,8 @@ Documentation
     credits
     features
     success
+    contents
+
 
 
 Support

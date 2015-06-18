@@ -7,6 +7,7 @@ cd ../gh-pages
 git pull
 
 cp ../mapdb-site/_build/html/* . -rv
+cp ../mapdb-site/news.xml . -rv
 
 git add -A
 git commit -m "update site"
