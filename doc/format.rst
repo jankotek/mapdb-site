@@ -251,7 +251,8 @@ and so on. Optionally store can be split between multiple files, to support onli
 Instructions
 ~~~~~~~~~~~~~
 
-Recid and size has parity. If CRC32 is enabled parity is 16 bites, otherwise 1 bite parity.
+Recid and size has parity. If CRC32 is enabled parity is 16 bites, otherwise 1 bite parity. Their value bite-shifts
+to make space for parity bits at end.
 
 1) record update. Followed by packed recid with parity, packed size with parity and binary data
 
