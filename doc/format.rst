@@ -253,10 +253,6 @@ Instructions
 
 Recid and size has parity. If CRC32 is enabled parity is 16 bites, otherwise 1 bite parity.
 
-Instruction byte has first 5 bites for instruction and 3 bites for checksum.
-It is calculated from offset, file number and instruction number.
-IF CRC32 is enabled next byte replicates byte, shifted by some value (+101).
-
 1) record update. Followed by packed recid with parity, packed size with parity and binary data
 
 2) delete record. Places tombstone in index table. Followed by packed recid with parity.
