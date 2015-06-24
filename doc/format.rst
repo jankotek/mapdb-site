@@ -229,13 +229,16 @@ Type of instructions:
 
 1) **write long**. Is followed by 8 bytes value and 6 byte offset. Checksum is ``(bit parity from 15 bytes + 1)&31``
 
-2) **write byte[]**. Is followed by 2 bytes size, 6 byte offset and data itself. Checksum is ``(bit parity from 9 bytes + 1 + sum(byte[]))&31``
+2) **write byte[]**. Is followed by 2 bytes size, 6 byte offset and data itself.
+    Checksum is ``(bit parity from 9 bytes + 1 + sum(byte[]))&31``
 
-3) **skip N bytes**. Is followed by 3 bytes value, number of bytes to skip . Used so data do not overlap page size. Checksum is ``(bit parity from 3 bytes + 1)&31``
+3) **skip N bytes**. Is followed by 3 bytes value, number of bytes to skip .
+    Used so data do not overlap page size. Checksum is ``(bit parity from 3 bytes + 1)&31``
 
 4) **skip single byte**. Skip single byte in WAL. Checksum is ``bit parity from offset & 31``
 
-5) **record**. Is followed by 6 bytes recid, than 4 bytes record size and an record data. Is used in Record format. Size==-2 is tombstone, size==-1 is null record
+5) **record**. Is followed by 6 bytes recid, than 4 bytes record size and an record data.
+    Is used in Record format. Size==-2 is tombstone, size==-1 is null record
     TODO checksum for record inst
 
 6) TODO write two bytes.
@@ -248,12 +251,26 @@ and so on. Optionally store can be split between multiple files, to support onli
 Instructions
 ~~~~~~~~~~~~~
 
-1) record update. Followed by recid, size and binary data
-2) delete record. Places tombstone in index table. Followed by recid.
-3) record insert. Followed by recid, size and binary data
-4) preallocate record. Followed by recid
-5) skip N bytes. Followed by number of bytes to skip.
+Recid and size has parity. If CRC32 is enabled parity is 16 bites, otherwise 1 bite parity.
+
+Instruction byte has first 5 bites for instruction and 3 bites for checksum.
+It is calculated from offset, file number and instruction number.
+IF CRC32 is enabled next byte replicates byte, shifted by some value (+101).
+
+1) record update. Followed by packed recid with parity, packed size with parity and binary data
+
+2) delete record. Places tombstone in index table. Followed by packed recid with parity.
+
+3) record insert. Followed by packed recid with parity, packed size with parity and  binary data
+
+4) preallocate record. Followed by packed recid with parity
+
+5) skip N bytes. Followed by packed size with parity.
+
 6) skip single byte
+
 7) EOF current file. Move to next file
+
 8) Current transaction is valid. Start new transaction
+
 9) Current transaction is invalid. Rollback all changes since end of previous transaction. Start new transaction
