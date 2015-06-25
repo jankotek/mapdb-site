@@ -2,12 +2,16 @@ This is www.mapdb.org website and documentation. It uses Sphinx to generate HTML
 
 To compile install newest Sphinx, version bundled with Ubuntu 14.04 is too old:
 
-    pip install sphinx
+    sudo apt-get install python-pip
+    sudo pip install sphinx
 
 Documentation uses some files from mapdb. So checkout source repository to ../mapdb
 
-To generate PDF one has to install huge latex package, it has about 1GB with all dependencies,
-I dont remember the name. Than run
+To generate PDF one has to install huge latex package, it has about 1GB with all dependencies/
+
+    sudo apt-get install texlive-full
+
+Than run
 
     ./pdf
 
