@@ -8,6 +8,16 @@
         <description>MapDB</description>
 
         <item>
+            <title>MapDB 2.0-beta1 released</title>
+            <link>http://www.mapdb.org/changelog.html</link>
+            <date>June 29 2015</date>
+            <description>
+                Format and API freeze for MapDB 2.0.
+            </description>
+        </item>
+
+
+        <item>
             <title>MapDB 2.0 is near</title>
             <link>http://kotek.net/blog/MapDB_20_is_near</link>
             <date>June 16 2015</date>
