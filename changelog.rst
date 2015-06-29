@@ -6,6 +6,7 @@ Version 2.0-beta1 (2015-06-31)
 -------------------------------------
 
 Storage format and API freeze. Fixed concurrent race conditions and crashes. Storage format has changed since Alpha3.
+More details about this release in the `blog post <http://kotek.net/blog/MapDB_2_beta_1>`_
 
 List of possible problems:
 
