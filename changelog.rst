@@ -9,15 +9,15 @@ Storage format and API freeze. Fixed concurrent race conditions and crashes. Sto
 
 List of possible problems:
 
- * Crash recovery for Write-Ahead-Log and compaction is not completely verified.
+ - Crash recovery for Write-Ahead-Log and compaction is not completely verified.
   Data should be safe, but recovery might require user intervention to delete some old files etc.
 
- * MMap files could [cause JVM to crash](https://github.com/jankotek/mapdb/issues/442).
+ - MMap files could `cause JVM to crash<https://github.com/jankotek/mapdb/issues/442>`_.
     Older 1.0 branch also has this bug, it should be fixed in two weeks in 1.0.8 and 2.0-beta2.
 
- * AppendOnly store does not have compaction. It also needs more testing for crash recovery.
+ - AppendOnly store does not have compaction. It also needs more testing for crash recovery.
 
- * Several performance optimizations are disabled. Stability over speed is preferred. Many parts could be 4x faster,
+ - Several performance optimizations are disabled. Stability over speed is preferred. Many parts could be 4x faster,
  but those optimizations are postponed to 2.1 release. However 2.0 is still much faster compared to 1.0 release.
 
 
