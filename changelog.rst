@@ -11,7 +11,7 @@ List of possible problems:
 
 - Crash recovery for Write-Ahead-Log and compaction is not completely verified. Data should be safe, but recovery might require user intervention to delete some old files etc.
 
-- MMap files could `cause JVM to crash<https://github.com/jankotek/mapdb/issues/442>`_. Older 1.0 branch also has this bug, it should be fixed in two weeks in 1.0.8 and 2.0-beta2.
+- MMap files could `cause JVM to crash <https://github.com/jankotek/mapdb/issues/442>`_. Older 1.0 branch also has this bug, it should be fixed in two weeks in 1.0.8 and 2.0-beta2.
 
 - AppendOnly store does not have compaction. It also needs more testing for crash recovery.
 
