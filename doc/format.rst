@@ -77,8 +77,8 @@ Head
 Header in StoreDirect format is composed by number of 8 byte longs:
 
 0) **header** and **head checksum**. Checksum is CRC of entire HEAD and is recalculated on
-every sync/close. Invalid checksum means that store was not closed correctly,
-is very likely corrupted and MapDB should fail to open it. See ``StoreDirect.headChecksum()``
+    every sync/close. Invalid checksum means that store was not closed correctly,
+    is very likely corrupted and MapDB should fail to open it. See ``StoreDirect.headChecksum()``
 
 1) bit field indicating **format features**. IE what type of checksums are enabled, compression enabled etc...
 
