@@ -26,7 +26,8 @@ Other changes:
 
 - Race condition between  ``StoreDirect.put()`` and ``StoreDirect.compact()`` is now fixed,
   for details see `Issue 542 <https://github.com/jankotek/mapdb/issues/542>`_. As result
-  StoreDirect is now exclusively locked during compaction. With transaction disabled data can not be read or updated.
+  StoreDirect is now exclusively locked during compaction. With transaction disabled data can not be read or updated,
+  while compaction is running.
   Performance improvement should be in next release.
 
 - Build script now produces separate jar file with package renamed to ``org.mapdb20`` and Maven name changed to
