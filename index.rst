@@ -14,7 +14,7 @@ scalability and performance. MapDB author works for CodeFutures on `next generat
 News
 ----
 
--  2015-07-09 `MapDB 2.0-beta2 <http://www.mapdb.org/changelog.htm#version-2-0-beta2-2015-07-09>`__ and
+-  2015-07-09 `MapDB 2.0-beta2 <http://www.mapdb.org/changelog.html#version-2-0-beta2-2015-07-09>`__ and
    `MapDB 1.0.8 <http://www.mapdb.org/changelog.html#version-1-0-8-2015-07-09>`__ released.
    Fixed JVM crash with mmap files enabled and other bugs.
 
