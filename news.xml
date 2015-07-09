@@ -8,6 +8,15 @@
         <description>MapDB</description>
 
         <item>
+            <title>MapDB 2.0-beta2 and 1.0.8 released</title>
+            <link>http://www.mapdb.org/changelog.htm#version-2-0-beta2-2015-07-09</link>
+            <date>July 9 2015</date>
+            <description>
+                Fixed JVM crash with mmap files enabled and other bugs.
+            </description>
+        </item>
+
+        <item>
             <title>MapDB 2.0-beta1 released</title>
             <link>http://www.mapdb.org/changelog.html</link>
             <date>June 29 2015</date>

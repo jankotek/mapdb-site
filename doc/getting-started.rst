@@ -31,7 +31,7 @@ it. You may also download the jar file directly from
     <dependency>
         <groupId>org.mapdb</groupId>
         <artifactId>mapdb</artifactId>
-        <version>1.0.7</version>
+        <version>1.0.8</version>
     </dependency>
 
 We are working on the new generation of MapDB. It is faster and more reliable. The latest semi-stable build is at

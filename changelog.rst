@@ -2,6 +2,44 @@ Changelog for 2.X releases
 ============================
 
 
+Version 2.0-beta2 (2015-07-09)
+-------------------------------------
+Lot of bugfixing. Cleaner Hack for mmap files is disabled now. It is recommended **not to use mmap files on Windows
+for now, until we do proper investigation**.
+This release also provides ``mapdb-renamed`` maven package, with package name renamed to ``org.mapdb20``
+
+Improved crash recovery for Write Ahead Log and Append Only stores. In some cases MapDB would not replay log,
+on start after JVM crash. This could potentially lead to data corruption. Crash recovery is still not perfect
+and will need future improvements.
+
+Memory mapped files could cause JVM crash, for details see `Issue 442 <https://github.com/jankotek/mapdb/issues/442>`_.
+Crash would happen if write to mapped ``ByteBuffer`` would fail for some reasons (empty disk space).
+It could also happen if unmapped buffer was accessed.
+
+There were number of changes to solve this issue. Most importantly now **MapDB 2.0 now has cleaner hack
+disabled by default**. File handles are not released until Garbage Collection occur. This might
+cause file handle leaks. On Windows it prevents compaction and commits, since old file is locked and can not be renamed.
+There is new option ``DBMaker.fileMmapCleanerHackEnable()`` to enable Cleaner Hack and release file handle
+when DB is closed.
+
+Other changes:
+
+- Race condition between  ``StoreDirect.put()`` and ``StoreDirect.compact()`` is now fixed,
+  for details see `Issue 542 <https://github.com/jankotek/mapdb/issues/542>`_. As result
+  StoreDirect is now exclusively locked during compaction. With transaction disabled data can not be read or updated.
+  Performance improvement should be in next release.
+
+- Build script now produces separate jar file with package renamed to ``org.mapdb20`` and Maven name changed to
+  ``mapdb-renamed``. This should make it easy to use multiple versions in single JVM and migrate data between them.
+
+- ``Serializer.JAVA`` serializer did not work. Fixed #536.
+
+- ``Bind.histogram()`` would not recreate empty secondary set. Fix #453.
+
+- HTreeMap: fix #538, NullPointerException when ``HTreeMap.get()`` was called with non existing key while overflow was enabled
+
+- Fix custom serializers ignored on map creation #540
+
 Version 2.0-beta1 (2015-06-31)
 -------------------------------------
 
@@ -27,6 +65,44 @@ Last unstable version before beta release.
 
 Changelog for 1.X releases
 ===========================
+
+Version 1.0.8 (2015-07-09)
+-------------------------------------
+
+Fixed several bugs.
+
+Changes:
+
+ - Memory Mapped files could cause JVM crash (``~StubRoutines::jlong_disjoint_arraycopy``).
+   For details see `Issue 442 <https://github.com/jankotek/mapdb/issues/442>`_.
+   This was linked to ByteBuffer Cleaner Hack which unmaps buffer when file is closed,
+   rather than waiting to Garbage Collection. Cleaner Hack was disabled by default in 2.0.
+   In 1.0 it is left enabled for compatibility reason. There is new setting
+   ``DBMaker.mmapFileCleanerHackDisable()`` to disable it, in case you experience problems.
+
+ - Fixed `#452 <https://github.com/jankotek/MapDB/issues/452>`_: ``pumpSource()`` would fails with empty iterator
+
+ - Fixed `#453 <https://github.com/jankotek/MapDB/issues/453>`_: ``Bind.histogram()`` does not recreate content if secondary collection is empty
+
+ - Fixed `#362 <https://github.com/jankotek/MapDB/issues/362>`_: failing unit tests on Windows
+
+ - Fixed `#517 <https://github.com/jankotek/MapDB/issues/517>`_: DB: non serializable serializer could leave name catalog in semi-locked state
+
+ - Fixed `#513 <https://github.com/jankotek/MapDB/issues/513>`_: Atomic.Var: store does not allow ``null`` values. Change initial value from `null` to empty string `""`.
+
+ - Fixed `#523 <https://github.com/jankotek/MapDB/issues/523>`_: Read-only mmap file not unmapped after close.
+
+ - Fixed `#534 <https://github.com/jankotek/MapDB/issues/534>`_: BTreeMap: IndexOutOfBoundsException under concurrent access
+
+ - ``mapdb-renamed`` was update to 1.0.8. There is script to make release semi-automated
+
+Open issues
+
+ - there are reported isses with data corruption in Write-Ahead-Log.
+   Most notably `#509 <https://github.com/jankotek/MapDB/issues/509>`_ and `#515 <https://github.com/jankotek/MapDB/issues/515>`_.
+   I can not reproduce it yet, but working on fixing those.
+
+ - List of `open issues in 1.0 branch <https://github.com/jankotek/mapdb/labels/1.0>`_.
 
 
 Version 1.0.7 (2015-02-19)
