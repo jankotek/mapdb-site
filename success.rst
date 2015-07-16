@@ -1,4 +1,4 @@
-Success Stories
+Who is using MapDB
 =============================
 
 See who is using MapDB and what they sey about it.
