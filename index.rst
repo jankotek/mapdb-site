@@ -1,15 +1,15 @@
 MapDB
 =================================
 
-MapDB is embedded database engine. It provides java collections backed by disk or memory database store.
-MapDB has excellent performance comparable to `java.util.HashMap` and other collections, but is not limited by GC.
-It is also very flexible engine with many storage backend, cache algorithms,  and so on.
-And finally MapDB is pure-java single 400K JAR and only depends on JRE 6+ or Android 2.1+.
+MapDB is embedded database engine. It provides Maps and other collections backed by disk or memory database store.
+It offers excellent performance comparable to java collections, but is not limited by Garbage Collection overhead.
+It is also full database engine with storage backends, transactions, cache algorithms, expiration and many other options.
+MapDB is very easy to use. It is pure-java single 500K JAR and only depends on JRE 6+ or Android 2.1+.
+It is also very flexible, it exposes many low level optimizations, without sacrificing usability,
 
-MapDB development is sponsored by `CodeFutures Corporation <http://codefutures.com/>`__.
-It is a leading supplier of database performance
-tools that reduce the time and effort required to develop database applications and dramatically increase deployed database
-scalability and performance. MapDB author works for CodeFutures on `next generation distributed database <http://codefutures.com/agildata/>`__.
+MapDB is free as a beer under **Apache 2 license** with no strings attached. There is active community on
+`Github <https://github.com/jankotek/mapdb>`__. MapDB is sponsored by `consulting services <mailto:jan@kotek.net>`__.
+
 
 News
 ----
@@ -62,8 +62,18 @@ Add `maven dependency <http://mvnrepository.com/artifact/org.mapdb/mapdb>`_:
  <dependency>
     <groupId>org.mapdb</groupId>
     <artifactId>mapdb</artifactId>
-    <version>1.0.7</version>
+    <version>1.0.8</version>
  </dependency>
+
+There is also newer and faster 2.0-beta (replace X with current version):
+
+.. code:: xml
+
+ <dependency>
+    <groupId>org.mapdb</groupId>
+    <artifactId>mapdb</artifactId>
+    <version>2.0-betaX</version>
+ </dependency
 
 And simple in-memory example:
 
@@ -115,13 +125,13 @@ First please try usual search, read documentation and Frequently Asked Questions
     doc/index
     faq
 
+For general questions there is `mailing list <https://groups.google.com/forum/#!forum/mapdb>`_.
+You may subscribe without GMail account by `sending email <mailto:mapdb+subscribe@googlegroups.com>`_.
 
-For general questions there is `mailing list <https://groups.google.com/forum/#!forum/mapdb>`_. You may subscribe without GMail account by `sending email <mailto:mapdb+subscribe@googlegroups.com>`_.
+Bug reports are hosted on `Github <https://github.com/jankotek/mapdb/issues>`_.
 
-Bug reports are hosted on `Github <https://github.com/jankotek/MapDB/issues>`_.
+Finally there are `consulting services <mailto:jan@kotek.net>`_ for MapDB.
 
-Finally last option is to `contact me directly <mailto:jan(at)kotek.net>`_. Unless you mark your mail as private,
-I reserve right to forward technical questions and answers into mailing-list.
-
-I usually respond to non-paying users within a few days. Paid support and consulting is provided by
-`CodeFutures <http://codefutures.com/mapdb>`__ (or contact me directly).
+I usually respond to non-paying users within a few days via email.
+Paid customers get faster response times with optional video-conferences.
+I am located in Europe, but usually work late evenings.
