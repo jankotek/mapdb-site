@@ -394,3 +394,17 @@ div.viewcode-block:target {
     border-top: 1px solid #ac9;
     border-bottom: 1px solid #ac9;
 }
+
+em {
+  font-style: normal;
+}
+
+code.xref, a code {
+  background-color: transparent;
+  font-weight: normal;
+  font-family: 'Open Sans', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif;
+}
+
+*[role="note"] {
+    display: none;
+}
