@@ -117,7 +117,8 @@ Documentation
 Support
 --------------
 
-First please try usual search, read documentation and Frequently Asked Questions:
+MapDB is sponsored by `consulting services <mailto:jan@kotek.net>`_.
+There is also free documentation and forums:
 
 .. toctree::
     :maxdepth: 2
@@ -129,8 +130,6 @@ For general questions there is `mailing list <https://groups.google.com/forum/#!
 You may subscribe without GMail account by `sending email <mailto:mapdb+subscribe@googlegroups.com>`_.
 
 Bug reports are hosted on `Github <https://github.com/jankotek/mapdb/issues>`_.
-
-Finally there are `consulting services <mailto:jan@kotek.net>`_ for MapDB.
 
 I usually respond to non-paying users within a few days via email.
 Paid customers get faster response times with optional video-conferences.
