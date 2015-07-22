@@ -39,7 +39,7 @@ Michael Rose, Senior Platform Engineer, `FullContact <http://www.fullcontact.com
 OpenStreet map import
 -----------------------
 
- MapDB is great product. Today I finished importing file planet.osm.pbf from OpenStreetMap project that is ~27GB huge. All data after import with spatial index and simple search index by names took only ~60GB. The best thing is that it only took 3.5 hours!!!!
+MapDB is great product. Today I finished importing file planet.osm.pbf from OpenStreetMap project that is ~27GB huge. All data after import with spatial index and simple search index by names took only ~60GB. The best thing is that it only took 3.5 hours!!!!
 
 Configuration: pre MapDB 2.0 alpha 1, Java 8 x86_64, Xmx: ~5GB, SSD disk, CPU up to 4 cores
 
