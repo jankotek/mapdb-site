@@ -62,3 +62,10 @@ for its street and public transport schedule import step.
 
 `Andrew Byrd <https://groups.google.com/forum/#!msg/mapdb/EaU4vV7Gyhk/tmjYVvZa3GEJ>`_
 
+
+Norconex
+--------------
+
+I am glad to have discovered this ultra-fast Java Map implementation that scales linearly, is not limited by JVM memory, and persists to disk as you write to it.  For an embedded key/value storage solution, MapDB tops the list for being so efficient and easy to use. It has been used as the default URL storage mechanism for Norconex Collectors for a few years now.
+
+Pascal Essiembre - President at `Norconex <http://www.norconex.com>`_
