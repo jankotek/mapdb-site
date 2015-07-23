@@ -2,6 +2,26 @@ Changelog for 2.X releases
 ============================
 
 
+Version 2.0-beta3 (2015-07-23)
+-----------------------------------
+
+Bug fix in Write Ahead Log. Added file locking. Crash recovery improved but still needs more testing.
+Not sure if disk compaction and commits works on Windows with mmap files.
+
+Changes
+-----------
+
+- Fixed issue in Write-Ahead-Log. Single record modified by many commit would not be persisted after full replay.
+
+- Added file locking to prevent multiple processes opening the same store. By default it uses ``FileChannel.lock()``
+  There are two new options: ``DBMaker.fileLockDisable()`` to disable locking, and ``
+
+- many new stress tests
+
+- Fixed: StoreAppend.get() throws ``NullPointerException`` with transaction disabled.
+
+- More changes into mmap files. Improve handling in case of low-disk space.
+
 Version 2.0-beta2 (2015-07-09)
 -------------------------------------
 Lot of bugfixing. Cleaner Hack for mmap files is disabled now. It is recommended **not to use mmap files on Windows
