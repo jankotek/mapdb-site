@@ -7,9 +7,9 @@ To compile install newest Sphinx, version bundled with Ubuntu 14.04 is too old:
 
 Documentation uses some files from mapdb. So checkout source repository to ../mapdb
 
-To generate PDF one has to install huge latex package, it has about 1GB with all dependencies/
+To generate PDF one has to install texlive packages.
 
-    sudo apt-get install texlive-full
+    sudo apt-get install texlive-latex-base texlive-fonts-recommended texlive-latex-extra
 
 Than run
 
