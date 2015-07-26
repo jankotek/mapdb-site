@@ -9,7 +9,6 @@ Bug fix in Write Ahead Log. Added file locking. Crash recovery improved but stil
 Not sure if disk compaction and commits works on Windows with mmap files.
 
 Changes
------------
 
 - Fixed issue in Write-Ahead-Log. Single record modified by many commit would not be persisted after full replay.
 
