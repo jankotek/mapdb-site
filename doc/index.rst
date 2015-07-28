@@ -5,7 +5,7 @@ MapDB Manual
    foreword
    getting-started
    db-and-dbmaker
-   durability-versus-speed
+   performance
    caches
    btreemap
    htreemap

@@ -1,25 +1,25 @@
 DB and DBMaker
 ==============
 
-MapDB is a set of loosely coupled components. One could instantiate components
-manually with contructors and parameters. To make things easier there are
-two factory classes to do: ``DBMaker`` and ``DB``. They use
-maker (builder) pattern, so most configuration options are quickly
+MapDB is a set of coupled components.
+To hold things together there are two classes: ``DBMaker`` and ``DB``.
+They use maker (builder) pattern, so most configuration options are quickly
 available via code assistant in IDE.
 
 `DBMaker <http://www.mapdb.org/apidocs/org/mapdb/DBMaker.html>`__ handles database
 configuration, creation and opening. MapDB has several modes and
 configuration options. Most of those can be set using this class.
 
-`DB <http://www.mapdb.org/apidocs/org/mapdb/DB.html>`__ represents opened database (or single
-transaction session). It creates and opens collections . It also handles
-transaction with methods such as ``commit()``, ``rollback()`` and
+`DB <http://www.mapdb.org/apidocs/org/mapdb/DB.html>`__
+represents opened database (or single transaction session).
+It creates and opens collections . It also handles
+db lifecycle with methods such as ``commit()``, ``rollback()`` and
 ``close()``.
 
 To open (or create) a store use one of ``DBMaker.xxxDB()`` static
 methods. MapDB has more formats and modes, each ``xxxDB()`` uses
 different mode: ``memoryDB()`` opens in-memory database backed by
-``byte[]``, ``sppendFileDB()`` opens db which uses append-only log
+``byte[]``, ``appendFileDB()`` opens db which uses append-only log
 files and so on.
 
 ``xxxDB()`` method is followed by configuration options and ``make()``
@@ -48,8 +48,8 @@ An example:
     :dedent: 8
 
 ``xxxCreate(String)`` takes the name and creates a new collection with customized
-settings. Specialized serializers, node size, entry compression and so
-on affect performance a lot and they are customizable here.
+settings. Specialized serializers, node size, entry compression and other options
+are customizable here.
 
 .. literalinclude:: ../../mapdb/src/test/java/doc/dbmaker_atomicvar.java
     :start-after: //a
@@ -57,9 +57,9 @@ on affect performance a lot and they are customizable here.
     :language: java
     :dedent: 8
 
-Some ``create`` method may use builder style configuration. In that case
-you may finish with two methods: ``make()`` creates a new collection and if a
-collection with the given name already exists, it throws an exception.
+Most ``create`` methods use builder style configuration. In that case
+you may finish with two methods: ``make()`` creates a new collection. If a
+collection with the given name already exists, ``make()`` throws an exception.
 Method ``makerOrGet()`` is the same, except if a collection already exists,
 it does not fail, but returns the existing collection.
 
@@ -106,4 +106,3 @@ closes one transaction, but  storage remains open by ``TxMaker``:
     :language: java
     :dedent: 8
 
-TODO snapshots and native snapshots
