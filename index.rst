@@ -14,6 +14,9 @@ MapDB is free under **Apache 2 license** with no strings attached. There is acti
 News
 ----
 
+-  2015-08-03 `MapDB 2.0-beta4 <http://www.mapdb.org/changelog.html#version-2-0-beta4-2015-08-04>`__ released.
+   Improvements in crash recovery. Reworked HTreeMap expiration based on store size. Add store allocation options.
+
 -  2015-07-23 `MapDB 2.0-beta3 <http://www.mapdb.org/changelog.html#version-2-0-beta3-2015-07-23>`__ released.
    Improve crash recovery. Add file locking.
 

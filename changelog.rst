@@ -2,13 +2,38 @@ Changelog for 2.X releases
 ============================
 
 
+Version 2.0-beta4 (2015-08-03)
+-----------------------------------
+
+Improvements in crash recovery. Reworked HTreeMap expiration based on store size. Add store allocation options.
+
+Changes:
+
+- Improved crash recovery with mmap files.
+
+- Store now reports free space correctly.
+
+- HTreeMap expiration based on maximal storage size now works much better. Checkout
+  `example <https://github.com/jankotek/mapdb/blob/master/src/test/java/examples/CacheOffHeapAdvanced.java>`_
+  for details.
+
+- Add ``DBMaker.allocateStartSize()`` and ``DBMaker.allocateIncrement()`` options to control initial store size
+  and how store size increments.
+
+- StoreDirect and StoreWAL had bug within compaction. That is now fixed.
+
+- Optimize RandomAccessFile and mmap file Volumes. IO should be bit faster.
+
+- Fixed POJO serialization on Android 4.2+ devices.
+
+
 Version 2.0-beta3 (2015-07-23)
 -----------------------------------
 
 Bug fix in Write Ahead Log. Added file locking. Crash recovery improved but still needs more testing.
 Not sure if disk compaction and commits works on Windows with mmap files.
 
-Changes
+Changes:
 
 - Fixed issue in Write-Ahead-Log. Single record modified by many commit would not be persisted after full replay.
 
