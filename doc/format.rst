@@ -271,3 +271,46 @@ to make space for parity bits at end.
 8) Current transaction is valid. Start new transaction
 
 9) Current transaction is invalid. Rollback all changes since end of previous transaction. Start new transaction
+
+
+Backup format
+---------------
+
+This format is used for backups. Header contains metadata such as timestamp and checksums.
+Payload is stream of recids and binary data.
+There are two major usages: full backups and incremental backups. Both usages
+share the same format.
+
+This definition operates with 'timestamp', but definition here is slightly modified.
+In here timestamp is number of milliseconds since epoch, but it could also be
+last backup timestamp plus one, whatever is higher.
+
+Backup format has following header:
+
+1) 2 bytes of file header
+
+2) 2 bytes of version info
+
+3) 4 bytes of CRC32 checksum of entire file starting at 8th byte. Can be optionally zero, if backup checksum is disabled
+
+4) 8 bytes of Feature Flags
+
+5) 8 bytes is file size, or zero if this file was not closed yet. This could serve as file seal to ensure correct sync.
+
+6) 8 bytes timestamp of time when backup was taken
+
+7) 8 bytes timestamp of previous backup if this is incremental backup, or zero if this is full backup
+
+Header is 40 bytes long. It is followed by stream of recids and data:
+
+1) recid in packed form. Parity 3+shift, or parity 16+shift if checksums are enabled. It is zero at EOF
+
+2) size of record plus one. Zero value indicates null record. Parity 1+shift, or parity 16+shuft if checksums are enabled.
+
+3) followed by record data of size. Checksum is part of data, so it is not needed here, even if checksums are enabled
+
+End of file is indicated by two things:
+
+1) there is file size field in header
+
+2) last recid is zero.
