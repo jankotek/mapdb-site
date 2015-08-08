@@ -69,3 +69,25 @@ Norconex
 I am glad to have discovered this ultra-fast Java Map implementation that scales linearly, is not limited by JVM memory, and persists to disk as you write to it.  For an embedded key/value storage solution, MapDB tops the list for being so efficient and easy to use. It has been used as the default URL storage mechanism for Norconex Collectors for a few years now.
 
 Pascal Essiembre - President at `Norconex <http://www.norconex.com>`_
+
+
+bliss
+-------
+
+Our app uses MapDB as a key-value store. We originally started with JDBM
+back in 2009 and made the port to MapDB in 2015.
+
+The main reason I chose MapDB is because I dislike the impedance mismatch
+of trying to force a Java object graph into a relational database. Not
+having any particular need for a relational database, I decided a key-value
+store storing Java objects is a nicer fit. MapDB appears very performant
+under highly concurrent loads. I like how the dependencies are basically
+zero, and the code itself is very concise, which helps when you are trying
+to work out how it works.
+
+Our application is downloadable software, and MapDB is used to write to the
+user's local hard drive. We have around 500,000 installations, so we know
+that MapDB works well on a wide variety of OSes and hardware, from desktops
+to NASes and music servers.
+
+Dan Gravell - `bliss <http://www.blisshq.com/>`_
