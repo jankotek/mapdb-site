@@ -304,7 +304,7 @@ Backup format has following header:
 Header is 40 bytes long. It is followed by stream of recids and data:
 
 1) recid in packed form. Parity 3+shift, or parity 16+shift if checksums are enabled. It is zero at EOF
-
+`
 2) size of record plus one. Zero value indicates null record. Parity 1+shift, or parity 16+shift if checksums are enabled.
 
 3) followed by record data of size. Checksum is part of data, so it is not needed here, even if checksums are enabled

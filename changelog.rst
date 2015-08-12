@@ -2,6 +2,26 @@ Changelog for 2.X releases
 ============================
 
 
+2.0 beta5 released (2015-08-12)
+---------------------------------
+
+.. post:: 2015-08-12
+   :tags: release
+   :author: Jan
+
+Added incremental backups. Less fragmentation. Custom class loaders.
+
+Changes:
+
+- MapDB now has full and incremental backups. Checkout examples for details:
+  `full <https://github.com/jankotek/mapdb/blob/master/src/test/java/examples/Backup.java>`_ and
+  `incremental <https://github.com/jankotek/mapdb/blob/master/src/test/java/examples/Backup_Incremental.java>`_
+
+- Fixed `#555 <https://github.com/jankotek/mapdb/issues/555>`_. Class Loader used by POJO serialization is now customizable.
+  Checkout ``DBMaker.serializerClassLoader()`` and ``DBMaker.serializerRegisterClass()`` methods
+
+- Reuse recid is now enabled by default. This causes smaller fragmentation.
+
 Version 2.0-beta4 (2015-08-03)
 -----------------------------------
 

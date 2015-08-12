@@ -8,11 +8,13 @@ MapDB is very easy to use. It is a pure-java 500K JAR and only depends on JRE 6+
 It is also very flexible, it exposes many low level optimizations, without sacrificing usability,
 
 MapDB is free under **Apache 2 license** with no strings attached. There is active community on
-`Github <https://github.com/jankotek/mapdb>`__. MapDB is sponsored by `consulting services <mailto:jan@kotek.net>`__.
-
+`Github <https://github.com/jankotek/mapdb>`__. MapDB is sponsored by `consulting services <http://www.kotek.net/consulting/>`__.
 
 News
 ----
+.. postlist:: 5
+   :excerpts:
+   :list-style: circle
 
 -  2015-08-03 `MapDB 2.0-beta4 <http://www.mapdb.org/changelog.html#version-2-0-beta4-2015-08-03>`__ released.
    Improvements in crash recovery. Reworked HTreeMap expiration based on store size. Add store allocation options.
@@ -109,7 +111,7 @@ Documentation
 Support
 --------------
 
-MapDB is sponsored by `consulting services <mailto:jan@kotek.net>`_.
+MapDB is sponsored by `consulting services <http://www.kotek.net/consulting/>`_.
 There is also free documentation and forums:
 
 .. toctree::
