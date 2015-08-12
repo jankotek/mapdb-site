@@ -91,3 +91,12 @@ that MapDB works well on a wide variety of OSes and hardware, from desktops
 to NASes and music servers.
 
 Dan Gravell - `bliss <http://www.blisshq.com/>`_
+
+GigaSpaces
+---------------
+
+XAP (memory data grid) is using MapDB, an embedded database engine which provides concurrent Maps, Sets and
+Queues backed by disk storage or off-heap memory. When writing an object to the space,
+its indexed data maintained on-heap and it’s raw data is stored on off-heap.
+
+`XAP manual <http://docs.gigaspaces.com/xap102adm/memoryxtend-ohr.html>`_
