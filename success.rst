@@ -1,9 +1,7 @@
 Who is using MapDB
 =============================
 
-See who is using MapDB and what they sey about it.
-
-MapDB started under name JDBM in 1999. Current MapDB 2 is fifth generation.
+See who is using MapDB and what they say about it.
 
 ModusP
 ----------
