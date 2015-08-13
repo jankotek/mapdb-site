@@ -2,8 +2,8 @@ Foreword
 =========
 
 MapDB is an embedded database engine for java. It provides collections backed by on-disk or in-memory storage.
-It is flexible, simple and free under Apache 2 license. MapDB is extremely fast, as in-memory mode
-rivals on-heap ``java.util`` collections and on-disk mode outperforms databases written in C. And it has several
+It is flexible, simple and free under Apache 2 license. MapDB is extremely fast, it
+in-memory  mode rivals ``java.util`` collections and on-disk mode outperforms databases written in C. And it has several
 configuration options from regular ACID transactions to very fast direct storage.
 
 MapDB started in 2001 under the name JDBM. The current MapDB2 is its 5th generation.
