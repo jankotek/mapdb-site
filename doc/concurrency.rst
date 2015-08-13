@@ -6,7 +6,7 @@ Reads should be linearly scalable without limitations.
 Writes should scale linearly up to 4 CPU cores,  with a peak around 6 cores.
 Greater write scalability is possible with a sharding or experimental memory allocator.
 
-However MapDB design is relatively simple. There are global locks and stop-word states.
+However MapDB design is relatively simple. There are global locks and stop-the-world states.
 It is also flexible so it can be tuned well into most situations and
 performance / safety compromises.
 

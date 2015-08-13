@@ -1,7 +1,7 @@
 MapDB
 =================================
 
-MapDB is embedded database engine. It provides Maps and other collections backed by disk or memory storage.
+MapDB is an embedded database engine. It provides Maps and other collections backed by disk or memory storage.
 It offers excellent performance comparable to java collections, but is not limited by GC overhead.
 It is also a full database engine with storage backends, transactions, cache algorithms, expiration and many other options.
 MapDB is very easy to use. It is a pure-java 500K JAR and only depends on JRE 6+ or Android 2.1+.
