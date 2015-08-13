@@ -9,4 +9,4 @@ helper
 *.iml
 *.ipr
 *.iws
-.doctree
+.doctrees
