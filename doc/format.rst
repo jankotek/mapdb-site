@@ -314,3 +314,37 @@ End of file is indicated by two things:
 1) there is file size field in header
 
 2) last recid is zero.
+
+
+Archive format
+--------------------
+
+Archive format is readonly space efficient format. Unlike backups it can be still queried.
+It does not preserve RECID layout, so it can not be used for direct backups,
+but must be created using Data Pump.
+
+Non-index is special type of storage format which does not have index table. There is no mapping
+between recid and physical offset in file. Recid if also the physical offset within file.
+This format is very space efficient, but readonly. It can be created using Data Pump.
+
+1) 2 bytes of file header
+
+2) 2 bytes of version info
+
+3) 4 bytes of CRC32 checksum of entire file starting at 8th byte. Can be optionally zero.
+
+4) 8 bytes of Feature Flags
+
+5) 8 bytes of file size. Parity 4+shift
+
+6) 8x8 bytes reserved for future use
+
+6) 7x8 bytes for reserved recids. Those recids are required, so this is tiny version of index table. Value is offset, parity4+shift
+
+This is followed by physical records.
+Each record starts with packed record size (parity1+shift),
+Actual record size is size-1, zero size in this case indicates null record,
+size 1 indicates empty record (zero len).
+Packed size is followed by record data.
+
+There is no EOF mark.
