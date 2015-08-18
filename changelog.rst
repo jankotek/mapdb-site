@@ -2,6 +2,57 @@ Changelog for 2.X releases
 ============================
 
 
+2.0-beta6 released (2015-08-18)
+---------------------------------
+
+.. post:: 2015-08-18
+   :tags: release
+   :author: Jan
+
+There is **storage format change**: array hashing has changed. If you use any array such as ``Object[]``, ``byte[]``,
+``long[]``, etc... as key in ``HashMap`` it is not readable in new version.
+
+Hashing in Java is broken. ``Arrays.hash()`` and ``String.hashCode()`` returns too many collisions.
+This version replaces Java hashing with XXHash and other improved algorithms.
+
+This version also fixes number of bugs. ``BTreeMap`` with ``valuesOutsideNodesEnable()`` had storage space leak,
+now it uses much less space and is faster with updates.
+
+Changes:
+
+- Hash code calculation has changed in: ``Serializer.OBJECT_ARRAY``, ``Serializer.BYTE_ARRAY``, ``Serializer.BYTE_ARRAY_NOSIZE``,
+  ``Serializer.CHAR_ARRAY``, ``Serializer.INT_ARRAY``, ``Serializer.LONG_ARRAY``, ``Serializer.DOUBLE_ARRAY``,
+  ``Serializer.FLOAT_ARRAY``, ``Serializer.SHORT_ARRAY`` and ``Serializer.RECID_ARRAY``,
+
+- Hash did not changed in ``Serializer.STRING``, it still uses ``String.hashCode()``. But this
+  hash is broken and for HashMap Key Serializer one should use new ``Serializer.STRING_XXHASH``
+
+- XXHash64 hash from LZ4-Java project was integrated into MapDB (Volume, DataIO, UnsafeStuff...). Will be fully utilized in next release
+
+- Some serializers now use Hash Seed. That is better protection from Hash Collision attack.
+
+- There is new experimental ``StoreArchive``. It is faster, uses less space, but only readonly storage.
+  Its not finished, and next release WILL change its storage format. For details checkout
+  `bug report <https://github.com/jankotek/mapdb/issues/93>`_
+
+- Fixed `#403 <https://github.com/jankotek/mapdb/issues/403>`_. BTreeMap: storage space leak with valuesOutsideNodesEnable()
+  Old external values were not deleted on update and removal from BTreeMap. Now this case is much faster on updates
+
+- Fixed `#430 <https://github.com/jankotek/mapdb/issues/430>`_. Fun: Fun.filter should use the comparator of the filtered set.
+
+- Fixed `#546 <https://github.com/jankotek/mapdb/issues/546>`_. Rewrote persistent Serializers in ``DB``. Fixed some warnings.
+
+- Added ``Store.fileLoad()`` to pre-cache file content of mmap files
+
+- Added ``DBMaker.CC()`` to access Compiler Config at runtime.
+
+- Fixed `#385 <https://github.com/jankotek/mapdb/issues/385>`_. Untrusted serializers are now limited and can not read beyong record size.
+
+- Fixed `#556 <https://github.com/jankotek/mapdb/issues/556>`_. CircularQueue fails to take 1 element if queue is of size 4 and not full.
+
+- Started work on BTreeMap online compaction, no working code yet. See
+  `#545 <https://github.com/jankotek/mapdb/issues/545>`_ and `#97 <https://github.com/jankotek/mapdb/issues/97>`_
+
 2.0 beta5 released (2015-08-12)
 ---------------------------------
 
