@@ -103,5 +103,9 @@ Here is a list of the most common usage errors and things to avoid:
 - MapDB does not run compaction on the background. You need to call
   ``DB.compact()`` from time to time.
 
+- MapDB file storage can be only opened by one user at time.
+  File lock should prevent file being used multiple times.
+  But if file lock fails to prevent it, the file will become corrupted when opened (and written into)
+  by multiple users.
 
 
