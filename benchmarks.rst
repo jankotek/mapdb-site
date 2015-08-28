@@ -30,7 +30,7 @@ There are six maps in test. All tests work on Map with 100 million entries, ``Lo
 ``ConcurrentSkipListMap`` is concurrent version of ``java.util.TreeMap`` bundled with Java.
 
 ``HTreeMap`` is concurrent ``HashMap`` implementation from MapDB. It is optimized for bigger keys and large number of entries.
-It has some nice features such as entry expiration with TTL or maximal size
+It has some nice features such as entry expiration with TTL or maximal size.
 
 ``BTreeMap`` is concurrent ``TreeMap`` implementation from MapDB. It is optimized for minimal space usage and for small keys.
 It has specialized keys (for example ``Long`` key is stored as primitive ``long``) and other nice features.
@@ -58,7 +58,7 @@ Small objects were chosen to better illustrate space overhead of internal Map st
 Offheap BTreeMap has very impressive result thanks to Key Delta Compression. It serializes key array by only storing
 differences between neighbour keys. There is no trick here, just lot of optimizations.
 Delta Compression have almost zero overhead and Map is modifiable with reasonable performance.
-Also similar technique is here for Strings, Arrays etc,
+Also similar technique is here for Strings, Arrays...
 We could save another 20% of space by using read-only Archive storage.
 
 .. centered:: **The same graph, but without BTreeMap_offheap**
