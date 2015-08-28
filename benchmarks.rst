@@ -18,7 +18,7 @@ It would be easy to show MapDB as much faster, by increasing Map size.
 
 Benchmark source is in `Github repo <https://github.com/jankotek/mapdb-benchmarks>`_.
 Please send Pull Request if you have improvements.
-All test ran on 64bit JDK8.
+All tests ran on 64bit JDK8.
 
 Maps
 ~~~~~~~~~~~~~~
