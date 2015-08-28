@@ -61,7 +61,7 @@ Delta Compression have almost zero overhead and Map is modifiable with reasonabl
 Also similar technique is here for Strings, Arrays etc,
 We could save another 20% of space by using read-only Archive storage.
 
-.. centered:: **Same graph, but without BTreeMap_offheap**
+.. centered:: **The same graph, but without BTreeMap_offheap**
 .. image:: res/InMemorySpaceUsage2.png
 
 This chart has BTreeMap_offheap removed to better illustrate difference between remaining five collections.
