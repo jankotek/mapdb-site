@@ -2,6 +2,49 @@ Changelog for 2.X releases
 ============================
 
 
+2.0-beta6 released (2015-09-18)
+---------------------------------
+
+.. post:: 2015-09-18
+   :tags: release
+   :author: Jan
+
+There is **storage format change**: ``TreeSet`` has different format. And ``byte[]`` used as key in BTreeMap
+has format change due to changed comparator.
+
+Changes:
+
+- ``TreeSet`` is faster and more space efficient, but that causes breaking change in storage format.
+
+- ``Fun.BYTE_ARRAY_COMPARATOR`` comparator treated negative byte as smaller than positive byte. New comparator treats
+  content of ``byte[]`` as unsigned, so 0xFF is bigger than 0x0F. Needed for better compatibility and string handling.
+  This causes breaking change if ``byte[]`` is used as a key in sorted map/set.
+
+- Fix `#561 <https://github.com/jankotek/mapdb/issues/561>`_, queues fails after compaction, when their preallocated recid disappears
+
+- Fix `#562 <https://github.com/jankotek/mapdb/issues/562>`_, BTreeMap/HTreeMap: make KeySet public and add sizeLong() method.
+
+- Fix `#468 <https://github.com/jankotek/mapdb/issues/562>`_, Queues: NPE on createCircularQueue
+
+- Fix `#541 <https://github.com/jankotek/mapdb/issues/541>`_, BTreeMap, HTreeMap: make maps and sets serializable using java serialization.
+
+- Modify POJO serialization to handle object ``writeReplace()`` method. See `#495 <https://github.com/jankotek/mapdb/issues/495>`_
+
+- Performance: HTreeMap code sliced into several smaller methods, more JIT friendly.
+
+- BTreeMap: fix composite keys, fix ``TreeMap_Composite_Key`` example
+
+- TxEngine: fix null handling in CAS.
+
+- DBMaker: fileMmapEnableIfSupported() does not support 64bit Windows anymore
+
+- StoreWAL: compaction broken, remove compaction if transactions are enabled.
+
+- Volume: fix clear method
+
+- Fix `#581 <https://github.com/jankotek/mapdb/issues/581>`_, BTreeMap: get() did not followed link, was broken under concurrent update.
+
+
 2.0-beta6 released (2015-08-18)
 ---------------------------------
 
