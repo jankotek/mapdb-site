@@ -76,7 +76,7 @@ Head
 ~~~~~~~
 Header in StoreDirect format is composed by number of 8 byte longs:
 
-0) **header** and **head checksum**. Checksum is CRC of entire HEAD and is recalculated on
+0) **header** and **head checksum**. Checksum is XXHash of entire head (from offset 8) and is recalculated on
     every sync/close. Invalid checksum means that store was not closed correctly,
     is very likely corrupted and MapDB should fail to open it. See ``StoreDirect.headChecksum()``
 
@@ -230,7 +230,7 @@ Type of instructions:
 1) **write long**. Is followed by 8 bytes value and 6 byte offset. Checksum is ``(bit count from 15 bytes + 1)&31``
 
 2) **write byte[]**. Is followed by 2 bytes size, 6 byte offset and data itself.
-    Checksum is ``(bit parity from 9 bytes + 1 + sum(byte[]))&31``
+    Checksum is ``(bit count from size + bit count from offset + 1 )&31``
 
 3) **skip N bytes**. Is followed by 3 bytes value, number of bytes to skip .
     Used so data do not overlap page size. Checksum is ``(bit count from 3 bytes + 1)&31``

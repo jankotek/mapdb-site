@@ -105,6 +105,7 @@ Documentation
     features
     success
     contents
+    blog/index
 
 
 
