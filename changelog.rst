@@ -24,7 +24,7 @@ Changes:
 
 - Fix `#562 <https://github.com/jankotek/mapdb/issues/562>`_, BTreeMap/HTreeMap: make KeySet public and add sizeLong() method.
 
-- Fix `#468 <https://github.com/jankotek/mapdb/issues/562>`_, Queues: NPE on createCircularQueue
+- Fix `#468 <https://github.com/jankotek/mapdb/issues/468>`_, Queues: NPE on createCircularQueue
 
 - Fix `#541 <https://github.com/jankotek/mapdb/issues/541>`_, BTreeMap, HTreeMap: make maps and sets serializable using java serialization.
 
