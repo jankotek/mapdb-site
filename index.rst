@@ -105,8 +105,8 @@ Documentation
     features
     success
     contents
-    blog/index
 
+- `Blog </blog.html>`_
 
 
 Support
