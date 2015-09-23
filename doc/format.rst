@@ -82,9 +82,9 @@ Header in StoreDirect format is composed by number of 8 byte longs:
 
 1) bit field indicating **format features**. IE what type of checksums are enabled, compression enabled etc...
 
-2) **store size** pointer to last allocated page inside store. Parity 16.
+2) **store size** pointer to last allocated page inside store. Parity 4.
 
-3) **max recid** maximal allocated recid. Shifted <<<3 for parity 3
+3) **max recid** maximal allocated recid. Parity 4 with shift.
 
 4) **index page registry** points to page with list of index pages. Parity 16.
 
