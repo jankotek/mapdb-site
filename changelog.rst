@@ -1,6 +1,23 @@
 Changelog for 2.X releases
 ============================
 
+2.0-beta8 released (2015-09-28)
+---------------------------------
+
+.. post:: 2015-09-28
+   :tags: release
+   :author: Jan
+
+There is **breaking storage format change**. This version will fail to open store created by 2.0-beta7
+
+Changes:
+
+- Breaking storage format change
+
+- Fixed random data corruption which was affecting Titan and other users.
+
+- Fixed RandomAccessFile to always fully read ``byte[]``
+
 
 2.0-beta7 released (2015-09-18)
 ---------------------------------
