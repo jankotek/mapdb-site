@@ -237,11 +237,13 @@ Type of instructions:
 
 4) **skip single byte**. Skip single byte in WAL. Checksum is ``bit count from offset & 31``
 
-5) **record**. Is followed by 6 bytes recid, than 4 bytes record size and an record data.
-    Is used in Record format. Size==-2 is tombstone, size==-1 is null record
+5) **record**. Is followed by packed recid, than packed record size and an record data.
+    Real size is +1, 0 indicates null record
     TODO checksum for record inst
 
-6) TODO write two bytes.
+6) **tombstone*. Is followed ba packed recid. . Checksum is ``bit count from offset & 31``
+
+7) **preallocate*. Is followed ba packed recid. . Checksum is ``bit count from offset & 31``
 
 Append Only Store
 --------------------
