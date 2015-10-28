@@ -4,6 +4,7 @@ To compile install newest Sphinx, version bundled with Ubuntu 14.04 is too old:
 
     sudo apt-get install python-pip
     sudo pip install sphinx
+    sudo pip install ablog
 
 Documentation uses some files from mapdb. So checkout source repository to ../mapdb
 
