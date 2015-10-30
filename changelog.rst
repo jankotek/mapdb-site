@@ -1,6 +1,42 @@
 Changelog for 2.X releases
 ============================
 
+2.0-beta10 released (2015-10-30)
+---------------------------------
+
+.. post:: 2015-10-30
+   :tags: release
+   :author: Jan
+
+There is **breaking storage format change**. This version will fail to open store created by 2.0-beta8 and previous versions.
+
+Changes:
+
+- Write Ahead Log was refactored into dedicated class. ``StoreWAL`` and ``StoreAppend`` now share this component.
+
+- WAL rewritten, now uses checksums
+
+- WAL has soft replay, commits will be faster once this feature is fully enabled.
+
+- `StoreWAL`` and ``StoreAppend`` now passes crash resistance test (``kill -9``).
+
+- Fixed unit tests on Windows
+
+- Updated maven plugins and automated release script.
+
+- 4 new release flavours (mapdb-renamed, mapdb-noassert, mapdb-nounsafe, mapdb-debug)
+
+- ``StoreDirect`` long stack uses better compression for longs.
+
+- ``StoreDirect`` improved memory allocator
+
+- Fix #583. HTreeMap valueCreator was used, even if value existed.
+
+2.0-beta9 released (2015-10-30)
+---------------------------------
+
+This release does not exist, number was used to test release script.
+
 2.0-beta8 released (2015-09-28)
 ---------------------------------
 
