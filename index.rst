@@ -1,14 +1,21 @@
-MapDB
+MapDB: Database Engine
 =================================
 
-MapDB is an embedded database engine. It provides Maps and other collections backed by disk or memory storage.
-It offers excellent performance comparable to java collections, but is not limited by GC overhead.
-It is also a full database engine with storage backends, transactions, cache algorithms, expiration and many other options.
-MapDB is very easy to use. It is a pure-java 500K JAR and only depends on JRE 6+ or Android 2.1+.
-It is also very flexible, it exposes many low level optimizations, without sacrificing usability,
+MapDB is an embedded database engine for Java.
+It provides Maps and other collections backed by disk or off-heap memory storage.
+MapDB is free under Apache License.
 
-MapDB is free under **Apache 2 license** with no strings attached. There is active community on
-`Github <https://github.com/jankotek/mapdb>`__. MapDB is sponsored by `consulting services <http://www.kotek.net/consulting/>`__.
+MapDB is not a database, but an engine. It is not complete solution, but set of building blocks
+such as: memory allocators, caches, storages, indexes, transaction wrappers, serializers etc.
+This gives MapDB lot of flexibility and space for performance optimizations.
+Ever wanted off-heap cache with limited size and with disk overflow after expiry? Now its easy.
+
+MapDB also has very user friendly API. In many cases it is drop-in replacement for existing Java classes,
+for example on-heap Map can be replaced with off-heap Map, with just 20 characters.
+It is a pure-java 500K JAR with no dependencies.
+
+There is active community on `Github <https://github.com/jankotek/mapdb>`__. MapDB is sponsored by
+`consulting services <http://www.kotek.net/consulting/>`__.
 
 News
 ----
@@ -16,35 +23,11 @@ News
    :excerpts:
    :list-style: circle
 
--  2015-08-03 `MapDB 2.0-beta4 <http://www.mapdb.org/changelog.html#version-2-0-beta4-2015-08-03>`__ released.
-   Improvements in crash recovery. Reworked HTreeMap expiration based on store size. Add store allocation options.
-
--  2015-07-23 `MapDB 2.0-beta3 <http://www.mapdb.org/changelog.html#version-2-0-beta3-2015-07-23>`__ released.
-   Improve crash recovery. Add file locking.
-
--  2015-07-09 `MapDB 2.0-beta2 <http://www.mapdb.org/changelog.html#version-2-0-beta2-2015-07-09>`__ and
-   `MapDB 1.0.8 <http://www.mapdb.org/changelog.html#version-1-0-8-2015-07-09>`__ released.
-   Fixed JVM crash with mmap files enabled and other bugs.
-
--  2015-06-29 `MapDB 2.0-beta1 released <http://www.mapdb.org/changelog.html>`__.
-   Format and API freeze for MapDB 2.0.
-
 Follow news on `RSS <http://www.mapdb.org/news.xml>`__ \|
 `Mail-List <https://groups.google.com/forum/?fromgroups#!forum/mapdb-news>`__
 \| `Twitter <http://twitter.com/MapDBnews>`__
 
-
-What for?
--------------
-MapDB is great in following situations: TODO links to doc
-
-- In-memory cache with expiration based on time-to-live or maximal size, Redis or EZCache replacement
-- Huge indexes
-- Persistent data model
-- Alternative memory model if you are limited by GC
-
-MapDB is used by number of companies, checkout :doc:`success`
-
+MapDB is used by number of projects, checkout :doc:`success`
 
 Get started
 ------------
@@ -127,5 +110,5 @@ You may subscribe without GMail account by `sending email <mailto:mapdb+subscrib
 Bug reports are hosted on `Github <https://github.com/jankotek/mapdb/issues>`_.
 
 I usually respond to non-paying users within a few days via email.
-Paid customers get faster response times with optional video-conferences.
+Paying customers get faster response times with optional video-conferences.
 I am located in Europe, but usually work late evenings.

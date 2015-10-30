@@ -241,9 +241,9 @@ Type of instructions:
     Real size is +1, 0 indicates null record
     TODO checksum for record inst
 
-6) **tombstone*. Is followed ba packed recid. . Checksum is ``bit count from offset & 31``
+6) **tombstone**. Is followed ba packed recid. . Checksum is ``bit count from offset & 31``
 
-7) **preallocate*. Is followed ba packed recid. . Checksum is ``bit count from offset & 31``
+7) **preallocate**. Is followed ba packed recid. . Checksum is ``bit count from offset & 31``
 
 Append Only Store
 --------------------
