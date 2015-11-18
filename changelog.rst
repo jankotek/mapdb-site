@@ -13,13 +13,11 @@ There are no breaking changes. Fixed data corruption bug and concurrency issue i
 
 Changes:
 
-- ``StoreAppend`` had data corruption issue. Files larger than 16MB would get corrupted. This issue might have affected ``StoreWAL`` as well,
- but it is now fixed for both cases.
+- ``StoreAppend`` had data corruption issue. Files larger than 16MB would get corrupted. This issue might have affected ``StoreWAL`` as well, but it is now fixed for both cases.
 
 - ``StoreAppend`` had race condition. Fixed with temporary hot fix, which lowers performance. Working on profer fix.
 
 - Small API changes and Javadoc fixes for better 1.0 compatibility
-
 
 
 2.0-beta10 released (2015-10-30)
