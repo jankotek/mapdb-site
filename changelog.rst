@@ -2,6 +2,27 @@ Changelog for 2.X releases
 ============================
 
 
+2.0-beta12 released (2015-11-26)
+---------------------------------
+
+.. post:: 2015-11-26
+   :tags: release
+   :author: Jan
+
+There are no breaking changes. Fixed data corruption in large stores.
+
+Changes:
+
+- Fix `#635 <https://github.com/jankotek/mapdb/issues/635>`_: Commit on large store could cause data corruption in index table.
+
+- Fix `#635 <https://github.com/jankotek/mapdb/issues/634>`_: Empty commit with Append store would log warning and could cause data corruption
+
+- Fix `#633 <https://github.com/jankotek/mapdb/issues/633>`_: Compaction on large store fails. (thanks Matthew Schirmer for fixing it)
+
+- DBMaker: add ``fileMmapPreclearDisable()`` option to speedup growth of memory mapped files.
+
+
+
 2.0-beta11 released (2015-11-18)
 ---------------------------------
 
