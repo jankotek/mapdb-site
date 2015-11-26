@@ -15,7 +15,7 @@ Changes:
 
 - Fix `#635 <https://github.com/jankotek/mapdb/issues/635>`_: Commit on large store could cause data corruption in index table.
 
-- Fix `#635 <https://github.com/jankotek/mapdb/issues/634>`_: Empty commit with Append store would log warning and could cause data corruption
+- Fix `#634 <https://github.com/jankotek/mapdb/issues/634>`_: Empty commit with Append store would log warning and could cause data corruption
 
 - Fix `#633 <https://github.com/jankotek/mapdb/issues/633>`_: Compaction on large store fails. (thanks Matthew Schirmer for fixing it)
 
