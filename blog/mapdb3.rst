@@ -1,13 +1,18 @@
 MapDB 3.0
 ===========
 
+.. post:: 2016-01-13
+    :tags: MapDB30 MapDB20 MapDB10
+    :author: Jan
+
+
 I will start with the bad news. Current 2.0 branch needs major redesign. It has bugs, concurrency issues and is slow. I tryed to fix it, but at end I decided to start work on new 3.0 branch. First milestone with HTreeMap will be released in a few days, stable version will be out on March.
 
 There is not going to be stable 2.0 release. There will be another bug fix release for 1.0 and 2.0-beta, after that it will be all about MapDB 3.
 
 I am not really in position to delay stable release any longer, but it has to be done to keep MapDB competitive. Basic concept and design in MapDB is 17 years old (JDBM started in 1999). Over years it got many improvements and is now almost perfect. But it is slow, inflexible, outdated and believe it is a dead-end.
 
-My business is to sell consulting services around MapDB, and I can not delivwr with current 2.0 branch. I need way to improve performance 100x, but with MapDB2 I could deliver at most 20% performance increase. Also writing things like Parallel Compaction in plain Java6 is just pain. I still believe that MapDB idea is solid. It just needs  a bit of reshuffling, to give it an edge and to ensure its bright future.
+My business is to sell consulting services around MapDB, and I can not deliver with current 2.0 branch. I need way to improve performance 100x, but with MapDB2 I could deliver at most 20% performance increase. Also writing things like Parallel Compaction in plain Java6 is just pain. I still believe that MapDB idea is solid. It just needs  a bit of reshuffling, to give it an edge and to ensure its bright future.
 
 Changes in MapDB 3:
 -------------------------
