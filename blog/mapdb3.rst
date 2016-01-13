@@ -6,7 +6,7 @@ MapDB 3.0
     :author: Jan
 
 
-I will start with the bad news. Current 2.0 branch needs major redesign. It has bugs, concurrency issues and is slow. I tryed to fix it, but at end I decided to start work on new 3.0 branch. First milestone with HTreeMap will be released in a few days, stable version will be out on March.
+I will start with the bad news. Current 2.0 branch needs major redesign. It has bugs, concurrency issues and is slow. I decided to start work on new 3.0 branch. First milestone with HTreeMap will be released in a few days, stable version will be out on March.
 
 There is not going to be stable 2.0 release. There will be another bug fix release for 1.0 and 2.0-beta, after that it will be all about MapDB 3.
 
