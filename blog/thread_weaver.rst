@@ -86,7 +86,8 @@ We are quite keen on using Thread Weaver. So we `forked it <https://github.com/j
 and made new `Maven release <http://mvnrepository.com/artifact/org.mapdb/thread-weaver/3.0.mapdb>`_.
 You can use our version with following Maven dependency:
 
-.. code:: java
+.. code:: xml
+
     <dependency>
 	    <groupId>org.mapdb</groupId>
 	    <artifactId>thread-weaver</artifactId>
