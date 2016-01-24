@@ -128,6 +128,7 @@ to increase timeout. However increased timeout caused some breakpoints to fail. 
 that method were never even executed:
 
 .. code::
+
     Caused by: com.google.testing.threadtester.TestTimeoutException: Did not reach Breakpoint(1) @ at beginning of copyAddKeyDir
 	    at com.google.testing.threadtester.AbstractBreakpoint.await(AbstractBreakpoint.java:186)
 	    at com.google.testing.threadtester.ObjectInstrumentationImpl.interleave(ObjectInstrumentationImpl.java:285)
