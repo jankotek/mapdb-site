@@ -69,11 +69,19 @@
 {%- endif %}
 {% endblock %}
 
-{% block content %}
+{%- block content %}
+{%- block sidebar1 %} {# possible location for sidebar #} {% endblock %}
 
-{{ super() }}
+<div class="document">
+    {%- block document %}
+    <div class="documentwrapper">
+        {%- if render_sidebar %}
+        <div class="bodywrapper">
+            {%- endif %}
+            <div class="body" role="main">
+                {% block body %} {% endblock %}
 
-<div id="disqus_thread"></div>
+                <div id="disqus_thread"></div>
 <script>
 
 if(window.location.href.indexOf('/blog/')>-1){
@@ -99,7 +107,19 @@ s.setAttribute('data-timestamp', +new Date());
 
 }
 </script>
-{% endblock %}
+
+            </div>
+            {%- if render_sidebar %}
+        </div>
+        {%- endif %}
+    </div>
+    {%- endblock %}
+
+    {%- block sidebar2 %}{{ sidebar() }}{% endblock %}
+    <div class="clearer"></div>
+</div>
+{%- endblock %}
+
 
 
 
