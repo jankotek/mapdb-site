@@ -13,6 +13,7 @@
 {% block sidebar1 %}{{ sidebar() }}{% endblock %}
 {% block sidebar2 %}{% endblock %}
 
+
 {% block extrahead %}
 {{ super() }}
 
@@ -68,6 +69,10 @@
 {%- endif %}
 {% endblock %}
 
+{% block content %}
+
+{{ super() }}
+
 <div id="disqus_thread"></div>
 <script>
 
@@ -94,6 +99,7 @@ s.setAttribute('data-timestamp', +new Date());
 
 }
 </script>
+{% endblock %}
 
 
 
