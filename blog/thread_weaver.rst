@@ -172,7 +172,7 @@ That is quite difficult with low probability race conditions and corner cases.
 Another practical problem is that issues manifest randomly in non-reproducible way.
 It can be quite difficult to diagnose problem after it manifested in stress tests.
 
-Good framework for concurrent stress testing is `JCStress <http://openjdk.java.net/projects/code-tools/jcstress/>'_.
+Good framework for concurrent stress testing is `JCStress <http://openjdk.java.net/projects/code-tools/jcstress/>`_.
 We are going to use this framework in MapDB soon.
 
 Also MapDB we do one trick to increase chance that race condition will manifest itself.
