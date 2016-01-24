@@ -76,7 +76,7 @@ are executed in parallel in two threads. Code called from those two methods will
 
 
 Our fork & Maven release
------------------------
+--------------------------
 
 Thread Weaver stagnated a bit recently. The most recent commit is over one year old,
 and `last release <http://mvnrepository.com/artifact/com.googlecode.thread-weaver/threadweaver>`_
