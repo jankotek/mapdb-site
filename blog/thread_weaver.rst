@@ -146,8 +146,8 @@ it calls private ``HTreeMap.putInternal(key,value)``. But internal method which 
 
 It is probably possible to make recursive instrumentation work. But we were unable to do it in a reliable way.
 
-We had to bend our code and call ``putInternal`` directly from Unit tests. That means making some internal methods public
-or package protected, adding extra logic etc...
+We had to bend our code and call ``putInternal`` directly from Unit tests. Some internal methods have to be public
+or package protected, there is  extra logic etc...
 
 
 It freezes
