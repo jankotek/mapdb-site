@@ -68,28 +68,6 @@
 {%- endif %}
 {% endblock %}
 
-{% block rootrellink %}
-        <li><a href="{{ pathto('index') }}">Home</a>&nbsp;|</li>
-        <li><a href="{{ pathto('contents') }}">Documentation</a> &raquo;</li>
-{% endblock %}
-
-{% block header %}
-<div class="pageheader">
-  <ul>
-    <li><a href="{{ pathto('index') }}">Home</a></li>
-    <li><a href="{{ pathto('doc/getting-started') }}">Intro</a></li>
-    <li><a href="{{ pathto('doc/index') }}">Docs</a></li>
-    <li><a href="/blog.html">Blog</a></li>
-    <li><a href="https://github.com/jankotek/mapdb">Github</a></li>
-  </ul>
-  <div>
-    <a href="{{ pathto('index') }}">
-      <img src="{{ pathto('_static/logo.png', 1) }}" alt="MapDB" />
-    </a>
-  </div>
-</div>
-{% endblock %}
-
 <div id="disqus_thread"></div>
 <script>
 
@@ -116,3 +94,28 @@ s.setAttribute('data-timestamp', +new Date());
 
 }
 </script>
+
+
+
+{% block rootrellink %}
+        <li><a href="{{ pathto('index') }}">Home</a>&nbsp;|</li>
+        <li><a href="{{ pathto('contents') }}">Documentation</a> &raquo;</li>
+{% endblock %}
+
+{% block header %}
+<div class="pageheader">
+  <ul>
+    <li><a href="{{ pathto('index') }}">Home</a></li>
+    <li><a href="{{ pathto('doc/getting-started') }}">Intro</a></li>
+    <li><a href="{{ pathto('doc/index') }}">Docs</a></li>
+    <li><a href="/blog.html">Blog</a></li>
+    <li><a href="https://github.com/jankotek/mapdb">Github</a></li>
+  </ul>
+  <div>
+    <a href="{{ pathto('index') }}">
+      <img src="{{ pathto('_static/logo.png', 1) }}" alt="MapDB" />
+    </a>
+  </div>
+</div>
+{% endblock %}
+
