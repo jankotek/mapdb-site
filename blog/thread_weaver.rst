@@ -2,11 +2,11 @@ Unit testing multi-threaded code with Thread Weaver
 =====================================================
 
 .. post:: 2016-01-24
-:tags: test concurrency weaver
-        :author: Jan
+    :tags: test concurrency weaver
+    :author: Jan
 
 
-    MapDB uses `Thread Weaver <https://github.com/google/thread-weaver>`_ for verifying multi-threaded code.
+MapDB uses `Thread Weaver <https://github.com/google/thread-weaver>`_ for verifying multi-threaded code.
 It was written by Google developers and has pretty impressive feature. Thread Weaver executes
 code in multiple threads, adds breakpoints into each thread, and pauses thread  execution, until other thread progresses.
 In theory that should catch all race conditions, because all possible combinations of delays are executed and verified.
@@ -87,7 +87,7 @@ and made new `Maven release <http://mvnrepository.com/artifact/org.mapdb/thread-
 You can use our version with following Maven dependency:
 
 .. code:: java
-<dependency>
+    <dependency>
 	    <groupId>org.mapdb</groupId>
 	    <artifactId>thread-weaver</artifactId>
 	    <version>3.0.mapdb</version>
