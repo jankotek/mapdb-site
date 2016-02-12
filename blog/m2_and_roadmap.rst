@@ -25,7 +25,7 @@ Maven dep for 3.0M2:
     <dependency>
 	    <groupId>org.mapdb</groupId>
 	    <artifactId>mapdb</artifactId>
-	    <version>3.0.0-M1</version>
+	    <version>3.0.0-M2</version>
     </dependency>
 
 Code examples are `here <https://github.com/jankotek/mapdb/tree/mapdb3/mapdb-site/src/test/java/doc>`_.
