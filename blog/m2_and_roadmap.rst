@@ -6,7 +6,7 @@ Milestone 2 is out and 3.0 roadmap
     :author: Jan
 
 
-MapDB 3.0 milestone 2 was released today. M1 had basic storage and HTreeMap, 
+MapDB 3.0 milestone 2 was released today.
 M2 adds BTreeMap, Data Pump and new faster SortedTableMap. 
 
 BTreeMap was reimplemented. New version is shorter, more compact 
