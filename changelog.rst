@@ -5,7 +5,7 @@ Changelog for 2.X releases
 2.0-beta13 released (2016-02-21)
 ----------------------------------
 
-.. post:: 2015-11-26
+.. post:: 2016-02-21
    :tags: release
    :author: Jan
 
@@ -359,7 +359,7 @@ Changelog for 1.X releases
 Version 1.0.9 released (2016-02-21)
 -------------------------------------
 
-.. post:: 2015-11-26
+.. post:: 2016-02-21
    :tags: release
    :author: Jan
 
