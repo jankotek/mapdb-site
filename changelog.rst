@@ -9,7 +9,7 @@ Changelog for 2.X releases
    :tags: release
    :author: Jan
 
-Fixed some minor issues. Probably last 2.0 release, 3.0 is comming soon.
+Fixed some minor issues. Probably last 2.0 release, 3.0 is coming soon.
 
 Changes:
 
