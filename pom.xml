@@ -6,11 +6,19 @@
     <groupId>org.mapdb</groupId>
     <artifactId>mapdb-site</artifactId>
     <version>1.0-SNAPSHOT</version>
+
     <properties>
         <kotlin.version>1.0.0</kotlin.version>
         <dokka.version>0.9.4</dokka.version>
 
+        <mapdb.version>3.0.0-M3-SNAPSHOT</mapdb.version>
+
         <maven.deploy.skip>true</maven.deploy.skip>
+
+        <java.target.version>1.8</java.target.version>
+        <java.source.version>1.8</java.source.version>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
 
@@ -18,7 +26,7 @@
         <dependency>
             <groupId>org.mapdb</groupId>
             <artifactId>mapdb</artifactId>
-            <version>${project.version}</version>
+            <version>${mapdb.version}</version>
         </dependency>
 
         <!-- test only dependencies -->
@@ -128,10 +136,6 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.19</version>
                 <configuration>
-                    <parallel>classesAndMethods</parallel>
-                    <threadCount>${threadCount}</threadCount>
-                    <perCoreThreadCount>false</perCoreThreadCount>
-                    <argLine>${argline}</argLine>
 
                     <includes>
                         <include>**/*</include>
