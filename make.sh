@@ -20,4 +20,4 @@ make html
 # create dokka documentation from ../mapdb
 (cd ../mapdb && mvn clean compile dokka:dokka)
 mkdir _build/html/dokka
-mv ../mapdb/target/dokka _build/html/dokka/lattest
+mv ../mapdb/target/dokka _build/html/dokka/latest
