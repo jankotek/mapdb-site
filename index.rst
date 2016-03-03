@@ -61,4 +61,3 @@ Content
 .. toctree::
    format
    success
-   blog/index

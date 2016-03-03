@@ -5,7 +5,7 @@ set -e
 set -o pipefail
 
 # cleanup
-make clean
+ablog clean
 # run maven tests in this project
 mvn clean test
 
@@ -15,9 +15,9 @@ cp doc/_build/latex/MapDB.pdf down/mapdb-manual.pdf
 rm doc/_build -rf
 
 # create html site
-make html
+ablog build
 
 # create dokka documentation from ../mapdb
 (cd ../mapdb && mvn clean compile dokka:dokka)
 mkdir _build/html/dokka
-mv ../mapdb/target/dokka _build/html/dokka/latest
+mv ../mapdb/target/dokka _website/dokka/latest
