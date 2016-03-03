@@ -13,10 +13,8 @@
 {% block sidebar1 %}{{ sidebar() }}{% endblock %}
 {% block sidebar2 %}{% endblock %}
 
-
 {% block extrahead %}
 {{ super() }}
-
 {%- if not embedded %}
     <style type="text/css">
       table.right { float: right; margin-left: 20px; }
@@ -69,58 +67,6 @@
 {%- endif %}
 {% endblock %}
 
-{%- block content %}
-    <div class="document">
-    {%- block document %}
-    <div class="documentwrapper">
-        {%- if render_sidebar %}
-        <div class="bodywrapper">
-            {%- endif %}
-            <div class="body" role="main">
-                {% block body %} {% endblock %}
-
-                <script>
-
-if(window.location.href.indexOf('/blog/')>-1){
-
-document.write('<br><br><br><hr><br><div id="disqus_thread"></div>');
-
-
-/**
-* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
-*/
-/*
-var disqus_config = function () {
-this.page.url = 'http://www.mapdb.org'; // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = 'mapdb'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-
-s.src = '//mapdb.disqus.com/embed.js';
-
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-
-}
-</script>
-
-            </div>
-            {%- if render_sidebar %}
-        </div>
-        {%- endif %}
-    </div>
-    {%- endblock %}
-
-    <div class="clearer"></div>
-    </div>
-{%- endblock %}
-
-
-
 {% block rootrellink %}
         <li><a href="{{ pathto('index') }}">Home</a>&nbsp;|</li>
         <li><a href="{{ pathto('contents') }}">Documentation</a> &raquo;</li>
@@ -142,4 +88,3 @@ s.setAttribute('data-timestamp', +new Date());
   </div>
 </div>
 {% endblock %}
-

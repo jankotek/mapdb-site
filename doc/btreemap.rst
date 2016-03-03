@@ -19,18 +19,18 @@ more specific serializers are  used. To specify the key and value serializer, us
 bellow. There are dozens ready to use serializers available as static
 fields on ``Serializer`` interface:
 
-.. literalinclude:: ../../mapdb/src/test/java/doc/btreemap_serializer.java
+.. literalinclude:: ../src/test/java/doc/btreemap_serializer.java
     :start-after: //a
     :end-before: //z
     :language: java
     :dedent: 8
 
-Another usefull parameter is **size counter**. By default, a BTreeMap does not keep
+Another useful parameter is **size counter**. By default, a BTreeMap does not keep
 track of its size and calling ``map.size()`` requires linear scan to count
 all entries. If you enable size counter, in that case
 ``map.size()`` is instant, but there is some overhead on inserts.
 
-.. literalinclude:: ../../mapdb/src/test/java/doc/btreemap_counter.java
+.. literalinclude:: ../src/test/java/doc/btreemap_counter.java
     :start-after: //a
     :end-before: //z
     :language: java
@@ -42,7 +42,7 @@ A smaller node loads faster, but makes large BTrees deeper and requires more ope
 The default maximal node size is 32 entries and it can be changed in this way:
 
 
-.. literalinclude:: ../../mapdb/src/test/java/doc/btreemap_nodesize.java
+.. literalinclude:: ../src/test/java/doc/btreemap_nodesize.java
     :start-after: //a
     :end-before: //z
     :language: java
@@ -56,7 +56,7 @@ only has a 6 byte recid pointing to the value.
 Large values can also possible be compressed to save space. This example stores places
 node outside BTree leaf nodes and applies compression on each value:
 
-.. literalinclude:: ../../mapdb/src/test/java/doc/btreemap_compressed.java
+.. literalinclude:: ../src/test/java/doc/btreemap_compressed.java
     :start-after: //a
     :end-before: //z
     :language: java
@@ -65,7 +65,7 @@ node outside BTree leaf nodes and applies compression on each value:
 BTreeMap needs to sort its key somehow. By default it relies on ``Comparable`` interface implemented by most Java classes.
 In case this interface is not implemented, a key serializer must be provided. One can for example compare Object arrays:
 
-.. literalinclude:: ../../mapdb/src/test/java/doc/btreemap_object_array.java
+.. literalinclude:: ../src/test/java/doc/btreemap_object_array.java
     :start-after: //a
     :end-before: //z
     :language: java
@@ -74,7 +74,7 @@ In case this interface is not implemented, a key serializer must be provided. On
 Also primitive arrays can be used as keys. One can replace ``String`` by ``byte[]``,which directly leads to better
 performance:
 
-.. literalinclude:: ../../mapdb/src/test/java/doc/btreemap_byte_array.java
+.. literalinclude:: ../src/test/java/doc/btreemap_byte_array.java
     :start-after: //a
     :end-before: //z
     :language: java

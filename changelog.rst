@@ -2,43 +2,6 @@ Changelog for 2.X releases
 ============================
 
 
-2.0-beta13 released (2016-02-21)
-----------------------------------
-
-.. post:: 2016-02-21
-   :tags: release
-   :author: Jan
-
-Fixed some minor issues. Probably last 2.0 release, 3.0 is coming soon.
-
-Changes:
-
-- Fix #656, HTreeMap.isEmpty() broken with counter enabled.
-
-- SerializerPojo#registerClass cannot handle interfaces: NullPointerException in getFields. Fix #653
-
-- StoreWAL: handle case when write cache becomes inconsistent if commit dies.
-
-- StoreCached: fix NPE if compaction is called with dirty write cache
-
-- BTreeKeySerializers are now trusted. Performance improvement. #636
-
-- StoreDirect: remove parallel compaction
-
-- StoreCached: fix head initialization after compaction
-
-- WAL: do not log exception, just warning in case of incomplete WAL
-
-- Serializer; remove broken ZIGZAG serializers
-
-- Fix #621. Use special engine, which removes file on close.
-
-- Maps: add modification listeners that fire after locks have been released #613
-
-- Serializer: compression wrappers had incorrect equal and hashCode
-
-- Spurious NullPointerException when closing soft/weak cache , fix #648
-
 2.0-beta12 released (2015-11-26)
 ---------------------------------
 
@@ -354,30 +317,6 @@ Last unstable version before beta release.
 
 Changelog for 1.X releases
 ===========================
-
-
-Version 1.0.9 released (2016-02-21)
--------------------------------------
-
-.. post:: 2016-02-21
-   :tags: release
-   :author: Jan
-
-No breaking changes. Fixed some minor issues. Probably last 1.0 release, 3.0 is coming soon.
-
-Changes:
-
- - BTreeMap: found a race condition. Not going to fix. #664
-
- - SerializerPojo: Additional way to load class from ClassLoader. Fix #620
-
- - Volume: check against null value before forcing updates to be written #639
-
- - Maps: Backport sizeLong() methods to 1.x
-
- - SerializerPojo#registerClass cannot handle interfaces: NullPointerException in getFields. Fix #653
-
- - File resources are never released after a thread is interrupted when using asyncWriteEnable(), Fix #490
 
 Version 1.0.8 (2015-07-09)
 -------------------------------------

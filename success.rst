@@ -1,10 +1,31 @@
 Who is using MapDB
 =============================
 
-See who is using MapDB and what they say about it.
+Following companies are using MapDB:
+
+- Twitter
+
+- Linkedin
+
+- Credit Suisse
+
+- Deutsche Bank
+
+- HP Labs
+
+Here is what users wrote about MapDB:
+
+GigaSpaces
+~~~~~~~~~~~~~~~~~~~~~~
+
+XAP (memory data grid) is using MapDB, an embedded database engine which provides concurrent Maps, Sets and
+Queues backed by disk storage or off-heap memory. When writing an object to the space,
+its indexed data maintained on-heap and it’s raw data is stored on off-heap.
+
+`XAP manual <http://docs.gigaspaces.com/xap102adm/memoryxtend-ohr.html>`_
 
 ModusP
-----------
+~~~~~~~~~~~
 We have successfully finished our consultation session with Jan Kotek
 for MapDB integration. With Jan's help we've successfully ran our
 mapping task using mapDB after weeks of failing to do this using any
@@ -21,7 +42,7 @@ professional
 Tom B., `ModusP <http://www.modusp.com/>`_
 
 FullContact
--------------
+~~~~~~~~~~~~~~~~~~~~~~
 
 MapDB has been a fantastic resource, allowing us to transparently move
 traditionally a SQL-backed application into main memory for performance.
@@ -49,7 +70,7 @@ Thank you very much
 
 
 OpenTripPlanner
------------------
+~~~~~~~~~~~~~~~~~~~~~~
 
 First, thanks for all your work on MapDB.
 It is becoming an essential part of our work on the
@@ -62,7 +83,7 @@ for its street and public transport schedule import step.
 
 
 Norconex
---------------
+~~~~~~~~~~~~~~~~~~~~~~
 
 I am glad to have discovered this ultra-fast Java Map implementation that scales linearly, is not limited by JVM memory, and persists to disk as you write to it.  For an embedded key/value storage solution, MapDB tops the list for being so efficient and easy to use. It has been used as the default URL storage mechanism for Norconex Collectors for a few years now.
 
@@ -70,7 +91,7 @@ Pascal Essiembre - President at `Norconex <http://www.norconex.com>`_
 
 
 bliss
--------
+~~~~~~~~~~~
 
 Our app uses MapDB as a key-value store. We originally started with JDBM
 back in 2009 and made the port to MapDB in 2015.
@@ -90,11 +111,3 @@ to NASes and music servers.
 
 Dan Gravell - `bliss <http://www.blisshq.com/>`_
 
-GigaSpaces
----------------
-
-XAP (memory data grid) is using MapDB, an embedded database engine which provides concurrent Maps, Sets and
-Queues backed by disk storage or off-heap memory. When writing an object to the space,
-its indexed data maintained on-heap and it’s raw data is stored on off-heap.
-
-`XAP manual <http://docs.gigaspaces.com/xap102adm/memoryxtend-ohr.html>`_

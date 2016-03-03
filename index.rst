@@ -1,114 +1,63 @@
-MapDB: Database Engine
-=================================
+MapDB: database engine
+-----------------------
 
-MapDB is an embedded database engine for Java.
-It provides Maps and other collections backed by disk or off-heap memory storage.
-MapDB is free under Apache License.
+MapDB is an open source (Apache licensed), embedded Java database engine and collection framework.
+It provides Maps, Sets, Lists, Queues, Bitmaps with range queries, expiration, compression and streaming.
+MapDB is probably the fastest Java database, with performance comparable to ``java.util`` collections.
+It also provides advanced features such as ACID transactions, snapshots, incremental backups...
+`Learn more → <doc/intro.html>`_
 
-MapDB is not a database, but an engine. It is not complete solution, but set of building blocks
-such as: memory allocators, caches, storages, indexes, transaction wrappers, serializers etc.
-This gives MapDB lot of flexibility and space for performance optimizations.
-Ever wanted off-heap cache with limited size and with disk overflow after expiry? Now its easy.
+MapDB implements traditional interfaces such as ``ConcurrentMap`` and is configured by maker pattern:
 
-MapDB also has very user friendly API. In many cases it is drop-in replacement for existing Java classes,
-for example on-heap Map can be replaced with off-heap Map, with just 20 characters.
-It is a pure-java 500K JAR with no dependencies.
+.. literalinclude:: src/test/java/doc/hello_world.java
+    :start-after: //a
+    :end-before: //z
+    :language: java
+    :dedent: 8
 
-There is active community on `Github <https://github.com/jankotek/mapdb>`__. MapDB is sponsored by
-`consulting services <http://www.kotek.net/consulting/>`__.
+`TODO better syntax highlight`
+
+Use cases
+------------
+
+MapDB is great in following scenarios:
+
+- Java collection alternative with highly efficient memory usage and no GC overhead.
+
+- Large in-memory cache with disk overflow
+
+- Analytical engine for data processing, machine learning
+
+- Traditional database with Spring integration, JTA support...
+
+`TODO links`
+
+MapDB has several users, find out `what they say... <success.html>`_
 
 News
 ----
-.. postlist:: 5
-   :excerpts:
+.. postlist:: 6
    :list-style: circle
+   :format: {title} on {date}
+   :sort:
 
 Follow news on `RSS <http://www.mapdb.org/news.xml>`__ \|
 `Mail-List <https://groups.google.com/forum/?fromgroups#!forum/mapdb-news>`__
 \| `Twitter <http://twitter.com/MapDBnews>`__
 
-MapDB is used by number of projects, checkout :doc:`success`
 
-Get started
+MapDB is used by number of projects, checkout :doc:`changelog`
+
+Doc
+--------
+
+.. toctree::
+   doc/index
+
+
+Content
 ------------
 
-Add `maven dependency <http://mvnrepository.com/artifact/org.mapdb/mapdb>`_:
-
-.. code:: xml
-
- <dependency>
-    <groupId>org.mapdb</groupId>
-    <artifactId>mapdb</artifactId>
-    <version>1.0.8</version>
- </dependency>
-
-There is also newer and faster 2.0-beta (replace X with current version):
-
-.. code:: xml
-
- <dependency>
-    <groupId>org.mapdb</groupId>
-    <artifactId>mapdb</artifactId>
-    <version>2.0-betaX</version>
- </dependency
-
-And simple in-memory example:
-
-.. code:: java
-
-    import org.mapdb.*;
-
-    DB db = DBMaker.newMemoryDB().make();
-
-    ConcurrentNavigableMap treeMap = db.getTreeMap("map");
-    treeMap.put("something","here");
-
-    db.commit();
-    db.close();
-
-Continue at :doc:`doc/getting-started` chapter in documentation.
-
-
-Documentation
------------------
-
-- :doc:`doc/index`
-- :download:`Manual in PDF <down/mapdb-manual.pdf>`,
-- :download:`Cheat Sheet <down/cheatsheet.pdf>`,
-- `Javadoc <http://www.mapdb.org/apidocs/>`_
-- `Examples <https://github.com/jankotek/MapDB/tree/master/src/test/java/examples>`_
-
-
 .. toctree::
-    :maxdepth: 1
-
-    benchmarks
-    changelog
-    credits
-    features
-    success
-    contents
-
-- `Blog </blog.html>`_
-
-
-Support
---------------
-
-MapDB is sponsored by `consulting services <http://www.kotek.net/consulting/>`_.
-There is also free documentation and forums:
-
-.. toctree::
-    :maxdepth: 2
-
-    doc/index
-    faq
-
-For general questions there is `mailing list <https://groups.google.com/forum/#!forum/mapdb>`_.
-You may subscribe without GMail account by `sending email <mailto:mapdb+subscribe@googlegroups.com>`_.
-
-Bug reports are hosted on `Github <https://github.com/jankotek/mapdb/issues>`_.
-
-I usually respond to non-paying users within a few days via email.
-Paying customers get faster response times with optional video-conferences.
-I am located in Europe, but usually work late evenings.
+   format
+   success
