@@ -41,7 +41,7 @@ WAL is disabled with  ``DBMaker.transactionDisable()``:
 .. literalinclude:: ../../mapdb/src/test/java/doc/performance_transaction_disable.java
     :start-after: //a
     :end-before: //z
-    :language: java
+    :language: c++
     :dedent: 8
 
 With WAL disabled you loose crash protection.  In this case you **must** correctly
@@ -97,7 +97,7 @@ Here is example with all mmap related options:
 .. literalinclude:: ../../mapdb/src/test/java/doc/performance_mmap.java
     :start-after: //a
     :end-before: //z
-    :language: java
+    :language: c++
     :dedent: 8
 
 File channel
@@ -115,7 +115,7 @@ To use FileChannel use ``DBMaker.fileChannelEnable()`` option:
 .. literalinclude:: ../../mapdb/src/test/java/doc/performance_filechannel.java
     :start-after: //a
     :end-before: //z
-    :language: java
+    :language: c++
     :dedent: 8
 
 
@@ -140,7 +140,7 @@ Checksum is activated by this setting: ``DBMaker.checksumEnable()``:
 .. literalinclude:: ../../mapdb/src/test/java/doc/performance_crc32.java
     :start-after: //a
     :end-before: //z
-    :language: java
+    :language: c++
     :dedent: 8
 
 Cache
@@ -158,7 +158,7 @@ basic cache:
 .. literalinclude:: ../../mapdb/src/test/java/doc/cache_hash_table.java
     :start-after: //a
     :end-before: //z
-    :language: java
+    :language: c++
     :dedent: 8
 
 
@@ -178,7 +178,7 @@ Async write options:
 .. literalinclude:: ../../mapdb/src/test/java/doc/performance_async_write.java
     :start-after: //a
     :end-before: //z
-    :language: java
+    :language: c++
     :dedent: 8
 
 Asynchronous write does not compromise durability and consistency.
@@ -198,7 +198,7 @@ after a few gigabytes. It is activated with:
 .. literalinclude:: ../../mapdb/src/test/java/doc/performance_memory_heap.java
     :start-after: //a
     :end-before: //z
-    :language: java
+    :language: c++
     :dedent: 8
 
 Store based on ``byte[]``. In this mode data are serialized and stored into 1MB large byte[].
@@ -209,7 +209,7 @@ Increasing maximal heap memory with ``-Xmx10G`` JVM parameter is enough.
 .. literalinclude:: ../../mapdb/src/test/java/doc/performance_memory_byte_array.java
     :start-after: //a
     :end-before: //z
-    :language: java
+    :language: c++
     :dedent: 8
 
 
@@ -222,7 +222,7 @@ Small heap size has usually better and more predictable performance.
 .. literalinclude:: ../../mapdb/src/test/java/doc/performance_memory_direct.java
     :start-after: //a
     :end-before: //z
-    :language: java
+    :language: c++
     :dedent: 8
 
 
@@ -237,7 +237,7 @@ This example will allocate 10GB initially and then increment size in 512MB chunk
 .. literalinclude:: ../../mapdb/src/test/java/doc/performance_allocation.java
     :start-after: //a
     :end-before: //z
-    :language: java
+    :language: c++
     :dedent: 8
 
 Allocation Increment has side effect on performance with mmap files.

@@ -29,6 +29,12 @@
             <version>${mapdb.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.knowm.xchart</groupId>
+            <artifactId>xchart</artifactId>
+            <version>3.0.2</version>
+        </dependency>
+
         <!-- test only dependencies -->
         <dependency>
             <groupId>junit</groupId>

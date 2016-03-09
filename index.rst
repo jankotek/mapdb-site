@@ -1,63 +1,70 @@
 MapDB: database engine
 -----------------------
 
-MapDB is an open source (Apache licensed), embedded Java database engine and collection framework.
-It provides Maps, Sets, Lists, Queues, Bitmaps with range queries, expiration, compression and streaming.
-MapDB is probably the fastest Java database, with performance comparable to ``java.util`` collections.
-It also provides advanced features such as ACID transactions, snapshots, incremental backups...
+MapDB provides Maps, Sets, Lists, Queues and other collections backed by off-heap or on-disk storage.
+It is a hybrid between java collection framework and embedded database engine. It is free and open-source under Apache license.
+And it has expiration, compression, ACID transactions, snapshots, incremental backups...
 `Learn more → <doc/intro.html>`_
 
-MapDB implements traditional interfaces such as ``ConcurrentMap`` and is configured by maker pattern:
+
+Code
+~~~~~~~~~~~~~
 
 .. literalinclude:: src/test/java/doc/hello_world.java
     :start-after: //a
     :end-before: //z
-    :language: java
+    :language: c++
     :dedent: 8
 
-`TODO better syntax highlight`
+MapDB implements Java interfaces such as ``ConcurrentMap`` and is configured by maker pattern.
+`Quick start → <doc/getting-started/>`_
 
-Use cases
-------------
 
-MapDB is great in following scenarios:
+.. TODO better syntax highlight
 
-- Java collection alternative with highly efficient memory usage and no GC overhead.
 
-- Large in-memory cache with disk overflow
+..
+    Use cases
+    ------------
 
-- Analytical engine for data processing, machine learning
+    MapDB is great in following scenarios:
 
-- Traditional database with Spring integration, JTA support...
+    - Java collection alternative with highly efficient memory usage and no GC overhead.
 
-`TODO links`
+    - Large in-memory cache with disk overflow
 
-MapDB has several users, find out `what they say... <success.html>`_
+    - Analytical engine for data processing, machine learning
+
+    - Traditional database with Spring integration, JTA support...
+
+.. TODO write use cases and their links
+
+..
+.. MapDB has several users, find out `what they say → <success.html>`_
 
 News
-----
+~~~~~~~~
 .. postlist:: 6
    :list-style: circle
    :format: {title} on {date}
    :sort:
 
-Follow news on `RSS <http://www.mapdb.org/news.xml>`__ \|
-`Mail-List <https://groups.google.com/forum/?fromgroups#!forum/mapdb-news>`__
-\| `Twitter <http://twitter.com/MapDBnews>`__
+Follow news on `RSS <http://www.mapdb.org/news.xml>`__ ,
+`Mailing list <https://groups.google.com/forum/?fromgroups#!forum/mapdb-news>`__
+or `Twitter <http://twitter.com/MapDBnews>`__
 
 
-MapDB is used by number of projects, checkout :doc:`changelog`
 
-Doc
---------
 
 .. toctree::
-   doc/index
+    :hidden:
 
-
-Content
-------------
-
-.. toctree::
-   format
-   success
+    format
+    success
+    changelog
+    benchmarks
+    faq
+    format
+    success
+    credits
+    doc/index.rst

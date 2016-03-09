@@ -13,21 +13,9 @@ JDBM 1
 
 MapDB is loosely based on older project called JDBM. First version was
 started around 2001 and was released in 2005 at
-`SourceForge <http://jdbm.sourceforge.net/>`__. MapDB is complete
-rewrite, there is no code left from original JDBM 1.0 in MapDB. But it
-heavily influenced our design and feature set. Most importantly it is:
-
--  Idea of passing around *object instance with serializer* rather than
-   *already serialized byte array*. This is the very basic idea which
-   defines MapDB today. It allows instance cache, great performance and
-   tight component integration.
-
--  Engine (RecordManager) as abstract component
-
--  Instance Cache as Engine (RecordManager) wrapper
-
--  Index tree as separated class from Engine (RecordManager)
-
+`SourceForge <http://jdbm.sourceforge.net/>`__. There were several rewrites,
+there is no code left from original JDBM 1.0 in MapDB. But it
+ influenced our design and general idea.
 Credit goes to Cees de Groot and Alex Boisvert.
 
 JDBM 2 and 3
@@ -36,8 +24,7 @@ JDBM 2 and 3
 JDBM stagnated until it was reanimated by Jan Kotek in 2009. JDBM 2
 added Map interface and basic serialization (``SerializerBase`` in
 MapDB). JDBM 3 brought NIO updates, POJO serialization and many
-performance improvements. MapDB does not contain any code from JDBM 2&3
-except serialization.
+performance improvements.
 
 There were many people who improved JDBM 2 & 3 (and indirectly MapDB)
 
@@ -47,18 +34,18 @@ There were many people who improved JDBM 2 & 3 (and indirectly MapDB)
 -  Bryan Thompson worked on concurrency branch of JDBM 1.0, and helped
    to shape JDBM
 
--  Thomas Mueller (H2 DB) for code reading and advices.
+-  Thomas Mueller (H2 DB) for code review and advices.
 
 Serialization
 -------------
 
-Serialization is the only code MapDB shares with JDBM 2 & 3. This code
+Serialization code
 is complex and initially had lot of bugs. There were MANY people who
 submitted bug-fixes and I am sorry for not listing them all. Most
 importantly:
 
 -  Nathan Sweet wrote Kryo serialization framework which inspired our
-   POJO serializer. We also took Long Packer utils from Kryo framework.
+   POJO serializer to some extend(MapDB-Elsa).
 
 -  Roman Levenstein refactored original simple POJO serializer and
    greatly improved its performance.
@@ -66,9 +53,9 @@ importantly:
 Collections
 -----------
 
--  Theoretical design of BTreeMap is based on
-   `paper <http://www.cs.cornell.edu/courses/cs4411/2009sp/blink.pdf>`__
-   from Philip L. Lehman and S. Bing Yao.
+-  Theoretical design of BTreeMap is based on 1986 paper:
+   `Concurrent operations on B∗-trees with overtaking <ttp://www.sciencedirect.com/science/article/pii/0022000086900218>`__
+   by Yehoshua Sagiv.
 
 -  More practical aspects of BTreeMap implementation are based on
    `notes <http://www.doc.ic.ac.uk/~td202/>`__ and `demo
@@ -76,12 +63,14 @@ Collections
    Dinsdale-Young.
 
 -  Java Collections are very complex to implement. We took unit tests
-   from Google Collections which was great help. Credit goes to Jared
+   from Google Collections (Guava) which was great help. Credit goes to Jared
    Levy, George van den Driessche and other Google Collections
    developers.
 
 -  Long(Concurrent)HashMap and some other classes were taken from Apache
    Harmony and refactored for our needs.
+
+-  Some unit tests and javadoc comes from JSR166 group
 
 -  BTreeMap uses some code from ``ConcurrentSkipListMap`` taken from
    Apache Harmony to implement all aspects of
@@ -108,10 +97,10 @@ Other
 Donations
 ---------
 
-MapDB development is generously sponsored by
-`CodeFutures <http://www.codefutures.com>`__.
+MapDB development was generously sponsored in 2014 and 2015 by
+`AgilData <http://www.agildata.com>`__.
 
-Before CodeFutures we got those donations:
+Before AgilData we got donations from:
 
 -  Chronon Systems donated `time traveling
    debugger <http://chrononsystems.com/>`__. It is great help for fixing
@@ -128,4 +117,6 @@ Before CodeFutures we got those donations:
 
 -  Jan Venema from `Vertx.io <http://vertx.io>`__ donated 100 euro.
 
+And several other donors.
 
+*TODO this needs updating*

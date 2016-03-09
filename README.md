@@ -12,18 +12,22 @@ To generate PDF one has to install texlive packages.
 
     sudo apt-get install texlive-latex-base texlive-fonts-recommended texlive-latex-extra
 
-Than run
+Script also uses Maven to execute some code and verify tests. 
 
-    ./pdf
+    sudo apt-get install maven
+    
+It might also depend on latest version of MapDB, so install it into local maven repo:
+    
+    sudo apt-get install git
+    git clone https://github.com/jankotek/mapdb.git
+    cd mapdb
+    mvn install -DskipTests=true
 
+Finally generate html:
 
-And generate html. It depends on PDF and MapDB source code. Result will be placed in _build/html
+    ./make.sh
 
-    make clean html
+And publish it (if you have a rights)
 
-To publish local changes checkout `gh-pages` branch into `../gh-pages/` folder and run publish. It will ask for
-github login:
-
-    ./publish
-
+    ./publish.sh
 

@@ -30,7 +30,7 @@ and **serializers** which handle data inside Map:
 .. literalinclude:: ../src/test/java/doc/htreemap_serializer.java
     :start-after: //a
     :end-before: //z
-    :language: java
+    :language: c++
     :dedent: 8
 
 It is also possible to skip serializer definition, but MapDB
@@ -40,7 +40,7 @@ will use slower generic serialization, and this is not recommended:
 .. literalinclude:: ../src/test/java/doc/htreemap_noserializer.java
     :start-after: //a
     :end-before: //z
-    :language: java
+    :language: c++
     :dedent: 8
 
 HTreeMap is recommended for handling large key/values. In same cases you
@@ -51,7 +51,7 @@ This is done by using serializer wrapper:
 .. literalinclude:: ../src/test/java/doc/htreemap_compressed.java
     :start-after: //a
     :end-before: //z
-    :language: java
+    :language: c++
     :dedent: 8
 
 
@@ -67,7 +67,7 @@ if ``Serializer.BYTE_ARRAY`` is used as Key Serializer:
 .. literalinclude:: ../src/test/java/doc/htreemap_byte_array.java
     :start-after: //a
     :end-before: //z
-    :language: java
+    :language: c++
     :dedent: 8
 
 Another problem is weak ``hashCode()`` in some classes, it causes collisions and degrades performance.
@@ -82,7 +82,7 @@ Instead ``HTreeMap`` is fixing the root of the problem,
 .. literalinclude:: ../src/test/java/doc/htreemap_string.java
     :start-after: //a
     :end-before: //z
-    :language: java
+    :language: c++
     :dedent: 8
 
 Hash Maps are vulnerable to `Hash Collision Attack <http://arstechnica.com/business/2011/12/huge-portions-of-web-vulnerable-to-hashing-denial-of-service-attack/>`_.
@@ -93,7 +93,7 @@ User can also supply its own Hash Seed:
 .. literalinclude:: ../src/test/java/doc/htreemap_hashseed.java
     :start-after: //a
     :end-before: //z
-    :language: java
+    :language: c++
     :dedent: 8
 
 `TODO 64bit Hash Code`
@@ -146,7 +146,7 @@ all entries. You can enable size counter and in that case
 .. literalinclude:: ../src/test/java/doc/htreemap_counter.java
     :start-after: //a
     :end-before: //z
-    :language: java
+    :language: c++
     :dedent: 8
 
 And finally some sugar. There is **value loader**, a function to load
@@ -157,7 +157,7 @@ useful for various generators and caches.
 .. literalinclude:: ../src/test/java/doc/htreemap_value_loader.java
     :start-after: //a
     :end-before: //z
-    :language: java
+    :language: c++
     :dedent: 8
 
 
@@ -173,7 +173,7 @@ That is called **Sharded HTreeMap**, and is created directly ``DBMaker``:
  .. literalinclude:: ../src/test/java/doc/htreemap_sharded.java
     :start-after: //a
     :end-before: //z
-    :language: java
+    :language: c++
     :dedent: 8
 
 Sharded HTreeMap has similar configurations options as HTreeMap created by ``DB``.
@@ -202,7 +202,7 @@ the last access:
 .. literalinclude:: ../src/test/java/doc/htreemap_expiration_ttl_limit.java
     :start-after: //a
     :end-before: //z
-    :language: java
+    :language: c++
     :dedent: 8
 
 This will create ``HTreeMap`` with 16GB space limit:
@@ -210,7 +210,7 @@ This will create ``HTreeMap`` with 16GB space limit:
 .. literalinclude:: ../src/test/java/doc/htreemap_expiration_space_limit.java
     :start-after: //a
     :end-before: //z
-    :language: java
+    :language: c++
     :dedent: 8
 
 It is also possible to limit the maximal size of a map:
@@ -218,7 +218,7 @@ It is also possible to limit the maximal size of a map:
 .. literalinclude:: ../src/test/java/doc/htreemap_expiration_size_limit.java
     :start-after: //a
     :end-before: //z
-    :language: java
+    :language: c++
     :dedent: 8
 
 HTreeMap maintains LIFO Expiration Queue for each segment,
@@ -230,7 +230,7 @@ only after update (value change) entry is placed into Expiration Queue.
 .. literalinclude:: ../src/test/java/doc/htreemap_expiration_create_update.java
     :start-after: //a
     :end-before: //z
-    :language: java
+    :language: c++
     :dedent: 8
 
 Time based eviction will always place entry into Expiration Queue.
@@ -240,7 +240,7 @@ Expiration Queue. In following example no entry is placed into queue and no entr
 .. literalinclude:: ../src/test/java/doc/htreemap_expiration_noexpire.java
     :start-after: //a
     :end-before: //z
-    :language: java
+    :language: c++
     :dedent: 8
 
 There are three possible triggers which will place entry into Expiration Queue:
@@ -255,7 +255,7 @@ This will evict entries in two background threads, and eviction will be triggere
 .. literalinclude:: ../src/test/java/doc/htreemap_expiration_background.java
     :start-after: //a
     :end-before: //z
-    :language: java
+    :language: c++
     :dedent: 8
 
 Expiration can be combined with multiple Sharded HTreeMap for better concurrency.
@@ -264,7 +264,7 @@ In this case each segment has independent Store and that improves scalability un
 .. literalinclude:: ../src/test/java/doc/htreemap_expiration_sharded.java
     :start-after: //a
     :end-before: //z
-    :language: java
+    :language: c++
     :dedent: 8
 
 Sharded HTreeMap should be combined with multiple background threads for eviction.
@@ -276,7 +276,7 @@ compactions do not affect all running threads.
 .. literalinclude:: ../src/test/java/doc/htreemap_expiration_sharded2.java
     :start-after: //a
     :end-before: //z
-    :language: java
+    :language: c++
     :dedent: 8
 
 
@@ -293,7 +293,7 @@ To establish Disk Overflow use following code:
 .. literalinclude:: ../src/test/java/doc/htreemap_overflow_init.java
     :start-after: //a
     :end-before: //z
-    :language: java
+    :language: c++
     :dedent: 8
 
 
@@ -303,7 +303,7 @@ This applies only to expired entries, ``map.remove()`` will also remove any entr
 .. literalinclude:: ../src/test/java/doc/htreemap_overflow_remove.java
     :start-after: //a
     :end-before: //z
-    :language: java
+    :language: c++
     :dedent: 8
 
 If the ``inMemory.get(key)`` is called and value does not exist, the Value Loader will try to find Map in ``onDisk``.
@@ -312,7 +312,7 @@ If value is found inside ``onDisk``, it is added into ``inMemory``.
 .. literalinclude:: ../src/test/java/doc/htreemap_overflow_get.java
     :start-after: //a
     :end-before: //z
-    :language: java
+    :language: c++
     :dedent: 8
 
 

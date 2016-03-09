@@ -16,7 +16,7 @@ and periodically merges two maps into new ``SortedTableMap``.
 .. literalinclude:: ../src/test/java/doc/sortedtablemap_init.java
     :start-after: //a
     :end-before: //z
-    :language: java
+    :language: c++
     :dedent: 8
 
 Once file is created, it can be reopened:
@@ -25,7 +25,7 @@ Once file is created, it can be reopened:
 .. literalinclude:: ../src/test/java/doc/sortedtablemap_reopen.java
     :start-after: //a
     :end-before: //z
-    :language: java
+    :language: c++
     :dedent: 8
 
 
@@ -70,7 +70,7 @@ Parameters are set following way
 .. literalinclude:: ../src/test/java/doc/sortedtablemap_params.java
     :start-after: //a
     :end-before: //z
-    :language: java
+    :language: c++
     :dedent: 8
 
 
@@ -83,7 +83,7 @@ Following example show how to construct various ``Volume`` using in-memory byte 
 .. literalinclude:: ../src/test/java/doc/sortedtablemap_volume.java
     :start-after: //a
     :end-before: //z
-    :language: java
+    :language: c++
     :dedent: 8
 
 Volume is than passed to ``SortecTableMap`` factory method as an parameter. It is recommended to open existing

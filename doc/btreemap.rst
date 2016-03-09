@@ -22,7 +22,7 @@ fields on ``Serializer`` interface:
 .. literalinclude:: ../src/test/java/doc/btreemap_serializer.java
     :start-after: //a
     :end-before: //z
-    :language: java
+    :language: c++
     :dedent: 8
 
 Another useful parameter is **size counter**. By default, a BTreeMap does not keep
@@ -33,7 +33,7 @@ all entries. If you enable size counter, in that case
 .. literalinclude:: ../src/test/java/doc/btreemap_counter.java
     :start-after: //a
     :end-before: //z
-    :language: java
+    :language: c++
     :dedent: 8
 
 BTrees store all their keys and values as part of a btree node. The node size affects performance a lot.
@@ -45,7 +45,7 @@ The default maximal node size is 32 entries and it can be changed in this way:
 .. literalinclude:: ../src/test/java/doc/btreemap_nodesize.java
     :start-after: //a
     :end-before: //z
-    :language: java
+    :language: c++
     :dedent: 8
 
 Values are also stored as part of BTree leaf nodes. Large values means huge overhead and
@@ -59,7 +59,7 @@ node outside BTree leaf nodes and applies compression on each value:
 .. literalinclude:: ../src/test/java/doc/btreemap_compressed.java
     :start-after: //a
     :end-before: //z
-    :language: java
+    :language: c++
     :dedent: 8
 
 BTreeMap needs to sort its key somehow. By default it relies on ``Comparable`` interface implemented by most Java classes.
@@ -68,7 +68,7 @@ In case this interface is not implemented, a key serializer must be provided. On
 .. literalinclude:: ../src/test/java/doc/btreemap_object_array.java
     :start-after: //a
     :end-before: //z
-    :language: java
+    :language: c++
     :dedent: 8
 
 Also primitive arrays can be used as keys. One can replace ``String`` by ``byte[]``,which directly leads to better
@@ -77,7 +77,7 @@ performance:
 .. literalinclude:: ../src/test/java/doc/btreemap_byte_array.java
     :start-after: //a
     :end-before: //z
-    :language: java
+    :language: c++
     :dedent: 8
 
 Key serializers

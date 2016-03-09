@@ -19,5 +19,5 @@ ablog build
 
 # create dokka documentation from ../mapdb
 (cd ../mapdb && mvn clean compile dokka:dokka)
-mkdir _build/html/dokka
+mkdir _website/dokka
 mv ../mapdb/target/dokka _website/dokka/latest

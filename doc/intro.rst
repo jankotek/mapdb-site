@@ -104,7 +104,7 @@ directory. The file is discarded after JVM exits:
 .. literalinclude:: ../src/test/java/doc/start_hello_world.java
     :start-after: //a
     :end-before: //z
-    :language: java
+    :language: c++
     :dedent: 8
 
 This is a more advanced example, with configuration and write-ahead-log
@@ -113,7 +113,7 @@ transaction.
 .. literalinclude:: ../src/test/java/doc/start_advanced.java
     :start-after: //a
     :end-before: //z
-    :language: java
+    :language: c++
     :dedent: 8
 
 
