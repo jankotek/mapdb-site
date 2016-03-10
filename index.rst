@@ -47,7 +47,6 @@ News
 .. postlist:: 6
    :list-style: circle
    :format: {title} on {date}
-   :sort:
 
 Follow news on `RSS <http://www.mapdb.org/news.xml>`__ ,
 `Mailing list <https://groups.google.com/forum/?fromgroups#!forum/mapdb-news>`__

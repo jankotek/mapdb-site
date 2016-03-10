@@ -10,5 +10,5 @@ rm target/mapdb-site/* -rf
 cp CNAME target/mapdb-site/
 cp _website/* target/mapdb-site/ -rf
 
-(git add -A && git commit -m "update site"  && git push)
+(cd target/mapdb-site && git add -A && git commit -m "update site"  && git push)
 
