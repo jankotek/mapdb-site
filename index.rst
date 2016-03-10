@@ -48,7 +48,7 @@ News
    :list-style: circle
    :format: {title} on {date}
 
-Follow news on `RSS <http://www.mapdb.org/news.xml>`__ ,
+Follow news on `RSS <http://www.mapdb.org/blog/atom.xml>`__ ,
 `Mailing list <https://groups.google.com/forum/?fromgroups#!forum/mapdb-news>`__
 or `Twitter <http://twitter.com/MapDBnews>`__
 
