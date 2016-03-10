@@ -1,0 +1,211 @@
+<HTML>
+<HEAD>
+<title>DataInput2.ByteBuffer - mapdb</title>
+<link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">mapdb</a>&nbsp;/&nbsp;<a href="../../index.html">org.mapdb</a>&nbsp;/&nbsp;<a href="../index.html">DataInput2</a>&nbsp;/&nbsp;<a href=".">ByteBuffer</a><br/>
+<br/>
+<h1>ByteBuffer</h1>
+<code><span class="keyword">class </span><span class="identifier">ByteBuffer</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../index.html"><span class="identifier">DataInput2</span></a></code><br/>
+<p>Wraps java.nio.ByteBuffer and provides DataInput </p>
+<strong>Author</strong><br/>
+Jan Kotek<br/>
+<br/>
+<br/>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="-init-.html">&lt;init&gt;</a></td>
+<td>
+<code><span class="identifier">ByteBuffer</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataInput2.ByteBuffer$<init>(java.nio.ByteBuffer, kotlin.Int)/buf">buf</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/nio/ByteBuffer.html"><span class="identifier">ByteBuffer</span></a><span class="symbol">, </span><span class="identifier" id="org.mapdb.DataInput2.ByteBuffer$<init>(java.nio.ByteBuffer, kotlin.Int)/pos">pos</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="buf.html">buf</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">buf</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/6/docs/api/java/nio/ByteBuffer.html"><span class="identifier">ByteBuffer</span></a></code></td>
+</tr>
+<tr>
+<td>
+<a href="pos.html">pos</a></td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">pos</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="close.html">close</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">close</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="get-pos.html">getPos</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getPos</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="internal-byte-array.html">internalByteArray</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">internalByteArray</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ByteArray</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="internal-byte-buffer.html">internalByteBuffer</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">internalByteBuffer</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/6/docs/api/java/nio/ByteBuffer.html"><span class="identifier">ByteBuffer</span></a></code></td>
+</tr>
+<tr>
+<td>
+<a href="read-boolean.html">readBoolean</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">readBoolean</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="read-byte.html">readByte</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">readByte</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Byte</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="read-char.html">readChar</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">readChar</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Char</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="read-fully.html">readFully</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">readFully</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataInput2.ByteBuffer$readFully(kotlin.ByteArray, kotlin.Int, kotlin.Int)/b">b</span><span class="symbol">:</span>&nbsp;<span class="identifier">ByteArray</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.DataInput2.ByteBuffer$readFully(kotlin.ByteArray, kotlin.Int, kotlin.Int)/off">off</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.DataInput2.ByteBuffer$readFully(kotlin.ByteArray, kotlin.Int, kotlin.Int)/len">len</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="read-int.html">readInt</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">readInt</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="read-long.html">readLong</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">readLong</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="read-short.html">readShort</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">readShort</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Short</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="read-unsigned-byte.html">readUnsignedByte</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">readUnsignedByte</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="set-pos.html">setPos</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setPos</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataInput2.ByteBuffer$setPos(kotlin.Int)/pos">pos</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="skip-bytes.html">skipBytes</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">skipBytes</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataInput2.ByteBuffer$skipBytes(kotlin.Int)/n">n</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="unpack-int.html">unpackInt</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">unpackInt</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="unpack-int-array.html">unpackIntArray</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">unpackIntArray</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataInput2.ByteBuffer$unpackIntArray(kotlin.IntArray, kotlin.Int, kotlin.Int)/array">array</span><span class="symbol">:</span>&nbsp;<span class="identifier">IntArray</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.DataInput2.ByteBuffer$unpackIntArray(kotlin.IntArray, kotlin.Int, kotlin.Int)/start">start</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.DataInput2.ByteBuffer$unpackIntArray(kotlin.IntArray, kotlin.Int, kotlin.Int)/end">end</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="unpack-long.html">unpackLong</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">unpackLong</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="unpack-long-array.html">unpackLongArray</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">unpackLongArray</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataInput2.ByteBuffer$unpackLongArray(kotlin.LongArray, kotlin.Int, kotlin.Int)/array">array</span><span class="symbol">:</span>&nbsp;<span class="identifier">LongArray</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.DataInput2.ByteBuffer$unpackLongArray(kotlin.LongArray, kotlin.Int, kotlin.Int)/start">start</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.DataInput2.ByteBuffer$unpackLongArray(kotlin.LongArray, kotlin.Int, kotlin.Int)/end">end</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="unpack-long-array-delta-compression.html">unpackLongArrayDeltaCompression</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">unpackLongArrayDeltaCompression</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataInput2.ByteBuffer$unpackLongArrayDeltaCompression(kotlin.Int)/size">size</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">LongArray</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="unpack-long-skip.html">unpackLongSkip</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">unpackLongSkip</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataInput2.ByteBuffer$unpackLongSkip(kotlin.Int)/count">count</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="../read-double.html">readDouble</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">readDouble</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Double</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../read-float.html">readFloat</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">readFloat</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Float</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../read-fully.html">readFully</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">readFully</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataInput2$readFully(kotlin.ByteArray)/b">b</span><span class="symbol">:</span>&nbsp;<span class="identifier">ByteArray</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../read-line.html">readLine</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">readLine</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">String</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../read-u-t-f.html">readUTF</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">readUTF</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">String</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../read-unsigned-short.html">readUnsignedShort</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">readUnsignedShort</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

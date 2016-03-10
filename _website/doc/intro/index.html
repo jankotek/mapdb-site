@@ -1,0 +1,354 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Introduction &mdash; MapDB</title>
+    
+    <link rel="stylesheet" href="../../_static/sphinx13.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="MapDB" href="../../" />
+    <link rel="up" title="MapDB Manual" href="../" />
+    <link rel="next" title="Quick introduction" href="../getting-started/" />
+    <link rel="prev" title="MapDB Manual" href="../" />
+  
+ 
+    <style type="text/css">
+      table.right { float: right; margin-left: 20px; }
+      table.right td { border: 1px solid #ccc; }
+      
+    </style>
+    <script type="text/javascript">
+      // intelligent scrolling of the sidebar content
+      $(window).scroll(function() {
+        var sb = $('.sphinxsidebarwrapper');
+        var win = $(window);
+        var sbh = sb.height();
+        var offset = $('.sphinxsidebar').position()['top'];
+        var wintop = win.scrollTop();
+        var winbot = wintop + win.innerHeight();
+        var curtop = sb.position()['top'];
+        var curbot = curtop + sbh;
+        // does sidebar fit in window?
+        if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+            sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+            sb.css('top', $u.min([winbot - sbh - offset - 20,
+                                  $(document).height() - sbh - 200]));
+          }
+        }
+      });
+    </script>
+
+<!-- google analytics-->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42074659-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  
+  <link rel="alternate" type="application/atom+xml"  href="../../blog/atom.xml" title="MapDB Blog">
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body role="document">
+<div class="pageheader">
+  <ul>
+    <li><a href="../../">Home</a></li>
+    <li><a href="../getting-started/">Intro</a></li>
+    <li><a href="../">Docs</a></li>
+    <li><a href="../../blog/">Blog</a></li>
+    <li><a href="https://github.com/jankotek/mapdb">Github</a></li>
+  </ul>
+  <div>
+    <a href="../../">
+      <img src="../../_static/logo.png" alt="MapDB" />
+    </a>
+  </div>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../getting-started/" title="Quick introduction"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="../" title="MapDB Manual"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../">Home</a>&nbsp;|</li>
+
+          <li class="nav-item nav-item-1"><a href="../" accesskey="U">MapDB Manual</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Introduction</a><ul>
+<li><a class="reference internal" href="#getting-started">Getting started</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#maven">Maven</a></li>
+<li><a class="reference internal" href="#hello-world">Hello World</a></li>
+<li><a class="reference internal" href="#what-you-should-know">What you should know</a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../"
+                        title="previous chapter">MapDB Manual</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../getting-started/"
+                        title="next chapter">Quick introduction</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/doc/intro.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search/" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>MapDB is an open source (Apache licensed), embedded Java database engine and collection framework.
+It provides Maps, Sets, Lists, Queues, Bitmaps with range queries, expiration, compression and streaming.
+MapDB is probably the fastest Java database, with performance comparable to <code class="docutils literal"><span class="pre">java.util</span></code> collections.
+It also provides advanced features such as ACID transactions, snapshots, incremental backups...</p>
+<p>MapDB is an embedded database engine for java. It provides collections backed by on-disk or in-memory storage.
+It is flexible, simple and free under Apache 2 license. MapDB is extremely fast, it
+in-memory  mode rivals <code class="docutils literal"><span class="pre">java.util</span></code> collections and on-disk mode outperforms databases written in C. And it has several
+configuration options from regular ACID transactions to very fast direct storage.</p>
+<p>MapDB started in 2001 under the name JDBM. The current MapDB2 is its 5th generation.
+It evolved as a db engine focused around Java. It is pure-java, implements all tricky interfaces
+such as <code class="docutils literal"><span class="pre">ConcurrentNavigableMap</span></code>, has only single 500KB jar,
+and runs everywhere, including Android and JDK6.
+Also, its serialization lifecycle and separate memory allocator
+makes it easy to port existing data models (such as collections) to database engine,
+outside of Garbage Collector influence.</p>
+<p>This manual is a work in progress and it will be completed together with the MapDB 2.0.0 release.
+I hope you will find it useful. I would be very happy to accept
+<a class="reference external" href="https://github.com/jankotek/mapdb-site/tree/master/doc">pull requests</a></p>
+<div class="section" id="getting-started">
+<h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>MapDB has very power-full API, but for 99% of cases you need just two
+classes:
+<a class="reference external" href="http://www.mapdb.org/apidocs/org/mapdb/DBMaker.html">DBMaker</a> is a
+builder style factory for configuring and opening a database. It has a
+handful of static <code class="docutils literal"><span class="pre">newXXX</span></code> methods for particular storage mode.
+<a class="reference external" href="http://www.mapdb.org/apidocs/org/mapdb/DB.html">DB</a> represents
+storage. It has methods for accessing Maps and other collections. It
+also controls the DB life-cycle with commit, rollback and close methods.</p>
+<p>The best places to checkout various features of MapDB are
+<a class="reference external" href="https://github.com/jankotek/MapDB/tree/master/src/test/java/examples">Examples</a>.
+There is also
+<a class="reference external" href="http://www.youtube.com/watch?v=FdZmyEHcWLI">screencast</a> which
+describes most aspects of MapDB.</p>
+<p><cite>TODO cheat sheet</cite></p>
+</div>
+</div>
+<div class="section" id="maven">
+<h1>Maven<a class="headerlink" href="#maven" title="Permalink to this headline">¶</a></h1>
+<p>MapDB is in Maven Central. Just add the code bellow to your pom file to use
+it and replace VERSION. Latest version number and binary jars can be found in
+<a class="reference external" href="http://mvnrepository.com/artifact/org.mapdb/mapdb">Maven central</a>.</p>
+<p>There are two generations of MapDB, old 1.0 and newer 2.0. At this point I would recommend to use
+2.0, despite its still beta, because it seems to be more robust.</p>
+<div class="code xml highlight-python"><div class="highlight"><pre><span></span>&lt;dependency&gt;
+    &lt;groupId&gt;org.mapdb&lt;/groupId&gt;
+    &lt;artifactId&gt;mapdb&lt;/artifactId&gt;
+    &lt;version&gt;VERSION&lt;/version&gt;
+&lt;/dependency&gt;
+</pre></div>
+</div>
+<p>We are working on the new generation of MapDB. It is faster and more reliable. The latest semi-stable build is at
+<a class="reference external" href="https://oss.sonatype.org/content/repositories/snapshots/org/mapdb/mapdb/">snapshot repository</a>:</p>
+<div class="code xml highlight-python"><div class="highlight"><pre><span></span>&lt;repositories&gt;
+    &lt;repository&gt;
+        &lt;id&gt;sonatype-snapshots&lt;/id&gt;
+        &lt;url&gt;https://oss.sonatype.org/content/repositories/snapshots&lt;/url&gt;
+    &lt;/repository&gt;
+&lt;/repositories&gt;
+
+&lt;dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.mapdb&lt;/groupId&gt;
+        &lt;artifactId&gt;mapdb&lt;/artifactId&gt;
+        &lt;version&gt;2.0.0-SNAPSHOT&lt;/version&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="hello-world">
+<h1>Hello World<a class="headerlink" href="#hello-world" title="Permalink to this headline">¶</a></h1>
+<p>Hereafter is a simple example. It opens TreeMap backed by a file in temp
+directory. The file is discarded after JVM exits:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="c1">// import org.mapdb.*</span>
+
+<span class="c1">// DB is container which manages multiple collections.</span>
+<span class="c1">// This creates new off-heap DB, which serializes data into byte[]</span>
+<span class="n">DB</span> <span class="n">db</span> <span class="o">=</span> <span class="n">DBMaker</span>
+        <span class="p">.</span><span class="n">memoryDB</span><span class="p">()</span>
+        <span class="p">.</span><span class="n">make</span><span class="p">();</span>
+
+<span class="c1">// Creates new Map, it uses builder pattern to apply configuration.</span>
+<span class="c1">// Each collection has name, and some other settings, such as Serializers.</span>
+<span class="c1">// Serializer converts object into binary form, but also provides hash.</span>
+<span class="n">ConcurrentMap</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Long</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span>
+        <span class="n">db</span><span class="p">.</span><span class="n">hashMap</span><span class="p">(</span><span class="s">&quot;map&quot;</span><span class="p">)</span>
+            <span class="p">.</span><span class="n">keySerializer</span><span class="p">(</span><span class="n">Serializer</span><span class="p">.</span><span class="n">STRING</span><span class="p">)</span>
+            <span class="p">.</span><span class="n">valueSerializer</span><span class="p">(</span><span class="n">Serializer</span><span class="p">.</span><span class="n">LONG</span><span class="p">)</span>
+            <span class="p">.</span><span class="n">valueInline</span><span class="p">()</span>  <span class="c1">// values are small, so store them inside Leaf Node</span>
+            <span class="p">.</span><span class="n">create</span><span class="p">();</span>      <span class="c1">// create new Map from configuration</span>
+
+<span class="n">map</span><span class="p">.</span><span class="n">put</span><span class="p">(</span><span class="s">&quot;something&quot;</span><span class="p">,</span><span class="mi">111L</span><span class="p">);</span>
+
+<span class="c1">// Once finished close DB.</span>
+<span class="c1">// This will release resources (open files, background threads etc...)</span>
+<span class="n">db</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>This is a more advanced example, with configuration and write-ahead-log
+transaction.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="c1">// import org.mapdb.*;</span>
+
+<span class="c1">// configure and open database using builder pattern.</span>
+<span class="c1">// all options are available with code auto-completion.</span>
+<span class="n">DB</span> <span class="n">db</span> <span class="o">=</span> <span class="n">DBMaker</span><span class="p">.</span><span class="n">fileDB</span><span class="p">(</span><span class="s">&quot;test.db&quot;</span><span class="p">)</span>
+<span class="c1">//        .closeOnJvmShutdown() TODO this settings</span>
+<span class="c1">//        .encryptionEnable(&quot;password&quot;)</span>
+        <span class="p">.</span><span class="n">make</span><span class="p">();</span>
+
+<span class="c1">// open existing an collection (or create new)</span>
+<span class="n">ConcurrentNavigableMap</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="n">db</span>
+        <span class="p">.</span><span class="n">treeMap</span><span class="p">(</span><span class="s">&quot;collectionName&quot;</span><span class="p">,</span> <span class="n">Serializer</span><span class="p">.</span><span class="n">INTEGER</span><span class="p">,</span> <span class="n">Serializer</span><span class="p">.</span><span class="n">STRING</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">make</span><span class="p">();</span>
+
+<span class="n">map</span><span class="p">.</span><span class="n">put</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s">&quot;one&quot;</span><span class="p">);</span>
+<span class="n">map</span><span class="p">.</span><span class="n">put</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s">&quot;two&quot;</span><span class="p">);</span>
+<span class="c1">// map.keySet() is now [1,2]</span>
+
+<span class="n">db</span><span class="p">.</span><span class="n">commit</span><span class="p">();</span>  <span class="c1">//persist changes into disk</span>
+
+<span class="n">map</span><span class="p">.</span><span class="n">put</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s">&quot;three&quot;</span><span class="p">);</span>
+<span class="c1">// map.keySet() is now [1,2,3]</span>
+<span class="n">db</span><span class="p">.</span><span class="n">rollback</span><span class="p">();</span> <span class="c1">//revert recent changes</span>
+<span class="c1">// map.keySet() is now [1,2]</span>
+
+<span class="n">db</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="what-you-should-know">
+<h1>What you should know<a class="headerlink" href="#what-you-should-know" title="Permalink to this headline">¶</a></h1>
+<p>MapDB is very simple to use, however it bites when used in the wrong way.
+Here is a list of the most common usage errors and things to avoid:</p>
+<ul class="simple">
+<li>Transactions (write-ahead-log) can be disabled with
+<code class="docutils literal"><span class="pre">DBMaker.transactionDisable()</span></code>, this will MapDB much faster.
+However, without WAL the store gets corrupted when not closed correctly.</li>
+<li>Keys and values must be immutable. MapDB may serialize them on
+background thread, put them into instance cache... Modifying an
+object after it was stored is a bad idea.</li>
+<li>MapDB is much faster with memory mapped files. But those cause problems
+on 32bit JVMs and are disabled by default. Use <code class="docutils literal"><span class="pre">DBMaker.fileMmapEnableIfSupported()</span></code>
+to enable them on 32bit systems.</li>
+<li>There is instance cache which uses more memory, but makes MapDB faster.
+Use <code class="docutils literal"><span class="pre">DBMaker.cacheHashTableEnable()</span></code></li>
+<li>MapDB does not run compaction on the background. You need to call
+<code class="docutils literal"><span class="pre">DB.compact()</span></code> from time to time.</li>
+<li>MapDB file storage can be only opened by one user at time.
+File lock should prevent file being used multiple times.
+But if file lock fails to prevent it, the file will become corrupted when opened (and written into)
+by multiple users.</li>
+</ul>
+</div>
+
+  <div class="section">
+  
+  
+  </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../getting-started/" title="Quick introduction"
+             >next</a></li>
+        <li class="right" >
+          <a href="../" title="MapDB Manual"
+             >previous</a> |</li>
+        <li><a href="../../">Home</a>&nbsp;|</li>
+
+          <li class="nav-item nav-item-1"><a href="../" >MapDB Manual</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, jan.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+    </div>
+  </body>
+</html>

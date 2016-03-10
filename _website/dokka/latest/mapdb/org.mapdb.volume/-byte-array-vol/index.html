@@ -1,0 +1,299 @@
+<HTML>
+<HEAD>
+<title>ByteArrayVol - mapdb</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">mapdb</a>&nbsp;/&nbsp;<a href="../index.html">org.mapdb.volume</a>&nbsp;/&nbsp;<a href=".">ByteArrayVol</a><br/>
+<br/>
+<h1>ByteArrayVol</h1>
+<code><span class="keyword">class </span><span class="identifier">ByteArrayVol</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-volume/index.html"><span class="identifier">Volume</span></a></code><br/>
+<p>Created by jan on 2/29/16. </p>
+<br/>
+<br/>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="-init-.html">&lt;init&gt;</a></td>
+<td>
+<code><span class="identifier">ByteArrayVol</span><span class="symbol">(</span><span class="symbol">)</span></code><br/>
+<code><span class="identifier">ByteArrayVol</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.volume.ByteArrayVol$<init>(kotlin.Int, kotlin.Long)/sliceShift">sliceShift</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.volume.ByteArrayVol$<init>(kotlin.Int, kotlin.Long)/initSize">initSize</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="-f-a-c-t-o-r-y.html">FACTORY</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">FACTORY</span><span class="symbol">: </span><a href="../-volume-factory/index.html"><span class="identifier">VolumeFactory</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="../-volume/-u-n-s-a-f-e_-v-o-l_-f-a-c-t-o-r-y.html">UNSAFE_VOL_FACTORY</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">UNSAFE_VOL_FACTORY</span><span class="symbol">: </span><a href="../-volume-factory/index.html"><span class="identifier">VolumeFactory</span></a></code><p>If <code>sun.misc.Unsafe</code> is available it will use Volume based on Unsafe. If Unsafe is not available for some reason (Android), use DirectByteBuffer instead. </p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="clear.html">clear</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">clear</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.volume.ByteArrayVol$clear(kotlin.Long, kotlin.Long)/startOffset">startOffset</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.volume.ByteArrayVol$clear(kotlin.Long, kotlin.Long)/endOffset">endOffset</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="close.html">close</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">close</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="ensure-available.html">ensureAvailable</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">ensureAvailable</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.volume.ByteArrayVol$ensureAvailable(kotlin.Long)/offset">offset</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="get-byte.html">getByte</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getByte</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.volume.ByteArrayVol$getByte(kotlin.Long)/offset">offset</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Byte</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="get-data.html">getData</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getData</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.volume.ByteArrayVol$getData(kotlin.Long, kotlin.ByteArray, kotlin.Int, kotlin.Int)/offset">offset</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.volume.ByteArrayVol$getData(kotlin.Long, kotlin.ByteArray, kotlin.Int, kotlin.Int)/bytes">bytes</span><span class="symbol">:</span>&nbsp;<span class="identifier">ByteArray</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.volume.ByteArrayVol$getData(kotlin.Long, kotlin.ByteArray, kotlin.Int, kotlin.Int)/bytesPos">bytesPos</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.volume.ByteArrayVol$getData(kotlin.Long, kotlin.ByteArray, kotlin.Int, kotlin.Int)/length">length</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="get-data-input.html">getDataInput</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getDataInput</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.volume.ByteArrayVol$getDataInput(kotlin.Long, kotlin.Int)/offset">offset</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.volume.ByteArrayVol$getDataInput(kotlin.Long, kotlin.Int)/size">size</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../org.mapdb/-data-input2/index.html"><span class="identifier">DataInput2</span></a></code></td>
+</tr>
+<tr>
+<td>
+<a href="get-data-input-overlap.html">getDataInputOverlap</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getDataInputOverlap</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.volume.ByteArrayVol$getDataInputOverlap(kotlin.Long, kotlin.Int)/offset">offset</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.volume.ByteArrayVol$getDataInputOverlap(kotlin.Long, kotlin.Int)/size">size</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../org.mapdb/-data-input2/index.html"><span class="identifier">DataInput2</span></a></code></td>
+</tr>
+<tr>
+<td>
+<a href="get-file.html">getFile</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getFile</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/6/docs/api/java/io/File.html"><span class="identifier">File</span></a></code></td>
+</tr>
+<tr>
+<td>
+<a href="get-file-locked.html">getFileLocked</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getFileLocked</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="get-int.html">getInt</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getInt</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.volume.ByteArrayVol$getInt(kotlin.Long)/offset">offset</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="get-long.html">getLong</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getLong</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.volume.ByteArrayVol$getLong(kotlin.Long)/offset">offset</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="is-sliced.html">isSliced</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">isSliced</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="length.html">length</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">length</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="put-byte.html">putByte</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">putByte</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.volume.ByteArrayVol$putByte(kotlin.Long, kotlin.Byte)/offset">offset</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.volume.ByteArrayVol$putByte(kotlin.Long, kotlin.Byte)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">Byte</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="put-data.html">putData</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">putData</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.volume.ByteArrayVol$putData(kotlin.Long, kotlin.ByteArray, kotlin.Int, kotlin.Int)/offset">offset</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.volume.ByteArrayVol$putData(kotlin.Long, kotlin.ByteArray, kotlin.Int, kotlin.Int)/src">src</span><span class="symbol">:</span>&nbsp;<span class="identifier">ByteArray</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.volume.ByteArrayVol$putData(kotlin.Long, kotlin.ByteArray, kotlin.Int, kotlin.Int)/srcPos">srcPos</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.volume.ByteArrayVol$putData(kotlin.Long, kotlin.ByteArray, kotlin.Int, kotlin.Int)/srcSize">srcSize</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">putData</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.volume.ByteArrayVol$putData(kotlin.Long, java.nio.ByteBuffer)/offset">offset</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.volume.ByteArrayVol$putData(kotlin.Long, java.nio.ByteBuffer)/buf">buf</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/nio/ByteBuffer.html"><span class="identifier">ByteBuffer</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="put-data-overlap.html">putDataOverlap</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">putDataOverlap</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.volume.ByteArrayVol$putDataOverlap(kotlin.Long, kotlin.ByteArray, kotlin.Int, kotlin.Int)/offset">offset</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.volume.ByteArrayVol$putDataOverlap(kotlin.Long, kotlin.ByteArray, kotlin.Int, kotlin.Int)/data">data</span><span class="symbol">:</span>&nbsp;<span class="identifier">ByteArray</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.volume.ByteArrayVol$putDataOverlap(kotlin.Long, kotlin.ByteArray, kotlin.Int, kotlin.Int)/pos">pos</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.volume.ByteArrayVol$putDataOverlap(kotlin.Long, kotlin.ByteArray, kotlin.Int, kotlin.Int)/len">len</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="put-int.html">putInt</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">putInt</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.volume.ByteArrayVol$putInt(kotlin.Long, kotlin.Int)/offset">offset</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.volume.ByteArrayVol$putInt(kotlin.Long, kotlin.Int)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="put-long.html">putLong</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">putLong</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.volume.ByteArrayVol$putLong(kotlin.Long, kotlin.Long)/offset">offset</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.volume.ByteArrayVol$putLong(kotlin.Long, kotlin.Long)/v">v</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="slice-size.html">sliceSize</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">sliceSize</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="sync.html">sync</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">sync</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="transfer-into.html">transferInto</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">transferInto</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.volume.ByteArrayVol$transferInto(kotlin.Long, org.mapdb.volume.Volume, kotlin.Long, kotlin.Long)/inputOffset">inputOffset</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.volume.ByteArrayVol$transferInto(kotlin.Long, org.mapdb.volume.Volume, kotlin.Long, kotlin.Long)/target">target</span><span class="symbol">:</span>&nbsp;<a href="../-volume/index.html"><span class="identifier">Volume</span></a><span class="symbol">, </span><span class="identifier" id="org.mapdb.volume.ByteArrayVol$transferInto(kotlin.Long, org.mapdb.volume.Volume, kotlin.Long, kotlin.Long)/targetOffset">targetOffset</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.volume.ByteArrayVol$transferInto(kotlin.Long, org.mapdb.volume.Volume, kotlin.Long, kotlin.Long)/size">size</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="truncate.html">truncate</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">truncate</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.volume.ByteArrayVol$truncate(kotlin.Long)/size">size</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="../-volume/assert-zeroes.html">assertZeroes</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">assertZeroes</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.volume.Volume$assertZeroes(kotlin.Long, kotlin.Long)/startOffset">startOffset</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.volume.Volume$assertZeroes(kotlin.Long, kotlin.Long)/endOffset">endOffset</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code><p>Check that all bytes between given offsets are zero. This might cross 1MB boundaries </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../-volume/clear-overlap.html">clearOverlap</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">clearOverlap</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.volume.Volume$clearOverlap(kotlin.Long, kotlin.Long)/startOffset">startOffset</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.volume.Volume$clearOverlap(kotlin.Long, kotlin.Long)/endOffset">endOffset</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-volume/copy-entire-volume-to.html">copyEntireVolumeTo</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">copyEntireVolumeTo</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.volume.Volume$copyEntireVolumeTo(org.mapdb.volume.Volume)/to">to</span><span class="symbol">:</span>&nbsp;<a href="../-volume/index.html"><span class="identifier">Volume</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code><p>Copy content of this volume to another. Target volume might grow, but is never shrank. Target is also not synced </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../-volume/delete-file.html">deleteFile</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">deleteFile</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-volume/file-load.html">fileLoad</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">fileLoad</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code><p><p> If underlying storage is memory-mapped-file, this method will try to load and precache all file data into disk cache. Most likely it will call <code><a href="#">MappedByteBuffer#load()</a></code>, but could also read content of entire file etc This method will not pin data into memory, they might be removed at any time. </p>
+ </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../-volume/get-packed-long.html">getPackedLong</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">getPackedLong</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.volume.Volume$getPackedLong(kotlin.Long)/position">position</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code><p>Unpack long value from the Volume. Highest 4 bits reused to indicate number of bytes read from Volume. One can use <code>result &amp; DBUtil.PACK_LONG_RESULT_MASK</code> to remove size; </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../-volume/get-six-long.html">getSixLong</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">getSixLong</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.volume.Volume$getSixLong(kotlin.Long)/pos">pos</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-volume/get-unsigned-byte.html">getUnsignedByte</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">getUnsignedByte</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.volume.Volume$getUnsignedByte(kotlin.Long)/offset">offset</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-volume/get-unsigned-short.html">getUnsignedShort</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">getUnsignedShort</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.volume.Volume$getUnsignedShort(kotlin.Long)/offset">offset</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-volume/hash.html">hash</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">hash</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.volume.Volume$hash(kotlin.Long, kotlin.Long, kotlin.Long)/off">off</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.volume.Volume$hash(kotlin.Long, kotlin.Long, kotlin.Long)/len">len</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.volume.Volume$hash(kotlin.Long, kotlin.Long, kotlin.Long)/seed">seed</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code><p><p> Calculates XXHash64 from this Volume content. </p>
+<p> This code comes from <a href="#">LZ4-Java</a> created by Adrien Grand. </p>
+ </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../-volume/is-closed.html">isClosed</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">isClosed</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-volume/put-packed-long.html">putPackedLong</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">putPackedLong</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.volume.Volume$putPackedLong(kotlin.Long, kotlin.Long)/pos">pos</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.volume.Volume$putPackedLong(kotlin.Long, kotlin.Long)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code><p>Put packed long at given position. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../-volume/put-six-long.html">putSixLong</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">putSixLong</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.volume.Volume$putSixLong(kotlin.Long, kotlin.Long)/pos">pos</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.volume.Volume$putSixLong(kotlin.Long, kotlin.Long)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-volume/put-unsigned-byte.html">putUnsignedByte</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">putUnsignedByte</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.volume.Volume$putUnsignedByte(kotlin.Long, kotlin.Int)/offset">offset</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.volume.Volume$putUnsignedByte(kotlin.Long, kotlin.Int)/b">b</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-volume/put-unsigned-short.html">putUnsignedShort</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">putUnsignedShort</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.volume.Volume$putUnsignedShort(kotlin.Long, kotlin.Int)/offset">offset</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.volume.Volume$putUnsignedShort(kotlin.Long, kotlin.Int)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-volume/volume-transfer.html">volumeTransfer</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">volumeTransfer</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.volume.Volume$volumeTransfer(kotlin.Long, org.mapdb.volume.Volume, org.mapdb.volume.Volume)/size">size</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.volume.Volume$volumeTransfer(kotlin.Long, org.mapdb.volume.Volume, org.mapdb.volume.Volume)/from">from</span><span class="symbol">:</span>&nbsp;<a href="../-volume/index.html"><span class="identifier">Volume</span></a><span class="symbol">, </span><span class="identifier" id="org.mapdb.volume.Volume$volumeTransfer(kotlin.Long, org.mapdb.volume.Volume, org.mapdb.volume.Volume)/to">to</span><span class="symbol">:</span>&nbsp;<a href="../-volume/index.html"><span class="identifier">Volume</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code><p>transfer data from one volume to second. Second volume will be expanded if needed</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

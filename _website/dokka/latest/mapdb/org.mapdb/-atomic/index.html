@@ -1,0 +1,62 @@
+<HTML>
+<HEAD>
+<title>Atomic - mapdb</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">mapdb</a>&nbsp;/&nbsp;<a href="../index.html">org.mapdb</a>&nbsp;/&nbsp;<a href=".">Atomic</a><br/>
+<br/>
+<h1>Atomic</h1>
+<code><span class="keyword">class </span><span class="identifier">Atomic</span></code><br/>
+<p><p> A small toolkit of classes that support lock-free thread-safe programming on single records. In essence, the classes here provide provide an atomic conditional update operation of the form: </p>
+ <pre><code> boolean compareAndSet(expectedValue, updateValue); </code></pre> <p> This method (which varies in argument types across different classes) atomically sets a record to the <code>updateValue</code> if it currently holds the <code>expectedValue</code>, reporting <code>true</code> on success. Classes jere also contain methods to get and unconditionally set values. </p>
+<p> The specifications of these methods enable to employ more efficient internal DB locking. CompareAndSwap operation is typically faster than using transactions, global lock or other concurrent protection. </p>
+<p> Instances of classes Atomic.Boolean, Atomic.Integer, Atomic.Long, Atomic.String and Atomic.Var each provide access and updates to a single record of the corresponding type. Each class also provides appropriate utility methods for that type. For example, classes <code>Atomic.Long</code> and <code>Atomic.Integer</code> provide atomic increment methods. One application is to generate unique keys for Maps: </p>
+ <pre><code> Atomic.Long id = Atomic.getLong("mapId"); map.put(id.getAndIncrement(), "something"); </code></pre> <p> Atomic classes are designed primarily as building blocks for implementing non-blocking data structures and related infrastructure classes. The <code>compareAndSet</code> method is not a general replacement for locking. It applies only when critical updates for an object are confined to a <emph>single</emph> record. </p>
+<p> Atomic classes are not general purpose replacements for <code>java.lang.Integer</code> and related classes. They do <emph>not</emph> define methods such as <code>hashCode</code> and <code>compareTo</code>. (Because atomic records are expected to be mutated, they are poor choices for hash table keys.) Additionally, classes are provided only for those types that are commonly useful in intended applications. Other types has to be wrapped into general Atomic.Var </p>
+<p> You can also hold floats using <code><a href="#">java.lang.Float#floatToIntBits</a></code> and <code><a href="#">java.lang.Float#intBitsToFloat</a></code> conversions, and doubles using <code><a href="#">java.lang.Double#doubleToLongBits</a></code> and <code><a href="#">java.lang.Double#longBitsToDouble</a></code> conversions. </p>
+ </p>
+<br/>
+<br/>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="-boolean/index.html">Boolean</a></td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">Boolean</span></code><p>A <code>boolean</code> record that may be updated atomically. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-integer/index.html">Integer</a></td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">Integer</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Number</span></code><p>An <code>int</code> record that may be updated atomically. An <code>Atomic@Integer</code> is used in applications such as atomically incremented counters, and cannot be used as a replacement for an java.lang.Integer. However, this class does extend <code>Number</code> to allow uniform access by tools and utilities that deal with numerically-based classes. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-long/index.html">Long</a></td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">Long</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Number</span></code><p>A <code>long</code> record that may be updated atomically. An <code>Atomic#Long</code> is used in applications such as atomically incremented sequence numbers, and cannot be used as a replacement for a java.lang.Long. However, this class does extend <code>Number</code> to allow uniform access by tools and utilities that deal with numerically-based classes. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-string/index.html">String</a></td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">String</span></code><p>A <code>String</code> record that may be updated atomically. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-var/index.html">Var</a></td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">Var</span><span class="symbol">&lt;</span><span class="identifier">E</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span></code><p>Atomically updated variable which may contain any type of record. </p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

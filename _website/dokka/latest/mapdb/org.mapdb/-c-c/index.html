@@ -1,0 +1,119 @@
+<HTML>
+<HEAD>
+<title>CC - mapdb</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">mapdb</a>&nbsp;/&nbsp;<a href="../index.html">org.mapdb</a>&nbsp;/&nbsp;<a href=".">CC</a><br/>
+<br/>
+<h1>CC</h1>
+<code><span class="keyword">interface </span><span class="identifier">CC</span></code><br/>
+<p>Compilation Configuration. Uses dead code elimination to remove `if(CONSTANT){code}` blocks </p>
+<br/>
+<br/>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="-a-s-s-e-r-t.html">ASSERT</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">ASSERT</span><span class="symbol">: </span><span class="identifier">Boolean</span></code><p>compile MapDB with assertions enabled </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-b-t-r-e-e-m-a-p_-m-a-x_-n-o-d-e_-s-i-z-e.html">BTREEMAP_MAX_NODE_SIZE</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">BTREEMAP_MAX_NODE_SIZE</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="-d-e-f-a-u-l-t_-f-i-l-e_-v-o-l-u-m-e_-f-a-c-t-o-r-y.html">DEFAULT_FILE_VOLUME_FACTORY</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">DEFAULT_FILE_VOLUME_FACTORY</span><span class="symbol">: </span><a href="../../org.mapdb.volume/-volume-factory/index.html"><span class="identifier">VolumeFactory</span></a></code></td>
+</tr>
+<tr>
+<td>
+<a href="-d-e-f-a-u-l-t_-m-e-m-o-r-y_-v-o-l-u-m-e_-f-a-c-t-o-r-y.html">DEFAULT_MEMORY_VOLUME_FACTORY</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">DEFAULT_MEMORY_VOLUME_FACTORY</span><span class="symbol">: </span><a href="../../org.mapdb.volume/-volume-factory/index.html"><span class="identifier">VolumeFactory</span></a></code></td>
+</tr>
+<tr>
+<td>
+<a href="-f-a-i-r_-l-o-c-k.html">FAIR_LOCK</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">FAIR_LOCK</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="-h-t-r-e-e-m-a-p_-c-o-n-c_-s-h-i-f-t.html">HTREEMAP_CONC_SHIFT</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">HTREEMAP_CONC_SHIFT</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="-h-t-r-e-e-m-a-p_-d-i-r_-s-h-i-f-t.html">HTREEMAP_DIR_SHIFT</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">HTREEMAP_DIR_SHIFT</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="-h-t-r-e-e-m-a-p_-l-e-v-e-l-s.html">HTREEMAP_LEVELS</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">HTREEMAP_LEVELS</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="-i-n-d-e-x_-t-r-e-e_-l-o-n-g-l-o-n-g-m-a-p_-d-i-r_-s-h-i-f-t.html">INDEX_TREE_LONGLONGMAP_DIR_SHIFT</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">INDEX_TREE_LONGLONGMAP_DIR_SHIFT</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="-i-n-d-e-x_-t-r-e-e_-l-o-n-g-l-o-n-g-m-a-p_-l-e-v-e-l-s.html">INDEX_TREE_LONGLONGMAP_LEVELS</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">INDEX_TREE_LONGLONGMAP_LEVELS</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="-l-o-g.html">LOG</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">LOG</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="-p-a-g-e_-s-h-i-f-t.html">PAGE_SHIFT</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">PAGE_SHIFT</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="-p-a-g-e_-s-i-z-e.html">PAGE_SIZE</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">PAGE_SIZE</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="-p-a-r-a-n-o-i-d.html">PARANOID</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">PARANOID</span><span class="symbol">: </span><span class="identifier">Boolean</span></code><p>compile MapDB with paranoid mode enabled </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-v-o-l-u-m-e_-p-r-i-n-t_-s-t-a-c-k_-a-t_-o-f-f-s-e-t.html">VOLUME_PRINT_STACK_AT_OFFSET</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">VOLUME_PRINT_STACK_AT_OFFSET</span><span class="symbol">: </span><span class="identifier">Long</span></code><p>Will print stack trace of all operations which are write any data at given offset Used for debugging. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-z-e-r-o-s.html">ZEROS</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">ZEROS</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

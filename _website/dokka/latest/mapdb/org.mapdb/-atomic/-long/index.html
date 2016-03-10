@@ -1,0 +1,139 @@
+<HTML>
+<HEAD>
+<title>Atomic.Long - mapdb</title>
+<link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">mapdb</a>&nbsp;/&nbsp;<a href="../../index.html">org.mapdb</a>&nbsp;/&nbsp;<a href="../index.html">Atomic</a>&nbsp;/&nbsp;<a href=".">Long</a><br/>
+<br/>
+<h1>Long</h1>
+<code><span class="keyword">class </span><span class="identifier">Long</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Number</span></code><br/>
+<p>A <code>long</code> record that may be updated atomically. An <code>Atomic#Long</code> is used in applications such as atomically incremented sequence numbers, and cannot be used as a replacement for a java.lang.Long. However, this class does extend <code>Number</code> to allow uniform access by tools and utilities that deal with numerically-based classes. </p>
+<br/>
+<br/>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="-init-.html">&lt;init&gt;</a></td>
+<td>
+<code><span class="identifier">Long</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.Atomic.Long$<init>(org.mapdb.Store, kotlin.Long)/store">store</span><span class="symbol">:</span>&nbsp;<a href="../../-store/index.html"><span class="identifier">Store</span></a><span class="symbol">, </span><span class="identifier" id="org.mapdb.Atomic.Long$<init>(org.mapdb.Store, kotlin.Long)/recid">recid</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="add-and-get.html">addAndGet</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">addAndGet</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.Atomic.Long$addAndGet(kotlin.Long)/delta">delta</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code><p>Atomically adds the given value to the current value. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="compare-and-set.html">compareAndSet</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">compareAndSet</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.Atomic.Long$compareAndSet(kotlin.Long, kotlin.Long)/expect">expect</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.Atomic.Long$compareAndSet(kotlin.Long, kotlin.Long)/update">update</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code><p>Atomically sets the value to the given updated value if the current value <code>==</code> the expected value. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="decrement-and-get.html">decrementAndGet</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">decrementAndGet</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code><p>Atomically decrements by one the current value. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="get.html">get</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">get</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code><p>Gets the current value. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="get-and-add.html">getAndAdd</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getAndAdd</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.Atomic.Long$getAndAdd(kotlin.Long)/delta">delta</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code><p>Atomically adds the given value to the current value. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="get-and-decrement.html">getAndDecrement</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getAndDecrement</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code><p>Atomically decrements by one the current value. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="get-and-increment.html">getAndIncrement</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getAndIncrement</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code><p>Atomically increments by one the current value. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="get-and-set.html">getAndSet</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getAndSet</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.Atomic.Long$getAndSet(kotlin.Long)/newValue">newValue</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code><p>Atomically sets to the given value and returns the old value. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="get-recid.html">getRecid</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getRecid</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code><p></p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="increment-and-get.html">incrementAndGet</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">incrementAndGet</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code><p>Atomically increments by one the current value. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="set.html">set</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">set</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.Atomic.Long$set(kotlin.Long)/newValue">newValue</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code><p>Sets to the given value. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="to-double.html">toDouble</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">toDouble</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Double</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="to-float.html">toFloat</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">toFloat</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Float</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="to-int.html">toInt</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">toInt</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="to-long.html">toLong</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">toLong</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="to-string.html">toString</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">toString</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">String</span></code><p>Returns the String representation of the current value. </p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

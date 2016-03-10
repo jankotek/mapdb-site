@@ -1,0 +1,53 @@
+<HTML>
+<HEAD>
+<title>DB.TreeMapPump - mapdb</title>
+<link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">mapdb</a>&nbsp;/&nbsp;<a href="../../index.html">org.mapdb</a>&nbsp;/&nbsp;<a href="../index.html">DB</a>&nbsp;/&nbsp;<a href=".">TreeMapPump</a><br/>
+<br/>
+<h1>TreeMapPump</h1>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">TreeMapPump</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">, </span><span class="identifier">V</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../-pump/-consumer/index.html"><span class="identifier">Consumer</span></a><span class="symbol">&lt;</span><span class="identifier">Pair</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">,</span>&nbsp;<a href="../../-b-tree-map/index.html"><span class="identifier">BTreeMap</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code><br/>
+<br/>
+<br/>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="-init-.html">&lt;init&gt;</a></td>
+<td>
+<code><span class="identifier">TreeMapPump</span><span class="symbol">(</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="take.html">take</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">take</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DB.TreeMapPump$take(org.mapdb.DB.TreeMapPump.K, org.mapdb.DB.TreeMapPump.V)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.DB.TreeMapPump$take(org.mapdb.DB.TreeMapPump.K, org.mapdb.DB.TreeMapPump.V)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">V</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="take-all.html">takeAll</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">takeAll</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DB.TreeMapPump$takeAll(java.util.SortedMap((org.mapdb.DB.TreeMapPump.K, org.mapdb.DB.TreeMapPump.V)))/map">map</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/util/SortedMap.html"><span class="identifier">SortedMap</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="../../-pump/-consumer/finish.html">finish</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">finish</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">R</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

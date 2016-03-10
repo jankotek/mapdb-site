@@ -1,0 +1,592 @@
+<HTML>
+<HEAD>
+<title>BTreeMap - mapdb</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">mapdb</a>&nbsp;/&nbsp;<a href="../index.html">org.mapdb</a>&nbsp;/&nbsp;<a href=".">BTreeMap</a><br/>
+<br/>
+<h1>BTreeMap</h1>
+<code><span class="keyword">class </span><span class="identifier">BTreeMap</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">, </span><span class="identifier">V</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-verifiable/index.html"><span class="identifier">Verifiable</span></a><span class="symbol">, </span><a href="http://docs.oracle.com/javase/6/docs/api/java/io/Closeable.html"><span class="identifier">Closeable</span></a><span class="symbol">, </span><a href="http://docs.oracle.com/javase/6/docs/api/java/io/Serializable.html"><span class="identifier">Serializable</span></a><span class="symbol">, </span><a href="http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/ConcurrentNavigableMap.html"><span class="identifier">ConcurrentNavigableMap</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier">ConcurrentNavigableMapExtra</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code><br/>
+<p>A scalable concurrent {@link ConcurrentNavigableMap} implementation.
+The map is sorted according to the {@linkplain Comparable natural
+ordering} of its keys, or by a {@link Comparator} provided at map
+creation time.</p>
+<p>Insertion, removal,
+update, and access operations safely execute concurrently by
+multiple threads.  Iterators are weakly consistent, returning
+elements reflecting the state of the map at some point at or since
+the creation of the iterator.  They do not throw {@link
+ConcurrentModificationException}, and may proceed concurrently with
+other operations. Ascending key ordered views and their iterators
+are faster than descending ones.</p>
+<p>All Map.Entry pairs returned by methods in this class
+and its views represent snapshots of mappings at the time they were
+produced. They do not support the Entry.setValue
+method. (Note however that it is possible to change mappings in the
+associated map using put, putIfAbsent, or
+replace, depending on exactly which effect you need.)
+TODO is this correct, setValue might work?</p>
+<p>By default BTreeMap does not track its size and {@code size()} traverses collection to count its entries.
+There is option to enable counter, in that case {@code size()} returns instantly</p>
+<p>Additionally, the bulk operations putAll, equals, and
+clear are not guaranteed to be performed
+atomically. For example, an iterator operating concurrently with a
+putAll operation might view only some of the added
+elements. NOTE: there is an optional</p>
+<p>This class and its views and iterators implement all of the
+optional methods of the {@link Map} and {@link Iterator}
+interfaces. Like most other concurrent collections, this class does
+not permit the use of null keys or values because some
+null return values cannot be reliably distinguished from the absence of</p>
+<p>Theoretical design of BTreeMap is based on 1986 paper
+
+Concurrent operations on B∗-trees with overtaking
+written by Yehoshua Sagiv.
+More practical aspects of BTreeMap implementation are based on
+demo application from Thomas Dinsdale-Young.
+Also more work from Thomas: A Simple Abstraction for Complex Concurrent Indexes</p>
+<p>B-Linked-Tree used here does not require locking for read.
+Updates and inserts locks only one, two or three nodes.</p>
+<p>This B-Linked-Tree structure does not support removal well, entry deletion does not collapse tree nodes. Massive
+deletion causes empty nodes and performance lost. There is workaround in form of compaction process, but it is not
+implemented yet.</p>
+<br/>
+<br/>
+<strong>Author</strong><br/>
+Jan Kotek<br/>
+<strong>Author</strong><br/>
+some parts by Doug Lea and JSR-166 group<br/>
+<br/>
+<br/>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="-b-tree-bound-iterator/index.html">BTreeBoundIterator</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">BTreeBoundIterator</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">, </span><span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="-b-tree-iterator/index.html">BTreeIterator</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">BTreeIterator</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">, </span><span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="-descending-bound-iterator/index.html">DescendingBoundIterator</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">DescendingBoundIterator</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">, </span><span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="-descending-iterator/index.html">DescendingIterator</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">DescendingIterator</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">, </span><span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="-init-.html">&lt;init&gt;</a></td>
+<td>
+<code><span class="identifier">BTreeMap</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$<init>(org.mapdb.serializer.GroupSerializer((org.mapdb.BTreeMap.K)), org.mapdb.serializer.GroupSerializer((org.mapdb.BTreeMap.V)), kotlin.Long, org.mapdb.Store, kotlin.Int, java.util.Comparator((org.mapdb.BTreeMap.K)), kotlin.Boolean, kotlin.Long, kotlin.Boolean)/keySerializer">keySerializer</span><span class="symbol">:</span>&nbsp;<a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$<init>(org.mapdb.serializer.GroupSerializer((org.mapdb.BTreeMap.K)), org.mapdb.serializer.GroupSerializer((org.mapdb.BTreeMap.V)), kotlin.Long, org.mapdb.Store, kotlin.Int, java.util.Comparator((org.mapdb.BTreeMap.K)), kotlin.Boolean, kotlin.Long, kotlin.Boolean)/valueSerializer">valueSerializer</span><span class="symbol">:</span>&nbsp;<a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$<init>(org.mapdb.serializer.GroupSerializer((org.mapdb.BTreeMap.K)), org.mapdb.serializer.GroupSerializer((org.mapdb.BTreeMap.V)), kotlin.Long, org.mapdb.Store, kotlin.Int, java.util.Comparator((org.mapdb.BTreeMap.K)), kotlin.Boolean, kotlin.Long, kotlin.Boolean)/rootRecidRecid">rootRecidRecid</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$<init>(org.mapdb.serializer.GroupSerializer((org.mapdb.BTreeMap.K)), org.mapdb.serializer.GroupSerializer((org.mapdb.BTreeMap.V)), kotlin.Long, org.mapdb.Store, kotlin.Int, java.util.Comparator((org.mapdb.BTreeMap.K)), kotlin.Boolean, kotlin.Long, kotlin.Boolean)/store">store</span><span class="symbol">:</span>&nbsp;<a href="../-store/index.html"><span class="identifier">Store</span></a><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$<init>(org.mapdb.serializer.GroupSerializer((org.mapdb.BTreeMap.K)), org.mapdb.serializer.GroupSerializer((org.mapdb.BTreeMap.V)), kotlin.Long, org.mapdb.Store, kotlin.Int, java.util.Comparator((org.mapdb.BTreeMap.K)), kotlin.Boolean, kotlin.Long, kotlin.Boolean)/maxNodeSize">maxNodeSize</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$<init>(org.mapdb.serializer.GroupSerializer((org.mapdb.BTreeMap.K)), org.mapdb.serializer.GroupSerializer((org.mapdb.BTreeMap.V)), kotlin.Long, org.mapdb.Store, kotlin.Int, java.util.Comparator((org.mapdb.BTreeMap.K)), kotlin.Boolean, kotlin.Long, kotlin.Boolean)/comparator">comparator</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/util/Comparator.html"><span class="identifier">Comparator</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$<init>(org.mapdb.serializer.GroupSerializer((org.mapdb.BTreeMap.K)), org.mapdb.serializer.GroupSerializer((org.mapdb.BTreeMap.V)), kotlin.Long, org.mapdb.Store, kotlin.Int, java.util.Comparator((org.mapdb.BTreeMap.K)), kotlin.Boolean, kotlin.Long, kotlin.Boolean)/threadSafe">threadSafe</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$<init>(org.mapdb.serializer.GroupSerializer((org.mapdb.BTreeMap.K)), org.mapdb.serializer.GroupSerializer((org.mapdb.BTreeMap.V)), kotlin.Long, org.mapdb.Store, kotlin.Int, java.util.Comparator((org.mapdb.BTreeMap.K)), kotlin.Boolean, kotlin.Long, kotlin.Boolean)/counterRecid">counterRecid</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$<init>(org.mapdb.serializer.GroupSerializer((org.mapdb.BTreeMap.K)), org.mapdb.serializer.GroupSerializer((org.mapdb.BTreeMap.V)), kotlin.Long, org.mapdb.Store, kotlin.Int, java.util.Comparator((org.mapdb.BTreeMap.K)), kotlin.Boolean, kotlin.Long, kotlin.Boolean)/hasValues">hasValues</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">)</span></code><p>A scalable concurrent {@link ConcurrentNavigableMap} implementation.
+The map is sorted according to the {@linkplain Comparable natural
+ordering} of its keys, or by a {@link Comparator} provided at map
+creation time.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="comparator.html">comparator</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">comparator</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/6/docs/api/java/util/Comparator.html"><span class="identifier">Comparator</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="counter-recid.html">counterRecid</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">counterRecid</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="entries.html">entries</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">entries</span><span class="symbol">: </span><span class="identifier">MutableSet</span><span class="symbol">&lt;</span><span class="identifier">MutableEntry</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="has-values.html">hasValues</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">hasValues</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="key-serializer.html">keySerializer</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">keySerializer</span><span class="symbol">: </span><a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="keys.html">keys</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">keys</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/6/docs/api/java/util/NavigableSet.html"><span class="identifier">NavigableSet</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">?</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="max-node-size.html">maxNodeSize</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">maxNodeSize</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="root-recid-recid.html">rootRecidRecid</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">rootRecidRecid</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="size.html">size</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">size</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="store.html">store</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">store</span><span class="symbol">: </span><a href="../-store/index.html"><span class="identifier">Store</span></a></code></td>
+</tr>
+<tr>
+<td>
+<a href="thread-safe.html">threadSafe</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">threadSafe</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="value-serializer.html">valueSerializer</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">valueSerializer</span><span class="symbol">: </span><a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="values.html">values</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">values</span><span class="symbol">: </span><span class="identifier">MutableCollection</span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">?</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="assert-current-thread-unlocked.html">assertCurrentThreadUnlocked</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">assertCurrentThreadUnlocked</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="btree-entry.html">btreeEntry</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">btreeEntry</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$btreeEntry(org.mapdb.BTreeMap.K, org.mapdb.BTreeMap.V)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$btreeEntry(org.mapdb.BTreeMap.K, org.mapdb.BTreeMap.V)/valueOrig">valueOrig</span><span class="symbol">:</span>&nbsp;<span class="identifier">V</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableEntry</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="ceiling-entry.html">ceilingEntry</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">ceilingEntry</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$ceilingEntry(org.mapdb.BTreeMap.K)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableEntry</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="ceiling-key.html">ceilingKey</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">ceilingKey</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$ceilingKey(org.mapdb.BTreeMap.K)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">K</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="clear.html">clear</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">clear</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="close.html">close</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">close</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="comparator.html">comparator</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">comparator</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/6/docs/api/java/util/Comparator.html"><span class="identifier">Comparator</span></a><span class="symbol">&lt;</span><span class="keyword">in</span>&nbsp;<span class="identifier">K</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="contains-key.html">containsKey</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">containsKey</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$containsKey(org.mapdb.BTreeMap.K)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="contains-value.html">containsValue</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">containsValue</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$containsValue(org.mapdb.BTreeMap.V)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">V</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="descending-entry-iterator.html">descendingEntryIterator</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">descendingEntryIterator</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableIterator</span><span class="symbol">&lt;</span><span class="identifier">MutableEntry</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">descendingEntryIterator</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$descendingEntryIterator(org.mapdb.BTreeMap.K, kotlin.Boolean, org.mapdb.BTreeMap.K, kotlin.Boolean)/lo">lo</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$descendingEntryIterator(org.mapdb.BTreeMap.K, kotlin.Boolean, org.mapdb.BTreeMap.K, kotlin.Boolean)/loInclusive">loInclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$descendingEntryIterator(org.mapdb.BTreeMap.K, kotlin.Boolean, org.mapdb.BTreeMap.K, kotlin.Boolean)/hi">hi</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$descendingEntryIterator(org.mapdb.BTreeMap.K, kotlin.Boolean, org.mapdb.BTreeMap.K, kotlin.Boolean)/hiInclusive">hiInclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableIterator</span><span class="symbol">&lt;</span><span class="identifier">MutableEntry</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="descending-key-iterator.html">descendingKeyIterator</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">descendingKeyIterator</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableIterator</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">descendingKeyIterator</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$descendingKeyIterator(org.mapdb.BTreeMap.K, kotlin.Boolean, org.mapdb.BTreeMap.K, kotlin.Boolean)/lo">lo</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$descendingKeyIterator(org.mapdb.BTreeMap.K, kotlin.Boolean, org.mapdb.BTreeMap.K, kotlin.Boolean)/loInclusive">loInclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$descendingKeyIterator(org.mapdb.BTreeMap.K, kotlin.Boolean, org.mapdb.BTreeMap.K, kotlin.Boolean)/hi">hi</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$descendingKeyIterator(org.mapdb.BTreeMap.K, kotlin.Boolean, org.mapdb.BTreeMap.K, kotlin.Boolean)/hiInclusive">hiInclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableIterator</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="descending-key-set.html">descendingKeySet</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">descendingKeySet</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/6/docs/api/java/util/NavigableSet.html"><span class="identifier">NavigableSet</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="descending-leaf-iterator.html">descendingLeafIterator</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">descendingLeafIterator</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$descendingLeafIterator(org.mapdb.BTreeMap.K)/hi">hi</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Iterator</span><span class="symbol">&lt;</span><a href="../-b-tree-map-java/-node/index.html"><span class="identifier">Node</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="descending-map.html">descendingMap</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">descendingMap</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/ConcurrentNavigableMap.html"><span class="identifier">ConcurrentNavigableMap</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="descending-value-iterator.html">descendingValueIterator</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">descendingValueIterator</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableIterator</span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">descendingValueIterator</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$descendingValueIterator(org.mapdb.BTreeMap.K, kotlin.Boolean, org.mapdb.BTreeMap.K, kotlin.Boolean)/lo">lo</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$descendingValueIterator(org.mapdb.BTreeMap.K, kotlin.Boolean, org.mapdb.BTreeMap.K, kotlin.Boolean)/loInclusive">loInclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$descendingValueIterator(org.mapdb.BTreeMap.K, kotlin.Boolean, org.mapdb.BTreeMap.K, kotlin.Boolean)/hi">hi</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$descendingValueIterator(org.mapdb.BTreeMap.K, kotlin.Boolean, org.mapdb.BTreeMap.K, kotlin.Boolean)/hiInclusive">hiInclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableIterator</span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="entry-iterator.html">entryIterator</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">entryIterator</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableIterator</span><span class="symbol">&lt;</span><span class="identifier">MutableEntry</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">entryIterator</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$entryIterator(org.mapdb.BTreeMap.K, kotlin.Boolean, org.mapdb.BTreeMap.K, kotlin.Boolean)/lo">lo</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$entryIterator(org.mapdb.BTreeMap.K, kotlin.Boolean, org.mapdb.BTreeMap.K, kotlin.Boolean)/loInclusive">loInclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$entryIterator(org.mapdb.BTreeMap.K, kotlin.Boolean, org.mapdb.BTreeMap.K, kotlin.Boolean)/hi">hi</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$entryIterator(org.mapdb.BTreeMap.K, kotlin.Boolean, org.mapdb.BTreeMap.K, kotlin.Boolean)/hiInclusive">hiInclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableIterator</span><span class="symbol">&lt;</span><span class="identifier">MutableEntry</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="equals.html">equals</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">equals</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$equals(kotlin.Any)/other">other</span><span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="find-higher.html">findHigher</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">findHigher</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$findHigher(org.mapdb.BTreeMap.K, kotlin.Boolean)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$findHigher(org.mapdb.BTreeMap.K, kotlin.Boolean)/inclusive">inclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableEntry</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="find-higher-key.html">findHigherKey</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">findHigherKey</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$findHigherKey(org.mapdb.BTreeMap.K, kotlin.Boolean)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$findHigherKey(org.mapdb.BTreeMap.K, kotlin.Boolean)/inclusive">inclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">K</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="find-lower.html">findLower</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">findLower</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$findLower(org.mapdb.BTreeMap.K, kotlin.Boolean)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$findLower(org.mapdb.BTreeMap.K, kotlin.Boolean)/inclusive">inclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableEntry</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="find-lower-key.html">findLowerKey</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">findLowerKey</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$findLowerKey(org.mapdb.BTreeMap.K, kotlin.Boolean)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$findLowerKey(org.mapdb.BTreeMap.K, kotlin.Boolean)/inclusive">inclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">K</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="first-entry.html">firstEntry</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">firstEntry</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableEntry</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="first-key.html">firstKey</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">firstKey</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">K</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="first-key2.html">firstKey2</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">firstKey2</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">K</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="floor-entry.html">floorEntry</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">floorEntry</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$floorEntry(org.mapdb.BTreeMap.K)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableEntry</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="floor-key.html">floorKey</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">floorKey</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$floorKey(org.mapdb.BTreeMap.K)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">K</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="for-each.html">forEach</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">forEach</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$forEach(java.util.function.BiConsumer((org.mapdb.BTreeMap.K, org.mapdb.BTreeMap.V)))/action">action</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/util/function/BiConsumer.html"><span class="identifier">BiConsumer</span></a><span class="symbol">&lt;</span><span class="keyword">in</span>&nbsp;<span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="keyword">in</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="for-each-key.html">forEachKey</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">forEachKey</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$forEachKey(kotlin.Function1((org.mapdb.BTreeMap.K, kotlin.Unit)))/procedure">procedure</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">K</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">Unit</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="for-each-value.html">forEachValue</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">forEachValue</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$forEachValue(kotlin.Function1((org.mapdb.BTreeMap.V, kotlin.Unit)))/procedure">procedure</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">V</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">Unit</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="get.html">get</a></td>
+<td>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">get</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$get(org.mapdb.BTreeMap.K)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">V</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="hash-code.html">hashCode</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">hashCode</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="head-map.html">headMap</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">headMap</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$headMap(org.mapdb.BTreeMap.K, kotlin.Boolean)/toKey">toKey</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$headMap(org.mapdb.BTreeMap.K, kotlin.Boolean)/inclusive">inclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/ConcurrentNavigableMap.html"><span class="identifier">ConcurrentNavigableMap</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">headMap</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$headMap(org.mapdb.BTreeMap.K)/toKey">toKey</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">)</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/ConcurrentNavigableMap.html"><span class="identifier">ConcurrentNavigableMap</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="higher-entry.html">higherEntry</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">higherEntry</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$higherEntry(org.mapdb.BTreeMap.K)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableEntry</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="higher-key.html">higherKey</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">higherKey</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$higherKey(org.mapdb.BTreeMap.K)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">K</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="is-closed.html">isClosed</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">isClosed</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="is-empty.html">isEmpty</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">isEmpty</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="key-iterator.html">keyIterator</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">keyIterator</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableIterator</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">keyIterator</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$keyIterator(org.mapdb.BTreeMap.K, kotlin.Boolean, org.mapdb.BTreeMap.K, kotlin.Boolean)/lo">lo</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$keyIterator(org.mapdb.BTreeMap.K, kotlin.Boolean, org.mapdb.BTreeMap.K, kotlin.Boolean)/loInclusive">loInclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$keyIterator(org.mapdb.BTreeMap.K, kotlin.Boolean, org.mapdb.BTreeMap.K, kotlin.Boolean)/hi">hi</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$keyIterator(org.mapdb.BTreeMap.K, kotlin.Boolean, org.mapdb.BTreeMap.K, kotlin.Boolean)/hiInclusive">hiInclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableIterator</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="last-entry.html">lastEntry</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">lastEntry</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableEntry</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="last-key.html">lastKey</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">lastKey</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">K</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="last-key2.html">lastKey2</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">lastKey2</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">K</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="lock.html">lock</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">lock</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$lock(kotlin.Long)/nodeRecid">nodeRecid</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="lower-entry.html">lowerEntry</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">lowerEntry</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$lowerEntry(org.mapdb.BTreeMap.K)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableEntry</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="lower-key.html">lowerKey</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">lowerKey</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$lowerKey(org.mapdb.BTreeMap.K)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">K</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="navigable-key-set.html">navigableKeySet</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">navigableKeySet</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/6/docs/api/java/util/NavigableSet.html"><span class="identifier">NavigableSet</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">?</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="poll-first-entry.html">pollFirstEntry</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">pollFirstEntry</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableEntry</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="poll-last-entry.html">pollLastEntry</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">pollLastEntry</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableEntry</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="print-structure.html">printStructure</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">printStructure</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$printStructure(java.io.PrintStream)/out">out</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/io/PrintStream.html"><span class="identifier">PrintStream</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="put.html">put</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">put</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$put(org.mapdb.BTreeMap.K, org.mapdb.BTreeMap.V)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$put(org.mapdb.BTreeMap.K, org.mapdb.BTreeMap.V)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">V</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="put2.html">put2</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">put2</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$put2(org.mapdb.BTreeMap.K, org.mapdb.BTreeMap.V, kotlin.Boolean)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$put2(org.mapdb.BTreeMap.K, org.mapdb.BTreeMap.V, kotlin.Boolean)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">V</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$put2(org.mapdb.BTreeMap.K, org.mapdb.BTreeMap.V, kotlin.Boolean)/onlyIfAbsent">onlyIfAbsent</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">V</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="put-all.html">putAll</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">putAll</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$putAll(kotlin.collections.Map((org.mapdb.BTreeMap.K, org.mapdb.BTreeMap.V)))/from">from</span><span class="symbol">:</span>&nbsp;<span class="identifier">Map</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="put-if-absent.html">putIfAbsent</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">putIfAbsent</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$putIfAbsent(org.mapdb.BTreeMap.K, org.mapdb.BTreeMap.V)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$putIfAbsent(org.mapdb.BTreeMap.K, org.mapdb.BTreeMap.V)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">V</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="put-if-absent-boolean.html">putIfAbsentBoolean</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">putIfAbsentBoolean</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$putIfAbsentBoolean(org.mapdb.BTreeMap.K, org.mapdb.BTreeMap.V)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$putIfAbsentBoolean(org.mapdb.BTreeMap.K, org.mapdb.BTreeMap.V)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code><p>Atomically associates the specified key with the given value if it is
+not already associated with a value.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="remove.html">remove</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">remove</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$remove(org.mapdb.BTreeMap.K)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">V</span><span class="symbol">?</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">remove</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$remove(kotlin.Any, kotlin.Any)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$remove(kotlin.Any, kotlin.Any)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="remove-or-replace.html">removeOrReplace</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">removeOrReplace</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$removeOrReplace(org.mapdb.BTreeMap.K, org.mapdb.BTreeMap.V, org.mapdb.BTreeMap.V)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$removeOrReplace(org.mapdb.BTreeMap.K, org.mapdb.BTreeMap.V, org.mapdb.BTreeMap.V)/expectedOldValue">expectedOldValue</span><span class="symbol">:</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$removeOrReplace(org.mapdb.BTreeMap.K, org.mapdb.BTreeMap.V, org.mapdb.BTreeMap.V)/replaceWithValue">replaceWithValue</span><span class="symbol">:</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">V</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="replace.html">replace</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">replace</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$replace(org.mapdb.BTreeMap.K, org.mapdb.BTreeMap.V, org.mapdb.BTreeMap.V)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$replace(org.mapdb.BTreeMap.K, org.mapdb.BTreeMap.V, org.mapdb.BTreeMap.V)/oldValue">oldValue</span><span class="symbol">:</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$replace(org.mapdb.BTreeMap.K, org.mapdb.BTreeMap.V, org.mapdb.BTreeMap.V)/newValue">newValue</span><span class="symbol">:</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">replace</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$replace(org.mapdb.BTreeMap.K, org.mapdb.BTreeMap.V)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$replace(org.mapdb.BTreeMap.K, org.mapdb.BTreeMap.V)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">V</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="size-long.html">sizeLong</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">sizeLong</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code><p>map size as long number</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="sub-map.html">subMap</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">subMap</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$subMap(org.mapdb.BTreeMap.K, kotlin.Boolean, org.mapdb.BTreeMap.K, kotlin.Boolean)/fromKey">fromKey</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$subMap(org.mapdb.BTreeMap.K, kotlin.Boolean, org.mapdb.BTreeMap.K, kotlin.Boolean)/fromInclusive">fromInclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$subMap(org.mapdb.BTreeMap.K, kotlin.Boolean, org.mapdb.BTreeMap.K, kotlin.Boolean)/toKey">toKey</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$subMap(org.mapdb.BTreeMap.K, kotlin.Boolean, org.mapdb.BTreeMap.K, kotlin.Boolean)/toInclusive">toInclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/ConcurrentNavigableMap.html"><span class="identifier">ConcurrentNavigableMap</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">subMap</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$subMap(org.mapdb.BTreeMap.K, org.mapdb.BTreeMap.K)/fromKey">fromKey</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$subMap(org.mapdb.BTreeMap.K, org.mapdb.BTreeMap.K)/toKey">toKey</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">)</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/ConcurrentNavigableMap.html"><span class="identifier">ConcurrentNavigableMap</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="tail-map.html">tailMap</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">tailMap</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$tailMap(org.mapdb.BTreeMap.K, kotlin.Boolean)/fromKey">fromKey</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$tailMap(org.mapdb.BTreeMap.K, kotlin.Boolean)/inclusive">inclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/ConcurrentNavigableMap.html"><span class="identifier">ConcurrentNavigableMap</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">tailMap</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$tailMap(org.mapdb.BTreeMap.K)/fromKey">fromKey</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">)</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/ConcurrentNavigableMap.html"><span class="identifier">ConcurrentNavigableMap</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="unlock.html">unlock</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">unlock</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$unlock(kotlin.Long)/nodeRecid">nodeRecid</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="unlock-all-current-thread.html">unlockAllCurrentThread</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">unlockAllCurrentThread</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="value-iterator.html">valueIterator</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">valueIterator</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableIterator</span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">?</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">valueIterator</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$valueIterator(org.mapdb.BTreeMap.K, kotlin.Boolean, org.mapdb.BTreeMap.K, kotlin.Boolean)/lo">lo</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$valueIterator(org.mapdb.BTreeMap.K, kotlin.Boolean, org.mapdb.BTreeMap.K, kotlin.Boolean)/loInclusive">loInclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$valueIterator(org.mapdb.BTreeMap.K, kotlin.Boolean, org.mapdb.BTreeMap.K, kotlin.Boolean)/hi">hi</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$valueIterator(org.mapdb.BTreeMap.K, kotlin.Boolean, org.mapdb.BTreeMap.K, kotlin.Boolean)/hiInclusive">hiInclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableIterator</span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="verify.html">verify</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">verify</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="make.html">make</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">, </span><span class="identifier">V</span><span class="symbol">&gt;</span> <span class="identifier">make</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap.Companion$make(org.mapdb.serializer.GroupSerializer((org.mapdb.BTreeMap.Companion.make.K)), org.mapdb.serializer.GroupSerializer((org.mapdb.BTreeMap.Companion.make.V)), org.mapdb.Store, kotlin.Long, kotlin.Int, java.util.Comparator((org.mapdb.BTreeMap.Companion.make.K)), kotlin.Boolean, kotlin.Long)/keySerializer">keySerializer</span><span class="symbol">:</span>&nbsp;<a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;Serializer.JAVA as GroupSerializer&lt;K&gt;<span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap.Companion$make(org.mapdb.serializer.GroupSerializer((org.mapdb.BTreeMap.Companion.make.K)), org.mapdb.serializer.GroupSerializer((org.mapdb.BTreeMap.Companion.make.V)), org.mapdb.Store, kotlin.Long, kotlin.Int, java.util.Comparator((org.mapdb.BTreeMap.Companion.make.K)), kotlin.Boolean, kotlin.Long)/valueSerializer">valueSerializer</span><span class="symbol">:</span>&nbsp;<a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;Serializer.JAVA as GroupSerializer&lt;V&gt;<span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap.Companion$make(org.mapdb.serializer.GroupSerializer((org.mapdb.BTreeMap.Companion.make.K)), org.mapdb.serializer.GroupSerializer((org.mapdb.BTreeMap.Companion.make.V)), org.mapdb.Store, kotlin.Long, kotlin.Int, java.util.Comparator((org.mapdb.BTreeMap.Companion.make.K)), kotlin.Boolean, kotlin.Long)/store">store</span><span class="symbol">:</span>&nbsp;<a href="../-store/index.html"><span class="identifier">Store</span></a>&nbsp;<span class="symbol">=</span>&nbsp;StoreTrivial()<span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap.Companion$make(org.mapdb.serializer.GroupSerializer((org.mapdb.BTreeMap.Companion.make.K)), org.mapdb.serializer.GroupSerializer((org.mapdb.BTreeMap.Companion.make.V)), org.mapdb.Store, kotlin.Long, kotlin.Int, java.util.Comparator((org.mapdb.BTreeMap.Companion.make.K)), kotlin.Boolean, kotlin.Long)/rootRecidRecid">rootRecidRecid</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span>&nbsp;<span class="symbol">=</span>&nbsp;putEmptyRoot(store, keySerializer, valueSerializer)<span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap.Companion$make(org.mapdb.serializer.GroupSerializer((org.mapdb.BTreeMap.Companion.make.K)), org.mapdb.serializer.GroupSerializer((org.mapdb.BTreeMap.Companion.make.V)), org.mapdb.Store, kotlin.Long, kotlin.Int, java.util.Comparator((org.mapdb.BTreeMap.Companion.make.K)), kotlin.Boolean, kotlin.Long)/maxNodeSize">maxNodeSize</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span>&nbsp;<span class="symbol">=</span>&nbsp;CC.BTREEMAP_MAX_NODE_SIZE<span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap.Companion$make(org.mapdb.serializer.GroupSerializer((org.mapdb.BTreeMap.Companion.make.K)), org.mapdb.serializer.GroupSerializer((org.mapdb.BTreeMap.Companion.make.V)), org.mapdb.Store, kotlin.Long, kotlin.Int, java.util.Comparator((org.mapdb.BTreeMap.Companion.make.K)), kotlin.Boolean, kotlin.Long)/comparator">comparator</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/util/Comparator.html"><span class="identifier">Comparator</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;keySerializer<span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap.Companion$make(org.mapdb.serializer.GroupSerializer((org.mapdb.BTreeMap.Companion.make.K)), org.mapdb.serializer.GroupSerializer((org.mapdb.BTreeMap.Companion.make.V)), org.mapdb.Store, kotlin.Long, kotlin.Int, java.util.Comparator((org.mapdb.BTreeMap.Companion.make.K)), kotlin.Boolean, kotlin.Long)/threadSafe">threadSafe</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap.Companion$make(org.mapdb.serializer.GroupSerializer((org.mapdb.BTreeMap.Companion.make.K)), org.mapdb.serializer.GroupSerializer((org.mapdb.BTreeMap.Companion.make.V)), org.mapdb.Store, kotlin.Long, kotlin.Int, java.util.Comparator((org.mapdb.BTreeMap.Companion.make.K)), kotlin.Boolean, kotlin.Long)/counterRecid">counterRecid</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span>&nbsp;<span class="symbol">=</span>&nbsp;0L<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">BTreeMap</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

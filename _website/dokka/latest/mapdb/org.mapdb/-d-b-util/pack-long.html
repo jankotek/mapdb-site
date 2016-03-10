@@ -1,0 +1,39 @@
+<HTML>
+<HEAD>
+<title>DBUtil.packLong - mapdb</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">mapdb</a>&nbsp;/&nbsp;<a href="../index.html">org.mapdb</a>&nbsp;/&nbsp;<a href="index.html">DBUtil</a>&nbsp;/&nbsp;<a href=".">packLong</a><br/>
+<br/>
+<h1>packLong</h1>
+<a name="org.mapdb.DBUtil$packLong(java.io.DataOutput, kotlin.Long)"></a>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">packLong</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DBUtil$packLong(java.io.DataOutput, kotlin.Long)/out">out</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/io/DataOutput.html"><span class="identifier">DataOutput</span></a><span class="symbol">, </span><span class="identifier" id="org.mapdb.DBUtil$packLong(java.io.DataOutput, kotlin.Long)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code><br/>
+<p>Pack long into output. It will occupy 1-10 bytes depending on value (lower values occupy smaller space) </p>
+<h3>Parameters</h3>
+<a name="out"></a>
+<code>out</code> - DataOutput to put value into <br/>
+<br/>
+<a name="value"></a>
+<code>value</code> - to be serialized, must be non-negative <br/>
+<h3>Exceptions</h3>
+<a name="java.io.IOException"></a>
+<code>java.io.IOException</code> - in case of IO error<br/>
+<br/>
+<br/>
+<a name="org.mapdb.DBUtil$packLong(java.io.OutputStream, kotlin.Long)"></a>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">packLong</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DBUtil$packLong(java.io.OutputStream, kotlin.Long)/out">out</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/io/OutputStream.html"><span class="identifier">OutputStream</span></a><span class="symbol">, </span><span class="identifier" id="org.mapdb.DBUtil$packLong(java.io.OutputStream, kotlin.Long)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code><br/>
+<p>Pack long into output. It will occupy 1-10 bytes depending on value (lower values occupy smaller space) </p>
+<h3>Parameters</h3>
+<a name="out"></a>
+<code>out</code> - OutputStream to put value into <br/>
+<br/>
+<a name="value"></a>
+<code>value</code> - to be serialized, must be non-negative <br/>
+<h3>Exceptions</h3>
+<a name="java.io.IOException"></a>
+<code>java.io.IOException</code> - in case of IO error<br/>
+<br/>
+<br/>
+</BODY>
+</HTML>

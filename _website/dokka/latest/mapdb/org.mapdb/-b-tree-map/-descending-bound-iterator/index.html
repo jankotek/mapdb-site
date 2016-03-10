@@ -1,0 +1,125 @@
+<HTML>
+<HEAD>
+<title>BTreeMap.DescendingBoundIterator - mapdb</title>
+<link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">mapdb</a>&nbsp;/&nbsp;<a href="../../index.html">org.mapdb</a>&nbsp;/&nbsp;<a href="../index.html">BTreeMap</a>&nbsp;/&nbsp;<a href=".">DescendingBoundIterator</a><br/>
+<br/>
+<h1>DescendingBoundIterator</h1>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">DescendingBoundIterator</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">, </span><span class="identifier">V</span><span class="symbol">&gt;</span></code><br/>
+<br/>
+<br/>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="-init-.html">&lt;init&gt;</a></td>
+<td>
+<code><span class="identifier">DescendingBoundIterator</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap.DescendingBoundIterator$<init>(org.mapdb.BTreeMap((org.mapdb.BTreeMap.DescendingBoundIterator.K, org.mapdb.BTreeMap.DescendingBoundIterator.V)), org.mapdb.BTreeMap.DescendingBoundIterator.K, kotlin.Boolean, org.mapdb.BTreeMap.DescendingBoundIterator.K, kotlin.Boolean)/m">m</span><span class="symbol">:</span>&nbsp;<a href="../index.html"><span class="identifier">BTreeMap</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap.DescendingBoundIterator$<init>(org.mapdb.BTreeMap((org.mapdb.BTreeMap.DescendingBoundIterator.K, org.mapdb.BTreeMap.DescendingBoundIterator.V)), org.mapdb.BTreeMap.DescendingBoundIterator.K, kotlin.Boolean, org.mapdb.BTreeMap.DescendingBoundIterator.K, kotlin.Boolean)/lo">lo</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap.DescendingBoundIterator$<init>(org.mapdb.BTreeMap((org.mapdb.BTreeMap.DescendingBoundIterator.K, org.mapdb.BTreeMap.DescendingBoundIterator.V)), org.mapdb.BTreeMap.DescendingBoundIterator.K, kotlin.Boolean, org.mapdb.BTreeMap.DescendingBoundIterator.K, kotlin.Boolean)/loInclusive">loInclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap.DescendingBoundIterator$<init>(org.mapdb.BTreeMap((org.mapdb.BTreeMap.DescendingBoundIterator.K, org.mapdb.BTreeMap.DescendingBoundIterator.V)), org.mapdb.BTreeMap.DescendingBoundIterator.K, kotlin.Boolean, org.mapdb.BTreeMap.DescendingBoundIterator.K, kotlin.Boolean)/hi">hi</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap.DescendingBoundIterator$<init>(org.mapdb.BTreeMap((org.mapdb.BTreeMap.DescendingBoundIterator.K, org.mapdb.BTreeMap.DescendingBoundIterator.V)), org.mapdb.BTreeMap.DescendingBoundIterator.K, kotlin.Boolean, org.mapdb.BTreeMap.DescendingBoundIterator.K, kotlin.Boolean)/hiInclusive">hiInclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="current-leaf.html">currentLeaf</a></td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">currentLeaf</span><span class="symbol">: </span><a href="../../-b-tree-map-java/-node/index.html"><span class="identifier">Node</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="current-pos.html">currentPos</a></td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">currentPos</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="desc-leaf-iter.html">descLeafIter</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">descLeafIter</span><span class="symbol">: </span><span class="identifier">Iterator</span><span class="symbol">&lt;</span><a href="../../-b-tree-map-java/-node/index.html"><span class="identifier">Node</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="hi.html">hi</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">hi</span><span class="symbol">: </span><span class="identifier">K</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="hi-inclusive.html">hiInclusive</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">hiInclusive</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="last-returned-key.html">lastReturnedKey</a></td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">lastReturnedKey</span><span class="symbol">: </span><span class="identifier">K</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="lo.html">lo</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">lo</span><span class="symbol">: </span><span class="identifier">K</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="lo-c.html">loC</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">loC</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="lo-inclusive.html">loInclusive</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">loInclusive</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="m.html">m</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">m</span><span class="symbol">: </span><a href="../index.html"><span class="identifier">BTreeMap</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="advance.html">advance</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">advance</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="advance-node.html">advanceNode</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">advanceNode</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="check-lo-bound.html">checkLoBound</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">checkLoBound</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="has-next.html">hasNext</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">hasNext</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="remove.html">remove</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">remove</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

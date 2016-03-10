@@ -1,0 +1,547 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>HTreeMap &mdash; MapDB</title>
+    
+    <link rel="stylesheet" href="../../_static/sphinx13.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="MapDB" href="../../" />
+    <link rel="up" title="MapDB Manual" href="../" />
+    <link rel="next" title="BTreeMap" href="../btreemap/" />
+    <link rel="prev" title="DB and DBMaker" href="../db/" />
+  
+ 
+    <style type="text/css">
+      table.right { float: right; margin-left: 20px; }
+      table.right td { border: 1px solid #ccc; }
+      
+    </style>
+    <script type="text/javascript">
+      // intelligent scrolling of the sidebar content
+      $(window).scroll(function() {
+        var sb = $('.sphinxsidebarwrapper');
+        var win = $(window);
+        var sbh = sb.height();
+        var offset = $('.sphinxsidebar').position()['top'];
+        var wintop = win.scrollTop();
+        var winbot = wintop + win.innerHeight();
+        var curtop = sb.position()['top'];
+        var curbot = curtop + sbh;
+        // does sidebar fit in window?
+        if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+            sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+            sb.css('top', $u.min([winbot - sbh - offset - 20,
+                                  $(document).height() - sbh - 200]));
+          }
+        }
+      });
+    </script>
+
+<!-- google analytics-->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42074659-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  
+  <link rel="alternate" type="application/atom+xml"  href="../../blog/atom.xml" title="MapDB Blog">
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body role="document">
+<div class="pageheader">
+  <ul>
+    <li><a href="../../">Home</a></li>
+    <li><a href="../getting-started/">Intro</a></li>
+    <li><a href="../">Docs</a></li>
+    <li><a href="../../blog/">Blog</a></li>
+    <li><a href="https://github.com/jankotek/mapdb">Github</a></li>
+  </ul>
+  <div>
+    <a href="../../">
+      <img src="../../_static/logo.png" alt="MapDB" />
+    </a>
+  </div>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../btreemap/" title="BTreeMap"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="../db/" title="DB and DBMaker"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../">Home</a>&nbsp;|</li>
+
+          <li class="nav-item nav-item-1"><a href="../" accesskey="U">MapDB Manual</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">HTreeMap</a><ul>
+<li><a class="reference internal" href="#serializers">Serializers</a></li>
+<li><a class="reference internal" href="#hash-code">Hash Code</a></li>
+<li><a class="reference internal" href="#layout">Layout</a></li>
+<li><a class="reference internal" href="#other-parameters">Other parameters</a></li>
+<li><a class="reference internal" href="#shard-stores-for-better-concurrency">Shard Stores for better concurrency</a></li>
+<li><a class="reference internal" href="#expiration">Expiration</a></li>
+<li><a class="reference internal" href="#expiration-overflow">Expiration Overflow</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../db/"
+                        title="previous chapter">DB and DBMaker</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../btreemap/"
+                        title="next chapter">BTreeMap</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/doc/htreemap.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search/" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="htreemap">
+<h1>HTreeMap<a class="headerlink" href="#htreemap" title="Permalink to this headline">¶</a></h1>
+<p>HTreeMap provides <code class="docutils literal"><span class="pre">HashMap</span></code> and <code class="docutils literal"><span class="pre">HashSet</span></code> collections for MapDB.
+It optionally supports entry expiration and can be used as a cache.
+It is thread-safe and scales under parallel updates.</p>
+<p>It is thread safe, and supports parallel writes by using multiple segments,
+each with separate ReadWriteLock. <code class="docutils literal"><span class="pre">ConcurrentHashMap</span></code> in JDK 7 works in a similar
+way. The number of segments (also called concurrency factor) is configurable.</p>
+<p>HTreeMap is a <cite>segmented Hash Tree</cite>.
+Unlike other HashMaps it does not use fixed size Hash Table, and does not rehash all data when Hash Table grows.
+HTreeMap uses auto-expanding Index Tree, so it never needs resize.
+It also occupies less space, since empty hash slots do not consume any space.
+On the other hand, the tree structure requires more seeks and is slower on access.
+Its performance degrades with size <cite>TODO at what scale?</cite>.</p>
+<p>HTreeMap optionally supports entry expiration based on four criteria:
+maximal map size, maximal storage size, time-to-live since last modification and time-to-live
+since last access. Expired entries are automatically removed.
+This feature uses FIFO queue and each segment has independent expiration queue.</p>
+<div class="section" id="serializers">
+<h2>Serializers<a class="headerlink" href="#serializers" title="Permalink to this headline">¶</a></h2>
+<p>HTreeMap has a number of parameters. Most important is <strong>name</strong>, which identifies Map within DB object
+and <strong>serializers</strong> which handle data inside Map:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">HTreeMap</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Long</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="n">hashMap</span><span class="p">(</span><span class="s">&quot;name_of_map&quot;</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">keySerializer</span><span class="p">(</span><span class="n">Serializer</span><span class="p">.</span><span class="n">STRING</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">valueSerializer</span><span class="p">(</span><span class="n">Serializer</span><span class="p">.</span><span class="n">LONG</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">create</span><span class="p">();</span>
+
+<span class="c1">//or shorter form</span>
+<span class="n">HTreeMap</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Long</span><span class="o">&gt;</span> <span class="n">map2</span> <span class="o">=</span> <span class="n">db</span>
+        <span class="p">.</span><span class="n">hashMap</span><span class="p">(</span><span class="s">&quot;some_other_map&quot;</span><span class="p">,</span> <span class="n">Serializer</span><span class="p">.</span><span class="n">STRING</span><span class="p">,</span> <span class="n">Serializer</span><span class="p">.</span><span class="n">LONG</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">create</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>It is also possible to skip serializer definition, but MapDB
+will use slower generic serialization, and this is not recommended:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">HTreeMap</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Long</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span>
+        <span class="p">(</span><span class="n">HTreeMap</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="n">Long</span><span class="o">&gt;</span><span class="p">)</span><span class="n">db</span>
+        <span class="p">.</span><span class="n">hashMap</span><span class="p">(</span><span class="s">&quot;name_of_map&quot;</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">create</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>HTreeMap is recommended for handling large key/values. In same cases you
+may want to use compression. It is possible to enable compression store-wide, but that has some overhead.
+Instead, it is better to apply compression just to a specific serializer on key or value.
+This is done by using serializer wrapper:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">HTreeMap</span><span class="o">&lt;</span><span class="n">Long</span><span class="p">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="n">hashMap</span><span class="p">(</span><span class="s">&quot;map&quot;</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">valueSerializer</span><span class="p">(</span>
+                <span class="k">new</span> <span class="n">SerializerCompressionWrapper</span><span class="p">(</span><span class="n">Serializer</span><span class="p">.</span><span class="n">STRING</span><span class="p">))</span>
+        <span class="p">.</span><span class="n">create</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="hash-code">
+<h2>Hash Code<a class="headerlink" href="#hash-code" title="Permalink to this headline">¶</a></h2>
+<p>Most hash maps uses 32bit hash generated by <code class="docutils literal"><span class="pre">Object.hashCode()</span></code> and check equality with <code class="docutils literal"><span class="pre">Object.equals(other)</span></code>.
+However many classes (<code class="docutils literal"><span class="pre">byte[]</span></code>, <code class="docutils literal"><span class="pre">int[]</span></code>) do not implement it correctly.</p>
+<p>MapDB uses Key Serializer to generate Hash Code and to compare keys.
+For example <code class="docutils literal"><span class="pre">byte[]</span></code> can be used directly as key in HTreeMap,
+if <code class="docutils literal"><span class="pre">Serializer.BYTE_ARRAY</span></code> is used as Key Serializer:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">HTreeMap</span><span class="o">&lt;</span><span class="n">byte</span><span class="p">[],</span> <span class="n">Long</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="n">hashMap</span><span class="p">(</span><span class="s">&quot;map&quot;</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">keySerializer</span><span class="p">(</span><span class="n">Serializer</span><span class="p">.</span><span class="n">BYTE_ARRAY</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">valueSerializer</span><span class="p">(</span><span class="n">Serializer</span><span class="p">.</span><span class="n">LONG</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">create</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Another problem is weak <code class="docutils literal"><span class="pre">hashCode()</span></code> in some classes, it causes collisions and degrades performance.
+<code class="docutils literal"><span class="pre">String.hashCode()</span></code> is weak, but part of specification, so it can not be changed.
+<code class="docutils literal"><span class="pre">HashMap</span></code> in JDK implemented many workarounds at the expense of memory and performance overhead.
+<code class="docutils literal"><span class="pre">HTreeMap</span></code> has no such workarounds, and weak Hash would slow it down dramatically.</p>
+<p>Instead <code class="docutils literal"><span class="pre">HTreeMap</span></code> is fixing the root of the problem,
+<code class="docutils literal"><span class="pre">Serializer.STRING</span></code> uses stronger XXHash which generates less collisions.
+<code class="docutils literal"><span class="pre">String.hashCode()</span></code> is still available but with different serializer:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="c1">//this will use strong XXHash for Strings</span>
+<span class="n">HTreeMap</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Long</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="n">hashMap</span><span class="p">(</span><span class="s">&quot;map&quot;</span><span class="p">)</span>
+        <span class="c1">// by default it uses strong XXHash</span>
+        <span class="p">.</span><span class="n">keySerializer</span><span class="p">(</span><span class="n">Serializer</span><span class="p">.</span><span class="n">STRING</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">valueSerializer</span><span class="p">(</span><span class="n">Serializer</span><span class="p">.</span><span class="n">LONG</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">create</span><span class="p">();</span>
+
+<span class="c1">//this will use weak `String.hashCode()`</span>
+<span class="n">HTreeMap</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Long</span><span class="o">&gt;</span> <span class="n">map2</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="n">hashMap</span><span class="p">(</span><span class="s">&quot;map2&quot;</span><span class="p">)</span>
+        <span class="c1">// use weak String.hashCode()</span>
+        <span class="p">.</span><span class="n">keySerializer</span><span class="p">(</span><span class="n">Serializer</span><span class="p">.</span><span class="n">STRING_ORIGHASH</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">valueSerializer</span><span class="p">(</span><span class="n">Serializer</span><span class="p">.</span><span class="n">LONG</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">create</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Hash Maps are vulnerable to <a class="reference external" href="http://arstechnica.com/business/2011/12/huge-portions-of-web-vulnerable-to-hashing-denial-of-service-attack/">Hash Collision Attack</a>.
+<code class="docutils literal"><span class="pre">HTreeMap</span></code> adds Hash Seed for protection.
+It is randomly generated when collection is created and persisted together with its definition.
+User can also supply its own Hash Seed:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">HTreeMap</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Long</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="n">db</span>
+        <span class="p">.</span><span class="n">hashMap</span><span class="p">(</span><span class="s">&quot;map&quot;</span><span class="p">,</span> <span class="n">Serializer</span><span class="p">.</span><span class="n">STRING</span><span class="p">,</span> <span class="n">Serializer</span><span class="p">.</span><span class="n">LONG</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">hashSeed</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span> <span class="c1">//force Hash Seed value</span>
+        <span class="p">.</span><span class="n">create</span><span class="p">();</span>
+</pre></div>
+</div>
+<p><cite>TODO 64bit Hash Code</cite></p>
+<p><cite>TODO custom hash code generator, bit spread, use DataIO.hashInt()</cite></p>
+</div>
+<div class="section" id="layout">
+<h2>Layout<a class="headerlink" href="#layout" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">HashMap</span></code> has parameters such as Initial Capacity, Load Factor etc.. MapDB has different set of parameters
+to control its access time and maximal size. Those are grouped under term Map Layout.</p>
+<p>Concurrency is implemented by using multiple segments, each with separate read-write lock.
+Each concurrent segment is independent, it has its own Size Counter, iterators and Expiration Queues.
+Number of segments is configurable. Too small number will cause congestion on concurrent updates,
+too large will increase memory overhead.</p>
+<p><code class="docutils literal"><span class="pre">HTreeMap</span></code> uses Index Tree instead of growing <code class="docutils literal"><span class="pre">Object[]</span></code> for its Hash Table.
+Index Tree is sparse array like structure, which uses tree hierarchy of arrays.
+It is sparse, so unused entries do not occupy any space.
+It does not do rehashing (copy all entries to bigger array), but also it can not grow beyond its initial capacity.</p>
+<p><code class="docutils literal"><span class="pre">HTreeMap</span></code> layout is controlled by <code class="docutils literal"><span class="pre">layout</span></code> function. It takes three parameters:</p>
+<ol class="arabic simple">
+<li><strong>concurrency</strong>, number of segments. Default value is 8, it always rounds-up to power of two.</li>
+<li>maximal <strong>node size</strong> of Index Tree Dir Node. Default value is 16, it always rounds-up to power of two. Maximal value is 128 entries.</li>
+<li>number of <strong>Levels</strong> in Index Tree, default value is 4</li>
+</ol>
+<p>Maximal Hash Table Size is calculated as: <code class="docutils literal"><span class="pre">segment</span> <span class="pre">*</span> <span class="pre">node</span> <span class="pre">size</span> <span class="pre">^</span> <span class="pre">level</span> <span class="pre">count</span></code>. The default maximal Hash Table Size is
+<code class="docutils literal"><span class="pre">8*16^4=</span></code> 0.5 million entries. <cite>TODO too low?</cite></p>
+<p>If Hash Table Size is set too low, hash collision will start to occur once its filled up and performance will degrade.
+<code class="docutils literal"><span class="pre">HTreeMap</span></code> will accept new entries even after Hash Table is full, but performance will degrade.</p>
+<p>32bit hash imposes upper limit on Hash Table Size: 4 billion entries. There is a plan to support 64bit hashing.</p>
+</div>
+<div class="section" id="other-parameters">
+<h2>Other parameters<a class="headerlink" href="#other-parameters" title="Permalink to this headline">¶</a></h2>
+<p>Another parameter is the <strong>size counter</strong>. By default HTreeMap does not keep
+track of its size and <code class="docutils literal"><span class="pre">map.size()</span></code> performs a linear scan to count
+all entries. You can enable size counter and in that case
+<code class="docutils literal"><span class="pre">map.size()</span></code> is instant, but there is some overhead on inserts.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">HTreeMap</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Long</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="n">db</span>
+        <span class="p">.</span><span class="n">hashMap</span><span class="p">(</span><span class="s">&quot;map&quot;</span><span class="p">,</span> <span class="n">Serializer</span><span class="p">.</span><span class="n">STRING</span><span class="p">,</span> <span class="n">Serializer</span><span class="p">.</span><span class="n">LONG</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">counterEnable</span><span class="p">()</span>
+        <span class="p">.</span><span class="n">create</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>And finally some sugar. There is <strong>value loader</strong>, a function to load
+a value if the existing key is not found. A newly created key/value is inserted
+into the map. This way <code class="docutils literal"><span class="pre">map.get(key)</span></code> never returns null. This is mainly
+useful for various generators and caches.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">HTreeMap</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="n">Long</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="n">db</span>
+        <span class="p">.</span><span class="n">hashMap</span><span class="p">(</span><span class="s">&quot;map&quot;</span><span class="p">,</span> <span class="n">Serializer</span><span class="p">.</span><span class="n">STRING</span><span class="p">,</span> <span class="n">Serializer</span><span class="p">.</span><span class="n">LONG</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">valueLoader</span><span class="p">(</span><span class="n">s</span> <span class="o">-&gt;</span> <span class="mi">1L</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">create</span><span class="p">();</span>
+
+<span class="c1">//return 1, even if key does not exist</span>
+<span class="n">Long</span> <span class="n">one</span> <span class="o">=</span> <span class="n">map</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;Non Existent&quot;</span><span class="p">);</span>
+
+<span class="c1">// Value Creator output was added to Map</span>
+<span class="n">map</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="c1">//  =&gt; 1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="shard-stores-for-better-concurrency">
+<h2>Shard Stores for better concurrency<a class="headerlink" href="#shard-stores-for-better-concurrency" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">HTreeMap</span></code> is split into separate segments. Each segment is independent and does not share any state with other segments.
+However they still share underlying <code class="docutils literal"><span class="pre">Store</span></code> and that affects performance under concurrent load.
+It is possible to make segments truly independent, by using separate <code class="docutils literal"><span class="pre">Store</span></code> for each segment.</p>
+<p>That is called <strong>Sharded HTreeMap</strong>, and is created directly <code class="docutils literal"><span class="pre">DBMaker</span></code>:</p>
+<blockquote>
+<div><div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">HTreeMap</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">byte</span><span class="p">[]</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="n">DBMaker</span>
+        <span class="c1">//param is number of Stores (concurrency factor)</span>
+       <span class="p">.</span><span class="n">memoryShardedHashMap</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+       <span class="p">.</span><span class="n">keySerializer</span><span class="p">(</span><span class="n">Serializer</span><span class="p">.</span><span class="n">STRING</span><span class="p">)</span>
+       <span class="p">.</span><span class="n">valueSerializer</span><span class="p">(</span><span class="n">Serializer</span><span class="p">.</span><span class="n">BYTE_ARRAY</span><span class="p">)</span>
+       <span class="p">.</span><span class="n">create</span><span class="p">();</span>
+
+<span class="c1">//DB does not exist, so close map directly</span>
+<span class="n">map</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Sharded HTreeMap has similar configurations options as HTreeMap created by <code class="docutils literal"><span class="pre">DB</span></code>.
+But there is no DB object associated with this HTreeMap.
+So in order to close Sharded HTreeMap, one has to invoke <code class="docutils literal"><span class="pre">HTreeMap.close()</span></code> method directly.</p>
+</div>
+<div class="section" id="expiration">
+<h2>Expiration<a class="headerlink" href="#expiration" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">HTreeMap</span></code> offers optional entry expiration if some conditions are
+met. Entry can expire if:</p>
+<ul class="simple">
+<li>An entry exists in the map longer time than the expiration period is. The
+expiration period could be since the creation, last modification or
+since the last read access.</li>
+<li>The number of entries in a map would exceed maximal number</li>
+<li>Map consumes more disk space or memory than space limit</li>
+</ul>
+<p>This will set expiration time since the creation, last update and since
+the last access:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="c1">// remove entries 10 minutes  after their last modification,</span>
+<span class="c1">// or 1 minute after last get()</span>
+<span class="n">HTreeMap</span> <span class="n">cache</span> <span class="o">=</span> <span class="n">db</span>
+        <span class="p">.</span><span class="n">hashMap</span><span class="p">(</span><span class="s">&quot;cache&quot;</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">expireAfterUpdate</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">TimeUnit</span><span class="p">.</span><span class="n">HOURS</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">expireAfterCreate</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">TimeUnit</span><span class="p">.</span><span class="n">HOURS</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">expireAfterGet</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">TimeUnit</span><span class="p">.</span><span class="n">MINUTES</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">create</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>This will create <code class="docutils literal"><span class="pre">HTreeMap</span></code> with 16GB space limit:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="c1">// Off-heap map with max size 16GB</span>
+<span class="n">Map</span> <span class="n">cache</span> <span class="o">=</span> <span class="n">db</span>
+        <span class="p">.</span><span class="n">hashMap</span><span class="p">(</span><span class="s">&quot;map&quot;</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">expireMaxSize</span><span class="p">(</span><span class="mi">16</span> <span class="o">*</span> <span class="mi">1024</span><span class="o">*</span><span class="mi">1024</span><span class="o">*</span><span class="mi">1024</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">expireAfterGet</span><span class="p">()</span>
+        <span class="p">.</span><span class="n">create</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>It is also possible to limit the maximal size of a map:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">HTreeMap</span> <span class="n">cache</span> <span class="o">=</span> <span class="n">db</span>
+        <span class="p">.</span><span class="n">hashMap</span><span class="p">(</span><span class="s">&quot;cache&quot;</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">expireMaxSize</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">expireAfterGet</span><span class="p">()</span>
+        <span class="p">.</span><span class="n">create</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>HTreeMap maintains LIFO Expiration Queue for each segment,
+eviction traverses queue and removes oldest entries.
+Not all Map entries are placed into Expiration Queue.
+For illustration, in this example the new  entrues never expire,
+only after update (value change) entry is placed into Expiration Queue.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">HTreeMap</span> <span class="n">cache</span> <span class="o">=</span> <span class="n">db</span>
+        <span class="p">.</span><span class="n">hashMap</span><span class="p">(</span><span class="s">&quot;cache&quot;</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">expireAfterUpdate</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">create</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Time based eviction will always place entry into Expiration Queue.
+But other expiration criteria (size and space limit) also needs hint when to place entry into
+Expiration Queue. In following example no entry is placed into queue and no entry ever expires.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">HTreeMap</span> <span class="n">cache</span> <span class="o">=</span> <span class="n">db</span>
+        <span class="p">.</span><span class="n">hashMap</span><span class="p">(</span><span class="s">&quot;cache&quot;</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">expireMaxSize</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">create</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>There are three possible triggers which will place entry into Expiration Queue:
+<code class="docutils literal"><span class="pre">expireAfterCreate()</span></code>, <code class="docutils literal"><span class="pre">expireAfterUpdate()</span></code> and <code class="docutils literal"><span class="pre">expireAfterGet()</span></code>.
+Notice there is no TTL parameter.</p>
+<p>Entry expiration is done inside other methods. If you call <code class="docutils literal"><span class="pre">map.put()</span></code> or <code class="docutils literal"><span class="pre">map.get()</span></code> it might
+evict some entries. But eviction has some overhead, and it would slow down user operations.
+There is option to supply HTreeMap with an executor, and perform eviction in background thread.
+This will evict entries in two background threads, and eviction will be triggered every 10 seconds:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">DB</span> <span class="n">db</span> <span class="o">=</span> <span class="n">DBMaker</span><span class="p">.</span><span class="n">memoryDB</span><span class="p">().</span><span class="n">make</span><span class="p">();</span>
+
+<span class="n">ScheduledExecutorService</span> <span class="n">executor</span> <span class="o">=</span>
+        <span class="n">Executors</span><span class="p">.</span><span class="n">newScheduledThreadPool</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+
+<span class="n">HTreeMap</span> <span class="n">cache</span> <span class="o">=</span> <span class="n">db</span>
+        <span class="p">.</span><span class="n">hashMap</span><span class="p">(</span><span class="s">&quot;cache&quot;</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">expireMaxSize</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">expireAfterGet</span><span class="p">()</span>
+        <span class="p">.</span><span class="n">expireExecutor</span><span class="p">(</span><span class="n">executor</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">expireExecutorPeriod</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">create</span><span class="p">();</span>
+
+<span class="c1">//once we are done, background threads needs to be stopped</span>
+<span class="n">db</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Expiration can be combined with multiple Sharded HTreeMap for better concurrency.
+In this case each segment has independent Store and that improves scalability under parallel updates.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">HTreeMap</span> <span class="n">cache</span> <span class="o">=</span> <span class="n">DBMaker</span>
+        <span class="p">.</span><span class="n">memoryShardedHashMap</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">expireAfterUpdate</span><span class="p">()</span>
+        <span class="p">.</span><span class="n">expireStoreSize</span><span class="p">(</span><span class="mi">128</span><span class="o">*</span><span class="mi">1024</span><span class="o">*</span><span class="mi">1024</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">create</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Sharded HTreeMap should be combined with multiple background threads for eviction.
+Also over time the Store becomes fragmented and eventually space can not be reclaimed.
+There is option to schedule periodic compaction if there is too much free space.
+Compaction will reclaim free space. Because each Store (segment) is compacted separately,
+compactions do not affect all running threads.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">HTreeMap</span> <span class="n">cache</span> <span class="o">=</span> <span class="n">DBMaker</span>
+        <span class="p">.</span><span class="n">memoryShardedHashMap</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">expireAfterUpdate</span><span class="p">()</span>
+        <span class="p">.</span><span class="n">expireStoreSize</span><span class="p">(</span><span class="mi">128</span><span class="o">*</span><span class="mi">1024</span><span class="o">*</span><span class="mi">1024</span><span class="p">)</span>
+
+        <span class="c1">//entry expiration in 3 background threads</span>
+        <span class="p">.</span><span class="n">expireExecutor</span><span class="p">(</span>
+                <span class="n">Executors</span><span class="p">.</span><span class="n">newScheduledThreadPool</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+
+        <span class="c1">//trigger Store compaction if 40% of space is free</span>
+        <span class="p">.</span><span class="n">expireCompactThreshold</span><span class="p">(</span><span class="mf">0.4</span><span class="p">)</span>
+
+        <span class="p">.</span><span class="n">create</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="expiration-overflow">
+<h2>Expiration Overflow<a class="headerlink" href="#expiration-overflow" title="Permalink to this headline">¶</a></h2>
+<p>HTreeMap supports Modification Listeners. It notifies listener about inserts, updates and removes from HTreeMap.
+It is possible to link two collections together. Usually faster in-memory with limited size,
+and slower on-disk with unlimited size. After an entry expires from in-memory, it is automatically moved to on-disk by Modification Listener.
+And Value Loader will load values back to in-memory map, if those are not found by map.get() operation.</p>
+<p>To establish Disk Overflow use following code:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">DB</span> <span class="n">dbDisk</span> <span class="o">=</span> <span class="n">DBMaker</span>
+        <span class="p">.</span><span class="n">fileDB</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">make</span><span class="p">();</span>
+
+<span class="n">DB</span> <span class="n">dbMemory</span> <span class="o">=</span> <span class="n">DBMaker</span>
+        <span class="p">.</span><span class="n">memoryDB</span><span class="p">()</span>
+        <span class="p">.</span><span class="n">make</span><span class="p">();</span>
+
+<span class="c1">// Big map populated with data expired from cache</span>
+<span class="n">HTreeMap</span> <span class="n">onDisk</span> <span class="o">=</span> <span class="n">dbDisk</span>
+        <span class="p">.</span><span class="n">hashMap</span><span class="p">(</span><span class="s">&quot;onDisk&quot;</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">create</span><span class="p">();</span>
+
+<span class="c1">// fast in-memory collection with limited size</span>
+<span class="n">HTreeMap</span> <span class="n">inMemory</span> <span class="o">=</span> <span class="n">dbMemory</span>
+        <span class="p">.</span><span class="n">hashMap</span><span class="p">(</span><span class="s">&quot;inMemory&quot;</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">expireAfterGet</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">TimeUnit</span><span class="p">.</span><span class="n">SECONDS</span><span class="p">)</span>
+        <span class="c1">//this registers overflow to `onDisk`</span>
+        <span class="p">.</span><span class="n">expireOverflow</span><span class="p">(</span><span class="n">onDisk</span><span class="p">)</span>
+        <span class="c1">//good idea is to enable background expiration</span>
+        <span class="p">.</span><span class="n">expireExecutor</span><span class="p">(</span><span class="n">Executors</span><span class="p">.</span><span class="n">newScheduledThreadPool</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+        <span class="p">.</span><span class="n">create</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Once binding is established, every entry removed from <code class="docutils literal"><span class="pre">inMemory</span></code> map will be added to <code class="docutils literal"><span class="pre">onDisk</span></code> map.
+This applies only to expired entries, <code class="docutils literal"><span class="pre">map.remove()</span></code> will also remove any entry from <code class="docutils literal"><span class="pre">onDisk</span></code>.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="c1">//insert entry manually into both maps for demonstration</span>
+<span class="n">inMemory</span><span class="p">.</span><span class="n">put</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">,</span> <span class="s">&quot;map&quot;</span><span class="p">);</span>
+
+<span class="c1">//first remove from inMemory</span>
+<span class="n">inMemory</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">);</span>
+<span class="n">onDisk</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">);</span> <span class="c1">// -&gt; not found</span>
+</pre></div>
+</div>
+<p>If the <code class="docutils literal"><span class="pre">inMemory.get(key)</span></code> is called and value does not exist, the Value Loader will try to find Map in <code class="docutils literal"><span class="pre">onDisk</span></code>.
+If value is found inside <code class="docutils literal"><span class="pre">onDisk</span></code>, it is added into <code class="docutils literal"><span class="pre">inMemory</span></code>.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">onDisk</span><span class="p">.</span><span class="n">put</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;one&quot;</span><span class="p">);</span>    <span class="c1">//onDisk has content, inMemory is empty</span>
+<span class="n">inMemory</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>        <span class="c1">//&gt; 0</span>
+<span class="c1">// get method will not find value inMemory, and will get value from onDisk</span>
+<span class="n">inMemory</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>        <span class="c1">//&gt; &quot;one&quot;</span>
+<span class="c1">// inMemory now caches result, it will latter expire and move to onDisk</span>
+<span class="n">inMemory</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>        <span class="c1">//&gt; 1</span>
+</pre></div>
+</div>
+<p><cite>TODO expiration counts are approximate. Map size can go slightly over limits for short period of time.</cite></p>
+<p><cite>TODO modification listeners</cite></p>
+</div>
+</div>
+
+  <div class="section">
+  
+  
+  </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../btreemap/" title="BTreeMap"
+             >next</a></li>
+        <li class="right" >
+          <a href="../db/" title="DB and DBMaker"
+             >previous</a> |</li>
+        <li><a href="../../">Home</a>&nbsp;|</li>
+
+          <li class="nav-item nav-item-1"><a href="../" >MapDB Manual</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, jan.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+    </div>
+  </body>
+</html>

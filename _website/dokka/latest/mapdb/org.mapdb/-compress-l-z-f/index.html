@@ -1,0 +1,49 @@
+<HTML>
+<HEAD>
+<title>CompressLZF - mapdb</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">mapdb</a>&nbsp;/&nbsp;<a href="../index.html">org.mapdb</a>&nbsp;/&nbsp;<a href=".">CompressLZF</a><br/>
+<br/>
+<h1>CompressLZF</h1>
+<code><span class="keyword">class </span><span class="identifier">CompressLZF</span></code><br/>
+<p><p> This class implements the LZF lossless data compression algorithm. LZF is a Lempel-Ziv variant with byte-aligned output, and optimized for speed. </p>
+ <p> Safety/Use Notes: </p>
+ <ul> <li>Each instance should be used by a single thread only.</li> <li>The data buffers should be smaller than 1 GB.</li> <li>For performance reasons, safety checks on expansion are omitted.</li> <li>Invalid compressed data can cause an ArrayIndexOutOfBoundsException.</li> </ul> <p> The LZF compressed format knows literal runs and back-references: </p>
+ <ul> <li>Literal run: directly copy bytes from input to output.</li> <li>Back-reference: copy previous data to output stream, with specified offset from location and length. The length is at least 3 bytes.</li> </ul> <p> The first byte of the compressed stream is the control byte. For literal runs, the highest three bits of the control byte are not set, the the lower bits are the literal run length, and the next bytes are data to copy directly into the output. For back-references, the highest three bits of the control byte are the back-reference length. If all three bits are set, then the back-reference length is stored in the next byte. The lower bits of the control byte combined with the next byte form the offset for the back-reference. </p>
+ </p>
+<br/>
+<br/>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="-init-.html">&lt;init&gt;</a></td>
+<td>
+<code><span class="identifier">CompressLZF</span><span class="symbol">(</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="compress.html">compress</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">compress</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.CompressLZF$compress(kotlin.ByteArray, kotlin.Int, kotlin.ByteArray, kotlin.Int)/in">in</span><span class="symbol">:</span>&nbsp;<span class="identifier">ByteArray</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.CompressLZF$compress(kotlin.ByteArray, kotlin.Int, kotlin.ByteArray, kotlin.Int)/inLen">inLen</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.CompressLZF$compress(kotlin.ByteArray, kotlin.Int, kotlin.ByteArray, kotlin.Int)/out">out</span><span class="symbol">:</span>&nbsp;<span class="identifier">ByteArray</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.CompressLZF$compress(kotlin.ByteArray, kotlin.Int, kotlin.ByteArray, kotlin.Int)/outPos">outPos</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="expand.html">expand</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">expand</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.CompressLZF$expand(java.io.DataInput, kotlin.ByteArray, kotlin.Int, kotlin.Int)/in">in</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/io/DataInput.html"><span class="identifier">DataInput</span></a><span class="symbol">, </span><span class="identifier" id="org.mapdb.CompressLZF$expand(java.io.DataInput, kotlin.ByteArray, kotlin.Int, kotlin.Int)/out">out</span><span class="symbol">:</span>&nbsp;<span class="identifier">ByteArray</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.CompressLZF$expand(java.io.DataInput, kotlin.ByteArray, kotlin.Int, kotlin.Int)/outPos">outPos</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.CompressLZF$expand(java.io.DataInput, kotlin.ByteArray, kotlin.Int, kotlin.Int)/outLen">outLen</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">expand</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.CompressLZF$expand(java.nio.ByteBuffer, kotlin.Int, kotlin.ByteArray, kotlin.Int, kotlin.Int)/in">in</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/nio/ByteBuffer.html"><span class="identifier">ByteBuffer</span></a><span class="symbol">, </span><span class="identifier" id="org.mapdb.CompressLZF$expand(java.nio.ByteBuffer, kotlin.Int, kotlin.ByteArray, kotlin.Int, kotlin.Int)/inPos">inPos</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.CompressLZF$expand(java.nio.ByteBuffer, kotlin.Int, kotlin.ByteArray, kotlin.Int, kotlin.Int)/out">out</span><span class="symbol">:</span>&nbsp;<span class="identifier">ByteArray</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.CompressLZF$expand(java.nio.ByteBuffer, kotlin.Int, kotlin.ByteArray, kotlin.Int, kotlin.Int)/outPos">outPos</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.CompressLZF$expand(java.nio.ByteBuffer, kotlin.Int, kotlin.ByteArray, kotlin.Int, kotlin.Int)/outLen">outLen</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">expand</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.CompressLZF$expand(kotlin.ByteArray, kotlin.Int, kotlin.ByteArray, kotlin.Int, kotlin.Int)/in">in</span><span class="symbol">:</span>&nbsp;<span class="identifier">ByteArray</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.CompressLZF$expand(kotlin.ByteArray, kotlin.Int, kotlin.ByteArray, kotlin.Int, kotlin.Int)/inPos">inPos</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.CompressLZF$expand(kotlin.ByteArray, kotlin.Int, kotlin.ByteArray, kotlin.Int, kotlin.Int)/out">out</span><span class="symbol">:</span>&nbsp;<span class="identifier">ByteArray</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.CompressLZF$expand(kotlin.ByteArray, kotlin.Int, kotlin.ByteArray, kotlin.Int, kotlin.Int)/outPos">outPos</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.CompressLZF$expand(kotlin.ByteArray, kotlin.Int, kotlin.ByteArray, kotlin.Int, kotlin.Int)/outLen">outLen</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

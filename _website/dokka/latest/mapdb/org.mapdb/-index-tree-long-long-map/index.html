@@ -1,0 +1,394 @@
+<HTML>
+<HEAD>
+<title>IndexTreeLongLongMap - mapdb</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">mapdb</a>&nbsp;/&nbsp;<a href="../index.html">org.mapdb</a>&nbsp;/&nbsp;<a href=".">IndexTreeLongLongMap</a><br/>
+<br/>
+<h1>IndexTreeLongLongMap</h1>
+<code><span class="keyword">class </span><span class="identifier">IndexTreeLongLongMap</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">AbstractLongIterable</span><span class="symbol">, </span><span class="identifier">MutableLongLongMap</span></code><br/>
+<p>Primitive Sorted Map&lt;Long,Long.</p>
+<br/>
+<br/>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="-init-.html">&lt;init&gt;</a></td>
+<td>
+<code><span class="identifier">IndexTreeLongLongMap</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$<init>(org.mapdb.Store, kotlin.Long, kotlin.Int, kotlin.Int, kotlin.Boolean)/store">store</span><span class="symbol">:</span>&nbsp;<a href="../-store/index.html"><span class="identifier">Store</span></a><span class="symbol">, </span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$<init>(org.mapdb.Store, kotlin.Long, kotlin.Int, kotlin.Int, kotlin.Boolean)/rootRecid">rootRecid</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$<init>(org.mapdb.Store, kotlin.Long, kotlin.Int, kotlin.Int, kotlin.Boolean)/dirShift">dirShift</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$<init>(org.mapdb.Store, kotlin.Long, kotlin.Int, kotlin.Int, kotlin.Boolean)/levels">levels</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$<init>(org.mapdb.Store, kotlin.Long, kotlin.Int, kotlin.Int, kotlin.Boolean)/collapseOnRemove">collapseOnRemove</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span></code><p>Primitive Sorted Map&lt;Long,Long.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="collapse-on-remove.html">collapseOnRemove</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">collapseOnRemove</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="dir-shift.html">dirShift</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">dirShift</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="levels.html">levels</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">levels</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="root-recid.html">rootRecid</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">rootRecid</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="store.html">store</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">store</span><span class="symbol">: </span><a href="../-store/index.html"><span class="identifier">Store</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="add-to-value.html">addToValue</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">addToValue</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$addToValue(kotlin.Long, kotlin.Long)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$addToValue(kotlin.Long, kotlin.Long)/toBeAdded">toBeAdded</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="all-satisfy.html">allSatisfy</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">allSatisfy</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$allSatisfy(org.eclipse.collections.api.block.predicate.primitive.LongPredicate)/predicate">predicate</span><span class="symbol">:</span>&nbsp;<span class="identifier">LongPredicate</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="any-satisfy.html">anySatisfy</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">anySatisfy</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$anySatisfy(org.eclipse.collections.api.block.predicate.primitive.LongPredicate)/predicate">predicate</span><span class="symbol">:</span>&nbsp;<span class="identifier">LongPredicate</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="append-string.html">appendString</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">appendString</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$appendString(java.lang.Appendable, kotlin.String, kotlin.String, kotlin.String)/appendable">appendable</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Appendable.html"><span class="identifier">Appendable</span></a><span class="symbol">, </span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$appendString(java.lang.Appendable, kotlin.String, kotlin.String, kotlin.String)/start">start</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$appendString(java.lang.Appendable, kotlin.String, kotlin.String, kotlin.String)/separator">separator</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$appendString(java.lang.Appendable, kotlin.String, kotlin.String, kotlin.String)/end">end</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="as-synchronized.html">asSynchronized</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">asSynchronized</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableLongLongMap</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="as-unmodifiable.html">asUnmodifiable</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">asUnmodifiable</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableLongLongMap</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="clear.html">clear</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">clear</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="collect.html">collect</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span> <span class="identifier">collect</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$collect(org.eclipse.collections.api.block.function.primitive.LongToObjectFunction((org.mapdb.IndexTreeLongLongMap.collect.V)))/function">function</span><span class="symbol">:</span>&nbsp;<span class="identifier">LongToObjectFunction</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableCollection</span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="contains.html">contains</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">contains</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$contains(kotlin.Long)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="contains-key.html">containsKey</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">containsKey</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$containsKey(kotlin.Long)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="contains-value.html">containsValue</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">containsValue</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$containsValue(kotlin.Long)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="count.html">count</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">count</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$count(org.eclipse.collections.api.block.predicate.primitive.LongPredicate)/predicate">predicate</span><span class="symbol">:</span>&nbsp;<span class="identifier">LongPredicate</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="detect-if-none.html">detectIfNone</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">detectIfNone</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$detectIfNone(org.eclipse.collections.api.block.predicate.primitive.LongPredicate, kotlin.Long)/predicate">predicate</span><span class="symbol">:</span>&nbsp;<span class="identifier">LongPredicate</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$detectIfNone(org.eclipse.collections.api.block.predicate.primitive.LongPredicate, kotlin.Long)/ifNone">ifNone</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="each.html">each</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">each</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$each(org.eclipse.collections.api.block.procedure.primitive.LongProcedure)/procedure">procedure</span><span class="symbol">:</span>&nbsp;<span class="identifier">LongProcedure</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="equals.html">equals</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">equals</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$equals(kotlin.Any)/other">other</span><span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="for-each.html">forEach</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">forEach</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$forEach(org.eclipse.collections.api.block.procedure.primitive.LongProcedure)/procedure">procedure</span><span class="symbol">:</span>&nbsp;<span class="identifier">LongProcedure</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="for-each-key.html">forEachKey</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">forEachKey</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$forEachKey(org.eclipse.collections.api.block.procedure.primitive.LongProcedure)/procedure">procedure</span><span class="symbol">:</span>&nbsp;<span class="identifier">LongProcedure</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="for-each-key-value.html">forEachKeyValue</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">forEachKeyValue</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$forEachKeyValue(org.eclipse.collections.api.block.procedure.primitive.LongLongProcedure)/procedure">procedure</span><span class="symbol">:</span>&nbsp;<span class="identifier">LongLongProcedure</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="for-each-value.html">forEachValue</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">forEachValue</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$forEachValue(org.eclipse.collections.api.block.procedure.primitive.LongProcedure)/procedure">procedure</span><span class="symbol">:</span>&nbsp;<span class="identifier">LongProcedure</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="get.html">get</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">get</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$get(kotlin.Long)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="get-if-absent.html">getIfAbsent</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getIfAbsent</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$getIfAbsent(kotlin.Long, kotlin.Long)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$getIfAbsent(kotlin.Long, kotlin.Long)/ifAbsent">ifAbsent</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="get-if-absent-put.html">getIfAbsentPut</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getIfAbsentPut</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$getIfAbsentPut(kotlin.Long, org.eclipse.collections.api.block.function.primitive.LongFunction0)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$getIfAbsentPut(kotlin.Long, org.eclipse.collections.api.block.function.primitive.LongFunction0)/function">function</span><span class="symbol">:</span>&nbsp;<span class="identifier">LongFunction0</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">getIfAbsentPut</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$getIfAbsentPut(kotlin.Long, kotlin.Long)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$getIfAbsentPut(kotlin.Long, kotlin.Long)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="get-if-absent-put-with.html">getIfAbsentPutWith</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">P</span><span class="symbol">&gt;</span> <span class="identifier">getIfAbsentPutWith</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$getIfAbsentPutWith(kotlin.Long, org.eclipse.collections.api.block.function.primitive.LongFunction((org.mapdb.IndexTreeLongLongMap.getIfAbsentPutWith.P)), org.mapdb.IndexTreeLongLongMap.getIfAbsentPutWith.P)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$getIfAbsentPutWith(kotlin.Long, org.eclipse.collections.api.block.function.primitive.LongFunction((org.mapdb.IndexTreeLongLongMap.getIfAbsentPutWith.P)), org.mapdb.IndexTreeLongLongMap.getIfAbsentPutWith.P)/function">function</span><span class="symbol">:</span>&nbsp;<span class="identifier">LongFunction</span><span class="symbol">&lt;</span><span class="keyword">in</span>&nbsp;<span class="identifier">P</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$getIfAbsentPutWith(kotlin.Long, org.eclipse.collections.api.block.function.primitive.LongFunction((org.mapdb.IndexTreeLongLongMap.getIfAbsentPutWith.P)), org.mapdb.IndexTreeLongLongMap.getIfAbsentPutWith.P)/parameter">parameter</span><span class="symbol">:</span>&nbsp;<span class="identifier">P</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="get-if-absent-put-with-key.html">getIfAbsentPutWithKey</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getIfAbsentPutWithKey</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$getIfAbsentPutWithKey(kotlin.Long, org.eclipse.collections.api.block.function.primitive.LongToLongFunction)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$getIfAbsentPutWithKey(kotlin.Long, org.eclipse.collections.api.block.function.primitive.LongToLongFunction)/function">function</span><span class="symbol">:</span>&nbsp;<span class="identifier">LongToLongFunction</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="get-or-throw.html">getOrThrow</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getOrThrow</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$getOrThrow(kotlin.Long)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="hash-code.html">hashCode</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">hashCode</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="inject-into.html">injectInto</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">injectInto</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$injectInto(org.mapdb.IndexTreeLongLongMap.injectInto.T, org.eclipse.collections.api.block.function.primitive.ObjectLongToObjectFunction((org.mapdb.IndexTreeLongLongMap.injectInto.T, org.mapdb.IndexTreeLongLongMap.injectInto.T)))/injectedValue">injectedValue</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$injectInto(org.mapdb.IndexTreeLongLongMap.injectInto.T, org.eclipse.collections.api.block.function.primitive.ObjectLongToObjectFunction((org.mapdb.IndexTreeLongLongMap.injectInto.T, org.mapdb.IndexTreeLongLongMap.injectInto.T)))/function">function</span><span class="symbol">:</span>&nbsp;<span class="identifier">ObjectLongToObjectFunction</span><span class="symbol">&lt;</span><span class="keyword">in</span>&nbsp;<span class="identifier">T</span><span class="symbol">,</span>&nbsp;<span class="keyword">out</span>&nbsp;<span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="key-iterator.html">keyIterator</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">keyIterator</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">LongIterator</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="key-set.html">keySet</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">keySet</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableLongSet</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="key-values-view.html">keyValuesView</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">keyValuesView</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">RichIterable</span><span class="symbol">&lt;</span><span class="identifier">LongLongPair</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="keys-view.html">keysView</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">keysView</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">LazyLongIterable</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="long-iterator.html">longIterator</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">longIterator</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableLongIterator</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="max.html">max</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">max</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="min.html">min</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">min</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="none-satisfy.html">noneSatisfy</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">noneSatisfy</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$noneSatisfy(org.eclipse.collections.api.block.predicate.primitive.LongPredicate)/predicate">predicate</span><span class="symbol">:</span>&nbsp;<span class="identifier">LongPredicate</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="put.html">put</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">put</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$put(kotlin.Long, kotlin.Long)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$put(kotlin.Long, kotlin.Long)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="put-all.html">putAll</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">putAll</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$putAll(org.eclipse.collections.api.map.primitive.LongLongMap)/map">map</span><span class="symbol">:</span>&nbsp;<span class="identifier">LongLongMap</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="reject.html">reject</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">reject</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$reject(org.eclipse.collections.api.block.predicate.primitive.LongPredicate)/predicate">predicate</span><span class="symbol">:</span>&nbsp;<span class="identifier">LongPredicate</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableLongCollection</span><span class="symbol">?</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">reject</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$reject(org.eclipse.collections.api.block.predicate.primitive.LongLongPredicate)/predicate">predicate</span><span class="symbol">:</span>&nbsp;<span class="identifier">LongLongPredicate</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableLongLongMap</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="remove.html">remove</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">remove</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$remove(kotlin.Long)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="remove-key.html">removeKey</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">removeKey</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$removeKey(kotlin.Long)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="remove-key-if-absent.html">removeKeyIfAbsent</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">removeKeyIfAbsent</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$removeKeyIfAbsent(kotlin.Long, kotlin.Long)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$removeKeyIfAbsent(kotlin.Long, kotlin.Long)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="select.html">select</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">select</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$select(org.eclipse.collections.api.block.predicate.primitive.LongPredicate)/predicate">predicate</span><span class="symbol">:</span>&nbsp;<span class="identifier">LongPredicate</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableLongCollection</span><span class="symbol">?</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">select</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$select(org.eclipse.collections.api.block.predicate.primitive.LongLongPredicate)/predicate">predicate</span><span class="symbol">:</span>&nbsp;<span class="identifier">LongLongPredicate</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableLongLongMap</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="size.html">size</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">size</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="sum.html">sum</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">sum</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="to-array.html">toArray</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">toArray</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">LongArray</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="to-immutable.html">toImmutable</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">toImmutable</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ImmutableLongLongMap</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="to-string.html">toString</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">toString</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">String</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="update-value.html">updateValue</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">updateValue</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$updateValue(kotlin.Long, kotlin.Long, org.eclipse.collections.api.block.function.primitive.LongToLongFunction)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$updateValue(kotlin.Long, kotlin.Long, org.eclipse.collections.api.block.function.primitive.LongToLongFunction)/initialValueIfAbsent">initialValueIfAbsent</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$updateValue(kotlin.Long, kotlin.Long, org.eclipse.collections.api.block.function.primitive.LongToLongFunction)/function">function</span><span class="symbol">:</span>&nbsp;<span class="identifier">LongToLongFunction</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="values.html">values</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">values</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableLongCollection</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="with-key-value.html">withKeyValue</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">withKeyValue</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$withKeyValue(kotlin.Long, kotlin.Long)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$withKeyValue(kotlin.Long, kotlin.Long)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableLongLongMap</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="without-all-keys.html">withoutAllKeys</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">withoutAllKeys</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$withoutAllKeys(org.eclipse.collections.api.LongIterable)/keys">keys</span><span class="symbol">:</span>&nbsp;<span class="identifier">LongIterable</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableLongLongMap</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="without-key.html">withoutKey</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">withoutKey</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap$withoutKey(kotlin.Long)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableLongLongMap</span><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="make.html">make</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">make</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap.Companion$make(org.mapdb.Store, kotlin.Long, kotlin.Int, kotlin.Int, kotlin.Boolean)/store">store</span><span class="symbol">:</span>&nbsp;<a href="../-store/index.html"><span class="identifier">Store</span></a>&nbsp;<span class="symbol">=</span>&nbsp;StoreTrivial()<span class="symbol">, </span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap.Companion$make(org.mapdb.Store, kotlin.Long, kotlin.Int, kotlin.Int, kotlin.Boolean)/rootRecid">rootRecid</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span>&nbsp;<span class="symbol">=</span>&nbsp;store.put(dirEmpty(), dirSer)<span class="symbol">, </span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap.Companion$make(org.mapdb.Store, kotlin.Long, kotlin.Int, kotlin.Int, kotlin.Boolean)/dirShift">dirShift</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span>&nbsp;<span class="symbol">=</span>&nbsp;CC.INDEX_TREE_LONGLONGMAP_DIR_SHIFT<span class="symbol">, </span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap.Companion$make(org.mapdb.Store, kotlin.Long, kotlin.Int, kotlin.Int, kotlin.Boolean)/levels">levels</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span>&nbsp;<span class="symbol">=</span>&nbsp;CC.INDEX_TREE_LONGLONGMAP_LEVELS<span class="symbol">, </span><span class="identifier" id="org.mapdb.IndexTreeLongLongMap.Companion$make(org.mapdb.Store, kotlin.Long, kotlin.Int, kotlin.Int, kotlin.Boolean)/collapseOnRemove">collapseOnRemove</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">IndexTreeLongLongMap</span></code><p>constructor with default values</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>MapDB 3.0 &mdash; MapDB</title>
+    
+    <link rel="stylesheet" href="../../_static/sphinx13.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="MapDB" href="../../" />
+  
+ 
+    <style type="text/css">
+      table.right { float: right; margin-left: 20px; }
+      table.right td { border: 1px solid #ccc; }
+      
+    </style>
+    <script type="text/javascript">
+      // intelligent scrolling of the sidebar content
+      $(window).scroll(function() {
+        var sb = $('.sphinxsidebarwrapper');
+        var win = $(window);
+        var sbh = sb.height();
+        var offset = $('.sphinxsidebar').position()['top'];
+        var wintop = win.scrollTop();
+        var winbot = wintop + win.innerHeight();
+        var curtop = sb.position()['top'];
+        var curbot = curtop + sbh;
+        // does sidebar fit in window?
+        if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+            sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+            sb.css('top', $u.min([winbot - sbh - offset - 20,
+                                  $(document).height() - sbh - 200]));
+          }
+        }
+      });
+    </script>
+
+<!-- google analytics-->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42074659-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  
+  <link rel="alternate" type="application/atom+xml"  href="../../blog/atom.xml" title="MapDB Blog">
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+  </head>
+  <body role="document">
+<div class="pageheader">
+  <ul>
+    <li><a href="../../">Home</a></li>
+    <li><a href="../../doc/getting-started/">Intro</a></li>
+    <li><a href="../../doc/">Docs</a></li>
+    <li><a href="../../blog/">Blog</a></li>
+    <li><a href="https://github.com/jankotek/mapdb">Github</a></li>
+  </ul>
+  <div>
+    <a href="../../">
+      <img src="../../_static/logo.png" alt="MapDB" />
+    </a>
+  </div>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li><a href="../../">Home</a>&nbsp;|</li>
+ 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">MapDB 3.0</a><ul>
+<li><a class="reference internal" href="#changes-in-mapdb-3">Changes in MapDB 3:</a></li>
+<li><a class="reference internal" href="#release-schedule">Release schedule:</a></li>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/news/mapdb3.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search/" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="mapdb-3-0">
+<h1>MapDB 3.0<a class="headerlink" href="#mapdb-3-0" title="Permalink to this headline">¶</a></h1>
+<p>I will start with the bad news. Current 2.0 branch needs major redesign. It has bugs, concurrency issues and is slow. I decided to start work on new 3.0 branch. First milestone with HTreeMap will be released in a few days, stable version will be out on March.</p>
+<p>There is not going to be stable 2.0 release. There will be another bug fix release for 1.0 and 2.0-beta, after that it will be all about MapDB 3.</p>
+<p>I am not really in position to delay stable release any longer, but it has to be done to keep MapDB competitive. Basic concept and design in MapDB is 17 years old (JDBM started in 1999). Over years it got many improvements and is now almost perfect. But it is slow, inflexible, outdated and believe it is a dead-end.</p>
+<p>My business is to sell consulting services around MapDB, and I can not deliver with current 2.0 branch. I need way to improve performance 100x, but with MapDB2 I could deliver at most 20% performance increase. Also writing things like Parallel Compaction in plain Java6 is just pain. I still believe that MapDB idea is solid. It just needs  a bit of reshuffling, to give it an edge and to ensure its bright future.</p>
+<div class="section" id="changes-in-mapdb-3">
+<h2>Changes in MapDB 3:<a class="headerlink" href="#changes-in-mapdb-3" title="Permalink to this headline">¶</a></h2>
+<p>Most of MapDB is now written in Kotlin. Java6 was necessary for performance a few years ago, but Kotlin generates very nice bytecode and has most benefits of Scala without its bloat and complexity.</p>
+<p>Deserialization overhead can now be bypassed with Binary Operations. Operations such as Binary Search on Tree Nodes can now operate directly on binary data. That gives huge performance boost, for example <code class="docutils literal"><span class="pre">HTreMap.get()</span></code> in M1 is 3x faster compared to MapDB 2.</p>
+<p>There are way more tests. MapDB 3.0 tests concurrency with Thread Weaver, JVM crash with <code class="docutils literal"><span class="pre">kill</span> <span class="pre">-9</span></code>, there are performance regression tests etc.. Current M1 has 70,000 unit tests. MapDB2 has 5x more functionality with only 3,000 unit tests. Final 3.0 will probably have couple of millions tests.</p>
+<p>MapDB now has dependencies. It needs Guava, primitive GS collections, compression libs, bytecode generators... Total dep size should be under 15 MB.</p>
+<p>MapDB will offer much more collections. There will be ArrayList, Bimaps, Multimaps, Dequeu etc..</p>
+<p>It is now Java8 based. Java6 is still possible, but I see no reason. 95% of my customers are on Java8 and Android will support Java 8 soon.</p>
+<p>All Git repositories are now merged into single repo. MapDB is now multi-module Maven project. Core MapDB should stay under 1MB, some components such as serialization now have separate module.</p>
+<p>Release lifecycle is changing. MapDB will be developed in milestones and released every a few weeks. Each milestone will cover one feature and contain everything related to that feature (code, tests, benchmarks, optimizations). This way we should always have stable and almost-stable version available.</p>
+<p>The way MapDB development is driven changed. Rather than implementing some theoretical idea, each milestone will cover one tasks. Current M1 provides HTreeMap with expiration to implement JCache. M2 will cover Sorted Maps for OSM, M3 will provide transactions for JTA implementation etc. This way new release stays relevant and gets tested better.</p>
+<p>MapDB is now way more modular and flexible. For example MapDB is now split into several components: Expiration Queue, Index Tree, Leafs… The some code now powers collections such as Sparse List, Dequeue, <code class="docutils literal"><span class="pre">SortedMap&lt;Long,Object&gt;</span></code>. It is also possible to do hybrid layout, such as Hash Table in flat mmap file, Expiration Queue onheap and Key Value Pairs in traditional Store.</p>
+<p>MapDB will now provide its own primitive collections stored in mmap files etc. Checkout this <a class="reference external" href="http://www.mapdb.org/blog/better_primitive_collections_proposal.html">blog post</a>. It will extend GS Collections (aka Eclipse Collections).</p>
+</div>
+<div class="section" id="release-schedule">
+<h2>Release schedule:<a class="headerlink" href="#release-schedule" title="Permalink to this headline">¶</a></h2>
+<p>MapDB 3.0 milestone 1 will be released in a few days. It covers <code class="docutils literal"><span class="pre">StoreDirect</span></code> and <code class="docutils literal"><span class="pre">HTreeMap</span></code> with expiration. It also provides offheap or ondisk JCache implementation. Current version is fairly optimized, but is missing some basic features such as store reopen (no persistence between JVM restarts).</p>
+<p>Milestone 2 will add <code class="docutils literal"><span class="pre">BTreeMap</span></code> with Data Pump. BTree performance will be much improved with Binary operations, and Pump will be easier to use. Another addition is <code class="docutils literal"><span class="pre">SortedTableMap</span></code>, which does binary search over flat file. <code class="docutils literal"><span class="pre">SortedTableMap</span></code> will support writes via Pump and merge. It is inspired by SSTable from Cassandra.</p>
+<p>Milestone 3 will finally provide ability to reopen file store and persist data between JVM restarts. It will also add JVM crash resistance, durable commits, MVCC and transactions. It will also implement Java Transaction API.</p>
+<p>Milestone 4 will add generic serialization and other bits from MapDB 1 &amp; 2. At this point storage and API will be stabilized.</p>
+<p>Stable 3.0 will be released in March after couple of milestones. It will have Long Term Support. After that I will work on submodules, such as Redis server, primitive mmap file collections, graph API etc...</p>
+</div>
+<div class="section" id="comments">
+<h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
+<p>MapDB now has new <a class="reference external" href="https://www.reddit.com/r/mapdb">subreddit</a> for support and discussion. Mailing list will stay,
+subreddit seems to work fine for Redis, so MapDB will use it as well.
+Discussion for this announcement is <a class="reference external" href="https://www.reddit.com/r/mapdb/comments/40sdzw/mapdb_30_announcement/">here</a>.</p>
+</div>
+</div>
+
+  <div class="section">
+  
+    
+
+
+<div class="section">
+  <span style="float: left;">
+  
+  Previous: 
+  <a href="../../changelog-archive/#beta12-released-2015-11-26">
+    
+    2.0-beta12 released (2015-11-26)
+  </a>
+  
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right;">
+  
+  Next: 
+  <a href="../thread_weaver/">
+    Unit testing multi-threaded code with Thread Weaver
+    
+  </a>
+  </span>
+  
+</div>
+
+  
+  
+    <div class="section">
+    <h2>Comments</h2>
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'mapdb';
+        var disqus_identifier = '/news/mapdb3/';
+        var disqus_title = 'MapDB 3.0';
+        var disqus_url = 'http://www.mapdb.org/news/mapdb3';
+
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+  
+  </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li><a href="../../">Home</a>&nbsp;|</li>
+ 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, jan.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+    </div>
+  </body>
+</html>

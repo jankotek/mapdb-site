@@ -1,0 +1,78 @@
+<HTML>
+<HEAD>
+<title>SerializerLongDelta - mapdb</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">mapdb</a>&nbsp;/&nbsp;<a href="../index.html">org.mapdb.serializer</a>&nbsp;/&nbsp;<a href=".">SerializerLongDelta</a><br/>
+<br/>
+<h1>SerializerLongDelta</h1>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SerializerLongDelta</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-serializer-long/index.html"><span class="identifier">SerializerLong</span></a></code><br/>
+<p>Created by jan on 2/28/16. </p>
+<br/>
+<br/>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="-init-.html">&lt;init&gt;</a></td>
+<td>
+<code><span class="identifier">SerializerLongDelta</span><span class="symbol">(</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="deserialize.html">deserialize</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">deserialize</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.serializer.SerializerLongDelta$deserialize(org.mapdb.DataInput2, kotlin.Int)/in">in</span><span class="symbol">:</span>&nbsp;<a href="../../org.mapdb/-data-input2/index.html"><span class="identifier">DataInput2</span></a><span class="symbol">, </span><span class="identifier" id="org.mapdb.serializer.SerializerLongDelta$deserialize(org.mapdb.DataInput2, kotlin.Int)/available">available</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="fixed-size.html">fixedSize</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">fixedSize</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="serialize.html">serialize</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">serialize</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.serializer.SerializerLongDelta$serialize(org.mapdb.DataOutput2, kotlin.Long)/out">out</span><span class="symbol">:</span>&nbsp;<a href="../../org.mapdb/-data-output2/index.html"><span class="identifier">DataOutput2</span></a><span class="symbol">, </span><span class="identifier" id="org.mapdb.serializer.SerializerLongDelta$serialize(org.mapdb.DataOutput2, kotlin.Long)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="value-array-binary-get.html">valueArrayBinaryGet</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">valueArrayBinaryGet</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.serializer.SerializerLongDelta$valueArrayBinaryGet(org.mapdb.DataInput2, kotlin.Int, kotlin.Int)/input">input</span><span class="symbol">:</span>&nbsp;<a href="../../org.mapdb/-data-input2/index.html"><span class="identifier">DataInput2</span></a><span class="symbol">, </span><span class="identifier" id="org.mapdb.serializer.SerializerLongDelta$valueArrayBinaryGet(org.mapdb.DataInput2, kotlin.Int, kotlin.Int)/keysLen">keysLen</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.serializer.SerializerLongDelta$valueArrayBinaryGet(org.mapdb.DataInput2, kotlin.Int, kotlin.Int)/pos">pos</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="value-array-deserialize.html">valueArrayDeserialize</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">valueArrayDeserialize</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.serializer.SerializerLongDelta$valueArrayDeserialize(org.mapdb.DataInput2, kotlin.Int)/in">in</span><span class="symbol">:</span>&nbsp;<a href="../../org.mapdb/-data-input2/index.html"><span class="identifier">DataInput2</span></a><span class="symbol">, </span><span class="identifier" id="org.mapdb.serializer.SerializerLongDelta$valueArrayDeserialize(org.mapdb.DataInput2, kotlin.Int)/size">size</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">LongArray</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="value-array-serialize.html">valueArraySerialize</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">valueArraySerialize</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.serializer.SerializerLongDelta$valueArraySerialize(org.mapdb.DataOutput2, kotlin.Any)/out">out</span><span class="symbol">:</span>&nbsp;<a href="../../org.mapdb/-data-output2/index.html"><span class="identifier">DataOutput2</span></a><span class="symbol">, </span><span class="identifier" id="org.mapdb.serializer.SerializerLongDelta$valueArraySerialize(org.mapdb.DataOutput2, kotlin.Any)/vals">vals</span><span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="../-serializer-long/value-array-search.html">valueArraySearch</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">valueArraySearch</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.serializer.SerializerLong$valueArraySearch(kotlin.Any, kotlin.Long)/keys">keys</span><span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.serializer.SerializerLong$valueArraySearch(kotlin.Any, kotlin.Long)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

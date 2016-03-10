@@ -1,0 +1,170 @@
+<HTML>
+<HEAD>
+<title>QueueLong - mapdb</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">mapdb</a>&nbsp;/&nbsp;<a href="../index.html">org.mapdb</a>&nbsp;/&nbsp;<a href=".">QueueLong</a><br/>
+<br/>
+<h1>QueueLong</h1>
+<code><span class="keyword">class </span><span class="identifier">QueueLong</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-verifiable/index.html"><span class="identifier">Verifiable</span></a></code><br/>
+<p>FIFO Queue with option to remove element from middle</p>
+<br/>
+<br/>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="-node/index.html">Node</a></td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">Node</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="-init-.html">&lt;init&gt;</a></td>
+<td>
+<code><span class="identifier">QueueLong</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.QueueLong$<init>(org.mapdb.Store, kotlin.Long, kotlin.Long, kotlin.Long)/store">store</span><span class="symbol">:</span>&nbsp;<a href="../-store/index.html"><span class="identifier">Store</span></a><span class="symbol">, </span><span class="identifier" id="org.mapdb.QueueLong$<init>(org.mapdb.Store, kotlin.Long, kotlin.Long, kotlin.Long)/tailRecid">tailRecid</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.QueueLong$<init>(org.mapdb.Store, kotlin.Long, kotlin.Long, kotlin.Long)/headRecid">headRecid</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.QueueLong$<init>(org.mapdb.Store, kotlin.Long, kotlin.Long, kotlin.Long)/headPrevRecid">headPrevRecid</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span></code><p>FIFO Queue with option to remove element from middle</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="head.html">head</a></td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">head</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="head-prev.html">headPrev</a></td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">headPrev</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="head-prev-recid.html">headPrevRecid</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">headPrevRecid</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="head-recid.html">headRecid</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">headRecid</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="store.html">store</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">store</span><span class="symbol">: </span><a href="../-store/index.html"><span class="identifier">Store</span></a></code></td>
+</tr>
+<tr>
+<td>
+<a href="tail.html">tail</a></td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">tail</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="tail-recid.html">tailRecid</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">tailRecid</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="bump.html">bump</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">bump</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.QueueLong$bump(kotlin.Long, kotlin.Long)/nodeRecid">nodeRecid</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.QueueLong$bump(kotlin.Long, kotlin.Long)/newTimestamp">newTimestamp</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="clear.html">clear</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">clear</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="for-each.html">forEach</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">forEach</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.QueueLong$forEach(kotlin.Function3((kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Unit)))/body">body</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">Long</span><span class="symbol">,</span>&nbsp;<span class="identifier">Long</span><span class="symbol">,</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">Unit</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="print-content.html">printContent</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">printContent</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.QueueLong$printContent(java.io.PrintStream)/out">out</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/io/PrintStream.html"><span class="identifier">PrintStream</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="put.html">put</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">put</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.QueueLong$put(kotlin.Long, kotlin.Long)/timestamp">timestamp</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.QueueLong$put(kotlin.Long, kotlin.Long)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">put</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.QueueLong$put(kotlin.Long, kotlin.Long, kotlin.Long)/timestamp">timestamp</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.QueueLong$put(kotlin.Long, kotlin.Long, kotlin.Long)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.QueueLong$put(kotlin.Long, kotlin.Long, kotlin.Long)/nodeRecid">nodeRecid</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code><p>puts Node into queue, returns recid which represents this node</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="remove.html">remove</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">remove</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.QueueLong$remove(kotlin.Long, kotlin.Boolean)/nodeRecid">nodeRecid</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.QueueLong$remove(kotlin.Long, kotlin.Boolean)/removeNode">removeNode</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><a href="-node/index.html"><span class="identifier">Node</span></a></code></td>
+</tr>
+<tr>
+<td>
+<a href="size.html">size</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">size</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="take.html">take</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">take</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="-node/index.html"><span class="identifier">Node</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="take-until.html">takeUntil</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">takeUntil</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.QueueLong$takeUntil(org.mapdb.QueueLongTakeUntil)/f">f</span><span class="symbol">:</span>&nbsp;<a href="../-queue-long-take-until/index.html"><span class="identifier">QueueLongTakeUntil</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code><p>Takes elements, until callback returns true. When callback returns false, last node is preserved in Queue</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="values-array.html">valuesArray</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">valuesArray</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">LongArray</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="verify.html">verify</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">verify</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="make.html">make</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">make</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.QueueLong.Companion$make(org.mapdb.Store, kotlin.Long, kotlin.Long, kotlin.Long)/store">store</span><span class="symbol">:</span>&nbsp;<a href="../-store/index.html"><span class="identifier">Store</span></a>&nbsp;<span class="symbol">=</span>&nbsp;StoreTrivial()<span class="symbol">, </span><span class="identifier" id="org.mapdb.QueueLong.Companion$make(org.mapdb.Store, kotlin.Long, kotlin.Long, kotlin.Long)/tailRecid">tailRecid</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span>&nbsp;<span class="symbol">=</span>&nbsp;store.put(store.put(null, Node.SERIALIZER), Serializer.RECID)<span class="symbol">, </span><span class="identifier" id="org.mapdb.QueueLong.Companion$make(org.mapdb.Store, kotlin.Long, kotlin.Long, kotlin.Long)/headRecid">headRecid</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span>&nbsp;<span class="symbol">=</span>&nbsp;store.put(store.get(tailRecid, Serializer.RECID), Serializer.RECID)<span class="symbol">, </span><span class="identifier" id="org.mapdb.QueueLong.Companion$make(org.mapdb.Store, kotlin.Long, kotlin.Long, kotlin.Long)/headPrevRecid">headPrevRecid</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span>&nbsp;<span class="symbol">=</span>&nbsp;store.put(0L, Serializer.RECID)<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">QueueLong</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

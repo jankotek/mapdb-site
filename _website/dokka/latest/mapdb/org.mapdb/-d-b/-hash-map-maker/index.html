@@ -1,0 +1,208 @@
+<HTML>
+<HEAD>
+<title>DB.HashMapMaker - mapdb</title>
+<link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">mapdb</a>&nbsp;/&nbsp;<a href="../../index.html">org.mapdb</a>&nbsp;/&nbsp;<a href="../index.html">DB</a>&nbsp;/&nbsp;<a href=".">HashMapMaker</a><br/>
+<br/>
+<h1>HashMapMaker</h1>
+<code><span class="keyword">class </span><span class="identifier">HashMapMaker</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">, </span><span class="identifier">V</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-maker/index.html"><span class="identifier">Maker</span></a><span class="symbol">&lt;</span><a href="../../-h-tree-map/index.html"><span class="identifier">HTreeMap</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code><br/>
+<br/>
+<br/>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="-init-.html">&lt;init&gt;</a></td>
+<td>
+<code><span class="identifier">HashMapMaker</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DB.HashMapMaker$<init>(org.mapdb.DB, kotlin.String, kotlin.Boolean)/db">db</span><span class="symbol">:</span>&nbsp;<a href="../index.html"><span class="identifier">DB</span></a><span class="symbol">, </span><span class="identifier" id="org.mapdb.DB.HashMapMaker$<init>(org.mapdb.DB, kotlin.String, kotlin.Boolean)/name">name</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.DB.HashMapMaker$<init>(org.mapdb.DB, kotlin.String, kotlin.Boolean)/hasValues">hasValues</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="db.html">db</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">db</span><span class="symbol">: </span><a href="../index.html"><span class="identifier">DB</span></a></code></td>
+</tr>
+<tr>
+<td>
+<a href="has-values.html">hasValues</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">hasValues</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="name.html">name</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">name</span><span class="symbol">: </span><span class="identifier">String</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="type.html">type</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">type</span><span class="symbol">: </span><span class="identifier">String</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="counter-enable.html">counterEnable</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">counterEnable</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">HashMapMaker</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="create.html">create</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">create</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../-h-tree-map/index.html"><span class="identifier">HTreeMap</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="create-or-open.html">createOrOpen</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">createOrOpen</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../-h-tree-map/index.html"><span class="identifier">HTreeMap</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="expire-after-create.html">expireAfterCreate</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">expireAfterCreate</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">HashMapMaker</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">expireAfterCreate</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DB.HashMapMaker$expireAfterCreate(kotlin.Long)/ttl">ttl</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">HashMapMaker</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">expireAfterCreate</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DB.HashMapMaker$expireAfterCreate(kotlin.Long, java.util.concurrent.TimeUnit)/ttl">ttl</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.DB.HashMapMaker$expireAfterCreate(kotlin.Long, java.util.concurrent.TimeUnit)/unit">unit</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/TimeUnit.html"><span class="identifier">TimeUnit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">HashMapMaker</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="expire-after-get.html">expireAfterGet</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">expireAfterGet</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">HashMapMaker</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">expireAfterGet</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DB.HashMapMaker$expireAfterGet(kotlin.Long)/ttl">ttl</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">HashMapMaker</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">expireAfterGet</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DB.HashMapMaker$expireAfterGet(kotlin.Long, java.util.concurrent.TimeUnit)/ttl">ttl</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.DB.HashMapMaker$expireAfterGet(kotlin.Long, java.util.concurrent.TimeUnit)/unit">unit</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/TimeUnit.html"><span class="identifier">TimeUnit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">HashMapMaker</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="expire-after-update.html">expireAfterUpdate</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">expireAfterUpdate</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">HashMapMaker</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">expireAfterUpdate</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DB.HashMapMaker$expireAfterUpdate(kotlin.Long)/ttl">ttl</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">HashMapMaker</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">expireAfterUpdate</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DB.HashMapMaker$expireAfterUpdate(kotlin.Long, java.util.concurrent.TimeUnit)/ttl">ttl</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.DB.HashMapMaker$expireAfterUpdate(kotlin.Long, java.util.concurrent.TimeUnit)/unit">unit</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/TimeUnit.html"><span class="identifier">TimeUnit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">HashMapMaker</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="expire-compact-threshold.html">expireCompactThreshold</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">expireCompactThreshold</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DB.HashMapMaker$expireCompactThreshold(kotlin.Double)/freeFraction">freeFraction</span><span class="symbol">:</span>&nbsp;<span class="identifier">Double</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">HashMapMaker</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="expire-executor.html">expireExecutor</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">expireExecutor</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DB.HashMapMaker$expireExecutor(java.util.concurrent.ScheduledExecutorService)/executor">executor</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/ScheduledExecutorService.html"><span class="identifier">ScheduledExecutorService</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">HashMapMaker</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="expire-executor-period.html">expireExecutorPeriod</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">expireExecutorPeriod</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DB.HashMapMaker$expireExecutorPeriod(kotlin.Long)/period">period</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">HashMapMaker</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="expire-max-size.html">expireMaxSize</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">expireMaxSize</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DB.HashMapMaker$expireMaxSize(kotlin.Long)/maxSize">maxSize</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">HashMapMaker</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="expire-overflow.html">expireOverflow</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">expireOverflow</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DB.HashMapMaker$expireOverflow(kotlin.collections.MutableMap((org.mapdb.DB.HashMapMaker.K, org.mapdb.DB.HashMapMaker.V)))/overflowMap">overflowMap</span><span class="symbol">:</span>&nbsp;<span class="identifier">MutableMap</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">HashMapMaker</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="expire-store-size.html">expireStoreSize</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">expireStoreSize</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DB.HashMapMaker$expireStoreSize(kotlin.Long)/storeSize">storeSize</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">HashMapMaker</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="hash-seed.html">hashSeed</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">hashSeed</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DB.HashMapMaker$hashSeed(kotlin.Int)/hashSeed">hashSeed</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">HashMapMaker</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="key-serializer.html">keySerializer</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">A</span><span class="symbol">&gt;</span> <span class="identifier">keySerializer</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DB.HashMapMaker$keySerializer(org.mapdb.Serializer((org.mapdb.DB.HashMapMaker.keySerializer.A)))/keySerializer">keySerializer</span><span class="symbol">:</span>&nbsp;<a href="../../-serializer/index.html"><span class="identifier">Serializer</span></a><span class="symbol">&lt;</span><span class="identifier">A</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">HashMapMaker</span><span class="symbol">&lt;</span><span class="identifier">A</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="layout.html">layout</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">layout</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DB.HashMapMaker$layout(kotlin.Int, kotlin.Int, kotlin.Int)/concurrency">concurrency</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.DB.HashMapMaker$layout(kotlin.Int, kotlin.Int, kotlin.Int)/dirSize">dirSize</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.DB.HashMapMaker$layout(kotlin.Int, kotlin.Int, kotlin.Int)/levels">levels</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">HashMapMaker</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="modification-listener.html">modificationListener</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">modificationListener</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DB.HashMapMaker$modificationListener(org.mapdb.MapModificationListener((org.mapdb.DB.HashMapMaker.K, org.mapdb.DB.HashMapMaker.V)))/listener">listener</span><span class="symbol">:</span>&nbsp;<a href="../../-map-modification-listener/index.html"><span class="identifier">MapModificationListener</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">HashMapMaker</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="open.html">open</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">open</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../-h-tree-map/index.html"><span class="identifier">HTreeMap</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="remove-collapses-index-tree-disable.html">removeCollapsesIndexTreeDisable</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">removeCollapsesIndexTreeDisable</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">HashMapMaker</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="value-inline.html">valueInline</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">valueInline</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">HashMapMaker</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="value-loader.html">valueLoader</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">valueLoader</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DB.HashMapMaker$valueLoader(kotlin.Function1((org.mapdb.DB.HashMapMaker.K, org.mapdb.DB.HashMapMaker.V)))/valueLoader">valueLoader</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">K</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">V</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">HashMapMaker</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="value-serializer.html">valueSerializer</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">A</span><span class="symbol">&gt;</span> <span class="identifier">valueSerializer</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DB.HashMapMaker$valueSerializer(org.mapdb.Serializer((org.mapdb.DB.HashMapMaker.valueSerializer.A)))/valueSerializer">valueSerializer</span><span class="symbol">:</span>&nbsp;<a href="../../-serializer/index.html"><span class="identifier">Serializer</span></a><span class="symbol">&lt;</span><span class="identifier">A</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">HashMapMaker</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">A</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="../-maker/make.html">make</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">make</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">E</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-maker/make2.html">make2</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">make2</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DB.Maker$make2(kotlin.Boolean)/create">create</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">E</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

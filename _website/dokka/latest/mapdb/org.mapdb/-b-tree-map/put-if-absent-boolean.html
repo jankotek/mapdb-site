@@ -1,0 +1,39 @@
+<HTML>
+<HEAD>
+<title>BTreeMap.putIfAbsentBoolean - mapdb</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">mapdb</a>&nbsp;/&nbsp;<a href="../index.html">org.mapdb</a>&nbsp;/&nbsp;<a href="index.html">BTreeMap</a>&nbsp;/&nbsp;<a href=".">putIfAbsentBoolean</a><br/>
+<br/>
+<h1>putIfAbsentBoolean</h1>
+<a name="org.mapdb.BTreeMap$putIfAbsentBoolean(org.mapdb.BTreeMap.K, org.mapdb.BTreeMap.V)"></a>
+<code><span class="keyword">fun </span><span class="identifier">putIfAbsentBoolean</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.BTreeMap$putIfAbsentBoolean(org.mapdb.BTreeMap.K, org.mapdb.BTreeMap.V)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.BTreeMap$putIfAbsentBoolean(org.mapdb.BTreeMap.K, org.mapdb.BTreeMap.V)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code><br/>
+<p>Atomically associates the specified key with the given value if it is
+not already associated with a value.</p>
+<p>This is equivalent to:
+<code>if(cache.containsKey(key)){}cache.put(key,value);return true;}else{return false;}</code> *
+except that the action is performed atomically.</p>
+<br/>
+<br/>
+<h3>Parameters</h3>
+<a name="key"></a>
+<code>key</code> - key with which the specified value is to be associated<br/>
+<br/>
+<a name="value"></a>
+<code>value</code> - value to be associated with the specified key<br/>
+<h3>Exceptions</h3>
+<a name="NullPointerException"></a>
+<code>NullPointerException</code> - if key is null or value is null<br/>
+<br/>
+<a name="IllegalStateException"></a>
+<code>IllegalStateException</code> - if the cache is <a href="#">.isClosed</a><br/>
+<br/>
+<a name="ClassCastException"></a>
+<code>ClassCastException</code> - if the implementation is configured to perform<br/>
+<strong>Return</strong><br/>
+true if a value was set.<br/>
+<br/>
+<br/>
+</BODY>
+</HTML>
