@@ -37,7 +37,7 @@ The way MapDB development is driven changed. Rather than implementing some theor
 
 MapDB is now way more modular and flexible. For example MapDB is now split into several components: Expiration Queue, Index Tree, Leafs… The some code now powers collections such as Sparse List, Dequeue, ``SortedMap<Long,Object>``. It is also possible to do hybrid layout, such as Hash Table in flat mmap file, Expiration Queue onheap and Key Value Pairs in traditional Store.
 
-MapDB will now provide its own primitive collections stored in mmap files etc. Checkout this `blog post <http://www.mapdb.org/blog/better_primitive_collections_proposal.html>`_. It will extend GS Collections (aka Eclipse Collections).
+MapDB will now provide its own primitive collections stored in mmap files etc. Checkout this `blog post <http://www.mapdb.org/news/better_primitive_collections_proposal/>`_. It will extend GS Collections (aka Eclipse Collections).
 
 Release schedule:
 -----------------------

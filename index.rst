@@ -4,7 +4,7 @@ MapDB: database engine
 MapDB provides Maps, Sets, Lists, Queues and other collections backed by off-heap or on-disk storage.
 It is a hybrid between java collection framework and embedded database engine. It is free and open-source under Apache license.
 And it has expiration, compression, ACID transactions, snapshots, incremental backups...
-`Learn more → <doc/intro.html>`_
+`Learn more → <doc/intro/>`_
 
 
 Code
@@ -16,8 +16,8 @@ Code
     :language: c++
     :dedent: 8
 
-MapDB implements Java interfaces such as ``ConcurrentMap`` and is configured by maker pattern.
-`Quick start → <doc/getting-started/>`_
+MapDB implements Java interfaces such as ``ConcurrentMap`` and is configured by maker pattern. Find out more in
+`quick start → <doc/getting-started/>`_
 
 
 .. TODO better syntax highlight

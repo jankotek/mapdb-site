@@ -101,8 +101,8 @@ It is simple to do such optimisation for numbers. But BTreeMap also applies that
 This sort of optimization is used automatically. All you have to do is provide the specialized key serializer:
 ``.keySerializer(Serializer.LONG)``.
 
-There are several options and implementations to pack keys. Have a look at
-`BTreeKeySerializer <http://www.mapdb.org/apidocs/org/mapdb/BTreeKeySerializer.html>`_ for more details.
+There are several options and implementations to pack keys. Have a look at static fields with ``_PACK`` suffix in
+`Serializer <http://www.mapdb.org/dokka/latest/mapdb/org.mapdb/-serializer/index.html>`_ class for more details.
 
 TODO this is major feature, document details and add benchmarks
 
