@@ -11,6 +11,7 @@ public class btreemap_compressed {
 
     public static void main(String[] args) {
         DB db = DBMaker.memoryDB().make();
+        db.checkName$mapdb("aa");
         //a
         BTreeMap<Long, String> map = db.treeMap("map")
                 //TODO external values are not supported yet

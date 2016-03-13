@@ -9,3 +9,4 @@ MapDB Manual
     btreemap
     sortedtablemap
     layout
+    format
