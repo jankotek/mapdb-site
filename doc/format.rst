@@ -124,6 +124,53 @@ And there is following sequence for recovery
 
 - Delete any other files and their markers (only files associated with the rolling file, there might be more files with different name)
 
+
+File header
+--------------
+
+Every non empty file created by MapDB has 16 byte header. It contains header, file version, bitfield for optional features
+and optional checksum for entire file.
+
+Bites:
+
+- 0-7 constant value 0x4A
+
+- 8-15 type of file generated. I
+
+- 16-31 format version number. File will not be opened if format is too high
+
+- 32-63 bitfield which identifies optional features used in this format. File will not be opened if unknown bit is set.
+
+- 64-127 checksum of entire file.
+
+
+File type
+~~~~~~~~~~~~
+can have following values:
+
+- 0 unused
+- 1 StoreDirect (also shared with StoreWAL)
+- 2 WriteAheadLog for StoreWAL
+- 10 SortedTableMap without multiple tables (readonly
+- 11 SortedTableMap with multiple tables
+- 12 WriteAheadLog for SortedTableMap
+
+Feature bitfield
+~~~~~~~~~~~~~~~~~~~~~~
+has following values. It is 8-byte long, number here is from least significant bit.
+
+- 0 encryption enabled. Its upto user to provide encryption type and password
+
+- 1-2 checksum used. 0=no checksum, 1=XXHash, 2=CRC32, 3=user hash.
+
+- TODO more bitfields
+
+Checksum
+~~~~~~~~~~~
+is either XXHash or CRC32. It is calculated as ``(checksum from 16th byte to end)+vol.getLong(0)``.
+If checksum is ``0`` the ``1`` value is used instead. ``0`` indicates checksum is disabled.
+
+
 StoreDirect
 ------------------
 
