@@ -168,7 +168,7 @@ can have following values:
 - 0 unused
 - 1 StoreDirect (also shared with StoreWAL)
 - 2 WriteAheadLog for StoreWAL
-- 10 SortedTableMap without multiple tables (readonly
+- 10 SortedTableMap without multiple tables (readonly)
 - 11 SortedTableMap with multiple tables
 - 12 WriteAheadLog for SortedTableMap
 
