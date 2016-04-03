@@ -1,13 +1,15 @@
 Support
 =============
 
-MapDB community provides free support via
+MapDB community provides free support via following sites.
 
 * Issue tracker on `Github <https://www.github.com/jankotek/mapdb/issues/>`_
 * Mailing list at `Google Groups <https://groups.google.com/forum/#!forum/mapdb>`_, subscribe `link <mailto:mapdb-subscribe@googlegroups.com>`_
 * Forum on  `Reddit <https://www.reddit.com/r/mapdb>`_
 * Chat at `Gitter <https://gitter.im/jankotek/mapdb>`_
 
+Anything with stack trace goes to Issue Tracker.
+Mailing list and Reddit forum are for general questions.
 Documentation for MapDB is `here <http://www.mapdb.org/doc/>`_
 
 Free discovery call
@@ -46,7 +48,7 @@ Typical support contract for one development team is **$12K/pa**. It covers:
 
 Our work hours are Mon-Fri, 1PM to 9PM London time (GMT/GMT+1) or 5AM to 1PM San Francisco time (PST)
 
-Contact us `directly <mailto:jan@kotek.net?subject=Support contract>`_ or schedule `free discovery call <http://www.meetme.so/mapdb>`_.
+Contact us `directly <mailto:jan@kotek.net?subject=Support>`_ or schedule `free discovery call <http://www.meetme.so/mapdb>`_.
 
 Consulting services
 -------------------------
@@ -80,4 +82,4 @@ We also provide general software development and services related to MapDB. That
 For short consulting we charge **$120/hour**. Longer projects are charged per task or per day at better rate.
 We work remotely, on-site consulting is possible within Europe.
 
-Contact us `directly <mailto:jan@kotek.net?subject=MapDB consulting>`_ or schedule `free discovery call <http://www.meetme.so/mapdb>`_.
+Contact us `directly <mailto:jan@kotek.net?subject=Consulting>`_ or schedule `free discovery call <http://www.meetme.so/mapdb>`_.
