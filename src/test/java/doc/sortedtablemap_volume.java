@@ -2,6 +2,7 @@ package doc;
 
 import org.junit.Test;
 import org.mapdb.volume.ByteArrayVol;
+import org.mapdb.volume.ByteBufferMemoryVol;
 import org.mapdb.volume.MappedFileVol;
 import org.mapdb.volume.Volume;
 
@@ -19,7 +20,7 @@ public class sortedtablemap_volume {
         Volume byteArrayVolume = ByteArrayVol.FACTORY.makeVolume(null, false);
 
         //create in-memory volume in direct memory using DirectByteByffer
-        Volume offHeapVolume = Volume.MemoryVol.FACTORY.makeVolume(null, false);
+        Volume offHeapVolume = ByteBufferMemoryVol.FACTORY.makeVolume(null, false);
 
         File file = File.createTempFile("mapdb","mapdb");
         //create memory mapped file volume

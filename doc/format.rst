@@ -55,7 +55,7 @@ Or user can remove marker file and try his luck.
 File Rename
 ~~~~~~~~~~~~
 
-File rename is used in StoreDirect compaction. Store is recreated in new file, and old file is replaced with new content.
+File Rename is used in StoreDirect compaction. Store is recreated in new file, and old file is replaced with new content.
 The 'old file' is file which is being replaced, it will be deleted before File Rename. The 'new file'
 replaces old file and has its name changed.
 
@@ -390,4 +390,14 @@ Sorted Table Map
 ``SortedTableMap`` uses its own file format. File is split into page,
 where page size is power of two and maximal page size 1MB.
 
+Each page has header. Header size is bigger for zero page, because it also contains file header. TODO header size.
 
+After header there is a series of 4-byte integers.
+
+First integer is number of nodes on this page (N). It is followed by N*2 integers. First N integers are offsets
+of key arrays for each node. Next N integers are offsets for value arrays for each node. Offsets are relative to page offset.
+The last integer points to end of data, rest of the page after that offset is filled with zeroes.
+
+Offsets of key array (number i) are stored at: ``PAGE_OFFSET + HEAD_SIZE + I*4``.
+
+Offsets of value array (number i) are stored at: ``PAGE_OFFSET + HEAD_SIZE + (NODE_COUNT + I) * 4``.

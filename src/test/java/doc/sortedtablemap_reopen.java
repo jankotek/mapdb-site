@@ -26,7 +26,7 @@ public class sortedtablemap_reopen {
             Volume volume = MappedFileVol.FACTORY.makeVolume(file, false);
 
             //open consumer which will feed map with content
-            SortedTableMap.Consumer<Integer, String> consumer =
+            SortedTableMap.Sink<Integer, String> consumer =
                     SortedTableMap.create(
                             volume,
                             Serializer.INTEGER,
@@ -35,11 +35,11 @@ public class sortedtablemap_reopen {
 
             //feed content into consumer
             for (int key = 0; key < 100000; key++) {
-                consumer.take(key, "value" + key);
+                consumer.put(key, "value" + key);
             }
 
             // finally open created map
-            consumer.finish();
+            consumer.create();
             volume.close();
         }
 

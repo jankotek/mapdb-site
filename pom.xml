@@ -11,7 +11,7 @@
         <kotlin.version>1.0.0</kotlin.version>
         <dokka.version>0.9.4</dokka.version>
 
-        <mapdb.version>3.0.0-M3-SNAPSHOT</mapdb.version>
+        <mapdb.version>3.0.0-M5-SNAPSHOT</mapdb.version>
 
         <maven.deploy.skip>true</maven.deploy.skip>
 
