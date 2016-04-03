@@ -10,7 +10,7 @@ MapDB community provides free support via following sites.
 
 Anything with stack trace goes to Issue Tracker.
 Mailing list and Reddit forum are for general questions.
-Documentation for MapDB is `here <http://www.mapdb.org/doc/>`_
+Documentation for MapDB is `here <http://www.mapdb.org/doc/>`_.
 
 Free discovery call
 --------------------------------
