@@ -66,4 +66,5 @@ or `Twitter <http://twitter.com/MapDBnews>`__
     format
     success
     credits
+    support
     doc/index.rst
