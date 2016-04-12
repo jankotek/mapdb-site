@@ -7,10 +7,50 @@
     :copyright: Copyright 2007-2013 by the Sphinx team, see AUTHORS.
     :license: BSD, see LICENSE for details.
 #}
+
+{%- macro sidebar2() %}
+{%- if render_sidebar %}
+<div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+    <div class="sphinxsidebarwrapper">
+        {%- block sidebarlogo %}
+        {%- if logo %}
+        <p class="logo"><a href="{{ pathto(master_doc) }}">
+            <img class="logo" src="{{ pathto('_static/' + logo, 1) }}" alt="Logo"/>
+        </a></p>
+        {%- endif %}
+        {%- endblock %}
+        {%- if sidebars != None %}
+        {#- new style sidebar: explicitly include/exclude templates #}
+        {%- for sidebartemplate in sidebars %}
+        {%- include sidebartemplate %}
+        {%- endfor %}
+        {%- else %}
+        {#- old style sidebars: using blocks -- should be deprecated #}
+        {%- block sidebartoc %}
+        {%- include "localtoc.html" %}
+        {%- endblock %}
+
+        {%- block sidebarsearch %}
+        {%- include "searchbox3.html" %}
+        {%- endblock %}
+
+
+        {%- include "sidecontent.html" %}
+
+
+
+        {%- endif %}
+    </div>
+</div>
+{%- endif %}
+{%- endmacro %}
+
 {%- extends "basic/layout.html" %}
 
+
+
 {# put the sidebar before the body #}
-{% block sidebar1 %}{{ sidebar() }}{% endblock %}
+{% block sidebar1 %}{{ sidebar2() }}{% endblock %}
 {% block sidebar2 %}{% endblock %}
 
 {% block extrahead %}
@@ -75,7 +115,7 @@
 <div class="pageheader">
   <ul>
     <li><a href="{{ pathto('index') }}">Home</a></li>
-    <li><a href="{{ pathto('doc/getting-started') }}">Intro</a></li>
+    <li><a href="{{ pathto('doc/quick-start') }}">Intro</a></li>
     <li><a href="{{ pathto('doc/index') }}">Docs</a></li>
     <li><a href="{{ pathto('blog') }}">Blog</a></li>
       <li><a href="{{ pathto('support') }}">Support</a></li>

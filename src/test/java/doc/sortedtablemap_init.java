@@ -22,20 +22,20 @@ public class sortedtablemap_init {
         Volume volume = MappedFileVol.FACTORY.makeVolume(file, false);
 
         //open consumer which will feed map with content
-        SortedTableMap.Sink<Integer,String> consumer =
+        SortedTableMap.Sink<Integer,String> sink =
                 SortedTableMap.create(
                         volume,
                         Serializer.INTEGER,
                         Serializer.STRING
-                ).consumer();
+                ).createFromSink();
 
         //feed content into consumer
         for(int key=0; key<100000; key++){
-            consumer.put(key, "value"+key);
+            sink.put(key, "value"+key);
         }
 
         // finally open created map
-        SortedTableMap<Integer, String> map = consumer.create();
+        SortedTableMap<Integer, String> map = sink.create();
         //z
 
         assertEquals(100000, map.size());

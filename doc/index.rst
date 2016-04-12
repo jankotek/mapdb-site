@@ -3,7 +3,7 @@ MapDB Manual
 
 .. toctree::
     intro
-    getting-started
+    quick-start
     db
     htreemap
     btreemap

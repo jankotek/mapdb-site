@@ -190,6 +190,12 @@ div.sphinxsidebar ul ul {
     list-style-image: url(listitem.png);
 }
 
+
+div.sitemap ul {
+    margin-left: 20px;
+    list-style-image: url(listitem.png);
+}
+
 div.footer {
     background-image: url(footerbg.png);
     color: #ccc;
