@@ -48,11 +48,9 @@ News
    :list-style: circle
    :format: {title} on {date}
 
-Follow news on `RSS <http://www.mapdb.org/blog/atom.xml>`__ ,
+All posts are in `Blog </blog/>`_ and `Changelog </changelog/>`_. Follow news on `RSS <http://www.mapdb.org/blog/atom.xml>`__ ,
 `Mailing list <https://groups.google.com/forum/?fromgroups#!forum/mapdb-news>`__
-or `Twitter <http://twitter.com/MapDBnews>`__
-
-
+or `Twitter <http://twitter.com/MapDBnews>`__.
 
 
 .. toctree::
