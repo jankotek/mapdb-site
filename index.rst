@@ -17,7 +17,7 @@ Code
     :dedent: 8
 
 MapDB implements Java interfaces such as ``ConcurrentMap`` and is configured by maker pattern. Find out more in
-`quick start → <doc/getting-started/>`_
+`quick start → <doc/quick-start/>`_
 
 
 .. TODO better syntax highlight

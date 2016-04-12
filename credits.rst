@@ -54,7 +54,7 @@ Collections
 -----------
 
 -  Theoretical design of BTreeMap is based on 1986 paper:
-   `Concurrent operations on B∗-trees with overtaking <ttp://www.sciencedirect.com/science/article/pii/0022000086900218>`__
+   `Concurrent operations on B∗-trees with overtaking <http://www.sciencedirect.com/science/article/pii/0022000086900218>`__
    by Yehoshua Sagiv.
 
 -  More practical aspects of BTreeMap implementation are based on
