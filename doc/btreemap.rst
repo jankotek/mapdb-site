@@ -131,15 +131,88 @@ will be produced as a merge of first two, and will be swapped with the primary.
 
 TODO provide wrapper to compact/merge BTreeMap content automatically.
 
-Composite keys and multimaps
+
+Prefix submaps
+--------------------------------------
+
+For array based keys (tuples, Strings, or arrays) MapDB provide prefix submap. It uses
+intervals, so prefix submap is lazy, it does not load all keys. Here as example which uses
+prefix on ``byte[]`` keys:
+
+.. literalinclude:: ../src/test/java/doc/btreemap_prefix_submap.java
+    :start-after: //a
+    :end-before: //z
+    :language: c++
+    :dedent: 8
+
+TODO  key serializer must provide ``nextValue`` for prefix submaps. Implement it on more serializers
+
+Composite keys and tuples
 -----------------------------
 
-MapDB 1.0 had tuples that were replaced in 2.0 with ``Object[]``.
+MapDB allows composite keys in form of ``Object[]``.
+Interval submaps can be used to fetch tuple subcomponents, or to create simple form of multimap.
+Object array is not comparable, so you need to use specialized serializer which provides comparator.
 
-TODO composite keys
+Here is an example which creates ``Map<Tuple3<String, String, Integer>, Double>`` in form of Object[].
+First component is town, second is street and third component is house number.
+It has more parts, source code is on `github <https://github.com/jankotek/mapdb-site/blob/master/src/test/java/doc/btreemap_composite_keys.java>`_
+``SerializerArrayTuple`` which takes serializers for each tuple component as constructor parameter:
 
-TODO multimap
+.. literalinclude:: ../src/test/java/doc/btreemap_composite_keys.java
+    :start-after: //a1
+    :end-before: //a2
+    :language: c++
+    :dedent: 8
 
+Once map is populated we can get all houses in town of Cong by using prefix submap (town is first component in tuple):
+
+.. literalinclude:: ../src/test/java/doc/btreemap_composite_keys.java
+    :start-after: //b1
+    :end-before: //b2
+    :language: c++
+    :dedent: 8
+
+Prefix submap is equal to range query which uses submap method:
+
+.. literalinclude:: ../src/test/java/doc/btreemap_composite_keys.java
+    :start-after: //c1
+    :end-before: //c2
+    :language: c++
+    :dedent: 8
+
+Interval submap can only filter components on left side. To get components in middle we have combine submap with a forloop:
+
+.. literalinclude:: ../src/test/java/doc/btreemap_composite_keys.java
+    :start-after: //d1
+    :end-before: //d2
+    :language: c++
+    :dedent: 8
+
+Submaps are modifiable, we could delete all houses in town by calling `clear()` on submap etc..
+
+Multimap
+------------
+
+Multimap is a Map which associated multiple values with single key.
+An example can be found in `Guava <http://docs.guava-libraries.googlecode.com/git/javadoc/com/google/common/collect/Multimap.html>`_
+or in `Eclipse Collections <https://www.eclipse.org/collections/javadoc/7.0.0/org/eclipse/collections/api/multimap/Multimap.html>`_
+It can be written as `Map<Key,List<Value>>`, but that does not work well in MapDB, we need keys and values to be immutable,
+and List is not immutable.
+
+There is a plan to implement Multimap from Guava and EC directly in MapDB. But until than there is an option to use
+SortedSet in combination with tuples and interval subsets. Here is an example which constructs Set, inserts some data
+and gets all values (second tuple component) associated with key (first tuple component):
+
+.. literalinclude:: ../src/test/java/doc/btreemap_multimap.java
+    :start-after: //a
+    :end-before: //z
+    :language: c++
+    :dedent: 8
+
+TODO delta packing for Tuples
+
+TODO MapDB will soon implement multimap from Guava
 
 
 Compared to HTreeMap
