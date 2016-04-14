@@ -1,6 +1,11 @@
 Migrating to MapDB 3.0
 -------------------------
 
+.. post:: 2016-04-14
+   :tags: mapdb2, mapdb1
+   :author: Jan
+
+
 MapDB 3 is now usable, so lets talk about differences from older releases and howto migrate into new release.
 
 MapDB now depends on external libraries, most notably Guava and Eclipse Collections. I will not cover that
