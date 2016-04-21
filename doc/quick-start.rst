@@ -9,7 +9,6 @@ Get it
 -------
 
 MapDB binaries are hosted in Maven Central repository. Here is dependency fragment for MapDB.
-``VERSION`` is the last version number from `Maven Central <http://mvnrepository.com/artifact/org.mapdb/mapdb>`_.
 
 .. code:: xml
 
@@ -18,6 +17,14 @@ MapDB binaries are hosted in Maven Central repository. Here is dependency fragme
         <artifactId>mapdb</artifactId>
         <version>VERSION</version>
     </dependency>
+
+``VERSION`` is the last version number from `Maven Central <http://mvnrepository.com/artifact/org.mapdb/mapdb>`_.
+You can also find current version on this image:
+
+.. raw:: html
+
+    <img src="https://maven-badges.herokuapp.com/maven-central/org.mapdb/mapdb/badge.svg"/>
+
 
 Daily builds are in snapshot repository. Version number for last snapshot is `here <https://oss.sonatype.org/content/repositories/snapshots/org/mapdb/mapdb/>`_.
 
