@@ -2,6 +2,26 @@ Changelog
 ============================
 
 
+Milestone 6 released (2016-04-23)
+--------------------------------------------
+
+.. post:: 2016-04-23
+   :tags: release
+   :author: Jan
+
+Maven version number: ``3.0.0-M5``
+
+- Fixed BTreeMap race condition `#664 <https://github.com/jankotek/mapdb/issues/664>`_.
+- Improved POJO serialization (Elsa) dependency.
+- MapDB now should handle and use class catalog.
+- Added several tests to test concurrency
+- Memory mapped file preclear no longer sync file. Faster file growth.
+
+**Storage format change:**
+Maximal record ID increased. Older storage format should be still readable.
+
+
+
 Milestone 5 released (2016-04-14)
 --------------------------------------------
 
