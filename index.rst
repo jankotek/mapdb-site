@@ -56,12 +56,10 @@ or `Twitter <http://twitter.com/MapDBnews>`__.
 .. toctree::
     :hidden:
 
-    format
     success
     changelog
     benchmarks
     faq
-    format
     success
     credits
     support
