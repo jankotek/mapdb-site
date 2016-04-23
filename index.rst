@@ -63,4 +63,5 @@ or `Twitter <http://twitter.com/MapDBnews>`__.
     success
     credits
     support
+    careers
     doc/index.rst
