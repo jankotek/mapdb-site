@@ -2,7 +2,7 @@ Careers
 ============
 
 MapDB is sponsored by consulting services. We are looking for people to join us and help us to develop MapDB.
-Feel free to drop an `directly <mailto:jan@kotek.net?subject=MapDB%20Job>`_ and lets have a chat.
+Feel free to drop an `email <mailto:jan@kotek.net?subject=MapDB%20Job>`_ and lets have a chat.
 
 QA developer
 ----------------
