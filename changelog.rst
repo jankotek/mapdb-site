@@ -9,7 +9,7 @@ Milestone 6 released (2016-04-23)
    :tags: release
    :author: Jan
 
-Maven version number: ``3.0.0-M5``
+Maven version number: ``3.0.0-M6``
 
 - Fixed BTreeMap race condition `#664 <https://github.com/jankotek/mapdb/issues/664>`_.
 - Improved POJO serialization (Elsa) dependency.
