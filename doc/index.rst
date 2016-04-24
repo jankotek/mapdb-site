@@ -9,4 +9,5 @@ MapDB Manual
     btreemap
     sortedtablemap
     layout
+    volume
     format
