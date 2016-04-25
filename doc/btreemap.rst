@@ -48,13 +48,13 @@ The default maximal node size is 32 entries and it can be changed in this way:
     :language: c++
     :dedent: 8
 
-Values are also stored as part of BTree leaf nodes. Large values means huge overhead and
+Values are also stored as part of BTree leaf nodes. Large value means huge overhead and
 on a single ``map.get("key")`` 32 values are deserialized, but only a single value returned. In this
 case, it is better to store the values outside the leaf node, in a separate record. In this case, the leaf node
 only has a 6 byte recid pointing to the value.
 
-Large values can also possibly be compressed to save space. This example stores places
-node outside BTree leaf nodes and applies compression on each value:
+Large values can also be compressed to save space. This example stores values
+ outside BTree Leaf Node and applies compression on each value:
 
 .. literalinclude:: ../src/test/java/doc/btreemap_compressed.java
     :start-after: //a
