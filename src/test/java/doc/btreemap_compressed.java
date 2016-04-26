@@ -14,8 +14,7 @@ public class btreemap_compressed {
         db.checkName$mapdb("aa");
         //a
         BTreeMap<Long, String> map = db.treeMap("map")
-                //TODO external values are not supported yet
-                //.valuesOutsideNodesEnable()
+                .valuesOutsideNodesEnable()
                 .valueSerializer(new SerializerCompressionWrapper(Serializer.STRING))
                 .createOrOpen();
         //z
