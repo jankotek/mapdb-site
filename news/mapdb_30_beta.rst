@@ -27,7 +27,7 @@ What is new in 3.0
 New MapDB 3.0 release does not have all features from 1.0 and 2.0.
 Most notably it is missing asynchronous writes, instance cache
 and concurrent transactions (TxMaker). In many benchmarks it
-is slower than old versions.
+is slower than older versions.
 Missing features will be reintroduced in 3.1 release.
 
 Also some default settings
