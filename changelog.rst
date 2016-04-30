@@ -1,6 +1,24 @@
 Changelog
 ============================
 
+
+3.0 beta2 released
+---------------
+
+.. post:: 2016-05-01
+   :tags: release
+   :author: Jan
+
+Maven version number: ``3.0.0-beta2``, release date 2016-05-01
+
+This release is fixing **data corruption issue**. Compaction on ``StoreDirect`` will corrupt storage
+if there is record smaller then 6 bytes (affects ``HTreeMap`` and ``BTreeMap``).
+
+Second bugfix is on ``BTreeMap``, it would not call modification listeners.
+
+No changes in storage format or API.
+
+
 3.0 beta1 released
 ---------------
 
