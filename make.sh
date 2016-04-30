@@ -14,10 +14,12 @@ mvn clean test
 cp doc/_build/latex/MapDB.pdf down/mapdb-manual.pdf
 rm doc/_build -rf
 
-# create html site
+# create html site`
 ablog build
 
 # create dokka documentation from ../mapdb
-(cd ../mapdb && mvn clean compile dokka:dokka)
-mkdir _website/dokka
-mv ../mapdb/target/dokka _website/dokka/latest
+#(cd ../mapdb && mvn clean compile dokka:dokka)
+
+mkdir _website/dokka/latest -p
+#-format javadoc 
+java  -cp ../bin/dokka-fatjar.jar:$JAVA_HOME/lib/tools.jar org.jetbrains.dokka.MainKt ../mapdb/src/main/java/  -output _website/dokka/latest
