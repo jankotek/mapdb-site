@@ -20,6 +20,6 @@ ablog build
 # create dokka documentation from ../mapdb
 #(cd ../mapdb && mvn clean compile dokka:dokka)
 
-mkdir _website/dokka/latest -p
+mkdir _website/dokka/latest/mapdb -p
 #-format javadoc 
-java  -cp ../bin/dokka-fatjar.jar:$JAVA_HOME/lib/tools.jar org.jetbrains.dokka.MainKt ../mapdb/src/main/java/  -output _website/dokka/latest
+java  -cp ../bin/dokka-fatjar.jar:$JAVA_HOME/lib/tools.jar org.jetbrains.dokka.MainKt ../mapdb/src/main/java/  -output _website/dokka/latest/mapdb/
