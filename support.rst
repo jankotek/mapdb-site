@@ -35,13 +35,13 @@ We provide services centered around following:
 Support contract
 ---------------------
 
-Typical support contract for one development team is **$12K/pa**. It covers:
+Typical support contract for one development team is $8,000/pa. It covers:
 
 * Questions on MapDB and related libraries
 * Support by email, typical answer time within 2 hours on working hours, worst answer time 24 hours
 * Direct support over phone or IM, after previous arrangement
-* Up to 6 hours of development per month
-* Priority bug-fixing beyond 6 hours/month
+* Up to 4 hours of development per month
+* Priority bug-fixing beyond 4 hours/month
 * Error diagnose and emergency patching
 * Small features and tweaks
 * Priority when booking our consulting services
@@ -79,7 +79,7 @@ We also provide general software development and services related to MapDB. That
 * New storage engines for existing software
 * Refactor single threaded software to use multiple cores. or work on distributed cluster etc..
 
-For short consulting we charge **$120/hour**. Longer projects are charged per task or per day at better rate.
+For short consulting we charge $90/hour. Longer projects are charged per task or per day at better rate.
 We work remotely, on-site consulting is possible within Europe.
 
 Contact us `directly <mailto:jan@kotek.net?subject=Consulting>`_ or schedule `free discovery call <http://www.meetme.so/mapdb>`_.
