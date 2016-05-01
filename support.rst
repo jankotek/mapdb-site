@@ -12,74 +12,31 @@ Anything with stack trace goes to Issue Tracker.
 Mailing list and Reddit forum are for general questions.
 Documentation for MapDB is `here <http://www.mapdb.org/doc/>`_.
 
-Free discovery call
+Free phone call
 --------------------------------
 
-For new users we provide free 20 minute discovery call.
-It is fast way to find out if MapDB  is good fit for your needs.
+To help new users and to speedup MapDB adoption, MapDB author provides a quick phone call.
+Direct communication is the fastest way to answer some questions and solve some problems.
 
-Schedule `free discovery call <http://www.meetme.so/mapdb>`_.
+This call is free, up to 20 minutes long. However it is not a support line, and both sides should benefit from it.
+Author is happy to help, if you are:
 
-Professional services
-----------------------
+- Having troubles, even after reading all `documentation </doc>`_ and
+  `code examples <https://github.com/jankotek/mapdb-site/tree/master/src/test/java/doc>`_.
 
-MapDB development is sponsored by support contracts and consulting services.
-We provide services centered around following:
+- Evaluating MapDB and need to compare different projects.
 
-* MapDB and related projects
-* Database design and performance tuning
-* Off-heap, garbage collection, and memory issues
-* Storage components for JVM based software such as Cassandra, Kafka and Spark
-* Kotlin programming language (and Scala to some extend)
 
-Support contract
----------------------
+- Solving unique problem, where traditional solutions do not work.
 
-Typical support contract for one development team is $8,000/pa. It covers:
+- Working on interesting open-source project.
 
-* Questions on MapDB and related libraries
-* Support by email, typical answer time within 2 hours on working hours, worst answer time 24 hours
-* Direct support over phone or IM, after previous arrangement
-* Up to 4 hours of development per month
-* Priority bug-fixing beyond 4 hours/month
-* Error diagnose and emergency patching
-* Small features and tweaks
-* Priority when booking our consulting services
+Schedule free `phone call <http://www.meetme.so/mapdb>`_.
 
-Our work hours are Mon-Fri, 1PM to 9PM London time (GMT/GMT+1) or 5AM to 1PM San Francisco time (PST)
+Consulting and professional support
+------------------------------------------
 
-Contact us `directly <mailto:jan@kotek.net?subject=Support>`_ or schedule `free discovery call <http://www.meetme.so/mapdb>`_.
-
-Consulting services
--------------------------
-
-For new users we offer quick conference call to find best solution.
-That covers:
-
-* MapDB validation for specific scenario
-* Or best solution recommendation if MapDB is not good fit
-* Performance issues
-* Time and complexity estimates
-* Design and code validation
-
-MapDB development has roadmap and limited resources. It might take some time to implement new feature or fix
-less urgent bugs. We offer "express lane" in form of consulting services. That covers all work done on MapDB,
-but is done much faster:
-
-* Bug-fixing
-* New features
-* Performance optimizations in MapDB
-* Merging more complex pull requests
-
-We also provide general software development and services related to MapDB. That includes:
-
-* Training
-* Oversight and audit of external developers
-* Refactoring of existing code to use MapDB (solve garbage collection issues, improve memory consumption)
-* New storage engines for existing software
-* Refactor single threaded software to use multiple cores. or work on distributed cluster etc..
-
-For short consulting we charge $90/hour. Longer projects are charged per task or per day at better rate.
-We work remotely, on-site consulting is possible within Europe.
-
-Contact us `directly <mailto:jan@kotek.net?subject=Consulting>`_ or schedule `free discovery call <http://www.meetme.so/mapdb>`_.
+MapDB is sponsored by `consulting services <http://kotek.net/consulting>`_.
+Author provides services centered around MapDB and Java storage engines.
+Send an `direct email <mailto:jan@kotek.net?subject=MapDB%20Consulting>`_ or
+schedule `discovery call <http://www.meetme.so/mapdb>`_.
