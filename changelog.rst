@@ -2,6 +2,36 @@ Changelog
 ============================
 
 
+3.0 beta3 released
+---------------
+
+.. post:: 2016-05-08
+   :tags: release
+   :author: Jan
+
+Maven version number: ``3.0.0-beta3``, release date 2016-05-08
+
+Fixed performance in HTreeMap, user serializers and file locking.
+
+No changes in storage format or API.
+
+Changes:
+
+- DB: throw IllegalAccessError on access after DB was closed
+
+- DB: make serializers optional in name catalog
+
+- ``DB.fileLockDisable()`` would not work. Fixed
+
+- Added option ``DB.fileLockWait`` to block until file lock is released by second JVM #693. There is optional timeout.
+
+- HTreeMap and IndexTreeList default sizes were to small,
+  list would throw assertion error after 64K records, HTreeMap was slow due to huge number of collisions.
+  Default size changed from 64K to 1E9
+
+
+
+
 3.0 beta2 released
 ---------------
 
