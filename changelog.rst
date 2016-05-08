@@ -23,7 +23,7 @@ Changes:
 
 - ``DB.fileLockDisable()`` would not work. Fixed
 
-- Added option ``DB.fileLockWait`` to block until file lock is released by second JVM #693. There is optional timeout.
+- Added option ``DB.fileLockWait()`` to block until file lock is released by second JVM #693. There is optional timeout.
 
 - HTreeMap and IndexTreeList default sizes were to small,
   list would throw assertion error after 64K records, HTreeMap was slow due to huge number of collisions.
