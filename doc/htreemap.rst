@@ -315,6 +315,14 @@ If value is found inside ``onDisk``, it is added into ``inMemory``.
     :language: c++
     :dedent: 8
 
+It is also possible to clear entire primary map and move all data to disk:
+
+
+.. literalinclude:: ../src/test/java/doc/htreemap_overflow_clear.java
+    :start-after: //a
+    :end-before: //z
+    :language: c++
+    :dedent: 8
 
 `TODO expiration counts are approximate. Map size can go slightly over limits for short period of time.`
 
