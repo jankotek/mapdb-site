@@ -41,6 +41,6 @@ public class htreemap_overflow_clear {
 
         //z
         assertEquals(0, inMemory.size());
-        assertEquals(1, onDisk.size());
+        assertEquals(2, onDisk.size());
     }
 }
