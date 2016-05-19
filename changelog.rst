@@ -2,7 +2,7 @@ Changelog
 ============================
 
 3.0 beta4 released
----------------
+---------------------------
 
 .. post:: 2016-05-19
    :tags: release
@@ -36,7 +36,7 @@ Changes:
 - HTreeMap has new options to clear map content with expiration triggers. See #708.
 
 3.0 beta3 released
----------------
+---------------------------------
 
 .. post:: 2016-05-08
    :tags: release
@@ -66,7 +66,7 @@ Changes:
 
 
 3.0 beta2 released
----------------
+-----------------------------------
 
 .. post:: 2016-05-01
    :tags: release
@@ -83,7 +83,7 @@ No changes in storage format or API.
 
 
 3.0 beta1 released
----------------
+-------------------------------
 
 .. post:: 2016-04-30
    :tags: release
