@@ -1,6 +1,39 @@
 Changelog
 ============================
 
+3.0 beta4 released
+---------------
+
+.. post:: 2016-05-19
+   :tags: release
+   :author: Jan
+
+Maven version number: ``3.0.0-beta4``, release date 2016-05-19
+
+**FORMAT CHANGE** POJO serializer format has changed. If you use default serializer together with your own objects, your data might not be readable.
+Well known java classes in ``java.lang`` such as ``String``, ``Long``, ``BigDecimal`` etc are not affected.
+
+Changes:
+
+- reworked Elsa serialization (default serializer) to fix Class Catalog issues.
+
+- Elsa serializer now uses ``IdentityHashMap`` for recursive references. Much faster serialization for large object graphs
+
+- Rework JVM shutdown hook and ``DB.close()``, should fix #706.
+
+- JVM Shutdown hook now uses single thread for all DBs (memory efficient for many DBs with shutdown hook registered).
+
+- JVM Shutdown hook now uses hard reference instead of ``WeakReference``. There is new option in DBMaker to use weak ref.
+
+- Fix ``BTreeMap.put`` caused ``ArrayIndexOutOfBoundsException``. Fix #707
+
+- ``BTreeMap.prefixSubmap`` now works with more primitive arrays (``int[]``, ``long[]`` etc..). Credit Dmitriy Shabanov
+
+- fix various small issues to make acceptance tests pass
+
+- Kotlin updated to 1.0.2
+
+- HTreeMap has new options to clear map content with expiration triggers. See #708.
 
 3.0 beta3 released
 ---------------
