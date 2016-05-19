@@ -172,4 +172,4 @@ This version adds BTreeMap
 MapDB 1 and 2
 ----------------
 
-Older changelog are in `archive <../changelog-archive>`_
+Older changelog is in `archive <../changelog-archive>`_
