@@ -8,7 +8,7 @@ Changelog
    :tags: release
    :author: Jan
 
-Maven version number: ``3.0.0-beta5``, release date 2016-05-25
+Maven version number: ``3.0.0-beta5``, release date 2016-05-24
 
 This release is fixing data corruption caused by ``StoreWAL`` with transactions enabled. Update is strongly recommended.
 
