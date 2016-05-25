@@ -23,6 +23,12 @@ It might also depend on latest version of MapDB, so install it into local maven 
     cd mapdb
     mvn install -DskipTests=true
 
+And you will need Dokka library (javadoc for Kotlin). Download [dokka jar](https://github.com/Kotlin/dokka/releases) and save it under relative path: `../bin/dokka-fatjar.jar`
+
+You might also have to set java home:
+
+    export JAVA_HOME=/opt/jdk8
+
 Finally generate html:
 
     ./make.sh
