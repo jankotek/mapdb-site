@@ -8,6 +8,7 @@ MapDB Manual
     htreemap
     btreemap
     sortedtablemap
+    performance
     layout
     volume
     format
