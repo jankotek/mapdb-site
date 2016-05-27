@@ -39,7 +39,7 @@ thing: Commit tries to flush all the write caches and synchronizes the storage
 files. So if you call ``db.commit()`` and do not make any more writes,
 your store should be safe (no data loss) in case of JVM crash.
 
-*TODO JVM write cache flush, versus operating system flush.*
+*TODO JVM write cache flush, versus system flush.*
 
 Memory mapped files (mmap)
 --------------------------
