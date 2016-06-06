@@ -111,3 +111,12 @@ to NASes and music servers.
 
 Dan Gravell - `bliss <http://www.blisshq.com/>`_
 
+
+geo streaming
+~~~~~~~~~~~~~~~~
+
+MapDB works really great as a underlying key-value store for quite a big spatial dataset, both for import from OpenStreetMap and for querying/display.
+
+I’m still impressed how small difference is between memoryDirect DB and disk (SSD) based - in my scenarios they are so close to each other!
+
+Łukasz Kolek  - `geo streaming <http://www.geostreaming.pl/>`_
