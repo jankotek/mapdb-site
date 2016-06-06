@@ -10,7 +10,7 @@ Documentation uses some files from mapdb. So checkout source repository to ../ma
 
 To generate PDF one has to install texlive packages.
 
-    sudo apt-get install texlive-latex-base texlive-fonts-recommended texlive-latex-extra
+    sudo apt-get install texlive-latex-base texlive-fonts-recommended texlive-latex-extra --no-install-recommends
 
 Script also uses Maven to execute some code and verify tests. 
 
