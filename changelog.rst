@@ -17,11 +17,9 @@ No changes in format or API.
 
 Changes:
 
-- added ``Store.fileLoad()`` method. Content of memory mapped file can
-   loaded into memory by ``db.getStore().fileLoad()``
+- added ``Store.fileLoad()`` method. Content of memory mapped file can be loaded into memory by ``db.getStore().fileLoad()``
 
-- added ``DBMaker.allocationIncrement()`` to minimize number of memory mapped chunks.
-   This is workaround for *too many file handles*, see `#723 <https://github.com/jankotek/mapdb/issues/723>`_
+- added ``DBMaker.allocationIncrement()`` to minimize number of memory mapped chunks.  This is workaround for *too many file handles*, see `#723 <https://github.com/jankotek/mapdb/issues/723>`_
 
 - Added documentation
 
@@ -35,14 +33,6 @@ Changes:
 
 - Update Elsa serialization library
 
-3.0 beta5 released
----------------------------
-
-.. post:: 2016-05-24
-   :tags: release
-   :author: Jan
-
-Maven version number: ``
 
 3.0 beta5 released
 ---------------------------
