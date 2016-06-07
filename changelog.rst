@@ -1,6 +1,49 @@
 Changelog
 ============================
 
+3.0 Release Candidate 1 released
+---------------------------
+
+.. post:: 2016-06-07
+   :tags: release
+   :author: Jan
+
+Maven version number: ``3.0.0-RC1``, release date 2016-06-06
+
+Number of small improvements. At this point MapDB has no obvious bugs.
+If no bugs are found this version will become stable release.
+
+No changes in format or API.
+
+Changes:
+
+- added ``Store.fileLoad()`` method. Content of memory mapped file can
+   loaded into memory by ``db.getStore().fileLoad()``
+
+- added ``DBMaker.allocationIncrement()`` to minimize number of memory mapped chunks.
+   This is workaround for *too many file handles*, see `#723 <https://github.com/jankotek/mapdb/issues/723>`_
+
+- Added documentation
+
+- Rework close methods to be thread safe, do not throw exception on second close.
+
+- Make ``Store.commit()`` and ``Store.rollback()`` thread safe.
+
+- BTreeMap: external values were not deleted after removal
+
+- Store: add ``getAllFiles()`` method.
+
+- Update Elsa serialization library
+
+3.0 beta5 released
+---------------------------
+
+.. post:: 2016-05-24
+   :tags: release
+   :author: Jan
+
+Maven version number: ``
+
 3.0 beta5 released
 ---------------------------
 
@@ -9,6 +52,11 @@ Changelog
    :author: Jan
 
 Maven version number: ``3.0.0-beta5``, release date 2016-05-24
+
+This release is fixing data corruption caused by ``StoreWAL`` with transactions enabled. Update is strongly recommended.
+
+No changes in format or API.
+3.0.0-beta5``, release date 2016-05-24
 
 This release is fixing data corruption caused by ``StoreWAL`` with transactions enabled. Update is strongly recommended.
 
