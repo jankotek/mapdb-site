@@ -45,8 +45,9 @@ Daily builds are in snapshot repository. The version number for the latest snaps
         </dependency>
     </dependencies>
 
-You can also download MapDB directly from Github. MapDB depends on Eclipse Collections and Guava.
-*TODO host tars on github*
+You can also download MapDB jar files directly from [Maven Central](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22mapdb%22). In that case keep on mind that
+MapDB depends on Eclipse Collections, Guava, Kotlin library and some other libraries. Here is [full list of dependencies](http://mvnrepository.com/artifact/org.mapdb/mapdb)
+for each version.
 
 Hello World
 --------------------
