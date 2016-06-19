@@ -1,8 +1,27 @@
 Changelog
 ============================
 
+
+3.0 Release Candidate 2 released
+------------------------------------------------
+
+.. post:: 2016-06-19
+   :tags: release
+   :author: Jan
+
+Maven version number: ``3.0.0-RC2``, release date 2016-06-19
+
+Two bugfixes. No changes in format or API
+
+Changes:
+
+- Fixed #726: DBMaker.volumeDB broken
+
+- HTreeMap expiration could throw ``DBException.GetVoid``. Fixed by using lazy iterators in ``IndexTreeLongLongMap``
+
+
 3.0 Release Candidate 1 released
----------------------------
+-------------------------------------------
 
 .. post:: 2016-06-07
    :tags: release
