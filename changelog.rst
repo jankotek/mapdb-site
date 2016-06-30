@@ -2,6 +2,25 @@ Changelog
 ============================
 
 
+3.0.0 released
+------------------------------------------------
+
+.. post:: 2016-06-29
+   :tags: release
+   :author: Jan
+
+Maven version number: ``3.0.0``, release date 2016-06-29
+
+Small bugfix, no changes in API or storage format
+
+Changes:
+
+- Fixed #733: ``SerializerArray<T>.deserialize()`` return ``Object[]`` instead of ``T[]``. Added new constructor parameter to control array type after deserialization.
+
+- Small changes in javadoc
+
+
+
 3.0 Release Candidate 2 released
 ------------------------------------------------
 
