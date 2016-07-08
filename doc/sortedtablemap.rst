@@ -57,7 +57,7 @@ Parameters
 Value Array `TODO link to serializers`. They can be compressed together to save space.
 Serializer is trade-off between space usage and performance.
 
-Another setting is **Page Size**. Default and maximal value is 1MB. Its value must be power of two, other valuaes
+Another setting is **Page Size**. Default and maximal value is 1MB. Its value must be power of two, other values
 are rounded up to nearest power of two. Smaller value typically means faster access. But for each page
 one key is stored on-heap, smaller Page Size also means larger memory usage.
 

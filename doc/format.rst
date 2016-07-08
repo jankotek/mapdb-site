@@ -239,7 +239,7 @@ This is followed by Long Stack Master Pointers. Those are used to track free spa
 Index page
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Rest of the zero page (up to offset 1024*1024) is used as Index Page (sometimes its refered as Zero Index Page).
+Rest of the zero page (up to offset 1024*1024) is used as Index Page (sometimes it's referred as Zero Index Page).
 Offset to next Index Page (First Index Page) is at ``8+4095+4+1``, Zero Index Page checksum is at ``8+4095+4+2``.
 First recid value is at ``8+4095+4+3``.
 
@@ -280,7 +280,7 @@ Structure of Record Link is similar to Index Value. Except parity is 3.
 
 - **bite 49-64** - 16 bite record size of next link. Use ``val>>48`` to get it
 
-- **bite 5-48** - 48 bite offset of next record alligned to 16 bytes. Use ``val&MOFFSET`` to get it
+- **bite 5-48** - 48 bite offset of next record aligned to 16 bytes. Use ``val&MOFFSET`` to get it
 
 - **bite 4** - true if next record is linked, false if next record is last and not linked (is tail of linked record).
     Use ``val&MLINKED``

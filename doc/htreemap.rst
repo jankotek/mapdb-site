@@ -224,7 +224,7 @@ It is also possible to limit the maximal size of a map:
 HTreeMap maintains LIFO Expiration Queue for each segment,
 eviction traverses queue and removes oldest entries.
 Not all Map entries are placed into Expiration Queue.
-For illustration, in this example the new  entrues never expire,
+For illustration, in this example the new entries never expire,
 only after update (value change) entry is placed into Expiration Queue.
 
 .. literalinclude:: ../src/test/java/doc/htreemap_expiration_create_update.java
