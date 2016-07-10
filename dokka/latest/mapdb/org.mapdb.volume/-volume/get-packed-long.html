@@ -1,0 +1,21 @@
+<HTML>
+<HEAD>
+<title>Volume.getPackedLong - </title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">org.mapdb.volume</a>&nbsp;/&nbsp;<a href="index.html">Volume</a>&nbsp;/&nbsp;<a href=".">getPackedLong</a><br/>
+<br/>
+<h1>getPackedLong</h1>
+<a name="org.mapdb.volume.Volume$getPackedLong(kotlin.Long)"></a>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">getPackedLong</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.volume.Volume$getPackedLong(kotlin.Long)/position">position</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code><br/>
+<p>Unpack long value from the Volume. Highest 4 bits reused to indicate number of bytes read from Volume. One can use <code>result &amp; DataIO.PACK_LONG_RESULT_MASK</code> to remove size; </p>
+<h3>Parameters</h3>
+<a name="position"></a>
+<code>position</code> - to read value from <br/>
+<p><strong>Return</strong><br/>
+The long value, minus highest byte</p>
+<br/>
+<br/>
+</BODY>
+</HTML>

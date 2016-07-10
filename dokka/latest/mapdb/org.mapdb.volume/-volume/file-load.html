@@ -1,0 +1,19 @@
+<HTML>
+<HEAD>
+<title>Volume.fileLoad - </title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">org.mapdb.volume</a>&nbsp;/&nbsp;<a href="index.html">Volume</a>&nbsp;/&nbsp;<a href=".">fileLoad</a><br/>
+<br/>
+<h1>fileLoad</h1>
+<a name="org.mapdb.volume.Volume$fileLoad()"></a>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">fileLoad</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code><br/>
+<p><p> If underlying storage is memory-mapped-file, this method will try to load and precache all file data into disk cache. Most likely it will call <code><a href="#">MappedByteBuffer#load()</a></code>, but could also read content of entire file etc This method will not pin data into memory, they might be removed at any time. </p>
+ </p>
+<p><strong>Return</strong><br/>
+true if this method did something, false if underlying storage does not support loading</p>
+<br/>
+<br/>
+</BODY>
+</HTML>

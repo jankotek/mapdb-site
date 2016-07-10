@@ -1,0 +1,501 @@
+<HTML>
+<HEAD>
+<title>SortedTableMap - </title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">org.mapdb</a>&nbsp;/&nbsp;<a href=".">SortedTableMap</a><br/>
+<br/>
+<h1>SortedTableMap</h1>
+<code><span class="keyword">class </span><span class="identifier">SortedTableMap</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">, </span><span class="identifier">V</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/ConcurrentMap.html"><span class="identifier">ConcurrentMap</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">, </span><a href="http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/ConcurrentNavigableMap.html"><span class="identifier">ConcurrentNavigableMap</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">, </span><a href="../-concurrent-navigable-map-extra/index.html"><span class="identifier">ConcurrentNavigableMapExtra</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code><br/>
+<p>Read only Sorted Table Map. It stores data in table and uses binary search to find records</p>
+<br/>
+<br/>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="-maker/index.html">Maker</a></td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">Maker</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">, </span><span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="-node-iterator/index.html">NodeIterator</a></td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">NodeIterator</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="-sink/index.html">Sink</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">Sink</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">, </span><span class="identifier">V</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-pump/-sink/index.html"><span class="identifier">Sink</span></a><span class="symbol">&lt;</span><span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">,</span>&nbsp;<span class="identifier">SortedTableMap</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="-init-.html">&lt;init&gt;</a></td>
+<td>
+<code><span class="identifier">SortedTableMap</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.SortedTableMap$<init>(org.mapdb.serializer.GroupSerializer((org.mapdb.SortedTableMap.K)), org.mapdb.serializer.GroupSerializer((org.mapdb.SortedTableMap.V)), kotlin.Long, org.mapdb.volume.Volume, kotlin.Boolean)/keySerializer">keySerializer</span><span class="symbol">:</span>&nbsp;<a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap$<init>(org.mapdb.serializer.GroupSerializer((org.mapdb.SortedTableMap.K)), org.mapdb.serializer.GroupSerializer((org.mapdb.SortedTableMap.V)), kotlin.Long, org.mapdb.volume.Volume, kotlin.Boolean)/valueSerializer">valueSerializer</span><span class="symbol">:</span>&nbsp;<a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap$<init>(org.mapdb.serializer.GroupSerializer((org.mapdb.SortedTableMap.K)), org.mapdb.serializer.GroupSerializer((org.mapdb.SortedTableMap.V)), kotlin.Long, org.mapdb.volume.Volume, kotlin.Boolean)/pageSize">pageSize</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap$<init>(org.mapdb.serializer.GroupSerializer((org.mapdb.SortedTableMap.K)), org.mapdb.serializer.GroupSerializer((org.mapdb.SortedTableMap.V)), kotlin.Long, org.mapdb.volume.Volume, kotlin.Boolean)/volume">volume</span><span class="symbol">:</span>&nbsp;<a href="../../org.mapdb.volume/-volume/index.html"><span class="identifier">Volume</span></a><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap$<init>(org.mapdb.serializer.GroupSerializer((org.mapdb.SortedTableMap.K)), org.mapdb.serializer.GroupSerializer((org.mapdb.SortedTableMap.V)), kotlin.Long, org.mapdb.volume.Volume, kotlin.Boolean)/hasValues">hasValues</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span></code><p>Read only Sorted Table Map. It stores data in table and uses binary search to find records</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="comparator.html">comparator</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">comparator</span><span class="symbol">: </span><a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="entries.html">entries</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">entries</span><span class="symbol">: </span><span class="identifier">MutableSet</span><span class="symbol">&lt;</span><span class="identifier">MutableEntry</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="has-values.html">hasValues</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">hasValues</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="key-serializer.html">keySerializer</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">keySerializer</span><span class="symbol">: </span><a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="keys.html">keys</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">keys</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/6/docs/api/java/util/NavigableSet.html"><span class="identifier">NavigableSet</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="page-count.html">pageCount</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">pageCount</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="page-keys.html">pageKeys</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">pageKeys</span><span class="symbol">: </span><span class="identifier">Any</span></code><p>first key at beginning of each page</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="page-size.html">pageSize</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">pageSize</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="size.html">size</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">size</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="size-long.html">sizeLong</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">sizeLong</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="value-serializer.html">valueSerializer</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">valueSerializer</span><span class="symbol">: </span><a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="values.html">values</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">values</span><span class="symbol">: </span><span class="identifier">MutableCollection</span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="volume.html">volume</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">volume</span><span class="symbol">: </span><a href="../../org.mapdb.volume/-volume/index.html"><span class="identifier">Volume</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="ceiling-entry.html">ceilingEntry</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">ceilingEntry</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.SortedTableMap$ceilingEntry(org.mapdb.SortedTableMap.K)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableEntry</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="ceiling-key.html">ceilingKey</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">ceilingKey</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.SortedTableMap$ceilingKey(org.mapdb.SortedTableMap.K)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">K</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="clear.html">clear</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">clear</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="close.html">close</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">close</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="comparator.html">comparator</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">comparator</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/6/docs/api/java/util/Comparator.html"><span class="identifier">Comparator</span></a><span class="symbol">&lt;</span><span class="keyword">in</span>&nbsp;<span class="identifier">K</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="contains-key.html">containsKey</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">containsKey</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.SortedTableMap$containsKey(org.mapdb.SortedTableMap.K)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="contains-value.html">containsValue</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">containsValue</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.SortedTableMap$containsValue(org.mapdb.SortedTableMap.V)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="descending-entry-iterator.html">descendingEntryIterator</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">descendingEntryIterator</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableIterator</span><span class="symbol">&lt;</span><span class="identifier">MutableEntry</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">descendingEntryIterator</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.SortedTableMap$descendingEntryIterator(org.mapdb.SortedTableMap.K, kotlin.Boolean, org.mapdb.SortedTableMap.K, kotlin.Boolean)/lo">lo</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap$descendingEntryIterator(org.mapdb.SortedTableMap.K, kotlin.Boolean, org.mapdb.SortedTableMap.K, kotlin.Boolean)/loInclusive">loInclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap$descendingEntryIterator(org.mapdb.SortedTableMap.K, kotlin.Boolean, org.mapdb.SortedTableMap.K, kotlin.Boolean)/hi">hi</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap$descendingEntryIterator(org.mapdb.SortedTableMap.K, kotlin.Boolean, org.mapdb.SortedTableMap.K, kotlin.Boolean)/hiInclusive">hiInclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableIterator</span><span class="symbol">&lt;</span><span class="identifier">MutableEntry</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="descending-key-iterator.html">descendingKeyIterator</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">descendingKeyIterator</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableIterator</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">descendingKeyIterator</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.SortedTableMap$descendingKeyIterator(org.mapdb.SortedTableMap.K, kotlin.Boolean, org.mapdb.SortedTableMap.K, kotlin.Boolean)/lo">lo</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap$descendingKeyIterator(org.mapdb.SortedTableMap.K, kotlin.Boolean, org.mapdb.SortedTableMap.K, kotlin.Boolean)/loInclusive">loInclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap$descendingKeyIterator(org.mapdb.SortedTableMap.K, kotlin.Boolean, org.mapdb.SortedTableMap.K, kotlin.Boolean)/hi">hi</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap$descendingKeyIterator(org.mapdb.SortedTableMap.K, kotlin.Boolean, org.mapdb.SortedTableMap.K, kotlin.Boolean)/hiInclusive">hiInclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableIterator</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="descending-key-set.html">descendingKeySet</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">descendingKeySet</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/6/docs/api/java/util/NavigableSet.html"><span class="identifier">NavigableSet</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="descending-map.html">descendingMap</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">descendingMap</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/ConcurrentNavigableMap.html"><span class="identifier">ConcurrentNavigableMap</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="descending-node-iterator.html">descendingNodeIterator</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">descendingNodeIterator</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="-node-iterator/index.html"><span class="identifier">NodeIterator</span></a></code></td>
+</tr>
+<tr>
+<td>
+<a href="descending-value-iterator.html">descendingValueIterator</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">descendingValueIterator</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableIterator</span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">descendingValueIterator</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.SortedTableMap$descendingValueIterator(org.mapdb.SortedTableMap.K, kotlin.Boolean, org.mapdb.SortedTableMap.K, kotlin.Boolean)/lo">lo</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap$descendingValueIterator(org.mapdb.SortedTableMap.K, kotlin.Boolean, org.mapdb.SortedTableMap.K, kotlin.Boolean)/loInclusive">loInclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap$descendingValueIterator(org.mapdb.SortedTableMap.K, kotlin.Boolean, org.mapdb.SortedTableMap.K, kotlin.Boolean)/hi">hi</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap$descendingValueIterator(org.mapdb.SortedTableMap.K, kotlin.Boolean, org.mapdb.SortedTableMap.K, kotlin.Boolean)/hiInclusive">hiInclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableIterator</span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="entry-iterator.html">entryIterator</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">entryIterator</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableIterator</span><span class="symbol">&lt;</span><span class="identifier">MutableEntry</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">entryIterator</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.SortedTableMap$entryIterator(org.mapdb.SortedTableMap.K, kotlin.Boolean, org.mapdb.SortedTableMap.K, kotlin.Boolean)/lo">lo</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap$entryIterator(org.mapdb.SortedTableMap.K, kotlin.Boolean, org.mapdb.SortedTableMap.K, kotlin.Boolean)/loInclusive">loInclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap$entryIterator(org.mapdb.SortedTableMap.K, kotlin.Boolean, org.mapdb.SortedTableMap.K, kotlin.Boolean)/hi">hi</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap$entryIterator(org.mapdb.SortedTableMap.K, kotlin.Boolean, org.mapdb.SortedTableMap.K, kotlin.Boolean)/hiInclusive">hiInclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableIterator</span><span class="symbol">&lt;</span><span class="identifier">MutableEntry</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="equals.html">equals</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">equals</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.SortedTableMap$equals(kotlin.Any)/other">other</span><span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="find-higher.html">findHigher</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">findHigher</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.SortedTableMap$findHigher(org.mapdb.SortedTableMap.K, kotlin.Boolean)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap$findHigher(org.mapdb.SortedTableMap.K, kotlin.Boolean)/inclusive">inclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableEntry</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="find-higher-key.html">findHigherKey</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">findHigherKey</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.SortedTableMap$findHigherKey(org.mapdb.SortedTableMap.K, kotlin.Boolean)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap$findHigherKey(org.mapdb.SortedTableMap.K, kotlin.Boolean)/inclusive">inclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">K</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="find-lower.html">findLower</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">findLower</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.SortedTableMap$findLower(org.mapdb.SortedTableMap.K, kotlin.Boolean)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap$findLower(org.mapdb.SortedTableMap.K, kotlin.Boolean)/inclusive">inclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableEntry</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="find-lower-key.html">findLowerKey</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">findLowerKey</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.SortedTableMap$findLowerKey(org.mapdb.SortedTableMap.K, kotlin.Boolean)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap$findLowerKey(org.mapdb.SortedTableMap.K, kotlin.Boolean)/inclusive">inclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">K</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="first-entry.html">firstEntry</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">firstEntry</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableEntry</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="first-key.html">firstKey</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">firstKey</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">K</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="first-key2.html">firstKey2</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">firstKey2</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">K</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="floor-entry.html">floorEntry</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">floorEntry</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.SortedTableMap$floorEntry(org.mapdb.SortedTableMap.K)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableEntry</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="floor-key.html">floorKey</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">floorKey</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.SortedTableMap$floorKey(org.mapdb.SortedTableMap.K)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">K</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="for-each.html">forEach</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">forEach</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.SortedTableMap$forEach(java.util.function.BiConsumer((org.mapdb.SortedTableMap.K, org.mapdb.SortedTableMap.V)))/action">action</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/util/function/BiConsumer.html"><span class="identifier">BiConsumer</span></a><span class="symbol">&lt;</span><span class="keyword">in</span>&nbsp;<span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="keyword">in</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="for-each-key.html">forEachKey</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">forEachKey</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.SortedTableMap$forEachKey(kotlin.Function1((org.mapdb.SortedTableMap.K, kotlin.Unit)))/procedure">procedure</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">K</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">Unit</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="for-each-value.html">forEachValue</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">forEachValue</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.SortedTableMap$forEachValue(kotlin.Function1((org.mapdb.SortedTableMap.V, kotlin.Unit)))/procedure">procedure</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">V</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">Unit</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="get.html">get</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">get</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.SortedTableMap$get(org.mapdb.SortedTableMap.K)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">V</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="head-map.html">headMap</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">headMap</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.SortedTableMap$headMap(org.mapdb.SortedTableMap.K, kotlin.Boolean)/toKey">toKey</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap$headMap(org.mapdb.SortedTableMap.K, kotlin.Boolean)/inclusive">inclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/ConcurrentNavigableMap.html"><span class="identifier">ConcurrentNavigableMap</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">headMap</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.SortedTableMap$headMap(org.mapdb.SortedTableMap.K)/toKey">toKey</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">)</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/ConcurrentNavigableMap.html"><span class="identifier">ConcurrentNavigableMap</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="higher-entry.html">higherEntry</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">higherEntry</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.SortedTableMap$higherEntry(org.mapdb.SortedTableMap.K)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableEntry</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="higher-key.html">higherKey</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">higherKey</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.SortedTableMap$higherKey(org.mapdb.SortedTableMap.K)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">K</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="is-closed.html">isClosed</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">isClosed</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="is-empty.html">isEmpty</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">isEmpty</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="key-iterator.html">keyIterator</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">keyIterator</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableIterator</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">keyIterator</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.SortedTableMap$keyIterator(org.mapdb.SortedTableMap.K, kotlin.Boolean, org.mapdb.SortedTableMap.K, kotlin.Boolean)/lo">lo</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap$keyIterator(org.mapdb.SortedTableMap.K, kotlin.Boolean, org.mapdb.SortedTableMap.K, kotlin.Boolean)/loInclusive">loInclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap$keyIterator(org.mapdb.SortedTableMap.K, kotlin.Boolean, org.mapdb.SortedTableMap.K, kotlin.Boolean)/hi">hi</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap$keyIterator(org.mapdb.SortedTableMap.K, kotlin.Boolean, org.mapdb.SortedTableMap.K, kotlin.Boolean)/hiInclusive">hiInclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableIterator</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="last-entry.html">lastEntry</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">lastEntry</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableEntry</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="last-key.html">lastKey</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">lastKey</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">K</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="last-key2.html">lastKey2</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">lastKey2</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">K</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="lower-entry.html">lowerEntry</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">lowerEntry</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.SortedTableMap$lowerEntry(org.mapdb.SortedTableMap.K)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableEntry</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="lower-key.html">lowerKey</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">lowerKey</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.SortedTableMap$lowerKey(org.mapdb.SortedTableMap.K)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">K</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="navigable-key-set.html">navigableKeySet</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">navigableKeySet</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/6/docs/api/java/util/NavigableSet.html"><span class="identifier">NavigableSet</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="node-iterator.html">nodeIterator</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">nodeIterator</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="-node-iterator/index.html"><span class="identifier">NodeIterator</span></a></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">nodeIterator</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.SortedTableMap$nodeIterator(org.mapdb.SortedTableMap.K)/lo">lo</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">)</span><span class="symbol">: </span><a href="-node-iterator/index.html"><span class="identifier">NodeIterator</span></a></code></td>
+</tr>
+<tr>
+<td>
+<a href="node-search.html">nodeSearch</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">nodeSearch</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.SortedTableMap$nodeSearch(org.mapdb.SortedTableMap.K, kotlin.Long, kotlin.Long, kotlin.Int)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap$nodeSearch(org.mapdb.SortedTableMap.K, kotlin.Long, kotlin.Long, kotlin.Int)/offset">offset</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap$nodeSearch(org.mapdb.SortedTableMap.K, kotlin.Long, kotlin.Long, kotlin.Int)/offsetWithHead">offsetWithHead</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap$nodeSearch(org.mapdb.SortedTableMap.K, kotlin.Long, kotlin.Long, kotlin.Int)/nodeCount">nodeCount</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="poll-first-entry.html">pollFirstEntry</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">pollFirstEntry</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableEntry</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="poll-last-entry.html">pollLastEntry</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">pollLastEntry</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableEntry</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="put.html">put</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">put</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.SortedTableMap$put(org.mapdb.SortedTableMap.K, org.mapdb.SortedTableMap.V)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap$put(org.mapdb.SortedTableMap.K, org.mapdb.SortedTableMap.V)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">V</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="put-all.html">putAll</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">putAll</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.SortedTableMap$putAll(kotlin.collections.Map((org.mapdb.SortedTableMap.K, org.mapdb.SortedTableMap.V)))/from">from</span><span class="symbol">:</span>&nbsp;<span class="identifier">Map</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="put-if-absent.html">putIfAbsent</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">putIfAbsent</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.SortedTableMap$putIfAbsent(org.mapdb.SortedTableMap.K, org.mapdb.SortedTableMap.V)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap$putIfAbsent(org.mapdb.SortedTableMap.K, org.mapdb.SortedTableMap.V)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">V</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="put-if-absent-boolean.html">putIfAbsentBoolean</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">putIfAbsentBoolean</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.SortedTableMap$putIfAbsentBoolean(org.mapdb.SortedTableMap.K, org.mapdb.SortedTableMap.V)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap$putIfAbsentBoolean(org.mapdb.SortedTableMap.K, org.mapdb.SortedTableMap.V)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code><p>Atomically associates the specified key with the given value if it is
+not already associated with a value.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="remove.html">remove</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">remove</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.SortedTableMap$remove(org.mapdb.SortedTableMap.K)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">V</span><span class="symbol">?</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">remove</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.SortedTableMap$remove(kotlin.Any, kotlin.Any)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap$remove(kotlin.Any, kotlin.Any)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="replace.html">replace</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">replace</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.SortedTableMap$replace(org.mapdb.SortedTableMap.K, org.mapdb.SortedTableMap.V, org.mapdb.SortedTableMap.V)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap$replace(org.mapdb.SortedTableMap.K, org.mapdb.SortedTableMap.V, org.mapdb.SortedTableMap.V)/oldValue">oldValue</span><span class="symbol">:</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap$replace(org.mapdb.SortedTableMap.K, org.mapdb.SortedTableMap.V, org.mapdb.SortedTableMap.V)/newValue">newValue</span><span class="symbol">:</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">replace</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.SortedTableMap$replace(org.mapdb.SortedTableMap.K, org.mapdb.SortedTableMap.V)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap$replace(org.mapdb.SortedTableMap.K, org.mapdb.SortedTableMap.V)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">V</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="size-long.html">sizeLong</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">sizeLong</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code><p>map size as long number</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="sub-map.html">subMap</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">subMap</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.SortedTableMap$subMap(org.mapdb.SortedTableMap.K, kotlin.Boolean, org.mapdb.SortedTableMap.K, kotlin.Boolean)/fromKey">fromKey</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap$subMap(org.mapdb.SortedTableMap.K, kotlin.Boolean, org.mapdb.SortedTableMap.K, kotlin.Boolean)/fromInclusive">fromInclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap$subMap(org.mapdb.SortedTableMap.K, kotlin.Boolean, org.mapdb.SortedTableMap.K, kotlin.Boolean)/toKey">toKey</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap$subMap(org.mapdb.SortedTableMap.K, kotlin.Boolean, org.mapdb.SortedTableMap.K, kotlin.Boolean)/toInclusive">toInclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/ConcurrentNavigableMap.html"><span class="identifier">ConcurrentNavigableMap</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">subMap</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.SortedTableMap$subMap(org.mapdb.SortedTableMap.K, org.mapdb.SortedTableMap.K)/fromKey">fromKey</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap$subMap(org.mapdb.SortedTableMap.K, org.mapdb.SortedTableMap.K)/toKey">toKey</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">)</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/ConcurrentNavigableMap.html"><span class="identifier">ConcurrentNavigableMap</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="tail-map.html">tailMap</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">tailMap</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.SortedTableMap$tailMap(org.mapdb.SortedTableMap.K, kotlin.Boolean)/fromKey">fromKey</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap$tailMap(org.mapdb.SortedTableMap.K, kotlin.Boolean)/inclusive">inclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/ConcurrentNavigableMap.html"><span class="identifier">ConcurrentNavigableMap</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">tailMap</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.SortedTableMap$tailMap(org.mapdb.SortedTableMap.K)/fromKey">fromKey</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">)</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/ConcurrentNavigableMap.html"><span class="identifier">ConcurrentNavigableMap</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="value-iterator.html">valueIterator</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">valueIterator</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableIterator</span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">valueIterator</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.SortedTableMap$valueIterator(org.mapdb.SortedTableMap.K, kotlin.Boolean, org.mapdb.SortedTableMap.K, kotlin.Boolean)/lo">lo</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap$valueIterator(org.mapdb.SortedTableMap.K, kotlin.Boolean, org.mapdb.SortedTableMap.K, kotlin.Boolean)/loInclusive">loInclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap$valueIterator(org.mapdb.SortedTableMap.K, kotlin.Boolean, org.mapdb.SortedTableMap.K, kotlin.Boolean)/hi">hi</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap$valueIterator(org.mapdb.SortedTableMap.K, kotlin.Boolean, org.mapdb.SortedTableMap.K, kotlin.Boolean)/hiInclusive">hiInclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableIterator</span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="create.html">create</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">, </span><span class="identifier">V</span><span class="symbol">&gt;</span> <span class="identifier">create</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.SortedTableMap.Companion$create(org.mapdb.volume.Volume, org.mapdb.serializer.GroupSerializer((org.mapdb.SortedTableMap.Companion.create.K)), org.mapdb.serializer.GroupSerializer((org.mapdb.SortedTableMap.Companion.create.V)))/volume">volume</span><span class="symbol">:</span>&nbsp;<a href="../../org.mapdb.volume/-volume/index.html"><span class="identifier">Volume</span></a><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap.Companion$create(org.mapdb.volume.Volume, org.mapdb.serializer.GroupSerializer((org.mapdb.SortedTableMap.Companion.create.K)), org.mapdb.serializer.GroupSerializer((org.mapdb.SortedTableMap.Companion.create.V)))/keySerializer">keySerializer</span><span class="symbol">:</span>&nbsp;<a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap.Companion$create(org.mapdb.volume.Volume, org.mapdb.serializer.GroupSerializer((org.mapdb.SortedTableMap.Companion.create.K)), org.mapdb.serializer.GroupSerializer((org.mapdb.SortedTableMap.Companion.create.V)))/valueSerializer">valueSerializer</span><span class="symbol">:</span>&nbsp;<a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="-maker/index.html"><span class="identifier">Maker</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="create-from-sink.html">createFromSink</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">, </span><span class="identifier">V</span><span class="symbol">&gt;</span> <span class="identifier">createFromSink</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.SortedTableMap.Companion$createFromSink(org.mapdb.serializer.GroupSerializer((org.mapdb.SortedTableMap.Companion.createFromSink.K)), org.mapdb.serializer.GroupSerializer((org.mapdb.SortedTableMap.Companion.createFromSink.V)), org.mapdb.volume.Volume, kotlin.Long, kotlin.Int)/keySerializer">keySerializer</span><span class="symbol">:</span>&nbsp;<a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap.Companion$createFromSink(org.mapdb.serializer.GroupSerializer((org.mapdb.SortedTableMap.Companion.createFromSink.K)), org.mapdb.serializer.GroupSerializer((org.mapdb.SortedTableMap.Companion.createFromSink.V)), org.mapdb.volume.Volume, kotlin.Long, kotlin.Int)/valueSerializer">valueSerializer</span><span class="symbol">:</span>&nbsp;<a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap.Companion$createFromSink(org.mapdb.serializer.GroupSerializer((org.mapdb.SortedTableMap.Companion.createFromSink.K)), org.mapdb.serializer.GroupSerializer((org.mapdb.SortedTableMap.Companion.createFromSink.V)), org.mapdb.volume.Volume, kotlin.Long, kotlin.Int)/volume">volume</span><span class="symbol">:</span>&nbsp;<a href="../../org.mapdb.volume/-volume/index.html"><span class="identifier">Volume</span></a><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap.Companion$createFromSink(org.mapdb.serializer.GroupSerializer((org.mapdb.SortedTableMap.Companion.createFromSink.K)), org.mapdb.serializer.GroupSerializer((org.mapdb.SortedTableMap.Companion.createFromSink.V)), org.mapdb.volume.Volume, kotlin.Long, kotlin.Int)/pageSize">pageSize</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span>&nbsp;<span class="symbol">=</span>&nbsp;CC.PAGE_SIZE<span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap.Companion$createFromSink(org.mapdb.serializer.GroupSerializer((org.mapdb.SortedTableMap.Companion.createFromSink.K)), org.mapdb.serializer.GroupSerializer((org.mapdb.SortedTableMap.Companion.createFromSink.V)), org.mapdb.volume.Volume, kotlin.Long, kotlin.Int)/nodeSize">nodeSize</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span>&nbsp;<span class="symbol">=</span>&nbsp;CC.BTREEMAP_MAX_NODE_SIZE<span class="symbol">)</span><span class="symbol">: </span><a href="-sink/index.html"><span class="identifier">Sink</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="open.html">open</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">, </span><span class="identifier">V</span><span class="symbol">&gt;</span> <span class="identifier">open</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.SortedTableMap.Companion$open(org.mapdb.volume.Volume, org.mapdb.serializer.GroupSerializer((org.mapdb.SortedTableMap.Companion.open.K)), org.mapdb.serializer.GroupSerializer((org.mapdb.SortedTableMap.Companion.open.V)))/volume">volume</span><span class="symbol">:</span>&nbsp;<a href="../../org.mapdb.volume/-volume/index.html"><span class="identifier">Volume</span></a><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap.Companion$open(org.mapdb.volume.Volume, org.mapdb.serializer.GroupSerializer((org.mapdb.SortedTableMap.Companion.open.K)), org.mapdb.serializer.GroupSerializer((org.mapdb.SortedTableMap.Companion.open.V)))/keySerializer">keySerializer</span><span class="symbol">:</span>&nbsp;<a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.SortedTableMap.Companion$open(org.mapdb.volume.Volume, org.mapdb.serializer.GroupSerializer((org.mapdb.SortedTableMap.Companion.open.K)), org.mapdb.serializer.GroupSerializer((org.mapdb.SortedTableMap.Companion.open.V)))/valueSerializer">valueSerializer</span><span class="symbol">:</span>&nbsp;<a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SortedTableMap</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

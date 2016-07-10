@@ -1,0 +1,418 @@
+<HTML>
+<HEAD>
+<title>StoreDirectAbstract - </title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">org.mapdb</a>&nbsp;/&nbsp;<a href=".">StoreDirectAbstract</a><br/>
+<br/>
+<h1>StoreDirectAbstract</h1>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">StoreDirectAbstract</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-store/index.html"><span class="identifier">Store</span></a></code><br/>
+<p>Common utils for StoreDirect, StoreWAL and StoreCached</p>
+<br/>
+<br/>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="-init-.html">&lt;init&gt;</a></td>
+<td>
+<code><span class="identifier">StoreDirectAbstract</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.StoreDirectAbstract$<init>(kotlin.String, org.mapdb.volume.VolumeFactory, kotlin.Boolean, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean)/file">file</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.StoreDirectAbstract$<init>(kotlin.String, org.mapdb.volume.VolumeFactory, kotlin.Boolean, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean)/volumeFactory">volumeFactory</span><span class="symbol">:</span>&nbsp;<a href="../../org.mapdb.volume/-volume-factory/index.html"><span class="identifier">VolumeFactory</span></a><span class="symbol">, </span><span class="identifier" id="org.mapdb.StoreDirectAbstract$<init>(kotlin.String, org.mapdb.volume.VolumeFactory, kotlin.Boolean, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean)/isThreadSafe">isThreadSafe</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.StoreDirectAbstract$<init>(kotlin.String, org.mapdb.volume.VolumeFactory, kotlin.Boolean, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean)/concShift">concShift</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.StoreDirectAbstract$<init>(kotlin.String, org.mapdb.volume.VolumeFactory, kotlin.Boolean, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean)/fileDeleteAfterClose">fileDeleteAfterClose</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.StoreDirectAbstract$<init>(kotlin.String, org.mapdb.volume.VolumeFactory, kotlin.Boolean, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean)/checksum">checksum</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.StoreDirectAbstract$<init>(kotlin.String, org.mapdb.volume.VolumeFactory, kotlin.Boolean, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean)/checksumHeader">checksumHeader</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.StoreDirectAbstract$<init>(kotlin.String, org.mapdb.volume.VolumeFactory, kotlin.Boolean, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.Boolean)/checksumHeaderBypass">checksumHeaderBypass</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span></code><p>Common utils for StoreDirect, StoreWAL and StoreCached</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="checksum.html">checksum</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">checksum</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="checksum-header.html">checksumHeader</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">checksumHeader</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="checksum-header-bypass.html">checksumHeaderBypass</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">checksumHeaderBypass</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="closed.html">closed</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">closed</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/atomic/AtomicBoolean.html"><span class="identifier">AtomicBoolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<a href="conc-shift.html">concShift</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">concShift</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="data-tail.html">dataTail</a></td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">dataTail</span><span class="symbol">: </span><span class="identifier">Long</span></code><p>end of last record</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="file.html">file</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">file</span><span class="symbol">: </span><span class="identifier">String</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="file-delete-after-close.html">fileDeleteAfterClose</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">fileDeleteAfterClose</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="head-vol.html">headVol</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">headVol</span><span class="symbol">: </span><a href="../../org.mapdb.volume/-volume/index.html"><span class="identifier">Volume</span></a></code></td>
+</tr>
+<tr>
+<td>
+<a href="index-pages.html">indexPages</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">indexPages</span><span class="symbol">: </span><span class="identifier">&lt;ERROR CLASS&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="is-closed.html">isClosed</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">isClosed</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="is-thread-safe.html">isThreadSafe</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">isThreadSafe</span><span class="symbol">: </span><span class="identifier">Boolean</span></code><p>returns true if this is configured to be thread safe</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="locks.html">locks</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">locks</span><span class="symbol">: </span><span class="identifier">Array</span><span class="symbol">&lt;</span><a href="http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/locks/ReadWriteLock.html"><span class="identifier">ReadWriteLock</span></a><span class="symbol">?</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="max-recid.html">maxRecid</a></td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">maxRecid</span><span class="symbol">: </span><span class="identifier">Long</span></code><p>maximal allocated recid</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="segment-count.html">segmentCount</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">segmentCount</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="segment-mask.html">segmentMask</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">segmentMask</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="structural-lock.html">structuralLock</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">structuralLock</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/locks/Lock.html"><span class="identifier">Lock</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="volume.html">volume</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">volume</span><span class="symbol">: </span><a href="../../org.mapdb.volume/-volume/index.html"><span class="identifier">Volume</span></a></code></td>
+</tr>
+<tr>
+<td>
+<a href="volume-exists-at-start.html">volumeExistsAtStart</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">volumeExistsAtStart</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="volume-factory.html">volumeFactory</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">volumeFactory</span><span class="symbol">: </span><a href="../../org.mapdb.volume/-volume-factory/index.html"><span class="identifier">VolumeFactory</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="../-store/is-read-only.html">isReadOnly</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">isReadOnly</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="allocate-data.html">allocateData</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">allocateData</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.StoreDirectAbstract$allocateData(kotlin.Int, kotlin.Boolean)/size">size</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.StoreDirectAbstract$allocateData(kotlin.Int, kotlin.Boolean)/recursive">recursive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="allocate-new-index-page.html">allocateNewIndexPage</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">allocateNewIndexPage</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="allocate-new-page.html">allocateNewPage</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">allocateNewPage</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="allocate-recid.html">allocateRecid</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">allocateRecid</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="assert-not-closed.html">assertNotClosed</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">assertNotClosed</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="calculate-checksum.html">calculateChecksum</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">calculateChecksum</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="calculate-header-checksum.html">calculateHeaderChecksum</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">calculateHeaderChecksum</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="deserialize.html">deserialize</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span> <span class="identifier">deserialize</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.StoreDirectAbstract$deserialize(org.mapdb.Serializer((org.mapdb.StoreDirectAbstract.deserialize.R)), org.mapdb.DataInput2, kotlin.Long)/serializer">serializer</span><span class="symbol">:</span>&nbsp;<a href="../-serializer/index.html"><span class="identifier">Serializer</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.StoreDirectAbstract$deserialize(org.mapdb.Serializer((org.mapdb.StoreDirectAbstract.deserialize.R)), org.mapdb.DataInput2, kotlin.Long)/di">di</span><span class="symbol">:</span>&nbsp;<a href="../-data-input2/index.html"><span class="identifier">DataInput2</span></a><span class="symbol">, </span><span class="identifier" id="org.mapdb.StoreDirectAbstract$deserialize(org.mapdb.Serializer((org.mapdb.StoreDirectAbstract.deserialize.R)), org.mapdb.DataInput2, kotlin.Long)/size">size</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">R</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="file-header-check.html">fileHeaderCheck</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">fileHeaderCheck</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="file-header-compose.html">fileHeaderCompose</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">fileHeaderCompose</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="free-size-increment.html">freeSizeIncrement</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">freeSizeIncrement</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.StoreDirectAbstract$freeSizeIncrement(kotlin.Long)/increment">increment</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="get-index-val.html">getIndexVal</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getIndexVal</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.StoreDirectAbstract$getIndexVal(kotlin.Long)/recid">recid</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="index-val-compose.html">indexValCompose</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">indexValCompose</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.StoreDirectAbstract$indexValCompose(kotlin.Long, kotlin.Long, kotlin.Int, kotlin.Int, kotlin.Int)/size">size</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.StoreDirectAbstract$indexValCompose(kotlin.Long, kotlin.Long, kotlin.Int, kotlin.Int, kotlin.Int)/offset">offset</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.StoreDirectAbstract$indexValCompose(kotlin.Long, kotlin.Long, kotlin.Int, kotlin.Int, kotlin.Int)/linked">linked</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.StoreDirectAbstract$indexValCompose(kotlin.Long, kotlin.Long, kotlin.Int, kotlin.Int, kotlin.Int)/unused">unused</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.StoreDirectAbstract$indexValCompose(kotlin.Long, kotlin.Long, kotlin.Int, kotlin.Int, kotlin.Int)/archive">archive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="index-val-flag-archive.html">indexValFlagArchive</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">indexValFlagArchive</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.StoreDirectAbstract$indexValFlagArchive(kotlin.Long)/indexValue">indexValue</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="index-val-flag-linked.html">indexValFlagLinked</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">indexValFlagLinked</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.StoreDirectAbstract$indexValFlagLinked(kotlin.Long)/indexValue">indexValue</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="index-val-flag-unused.html">indexValFlagUnused</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">indexValFlagUnused</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.StoreDirectAbstract$indexValFlagUnused(kotlin.Long)/indexValue">indexValue</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="load-index-pages.html">loadIndexPages</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">loadIndexPages</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.StoreDirectAbstract$loadIndexPages()/indexPages">indexPages</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="long-stack-master-link-offset.html">longStackMasterLinkOffset</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">longStackMasterLinkOffset</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.StoreDirectAbstract$longStackMasterLinkOffset(kotlin.Long)/size">size</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="long-stack-put.html">longStackPut</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">longStackPut</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.StoreDirectAbstract$longStackPut(kotlin.Long, kotlin.Long, kotlin.Boolean)/masterLinkOffset">masterLinkOffset</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.StoreDirectAbstract$longStackPut(kotlin.Long, kotlin.Long, kotlin.Boolean)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.StoreDirectAbstract$longStackPut(kotlin.Long, kotlin.Long, kotlin.Boolean)/recursive">recursive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="long-stack-take.html">longStackTake</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">longStackTake</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.StoreDirectAbstract$longStackTake(kotlin.Long, kotlin.Boolean)/masterLinkOffset">masterLinkOffset</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.StoreDirectAbstract$longStackTake(kotlin.Long, kotlin.Boolean)/recursive">recursive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="recid-to-offset.html">recidToOffset</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">recidToOffset</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.StoreDirectAbstract$recidToOffset(kotlin.Long)/recid2">recid2</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="recid-to-segment.html">recidToSegment</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">recidToSegment</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.StoreDirectAbstract$recidToSegment(kotlin.Long)/recid">recid</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="release-data.html">releaseData</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">releaseData</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.StoreDirectAbstract$releaseData(kotlin.Long, kotlin.Long, kotlin.Boolean)/size">size</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.StoreDirectAbstract$releaseData(kotlin.Long, kotlin.Long, kotlin.Boolean)/offset">offset</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.StoreDirectAbstract$releaseData(kotlin.Long, kotlin.Long, kotlin.Boolean)/recursive">recursive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="release-recid.html">releaseRecid</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">releaseRecid</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.StoreDirectAbstract$releaseRecid(kotlin.Long)/recid">recid</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="serialize.html">serialize</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span> <span class="identifier">serialize</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.StoreDirectAbstract$serialize(org.mapdb.StoreDirectAbstract.serialize.R, org.mapdb.Serializer((org.mapdb.StoreDirectAbstract.serialize.R)))/record">record</span><span class="symbol">:</span>&nbsp;<span class="identifier">R</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.StoreDirectAbstract$serialize(org.mapdb.StoreDirectAbstract.serialize.R, org.mapdb.Serializer((org.mapdb.StoreDirectAbstract.serialize.R)))/serializer">serializer</span><span class="symbol">:</span>&nbsp;<a href="../-serializer/index.html"><span class="identifier">Serializer</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-data-output2/index.html"><span class="identifier">DataOutput2</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="set-index-val.html">setIndexVal</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">setIndexVal</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.StoreDirectAbstract$setIndexVal(kotlin.Long, kotlin.Long)/recid">recid</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.StoreDirectAbstract$setIndexVal(kotlin.Long, kotlin.Long)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="store-header-compose.html">storeHeaderCompose</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">storeHeaderCompose</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="../-store/close.html">close</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">close</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-store/commit.html">commit</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">commit</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-store/compact.html">compact</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">compact</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-store/compare-and-swap.html">compareAndSwap</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span> <span class="identifier">compareAndSwap</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.Store$compareAndSwap(kotlin.Long, org.mapdb.Store.compareAndSwap.R, org.mapdb.Store.compareAndSwap.R, org.mapdb.Serializer((org.mapdb.Store.compareAndSwap.R)))/recid">recid</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.Store$compareAndSwap(kotlin.Long, org.mapdb.Store.compareAndSwap.R, org.mapdb.Store.compareAndSwap.R, org.mapdb.Serializer((org.mapdb.Store.compareAndSwap.R)))/expectedOldRecord">expectedOldRecord</span><span class="symbol">:</span>&nbsp;<span class="identifier">R</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.Store$compareAndSwap(kotlin.Long, org.mapdb.Store.compareAndSwap.R, org.mapdb.Store.compareAndSwap.R, org.mapdb.Serializer((org.mapdb.Store.compareAndSwap.R)))/newRecord">newRecord</span><span class="symbol">:</span>&nbsp;<span class="identifier">R</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.Store$compareAndSwap(kotlin.Long, org.mapdb.Store.compareAndSwap.R, org.mapdb.Store.compareAndSwap.R, org.mapdb.Serializer((org.mapdb.Store.compareAndSwap.R)))/serializer">serializer</span><span class="symbol">:</span>&nbsp;<a href="../-serializer/index.html"><span class="identifier">Serializer</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-store/delete.html">delete</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span> <span class="identifier">delete</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.Store$delete(kotlin.Long, org.mapdb.Serializer((org.mapdb.Store.delete.R)))/recid">recid</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.Store$delete(kotlin.Long, org.mapdb.Serializer((org.mapdb.Store.delete.R)))/serializer">serializer</span><span class="symbol">:</span>&nbsp;<a href="../-serializer/index.html"><span class="identifier">Serializer</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-store/file-load.html">fileLoad</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">fileLoad</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-store/preallocate.html">preallocate</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">preallocate</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-store/put.html">put</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span> <span class="identifier">put</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.Store$put(org.mapdb.Store.put.R, org.mapdb.Serializer((org.mapdb.Store.put.R)))/record">record</span><span class="symbol">:</span>&nbsp;<span class="identifier">R</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.Store$put(org.mapdb.Store.put.R, org.mapdb.Serializer((org.mapdb.Store.put.R)))/serializer">serializer</span><span class="symbol">:</span>&nbsp;<a href="../-serializer/index.html"><span class="identifier">Serializer</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-store/update.html">update</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span> <span class="identifier">update</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.Store$update(kotlin.Long, org.mapdb.Store.update.R, org.mapdb.Serializer((org.mapdb.Store.update.R)))/recid">recid</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.Store$update(kotlin.Long, org.mapdb.Store.update.R, org.mapdb.Serializer((org.mapdb.Store.update.R)))/record">record</span><span class="symbol">:</span>&nbsp;<span class="identifier">R</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.Store$update(kotlin.Long, org.mapdb.Store.update.R, org.mapdb.Serializer((org.mapdb.Store.update.R)))/serializer">serializer</span><span class="symbol">:</span>&nbsp;<a href="../-serializer/index.html"><span class="identifier">Serializer</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-store/verify.html">verify</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">verify</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="../-store-direct/index.html">StoreDirect</a></td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">StoreDirect</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">StoreDirectAbstract</span><span class="symbol">, </span><a href="../-store-binary/index.html"><span class="identifier">StoreBinary</span></a></code><p>Store which uses binary storage (file, memory buffer...) and updates records on place.
+It has memory allocator, so it reuses space freed by deletes and updates.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../-store-w-a-l/index.html">StoreWAL</a></td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">StoreWAL</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">StoreDirectAbstract</span><span class="symbol">, </span><a href="../-store-tx/index.html"><span class="identifier">StoreTx</span></a></code><p>StoreDirect with write ahead log</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

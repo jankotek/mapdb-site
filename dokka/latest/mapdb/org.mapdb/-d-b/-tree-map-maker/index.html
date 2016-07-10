@@ -1,0 +1,172 @@
+<HTML>
+<HEAD>
+<title>DB.TreeMapMaker - </title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">org.mapdb</a>&nbsp;/&nbsp;<a href="../index.html">DB</a>&nbsp;/&nbsp;<a href=".">TreeMapMaker</a><br/>
+<br/>
+<h1>TreeMapMaker</h1>
+<code><span class="keyword">class </span><span class="identifier">TreeMapMaker</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">, </span><span class="identifier">V</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-maker/index.html"><span class="identifier">Maker</span></a><span class="symbol">&lt;</span><a href="../../-b-tree-map/index.html"><span class="identifier">BTreeMap</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code><br/>
+<br/>
+<br/>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="-init-.html">&lt;init&gt;</a></td>
+<td>
+<code><span class="identifier">TreeMapMaker</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DB.TreeMapMaker$<init>(org.mapdb.DB, kotlin.String, kotlin.Boolean)/db">db</span><span class="symbol">:</span>&nbsp;<a href="../index.html"><span class="identifier">DB</span></a><span class="symbol">, </span><span class="identifier" id="org.mapdb.DB.TreeMapMaker$<init>(org.mapdb.DB, kotlin.String, kotlin.Boolean)/name">name</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.DB.TreeMapMaker$<init>(org.mapdb.DB, kotlin.String, kotlin.Boolean)/hasValues">hasValues</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="db.html">db</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">db</span><span class="symbol">: </span><a href="../index.html"><span class="identifier">DB</span></a></code></td>
+</tr>
+<tr>
+<td>
+<a href="has-values.html">hasValues</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">hasValues</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="name.html">name</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">name</span><span class="symbol">: </span><span class="identifier">String</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="type.html">type</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">type</span><span class="symbol">: </span><span class="identifier">String</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="counter-enable.html">counterEnable</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">counterEnable</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">TreeMapMaker</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="create.html">create</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">create</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../-b-tree-map/index.html"><span class="identifier">BTreeMap</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code><p>Creates new collection if it does not exist, or throw {@link DBException.WrongConfiguration}
+if collection already exists.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="create2.html">create2</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">create2</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DB.TreeMapMaker$create2(java.util.SortedMap((kotlin.String, )))/catalog">catalog</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/util/SortedMap.html"><span class="identifier">SortedMap</span></a><span class="symbol">&lt;</span><span class="identifier">String</span><span class="symbol">,</span>&nbsp;<span class="identifier">String</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../-b-tree-map/index.html"><span class="identifier">BTreeMap</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="create-from.html">createFrom</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">createFrom</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DB.TreeMapMaker$createFrom(kotlin.collections.Iterator((((org.mapdb.DB.TreeMapMaker.K, org.mapdb.DB.TreeMapMaker.V)))))/iterator">iterator</span><span class="symbol">:</span>&nbsp;<span class="identifier">Iterator</span><span class="symbol">&lt;</span><span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../-b-tree-map/index.html"><span class="identifier">BTreeMap</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="create-from-sink.html">createFromSink</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">createFromSink</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-tree-map-sink/index.html"><span class="identifier">TreeMapSink</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="create-or-open.html">createOrOpen</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">createOrOpen</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../-b-tree-map/index.html"><span class="identifier">BTreeMap</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code><p>Create new collection or open existing.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="key-serializer.html">keySerializer</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">A</span><span class="symbol">&gt;</span> <span class="identifier">keySerializer</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DB.TreeMapMaker$keySerializer(org.mapdb.serializer.GroupSerializer((org.mapdb.DB.TreeMapMaker.keySerializer.A)))/keySerializer">keySerializer</span><span class="symbol">:</span>&nbsp;<a href="../../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">A</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">TreeMapMaker</span><span class="symbol">&lt;</span><span class="identifier">A</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="max-node-size.html">maxNodeSize</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">maxNodeSize</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DB.TreeMapMaker$maxNodeSize(kotlin.Int)/size">size</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">TreeMapMaker</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="modification-listener.html">modificationListener</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">modificationListener</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DB.TreeMapMaker$modificationListener(org.mapdb.MapModificationListener((org.mapdb.DB.TreeMapMaker.K, org.mapdb.DB.TreeMapMaker.V)))/listener">listener</span><span class="symbol">:</span>&nbsp;<a href="../../-map-modification-listener/index.html"><span class="identifier">MapModificationListener</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">TreeMapMaker</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="open.html">open</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">open</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../-b-tree-map/index.html"><span class="identifier">BTreeMap</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code><p>Open existing collection, or throw {@link DBException.WrongConfiguration}
+if collection already exists.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="open2.html">open2</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">open2</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DB.TreeMapMaker$open2(java.util.SortedMap((kotlin.String, )))/catalog">catalog</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/util/SortedMap.html"><span class="identifier">SortedMap</span></a><span class="symbol">&lt;</span><span class="identifier">String</span><span class="symbol">,</span>&nbsp;<span class="identifier">String</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../-b-tree-map/index.html"><span class="identifier">BTreeMap</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="value-serializer.html">valueSerializer</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">A</span><span class="symbol">&gt;</span> <span class="identifier">valueSerializer</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DB.TreeMapMaker$valueSerializer(org.mapdb.serializer.GroupSerializer((org.mapdb.DB.TreeMapMaker.valueSerializer.A)))/valueSerializer">valueSerializer</span><span class="symbol">:</span>&nbsp;<a href="../../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">A</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">TreeMapMaker</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">A</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="values-outside-nodes-enable.html">valuesOutsideNodesEnable</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">valuesOutsideNodesEnable</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">TreeMapMaker</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="../-maker/make.html">make</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><s><span class="identifier">make</span></s><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">E</span></code><p>Create new collection or open existing.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../-maker/make2.html">make2</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">make2</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DB.Maker$make2(kotlin.Boolean)/create">create</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">E</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-maker/make-or-get.html">makeOrGet</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><s><span class="identifier">makeOrGet</span></s><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">E</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-maker/verify.html">verify</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">verify</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

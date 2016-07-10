@@ -1,0 +1,44 @@
+<HTML>
+<HEAD>
+<title>HTreeMap.putIfAbsentBoolean - </title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">org.mapdb</a>&nbsp;/&nbsp;<a href="index.html">HTreeMap</a>&nbsp;/&nbsp;<a href=".">putIfAbsentBoolean</a><br/>
+<br/>
+<h1>putIfAbsentBoolean</h1>
+<a name="org.mapdb.HTreeMap$putIfAbsentBoolean(org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)"></a>
+<code><span class="keyword">fun </span><span class="identifier">putIfAbsentBoolean</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.HTreeMap$putIfAbsentBoolean(org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$putIfAbsentBoolean(org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code><br/>
+<p>Atomically associates the specified key with the given value if it is
+not already associated with a value.</p>
+<p>This is equivalent to:
+<code>if(cache.containsKey(key)){}cache.put(key,value);return true;}else{return false;}</code> *
+except that the action is performed atomically.</p>
+<br/>
+<br/>
+<h3>Parameters</h3>
+<a name="key"></a>
+<code>key</code> - key with which the specified value is to be associated<br/>
+<br/>
+<a name="value"></a>
+<code>value</code> - value to be associated with the specified key<br/>
+<h3>Exceptions</h3>
+<a name="NullPointerException"></a>
+<code>NullPointerException</code> - if key is null or value is null<br/>
+<br/>
+<a name="IllegalStateException"></a>
+<code>IllegalStateException</code> - if the cache is <a href="#">.isClosed</a><br/>
+<br/>
+<a name="ClassCastException"></a>
+<code>ClassCastException</code> - if the implementation is configured to perform
+runtime-type-checking, and the key or value
+types are incompatible with those that have been
+configured with different serialziers
+TODO link to JCache standard
+TODO credits for javadoc<br/>
+<p><strong>Return</strong><br/>
+true if a value was set.</p>
+<br/>
+<br/>
+</BODY>
+</HTML>

@@ -1,0 +1,186 @@
+<HTML>
+<HEAD>
+<title>Store - </title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">org.mapdb</a>&nbsp;/&nbsp;<a href=".">Store</a><br/>
+<br/>
+<h1>Store</h1>
+<code><span class="keyword">interface </span><span class="identifier">Store</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-store-immutable/index.html"><span class="identifier">StoreImmutable</span></a><span class="symbol">, </span><a href="../-verifiable/index.html"><span class="identifier">Verifiable</span></a><span class="symbol">, </span><a href="../-concurrency-aware/index.html"><span class="identifier">ConcurrencyAware</span></a></code><br/>
+<p>Stores records, mutable version</p>
+<br/>
+<br/>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="is-closed.html">isClosed</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">isClosed</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="is-read-only.html">isReadOnly</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">isReadOnly</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="../-concurrency-aware/is-thread-safe.html">isThreadSafe</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">isThreadSafe</span><span class="symbol">: </span><span class="identifier">Boolean</span></code><p>returns true if this is configured to be thread safe</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="close.html">close</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">close</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="commit.html">commit</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">commit</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="compact.html">compact</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">compact</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="compare-and-swap.html">compareAndSwap</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span> <span class="identifier">compareAndSwap</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.Store$compareAndSwap(kotlin.Long, org.mapdb.Store.compareAndSwap.R, org.mapdb.Store.compareAndSwap.R, org.mapdb.Serializer((org.mapdb.Store.compareAndSwap.R)))/recid">recid</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.Store$compareAndSwap(kotlin.Long, org.mapdb.Store.compareAndSwap.R, org.mapdb.Store.compareAndSwap.R, org.mapdb.Serializer((org.mapdb.Store.compareAndSwap.R)))/expectedOldRecord">expectedOldRecord</span><span class="symbol">:</span>&nbsp;<span class="identifier">R</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.Store$compareAndSwap(kotlin.Long, org.mapdb.Store.compareAndSwap.R, org.mapdb.Store.compareAndSwap.R, org.mapdb.Serializer((org.mapdb.Store.compareAndSwap.R)))/newRecord">newRecord</span><span class="symbol">:</span>&nbsp;<span class="identifier">R</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.Store$compareAndSwap(kotlin.Long, org.mapdb.Store.compareAndSwap.R, org.mapdb.Store.compareAndSwap.R, org.mapdb.Serializer((org.mapdb.Store.compareAndSwap.R)))/serializer">serializer</span><span class="symbol">:</span>&nbsp;<a href="../-serializer/index.html"><span class="identifier">Serializer</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="delete.html">delete</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span> <span class="identifier">delete</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.Store$delete(kotlin.Long, org.mapdb.Serializer((org.mapdb.Store.delete.R)))/recid">recid</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.Store$delete(kotlin.Long, org.mapdb.Serializer((org.mapdb.Store.delete.R)))/serializer">serializer</span><span class="symbol">:</span>&nbsp;<a href="../-serializer/index.html"><span class="identifier">Serializer</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="file-load.html">fileLoad</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">fileLoad</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="preallocate.html">preallocate</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">preallocate</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="put.html">put</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span> <span class="identifier">put</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.Store$put(org.mapdb.Store.put.R, org.mapdb.Serializer((org.mapdb.Store.put.R)))/record">record</span><span class="symbol">:</span>&nbsp;<span class="identifier">R</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.Store$put(org.mapdb.Store.put.R, org.mapdb.Serializer((org.mapdb.Store.put.R)))/serializer">serializer</span><span class="symbol">:</span>&nbsp;<a href="../-serializer/index.html"><span class="identifier">Serializer</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="update.html">update</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span> <span class="identifier">update</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.Store$update(kotlin.Long, org.mapdb.Store.update.R, org.mapdb.Serializer((org.mapdb.Store.update.R)))/recid">recid</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.Store$update(kotlin.Long, org.mapdb.Store.update.R, org.mapdb.Serializer((org.mapdb.Store.update.R)))/record">record</span><span class="symbol">:</span>&nbsp;<span class="identifier">R</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.Store$update(kotlin.Long, org.mapdb.Store.update.R, org.mapdb.Serializer((org.mapdb.Store.update.R)))/serializer">serializer</span><span class="symbol">:</span>&nbsp;<a href="../-serializer/index.html"><span class="identifier">Serializer</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="verify.html">verify</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">verify</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="../-concurrency-aware/check-thread-safe.html">checkThreadSafe</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">checkThreadSafe</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code><p>checks all subcomponents, if this component is really thread safe, and throws an exception if not thread safe</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../-store-immutable/get.html">get</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span> <span class="identifier">get</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.StoreImmutable$get(kotlin.Long, org.mapdb.Serializer((org.mapdb.StoreImmutable.get.R)))/recid">recid</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.StoreImmutable$get(kotlin.Long, org.mapdb.Serializer((org.mapdb.StoreImmutable.get.R)))/serializer">serializer</span><span class="symbol">:</span>&nbsp;<a href="../-serializer/index.html"><span class="identifier">Serializer</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">R</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-store-immutable/get-all-files.html">getAllFiles</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getAllFiles</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Iterable</span><span class="symbol">&lt;</span><span class="identifier">String</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-store-immutable/get-all-recids.html">getAllRecids</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getAllRecids</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">LongIterator</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="../-store-binary/index.html">StoreBinary</a></td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">StoreBinary</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Store</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-store-direct-abstract/index.html">StoreDirectAbstract</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">StoreDirectAbstract</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Store</span></code><p>Common utils for StoreDirect, StoreWAL and StoreCached</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../-store-on-heap/index.html">StoreOnHeap</a></td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">StoreOnHeap</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Store</span></code><p>Store which does not use serialization, but puts everything into on-heap Map.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../-store-read-only-wrapper/index.html">StoreReadOnlyWrapper</a></td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">StoreReadOnlyWrapper</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Store</span></code><p>Wraps Store and throws <code>UnsupportedOperationException("Read-only")</code> on operations which would modify it</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../-store-trivial/index.html">StoreTrivial</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">StoreTrivial</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Store</span></code><p>Store which serializes its content into primitive <code>Map&lt;Long,byte[]&gt;</code>.
+It optionally persist its content into file, in this case it supports rollback and durability.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../-store-tx/index.html">StoreTx</a></td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">StoreTx</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Store</span></code><p>Stores records, transactional version</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

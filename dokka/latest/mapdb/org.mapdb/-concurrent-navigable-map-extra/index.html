@@ -1,0 +1,163 @@
+<HTML>
+<HEAD>
+<title>ConcurrentNavigableMapExtra - </title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">org.mapdb</a>&nbsp;/&nbsp;<a href=".">ConcurrentNavigableMapExtra</a><br/>
+<br/>
+<h1>ConcurrentNavigableMapExtra</h1>
+<code><span class="keyword">interface </span><span class="identifier">ConcurrentNavigableMapExtra</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">, </span><span class="identifier">V</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/ConcurrentNavigableMap.html"><span class="identifier">ConcurrentNavigableMap</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">, </span><a href="../-map-extra/index.html"><span class="identifier">MapExtra</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">, </span><a href="../-b-tree-map-java/-concurrent-navigable-map2/index.html"><span class="identifier">ConcurrentNavigableMap2</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code><br/>
+<br/>
+<br/>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="has-values.html">hasValues</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">hasValues</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="../-map-extra/key-serializer.html">keySerializer</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">keySerializer</span><span class="symbol">: </span><a href="../-serializer/index.html"><span class="identifier">Serializer</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-map-extra/value-serializer.html">valueSerializer</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">valueSerializer</span><span class="symbol">: </span><a href="../-serializer/index.html"><span class="identifier">Serializer</span></a><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="descending-entry-iterator.html">descendingEntryIterator</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">descendingEntryIterator</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableIterator</span><span class="symbol">&lt;</span><span class="identifier">MutableEntry</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">descendingEntryIterator</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.ConcurrentNavigableMapExtra$descendingEntryIterator(org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean, org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean)/lo">lo</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.ConcurrentNavigableMapExtra$descendingEntryIterator(org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean, org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean)/loInclusive">loInclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.ConcurrentNavigableMapExtra$descendingEntryIterator(org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean, org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean)/hi">hi</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.ConcurrentNavigableMapExtra$descendingEntryIterator(org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean, org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean)/hiInclusive">hiInclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableIterator</span><span class="symbol">&lt;</span><span class="identifier">MutableEntry</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="descending-key-iterator.html">descendingKeyIterator</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">descendingKeyIterator</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableIterator</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">descendingKeyIterator</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.ConcurrentNavigableMapExtra$descendingKeyIterator(org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean, org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean)/lo">lo</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.ConcurrentNavigableMapExtra$descendingKeyIterator(org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean, org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean)/loInclusive">loInclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.ConcurrentNavigableMapExtra$descendingKeyIterator(org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean, org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean)/hi">hi</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.ConcurrentNavigableMapExtra$descendingKeyIterator(org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean, org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean)/hiInclusive">hiInclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableIterator</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="descending-value-iterator.html">descendingValueIterator</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">descendingValueIterator</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableIterator</span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">?</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">descendingValueIterator</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.ConcurrentNavigableMapExtra$descendingValueIterator(org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean, org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean)/lo">lo</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.ConcurrentNavigableMapExtra$descendingValueIterator(org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean, org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean)/loInclusive">loInclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.ConcurrentNavigableMapExtra$descendingValueIterator(org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean, org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean)/hi">hi</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.ConcurrentNavigableMapExtra$descendingValueIterator(org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean, org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean)/hiInclusive">hiInclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableIterator</span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">?</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="entry-iterator.html">entryIterator</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">entryIterator</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.ConcurrentNavigableMapExtra$entryIterator(org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean, org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean)/lo">lo</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.ConcurrentNavigableMapExtra$entryIterator(org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean, org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean)/loInclusive">loInclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.ConcurrentNavigableMapExtra$entryIterator(org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean, org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean)/hi">hi</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.ConcurrentNavigableMapExtra$entryIterator(org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean, org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean)/hiInclusive">hiInclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableIterator</span><span class="symbol">&lt;</span><span class="identifier">MutableEntry</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="find-higher.html">findHigher</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">findHigher</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.ConcurrentNavigableMapExtra$findHigher(org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.ConcurrentNavigableMapExtra$findHigher(org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean)/inclusive">inclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableEntry</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="find-higher-key.html">findHigherKey</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">findHigherKey</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.ConcurrentNavigableMapExtra$findHigherKey(org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.ConcurrentNavigableMapExtra$findHigherKey(org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean)/inclusive">inclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">K</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="find-lower.html">findLower</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">findLower</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.ConcurrentNavigableMapExtra$findLower(org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.ConcurrentNavigableMapExtra$findLower(org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean)/inclusive">inclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableEntry</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="find-lower-key.html">findLowerKey</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">findLowerKey</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.ConcurrentNavigableMapExtra$findLowerKey(org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.ConcurrentNavigableMapExtra$findLowerKey(org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean)/inclusive">inclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">K</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="key-iterator.html">keyIterator</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">keyIterator</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableIterator</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">keyIterator</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.ConcurrentNavigableMapExtra$keyIterator(org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean, org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean)/lo">lo</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.ConcurrentNavigableMapExtra$keyIterator(org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean, org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean)/loInclusive">loInclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.ConcurrentNavigableMapExtra$keyIterator(org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean, org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean)/hi">hi</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.ConcurrentNavigableMapExtra$keyIterator(org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean, org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean)/hiInclusive">hiInclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableIterator</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">?</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="value-iterator.html">valueIterator</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">valueIterator</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.ConcurrentNavigableMapExtra$valueIterator(org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean, org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean)/lo">lo</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.ConcurrentNavigableMapExtra$valueIterator(org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean, org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean)/loInclusive">loInclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.ConcurrentNavigableMapExtra$valueIterator(org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean, org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean)/hi">hi</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.ConcurrentNavigableMapExtra$valueIterator(org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean, org.mapdb.ConcurrentNavigableMapExtra.K, kotlin.Boolean)/hiInclusive">hiInclusive</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableIterator</span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">?</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="../-b-tree-map-java/-concurrent-navigable-map2/first-key2.html">firstKey2</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">firstKey2</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">K</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-map-extra/is-closed.html">isClosed</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">isClosed</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-b-tree-map-java/-concurrent-navigable-map2/last-key2.html">lastKey2</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">lastKey2</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">K</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-map-extra/size-long.html">sizeLong</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">sizeLong</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code><p>map size as long number</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="../-b-tree-map/index.html">BTreeMap</a></td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">BTreeMap</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">, </span><span class="identifier">V</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-verifiable/index.html"><span class="identifier">Verifiable</span></a><span class="symbol">, </span><a href="http://docs.oracle.com/javase/6/docs/api/java/io/Closeable.html"><span class="identifier">Closeable</span></a><span class="symbol">, </span><a href="http://docs.oracle.com/javase/6/docs/api/java/io/Serializable.html"><span class="identifier">Serializable</span></a><span class="symbol">, </span><a href="../-concurrency-aware/index.html"><span class="identifier">ConcurrencyAware</span></a><span class="symbol">, </span><a href="http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/ConcurrentNavigableMap.html"><span class="identifier">ConcurrentNavigableMap</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier">ConcurrentNavigableMapExtra</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code><p>A scalable concurrent {@link ConcurrentNavigableMap} implementation.
+The map is sorted according to the {@linkplain Comparable natural
+ordering} of its keys, or by a {@link Comparator} provided at map
+creation time.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../-sorted-table-map/index.html">SortedTableMap</a></td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">SortedTableMap</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">, </span><span class="identifier">V</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/ConcurrentMap.html"><span class="identifier">ConcurrentMap</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">, </span><a href="http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/ConcurrentNavigableMap.html"><span class="identifier">ConcurrentNavigableMap</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier">ConcurrentNavigableMapExtra</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code><p>Read only Sorted Table Map. It stores data in table and uses binary search to find records</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

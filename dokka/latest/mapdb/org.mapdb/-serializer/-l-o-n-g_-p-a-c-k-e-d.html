@@ -1,0 +1,19 @@
+<HTML>
+<HEAD>
+<title>Serializer.LONG_PACKED - </title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">org.mapdb</a>&nbsp;/&nbsp;<a href="index.html">Serializer</a>&nbsp;/&nbsp;<a href=".">LONG_PACKED</a><br/>
+<br/>
+<h1>LONG_PACKED</h1>
+<a name="org.mapdb.Serializer$LONG_PACKED"></a>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">LONG_PACKED</span><span class="symbol">: </span><a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">Long</span><span class="symbol">&gt;</span></code><br/>
+<p>A predefined Serializer that handles non-null Long whereby Longs are serialized to a compressed byte format. The Serializer also stores the Longs's size, allowing it to be used as a GroupSerializer in BTreeMaps. <p> Smaller positive values occupy less than 8 bytes. Large and negative values could occupy 8 or 9 bytes. </p>
+<p> This Serializer hashes Longs using the original <code><a href="#">Long#hashCode()</a></code> method. </p>
+<p> If a <code>null</code> value is passed to the Serializer, a NullPointerException will be thrown. </p>
+</p>
+<br/>
+<br/>
+</BODY>
+</HTML>

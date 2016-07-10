@@ -1,0 +1,453 @@
+<HTML>
+<HEAD>
+<title>Serializer - </title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">org.mapdb</a>&nbsp;/&nbsp;<a href=".">Serializer</a><br/>
+<br/>
+<h1>Serializer</h1>
+<code><span class="keyword">interface </span><span class="identifier">Serializer</span><span class="symbol">&lt;</span><span class="identifier">A</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/util/Comparator.html"><span class="identifier">Comparator</span></a><span class="symbol">&lt;</span><span class="identifier">A</span><span class="symbol">&gt;</span></code><br/>
+<p>This interface specifies how Java Objects are serialized and de-serialized and also how objects are compared, hashed and tested for equality for use with MapDB. <p> Implementing classes do not have to be thread safe. </p>
+</p>
+<h3>Parameters</h3>
+<a name="&lt;A&gt;"></a>
+<code><A></code> - the type of object that the Serializer handles. <br/>
+<p><strong>Author</strong><br/>
+Jan Kotek</p>
+<br/>
+<br/>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="-b-i-g_-d-e-c-i-m-a-l.html">BIG_DECIMAL</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">BIG_DECIMAL</span><span class="symbol">: </span><a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><a href="http://docs.oracle.com/javase/6/docs/api/java/math/BigDecimal.html"><span class="identifier">BigDecimal</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="-b-i-g_-i-n-t-e-g-e-r.html">BIG_INTEGER</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">BIG_INTEGER</span><span class="symbol">: </span><a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><a href="http://docs.oracle.com/javase/6/docs/api/java/math/BigInteger.html"><span class="identifier">BigInteger</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="-b-o-o-l-e-a-n.html">BOOLEAN</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">BOOLEAN</span><span class="symbol">: </span><a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">Boolean</span><span class="symbol">&gt;</span></code><p>A predefined Serializer that handles non-null Boolean whereby Booleans are serialized to a one byte format. <p> If a <code>null</code> value is passed to the Serializer, a NullPointerException will be thrown. </p>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-b-y-t-e.html">BYTE</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">BYTE</span><span class="symbol">: </span><a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">Byte</span><span class="symbol">&gt;</span></code><p>A predefined Serializer that handles non-null Byte whereby Bytes are serialized to a one byte format. <p> This Serializer hashes Bytes using the original <code><a href="#">Byte#hashCode()</a></code> method. </p>
+<p> If a <code>null</code> value is passed to the Serializer, a NullPointerException will be thrown. </p>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-b-y-t-e_-a-r-r-a-y.html">BYTE_ARRAY</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">BYTE_ARRAY</span><span class="symbol">: </span><a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">ByteArray</span><span class="symbol">&gt;</span></code><p>Serializes <code>byte[]</code> it adds header which contains size information </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-b-y-t-e_-a-r-r-a-y_-d-e-l-t-a.html">BYTE_ARRAY_DELTA</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">BYTE_ARRAY_DELTA</span><span class="symbol">: </span><a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">ByteArray</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="-b-y-t-e_-a-r-r-a-y_-d-e-l-t-a2.html">BYTE_ARRAY_DELTA2</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">BYTE_ARRAY_DELTA2</span><span class="symbol">: </span><a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">ByteArray</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="-b-y-t-e_-a-r-r-a-y_-n-o-s-i-z-e.html">BYTE_ARRAY_NOSIZE</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">BYTE_ARRAY_NOSIZE</span><span class="symbol">: </span><span class="identifier">Serializer</span><span class="symbol">&lt;</span><span class="identifier">ByteArray</span><span class="symbol">&gt;</span></code><p>Serializes <code>byte[]</code> directly into underlying store It does not store size, so it can not be used in Maps and other collections. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-c-h-a-r.html">CHAR</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">CHAR</span><span class="symbol">: </span><a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">Char</span><span class="symbol">&gt;</span></code><p>A predefined Serializer that handles non-null Character. <p> If a <code>null</code> value is passed to the Serializer, a NullPointerException will be thrown. </p>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-c-h-a-r_-a-r-r-a-y.html">CHAR_ARRAY</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">CHAR_ARRAY</span><span class="symbol">: </span><a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">CharArray</span><span class="symbol">&gt;</span></code><p>Serializes <code>char[]</code> it adds header which contains size information </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-c-l-a-s-s.html">CLASS</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">CLASS</span><span class="symbol">: </span><a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="-d-a-t-e.html">DATE</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">DATE</span><span class="symbol">: </span><a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><a href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html"><span class="identifier">Date</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="-d-o-u-b-l-e.html">DOUBLE</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">DOUBLE</span><span class="symbol">: </span><a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">Double</span><span class="symbol">&gt;</span></code><p>A predefined Serializer that handles non-null Double whereby Doubles are serialized to an 8 byte format. The Serializer also stores the Float's size, allowing it to be used as a GroupSerializer in BTreeMaps. <p> This Serializer hashes Doubles using the original <code><a href="#">Double#hashCode()</a></code> method. </p>
+<p> If a <code>null</code> value is passed to the Serializer, a NullPointerException will be thrown. </p>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-d-o-u-b-l-e_-a-r-r-a-y.html">DOUBLE_ARRAY</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">DOUBLE_ARRAY</span><span class="symbol">: </span><a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">DoubleArray</span><span class="symbol">&gt;</span></code><p>Serializes <code>double[]</code> it adds header which contains size information </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-e-l-s-a.html">ELSA</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">ELSA</span><span class="symbol">: </span><a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">Any</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="-f-l-o-a-t.html">FLOAT</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">FLOAT</span><span class="symbol">: </span><a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">Float</span><span class="symbol">&gt;</span></code><p>A predefined Serializer that handles non-null Float whereby Floats are serialized to a 4 byte format. The Serializer also stores the Float's size, allowing it to be used as a GroupSerializer in BTreeMaps. <p> This Serializer hashes Floats using the original <code><a href="#">Float#hashCode()</a></code> method. </p>
+<p> If a <code>null</code> value is passed to the Serializer, a NullPointerException will be thrown. </p>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-f-l-o-a-t_-a-r-r-a-y.html">FLOAT_ARRAY</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">FLOAT_ARRAY</span><span class="symbol">: </span><a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">FloatArray</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="-i-l-l-e-g-a-l_-a-c-c-e-s-s.html">ILLEGAL_ACCESS</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">ILLEGAL_ACCESS</span><span class="symbol">: </span><a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">Any</span><span class="symbol">&gt;</span></code><p>A predefined Serializer that always throws an IllegalAccessError when invoked. <p> This serializer can be used for testing and assertions. </p>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-i-n-t-e-g-e-r.html">INTEGER</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">INTEGER</span><span class="symbol">: </span><a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">Int</span><span class="symbol">&gt;</span></code><p>A predefined Serializer that handles non-null Integer whereby Integers are serialized to a 4 byte format. <p> This Serializer hashes Integers using the original <code><a href="#">Integer#hashCode()</a></code> method. </p>
+<p> If a <code>null</code> value is passed to the Serializer, a NullPointerException will be thrown. </p>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-i-n-t-e-g-e-r_-d-e-l-t-a.html">INTEGER_DELTA</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">INTEGER_DELTA</span><span class="symbol">: </span><a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">Int</span><span class="symbol">&gt;</span></code><p>A predefined Serializer that handles non-null Integer whereby Integers are serialized to a compressed byte format and neighboring Integers are delta encoded in BTreeMaps. Neighbors with a small delta can be encoded using a single byte. <p> Smaller positive values occupy less than 4 bytes. Large and negative values could occupy 4 or 5 bytes. </p>
+<p> This Serializer hashes Integers using the original <code><a href="#">Integer#hashCode()</a></code> method. </p>
+<p> If a <code>null</code> value is passed to the Serializer, a NullPointerException will be thrown. </p>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-i-n-t-e-g-e-r_-p-a-c-k-e-d.html">INTEGER_PACKED</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">INTEGER_PACKED</span><span class="symbol">: </span><a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">Int</span><span class="symbol">&gt;</span></code><p>A predefined Serializer that handles non-null Integer whereby Integers are serialized to a compressed byte format.The Serializer also stores the Longs's size, allowing it to be used as a GroupSerializer in BTreeMaps. <p> Smaller positive values occupy less than 4 bytes. Large and negative values could occupy 4 or 5 bytes. </p>
+<p> This Serializer hashes Integers using the original <code><a href="#">Integer#hashCode()</a></code> method. </p>
+<p> If a <code>null</code> value is passed to the Serializer, a NullPointerException will be thrown. </p>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-i-n-t_-a-r-r-a-y.html">INT_ARRAY</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">INT_ARRAY</span><span class="symbol">: </span><a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">IntArray</span><span class="symbol">&gt;</span></code><p>Serializes <code>int[]</code> it adds header which contains size information </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-j-a-v-a.html">JAVA</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">JAVA</span><span class="symbol">: </span><a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">Any</span><span class="symbol">&gt;</span></code><p>A predefined Serializer that handles non-null <code>Serializable</code> Java objects whereby the standard Java serialization will be applied using java.io.ObjectInputStream and java.io.ObjectOutputStream methods. <p> This Serializer hashes Objects using a specially tailored hash code method that, in turn, is using the objects own <code>hashCode()</code> </p>
+<p> If a <code>null</code> value is passed to the Serializer, a NullPointerException will be thrown. </p>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-l-o-n-g.html">LONG</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">LONG</span><span class="symbol">: </span><a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">Long</span><span class="symbol">&gt;</span></code><p>A predefined Serializer that handles non-null Long whereby Longs are serialized to an 8 byte format. The Serializer also stores the Longs's size, allowing it to be used as a GroupSerializer in BTreeMaps. <p> This Serializer hashes Longs using the original <code><a href="#">Long#hashCode()</a></code> method. </p>
+<p> If a <code>null</code> value is passed to the Serializer, a NullPointerException will be thrown. </p>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-l-o-n-g_-a-r-r-a-y.html">LONG_ARRAY</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">LONG_ARRAY</span><span class="symbol">: </span><a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">LongArray</span><span class="symbol">&gt;</span></code><p>Serializes <code>long[]</code> it adds header which contains size information </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-l-o-n-g_-d-e-l-t-a.html">LONG_DELTA</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">LONG_DELTA</span><span class="symbol">: </span><a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">Long</span><span class="symbol">&gt;</span></code><p>A predefined Serializer that handles non-null Long whereby Longs are serialized to a compressed byte format and neighboring Longs are delta encoded in BTreeMaps. Neighbors with a small delta can be encoded using a single byte. <p> Smaller positive values occupy less than 8 bytes. Large and negative values could occupy 8 or 9 bytes. </p>
+<p> This Serializer hashes Longs using the original <code><a href="#">Long#hashCode()</a></code> method. </p>
+<p> If a <code>null</code> value is passed to the Serializer, a NullPointerException will be thrown. </p>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-l-o-n-g_-p-a-c-k-e-d.html">LONG_PACKED</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">LONG_PACKED</span><span class="symbol">: </span><a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">Long</span><span class="symbol">&gt;</span></code><p>A predefined Serializer that handles non-null Long whereby Longs are serialized to a compressed byte format. The Serializer also stores the Longs's size, allowing it to be used as a GroupSerializer in BTreeMaps. <p> Smaller positive values occupy less than 8 bytes. Large and negative values could occupy 8 or 9 bytes. </p>
+<p> This Serializer hashes Longs using the original <code><a href="#">Long#hashCode()</a></code> method. </p>
+<p> If a <code>null</code> value is passed to the Serializer, a NullPointerException will be thrown. </p>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-r-e-c-i-d.html">RECID</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">RECID</span><span class="symbol">: </span><a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">Long</span><span class="symbol">&gt;</span></code><p>A predefined Serializer that handles non-null Long used as a recid whereby recids are serialized to an eight byte format including a checksum. <p> If a <code>null</code> value is passed to the Serializer, a NullPointerException will be thrown. </p>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-r-e-c-i-d_-a-r-r-a-y.html">RECID_ARRAY</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">RECID_ARRAY</span><span class="symbol">: </span><a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">LongArray</span><span class="symbol">&gt;</span></code><p>A predefined Serializer that handles non-null arrays of longs used as a recids whereby recids are serialized to an eight byte format including a checksum. <p> If a <code>null</code> array is passed to the Serializer, a NullPointerException will be thrown. </p>
+<p> If an array that contains a <code>null</code> value is passed to the Serializer, a NullPointerException will be thrown. </p>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-s-h-o-r-t.html">SHORT</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">SHORT</span><span class="symbol">: </span><a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">Short</span><span class="symbol">&gt;</span></code><p>A predefined Serializer that handles non-null Short whereby Shorts are serialized to a 2 byte format. The Serializer also stores the Short's size, allowing it to be used as a GroupSerializer in BTreeMaps. <p> This Serializer hashes Shorts using the original <code><a href="#">Short#hashCode()</a></code> method. </p>
+<p> If a <code>null</code> value is passed to the Serializer, a NullPointerException will be thrown. </p>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-s-h-o-r-t_-a-r-r-a-y.html">SHORT_ARRAY</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">SHORT_ARRAY</span><span class="symbol">: </span><a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">ShortArray</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="-s-t-r-i-n-g.html">STRING</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">STRING</span><span class="symbol">: </span><a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">String</span><span class="symbol">&gt;</span></code><p>A predefined Serializer that handles non-null String whereby Strings are serialized to a UTF-8 encoded format. The Serializer also stores the String's size, allowing it to be used as a GroupSerializer in BTreeMaps. <p> This Serializer hashes Strings using a specially tailored hash code method as opposed to the <code><a href="-s-t-r-i-n-g_-o-r-i-g-h-a-s-h.html">Serializer#STRING_ORIGHASH</a></code> Serializer. </p>
+<p> If a <code>null</code> value is passed to the Serializer, a NullPointerException will be thrown. </p>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-s-t-r-i-n-g_-a-s-c-i-i.html">STRING_ASCII</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">STRING_ASCII</span><span class="symbol">: </span><a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">String</span><span class="symbol">&gt;</span></code><p>A predefined Serializer that handles non-null String whereby Strings are serialized to a ASCII encoded format (8 bit character) which is faster than using a UTF-8 format. The Serializer also stores the String's size, allowing it to be used as a GroupSerializer in BTreeMaps. <p> This Serializer hashes Strings using a specially tailored hash code method as opposed to the <code><a href="-s-t-r-i-n-g_-o-r-i-g-h-a-s-h.html">Serializer#STRING_ORIGHASH</a></code> Serializer. </p>
+<p> If a <code>null</code> value is passed to the Serializer, a NullPointerException will be thrown. </p>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-s-t-r-i-n-g_-d-e-l-t-a.html">STRING_DELTA</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">STRING_DELTA</span><span class="symbol">: </span><a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">String</span><span class="symbol">&gt;</span></code><p>A predefined Serializer that handles non-null String whereby Strings are serialized to a UTF-8 encoded format. The Serializer also stores the String's size, allowing it to be used as a GroupSerializer in BTreeMaps. Neighboring strings may be delta encoded for increased storage efficency. <p> This Serializer hashes Strings using a specially tailored hash code method as opposed to the <code><a href="-s-t-r-i-n-g_-o-r-i-g-h-a-s-h.html">Serializer#STRING_ORIGHASH</a></code> Serializer. </p>
+<p> If a <code>null</code> value is passed to the Serializer, a NullPointerException will be thrown. </p>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-s-t-r-i-n-g_-d-e-l-t-a2.html">STRING_DELTA2</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">STRING_DELTA2</span><span class="symbol">: </span><a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">String</span><span class="symbol">&gt;</span></code><p>A predefined Serializer that handles non-null String whereby Strings are serialized to a UTF-8 encoded format. The Serializer also stores the String's size, allowing it to be used as a GroupSerializer in BTreeMaps. Neighboring strings may be delta encoded for increased storage efficency. <p> This Serializer hashes Strings using a specially tailored hash code method as opposed to the <code><a href="-s-t-r-i-n-g_-o-r-i-g-h-a-s-h.html">Serializer#STRING_ORIGHASH</a></code> Serializer. </p>
+<p> If a <code>null</code> value is passed to the Serializer, a NullPointerException will be thrown. </p>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-s-t-r-i-n-g_-i-n-t-e-r-n.html">STRING_INTERN</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">STRING_INTERN</span><span class="symbol">: </span><a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">String</span><span class="symbol">&gt;</span></code><p>A predefined Serializer that handles non-null String whereby Strings are serialized to a UTF-8 encoded format. The Serializer also stores the String's size, allowing it to be used as a GroupSerializer in BTreeMaps. Neighboring strings may be delta encoded for increased storage efficency. <p> Deserialized strings are automatically interned <code><a href="#">String#intern()</a></code> allowing a more heap space efficient storage for repeated strings. </p>
+<p> This Serializer hashes Strings using a specially tailored hash code method as opposed to the <code><a href="-s-t-r-i-n-g_-o-r-i-g-h-a-s-h.html">Serializer#STRING_ORIGHASH</a></code> Serializer. </p>
+<p> If a <code>null</code> value is passed to the Serializer, a NullPointerException will be thrown. </p>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-s-t-r-i-n-g_-n-o-s-i-z-e.html">STRING_NOSIZE</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">STRING_NOSIZE</span><span class="symbol">: </span><span class="identifier">Serializer</span><span class="symbol">&lt;</span><span class="identifier">String</span><span class="symbol">&gt;</span></code><p>A predefined Serializer that handles non-null String whereby Strings are serialized to a UTF-8 encoded format. The Serializer does <emph>not</emph> store the String's size, thereby preventing it from being used as a GroupSerializer. <p> This Serializer hashes Strings using the original hash code method as opposed to the <code><a href="-s-t-r-i-n-g.html">Serializer#STRING</a></code> Serializer. </p>
+<p> If a <code>null</code> value is passed to the Serializer, a NullPointerException will be thrown. </p>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-s-t-r-i-n-g_-o-r-i-g-h-a-s-h.html">STRING_ORIGHASH</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">STRING_ORIGHASH</span><span class="symbol">: </span><a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">String</span><span class="symbol">&gt;</span></code><p>A predefined Serializer that handles non-null String whereby Strings are serialized to a UTF-8 encoded format. The Serializer also stores the String's size, allowing it to be used as a GroupSerializer in BTreeMaps. <p> This Serializer hashes Strings using the original hash code method as opposed to the <code><a href="-s-t-r-i-n-g.html">Serializer#STRING</a></code> Serializer. </p>
+<p> If a <code>null</code> value is passed to the Serializer, a NullPointerException will be thrown. </p>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-u-u-i-d.html">UUID</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">UUID</span><span class="symbol">: </span><a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><a href="http://docs.oracle.com/javase/6/docs/api/java/util/UUID.html"><span class="identifier">UUID</span></a><span class="symbol">&gt;</span></code><p>Serializers java.util.UUID class </p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="clone.html">clone</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">clone</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.Serializer$clone(org.mapdb.Serializer.A)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">A</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">A</span></code><p>Creates binary copy of given object. If the datatype is immutable the same instance might be returned </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="compare.html">compare</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">compare</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.Serializer$compare(org.mapdb.Serializer.A, org.mapdb.Serializer.A)/first">first</span><span class="symbol">:</span>&nbsp;<span class="identifier">A</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.Serializer$compare(org.mapdb.Serializer.A, org.mapdb.Serializer.A)/second">second</span><span class="symbol">:</span>&nbsp;<span class="identifier">A</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="deserialize.html">deserialize</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">deserialize</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.Serializer$deserialize(org.mapdb.DataInput2, kotlin.Int)/input">input</span><span class="symbol">:</span>&nbsp;<a href="../-data-input2/index.html"><span class="identifier">DataInput2</span></a><span class="symbol">, </span><span class="identifier" id="org.mapdb.Serializer$deserialize(org.mapdb.DataInput2, kotlin.Int)/available">available</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">A</span></code><p>Deserializes and returns the content of the given DataInput2. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="deserialize-from-long.html">deserializeFromLong</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">deserializeFromLong</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.Serializer$deserializeFromLong(kotlin.Long, kotlin.Int)/input">input</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.Serializer$deserializeFromLong(kotlin.Long, kotlin.Int)/available">available</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">A</span></code><p>Deserializes and returns the content of the given long. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="equals.html">equals</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">equals</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.Serializer$equals(org.mapdb.Serializer.A, org.mapdb.Serializer.A)/first">first</span><span class="symbol">:</span>&nbsp;<span class="identifier">A</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.Serializer$equals(org.mapdb.Serializer.A, org.mapdb.Serializer.A)/second">second</span><span class="symbol">:</span>&nbsp;<span class="identifier">A</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code><p>Returns if the first and second arguments are equal to each other. Consequently, if both arguments are <code>null</code>, <code>true</code> is returned and if exactly one argument is <code>null</code>, <code>false</code> is returned. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="fixed-size.html">fixedSize</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">fixedSize</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code><p>Returns the fixed size of the serialized form in bytes or -1 if the size is not fixed (e.g. for Strings). <p> Some optimizations can be applied to serializers with a fixed size. </p>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="hash-code.html">hashCode</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">hashCode</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.Serializer$hashCode(org.mapdb.Serializer.A, kotlin.Int)/o">o</span><span class="symbol">:</span>&nbsp;<span class="identifier">A</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.Serializer$hashCode(org.mapdb.Serializer.A, kotlin.Int)/seed">seed</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code><p>Returns a hash code of a given non-null argument. The output of the method is affected by the given seed, allowing protection against crafted hash attacks and to provide a better distribution of hashes. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="is-trusted.html">isTrusted</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">isTrusted</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code><p>Returns if this Serializer is trusted to always read the same number of bytes as it writes for any given object being serialized/de-serialized. <p> MapDB has a relaxed record size boundary checking. It expects deserializers to read exactly as many bytes as were written during serialization. If a deserializer reads more bytes than it wrote, it might start reading others record data in store. </p>
+<p> Some serializers (Kryo) have problems with this. To prevent this, we can not read data directly from a store, but we must copy them into separate <code>byte[]</code> buffers. Thus, zero-copy optimizations are disabled by default, but can be explicitly enabled here by letting this method return <code>true</code>. </p>
+<p> This flag indicates if this serializer was 'verified' to read as many bytes as it writes. It should also be much better tested etc. </p>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="needs-available-size-hint.html">needsAvailableSizeHint</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">needsAvailableSizeHint</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code><p>TODO: Document this method </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="serialize.html">serialize</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">serialize</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.Serializer$serialize(org.mapdb.DataOutput2, org.mapdb.Serializer.A)/out">out</span><span class="symbol">:</span>&nbsp;<a href="../-data-output2/index.html"><span class="identifier">DataOutput2</span></a><span class="symbol">, </span><span class="identifier" id="org.mapdb.Serializer$serialize(org.mapdb.DataOutput2, org.mapdb.Serializer.A)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">A</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code><p>Serializes the content of the given value into the given DataOutput2. </p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="../../org.mapdb.serializer/-group-serializer/index.html">GroupSerializer</a></td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">GroupSerializer</span><span class="symbol">&lt;</span><span class="identifier">A</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Serializer</span><span class="symbol">&lt;</span><span class="identifier">A</span><span class="symbol">&gt;</span></code><p>Created by jan on 2/29/16. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../-b-tree-map-java/-node-serializer/index.html">NodeSerializer</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">NodeSerializer</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Serializer</span><span class="symbol">&lt;</span><a href="../-b-tree-map-java/-node/index.html"><span class="identifier">Node</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-queue-long/-node/-s-e-r-i-a-l-i-z-e-r/index.html">SERIALIZER</a></td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">SERIALIZER</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Serializer</span><span class="symbol">&lt;</span><a href="../-queue-long/-node/index.html"><span class="identifier">Node</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../../org.mapdb.serializer/-serializer-byte-array-no-size/index.html">SerializerByteArrayNoSize</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SerializerByteArrayNoSize</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Serializer</span><span class="symbol">&lt;</span><span class="identifier">ByteArray</span><span class="symbol">&gt;</span></code><p>Created by jan on 2/28/16. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../../org.mapdb.serializer/-serializer-string-no-size/index.html">SerializerStringNoSize</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SerializerStringNoSize</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Serializer</span><span class="symbol">&lt;</span><span class="identifier">String</span><span class="symbol">&gt;</span></code><p>Created by jan on 2/28/16. </p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

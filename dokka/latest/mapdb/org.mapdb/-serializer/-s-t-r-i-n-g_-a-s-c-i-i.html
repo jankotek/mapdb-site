@@ -1,0 +1,20 @@
+<HTML>
+<HEAD>
+<title>Serializer.STRING_ASCII - </title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">org.mapdb</a>&nbsp;/&nbsp;<a href="index.html">Serializer</a>&nbsp;/&nbsp;<a href=".">STRING_ASCII</a><br/>
+<br/>
+<h1>STRING_ASCII</h1>
+<a name="org.mapdb.Serializer$STRING_ASCII"></a>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">STRING_ASCII</span><span class="symbol">: </span><a href="../../org.mapdb.serializer/-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">String</span><span class="symbol">&gt;</span></code><br/>
+<p>A predefined Serializer that handles non-null String whereby Strings are serialized to a ASCII encoded format (8 bit character) which is faster than using a UTF-8 format. The Serializer also stores the String's size, allowing it to be used as a GroupSerializer in BTreeMaps. <p> This Serializer hashes Strings using a specially tailored hash code method as opposed to the <code><a href="-s-t-r-i-n-g_-o-r-i-g-h-a-s-h.html">Serializer#STRING_ORIGHASH</a></code> Serializer. </p>
+<p> If a <code>null</code> value is passed to the Serializer, a NullPointerException will be thrown. </p>
+</p>
+<p><strong>See Also</strong><br/>
+<a href="-s-t-r-i-n-g_-o-r-i-g-h-a-s-h.html">Serializer#STRING_ORIGHASH</a></p>
+<br/>
+<br/>
+</BODY>
+</HTML>

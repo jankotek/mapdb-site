@@ -1,0 +1,38 @@
+<HTML>
+<HEAD>
+<title>Volume.copyTo - </title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">org.mapdb.volume</a>&nbsp;/&nbsp;<a href="index.html">Volume</a>&nbsp;/&nbsp;<a href=".">copyTo</a><br/>
+<br/>
+<h1>copyTo</h1>
+<a name="org.mapdb.volume.Volume$copyTo(kotlin.Long, org.mapdb.volume.Volume, kotlin.Long, kotlin.Long)"></a>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">copyTo</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.volume.Volume$copyTo(kotlin.Long, org.mapdb.volume.Volume, kotlin.Long, kotlin.Long)/inputOffset">inputOffset</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.volume.Volume$copyTo(kotlin.Long, org.mapdb.volume.Volume, kotlin.Long, kotlin.Long)/target">target</span><span class="symbol">:</span>&nbsp;<a href="index.html"><span class="identifier">Volume</span></a><span class="symbol">, </span><span class="identifier" id="org.mapdb.volume.Volume$copyTo(kotlin.Long, org.mapdb.volume.Volume, kotlin.Long, kotlin.Long)/targetOffset">targetOffset</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.volume.Volume$copyTo(kotlin.Long, org.mapdb.volume.Volume, kotlin.Long, kotlin.Long)/size">size</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code><br/>
+<p>Transfers data from this Volume into target volume. If its possible, the implementation should override this method to enable direct memory transfer. Caller must respect slice boundaries. ie it is not possible to transfer data which cross slice boundaries. </p>
+<h3>Parameters</h3>
+<a name="inputOffset"></a>
+<code>inputOffset</code> - offset inside this Volume, ie data will be read from this offset <br/>
+<br/>
+<a name="target"></a>
+<code>target</code> - Volume to copy data into <br/>
+<br/>
+<a name="targetOffset"></a>
+<code>targetOffset</code> - position in target volume where data will be copied into <br/>
+<br/>
+<a name="size"></a>
+<code>size</code> - size of data to copy<br/>
+<br/>
+<br/>
+<a name="org.mapdb.volume.Volume$copyTo(org.mapdb.volume.Volume)"></a>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">copyTo</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.volume.Volume$copyTo(org.mapdb.volume.Volume)/to">to</span><span class="symbol">:</span>&nbsp;<a href="index.html"><span class="identifier">Volume</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code><br/>
+<p>Copy content of this volume to another. Target volume might grow, but is never shrank. Target is also not synced </p>
+<br/>
+<br/>
+<a name="org.mapdb.volume.Volume$copyTo(java.io.OutputStream)"></a>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">copyTo</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.volume.Volume$copyTo(java.io.OutputStream)/output">output</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/io/OutputStream.html"><span class="identifier">OutputStream</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code><br/>
+<p>Copy content of this volume to OutputStream. </p>
+<br/>
+<br/>
+</BODY>
+</HTML>

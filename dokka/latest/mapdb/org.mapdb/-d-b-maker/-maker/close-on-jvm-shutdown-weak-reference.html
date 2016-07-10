@@ -1,0 +1,23 @@
+<HTML>
+<HEAD>
+<title>DBMaker.Maker.closeOnJvmShutdownWeakReference - </title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">org.mapdb</a>&nbsp;/&nbsp;<a href="../index.html">DBMaker</a>&nbsp;/&nbsp;<a href="index.html">Maker</a>&nbsp;/&nbsp;<a href=".">closeOnJvmShutdownWeakReference</a><br/>
+<br/>
+<h1>closeOnJvmShutdownWeakReference</h1>
+<a name="org.mapdb.DBMaker.Maker$closeOnJvmShutdownWeakReference()"></a>
+<code><span class="keyword">fun </span><span class="identifier">closeOnJvmShutdownWeakReference</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="index.html"><span class="identifier">Maker</span></a></code><br/>
+<p>Adds JVM shutdown hook and closes DB just before JVM.
+This is similar to <code>closeOnJvmShutdown()</code>, but DB is referenced with <code>WeakReference</code> from shutdown hook
+and can be GCed. That might prevent memory leaks under some conditions, but does not guarantee DB will be actually closed.</p>
+<p><code>DB.close()</code> removes DB object from shutdown hook, so DB object can be GCed after close, even with regular</p>
+<br/>
+<br/>
+<p><strong>Return</strong><br/>
+this builder</p>
+<br/>
+<br/>
+</BODY>
+</HTML>

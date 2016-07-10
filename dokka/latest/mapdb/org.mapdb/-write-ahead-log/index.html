@@ -1,0 +1,179 @@
+<HTML>
+<HEAD>
+<title>WriteAheadLog - </title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">org.mapdb</a>&nbsp;/&nbsp;<a href=".">WriteAheadLog</a><br/>
+<br/>
+<h1>WriteAheadLog</h1>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">WriteAheadLog</span></code><br/>
+<p>WAL shared between StoreWAL </p>
+<br/>
+<br/>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="-w-a-l-replay/index.html">WALReplay</a></td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">WALReplay</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="-init-.html">&lt;init&gt;</a></td>
+<td>
+<code><span class="identifier">WriteAheadLog</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.WriteAheadLog$<init>(kotlin.String, org.mapdb.volume.VolumeFactory, kotlin.Long, kotlin.Boolean)/fileName">fileName</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.WriteAheadLog$<init>(kotlin.String, org.mapdb.volume.VolumeFactory, kotlin.Long, kotlin.Boolean)/volumeFactory">volumeFactory</span><span class="symbol">:</span>&nbsp;<a href="../../org.mapdb.volume/-volume-factory/index.html"><span class="identifier">VolumeFactory</span></a><span class="symbol">, </span><span class="identifier" id="org.mapdb.WriteAheadLog$<init>(kotlin.String, org.mapdb.volume.VolumeFactory, kotlin.Long, kotlin.Boolean)/featureBitMap">featureBitMap</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.WriteAheadLog$<init>(kotlin.String, org.mapdb.volume.VolumeFactory, kotlin.Long, kotlin.Boolean)/fileDeleteAfterOpen">fileDeleteAfterOpen</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span></code><br/>
+<code><span class="identifier">WriteAheadLog</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.WriteAheadLog$<init>(kotlin.String)/fileName">fileName</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="-n-o-r-e-p-l-a-y.html">NOREPLAY</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">NOREPLAY</span><span class="symbol">: </span><a href="-w-a-l-replay/index.html"><span class="identifier">WALReplay</span></a></code><p>does nothing </p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="close.html">close</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">close</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="commit.html">commit</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">commit</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="destroy-wal-files.html">destroyWalFiles</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">destroyWalFiles</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="file-load.html">fileLoad</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">fileLoad</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="get-all-files.html">getAllFiles</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">getAllFiles</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableIterable</span><span class="symbol">&lt;</span><span class="identifier">String</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="get-number-of-files.html">getNumberOfFiles</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">getNumberOfFiles</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="init-failed-close-files.html">initFailedCloseFiles</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">initFailedCloseFiles</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="replay-w-a-l.html">replayWAL</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">replayWAL</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.WriteAheadLog$replayWAL(org.mapdb.WriteAheadLog.WALReplay)/replay">replay</span><span class="symbol">:</span>&nbsp;<a href="-w-a-l-replay/index.html"><span class="identifier">WALReplay</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="rollback.html">rollback</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">rollback</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="seal.html">seal</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">seal</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="start-next-file.html">startNextFile</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">startNextFile</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="sync.html">sync</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">sync</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="wal-get-byte-array.html">walGetByteArray</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">walGetByteArray</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.WriteAheadLog$walGetByteArray(kotlin.Long)/walPointer">walPointer</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-data-input2/index.html"><span class="identifier">DataInput2</span></a></code><p>Retrieve <code>DataInput</code> from WAL. This data were written by <code><a href="#">WriteAheadLog#walPutByteArray(long, byte[], int, int)</a></code> </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="wal-get-byte-array2.html">walGetByteArray2</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">walGetByteArray2</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.WriteAheadLog$walGetByteArray2(kotlin.Long)/walPointer">walPointer</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ByteArray</span></code><p>Retrieve <code>byte[]</code> from WAL. This data were written by <code><a href="#">WriteAheadLog#walPutByteArray(long, byte[], int, int)</a></code> </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="wal-get-record.html">walGetRecord</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">walGetRecord</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.WriteAheadLog$walGetRecord(kotlin.Long, kotlin.Long)/walPointer">walPointer</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.WriteAheadLog$walGetRecord(kotlin.Long, kotlin.Long)/expectedRecid">expectedRecid</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ByteArray</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="wal-put-byte-array.html">walPutByteArray</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">walPutByteArray</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.WriteAheadLog$walPutByteArray(kotlin.Long, kotlin.ByteArray, kotlin.Int, kotlin.Int)/offset">offset</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.WriteAheadLog$walPutByteArray(kotlin.Long, kotlin.ByteArray, kotlin.Int, kotlin.Int)/buf">buf</span><span class="symbol">:</span>&nbsp;<span class="identifier">ByteArray</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.WriteAheadLog$walPutByteArray(kotlin.Long, kotlin.ByteArray, kotlin.Int, kotlin.Int)/bufPos">bufPos</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.WriteAheadLog$walPutByteArray(kotlin.Long, kotlin.ByteArray, kotlin.Int, kotlin.Int)/size">size</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code><p>Puts instruction into WAL. It should write part of <code>byte[]</code> at given offset. This value returns pointer to WAL, which can be used to retrieve data back with <code><a href="#">WriteAheadLog#walGetByteArray(long)</a></code>. Pointer is composed of file number, and offset in WAL file. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="wal-put-long.html">walPutLong</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">walPutLong</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.WriteAheadLog$walPutLong(kotlin.Long, kotlin.Long)/offset">offset</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.WriteAheadLog$walPutLong(kotlin.Long, kotlin.Long)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code><p>Put 8 byte long into WAL. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="wal-put-preallocate.html">walPutPreallocate</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">walPutPreallocate</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.WriteAheadLog$walPutPreallocate(kotlin.Long)/recid">recid</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="wal-put-record.html">walPutRecord</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">walPutRecord</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.WriteAheadLog$walPutRecord(kotlin.Long, kotlin.ByteArray, kotlin.Int, kotlin.Int)/recid">recid</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.WriteAheadLog$walPutRecord(kotlin.Long, kotlin.ByteArray, kotlin.Int, kotlin.Int)/buf">buf</span><span class="symbol">:</span>&nbsp;<span class="identifier">ByteArray</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.WriteAheadLog$walPutRecord(kotlin.Long, kotlin.ByteArray, kotlin.Int, kotlin.Int)/bufPos">bufPos</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.WriteAheadLog$walPutRecord(kotlin.Long, kotlin.ByteArray, kotlin.Int, kotlin.Int)/size">size</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="wal-put-tombstone.html">walPutTombstone</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">walPutTombstone</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.WriteAheadLog$walPutTombstone(kotlin.Long)/recid">recid</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

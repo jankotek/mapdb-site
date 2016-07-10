@@ -1,0 +1,275 @@
+<HTML>
+<HEAD>
+<title>DataIO - </title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">org.mapdb</a>&nbsp;/&nbsp;<a href=".">DataIO</a><br/>
+<br/>
+<h1>DataIO</h1>
+<code><span class="keyword">class </span><span class="identifier">DataIO</span></code><br/>
+<p>Various IO classes and utilities.. </p>
+<br/>
+<br/>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="-p-a-c-k_-l-o-n-g_-r-e-s-u-l-t_-m-a-s-k.html">PACK_LONG_RESULT_MASK</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">val </span><span class="identifier">PACK_LONG_RESULT_MASK</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="array-delete.html">arrayDelete</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">arrayDelete</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$arrayDelete(kotlin.Array((kotlin.Any)), kotlin.Int, kotlin.Int)/vals">vals</span><span class="symbol">:</span>&nbsp;<span class="identifier">Array</span><span class="symbol">&lt;</span><span class="identifier">Any</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.DataIO$arrayDelete(kotlin.Array((kotlin.Any)), kotlin.Int, kotlin.Int)/pos">pos</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.DataIO$arrayDelete(kotlin.Array((kotlin.Any)), kotlin.Int, kotlin.Int)/len">len</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Array</span><span class="symbol">&lt;</span><span class="identifier">Any</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">arrayDelete</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$arrayDelete(kotlin.LongArray, kotlin.Int, kotlin.Int)/vals">vals</span><span class="symbol">:</span>&nbsp;<span class="identifier">LongArray</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.DataIO$arrayDelete(kotlin.LongArray, kotlin.Int, kotlin.Int)/pos">pos</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.DataIO$arrayDelete(kotlin.LongArray, kotlin.Int, kotlin.Int)/len">len</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">LongArray</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="array-put.html">arrayPut</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">arrayPut</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$arrayPut(kotlin.Array((kotlin.Any)), kotlin.Int, kotlin.Any)/array">array</span><span class="symbol">:</span>&nbsp;<span class="identifier">Array</span><span class="symbol">&lt;</span><span class="identifier">Any</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.DataIO$arrayPut(kotlin.Array((kotlin.Any)), kotlin.Int, kotlin.Any)/pos">pos</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.DataIO$arrayPut(kotlin.Array((kotlin.Any)), kotlin.Int, kotlin.Any)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Array</span><span class="symbol">&lt;</span><span class="identifier">Any</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="fill-low-bits.html">fillLowBits</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">fillLowBits</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$fillLowBits(kotlin.Int)/bitCount">bitCount</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="from-hexa.html">fromHexa</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">fromHexa</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$fromHexa(kotlin.String)/s">s</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ByteArray</span></code><p>Converts hexadecimal string into binary data </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="get-int.html">getInt</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">getInt</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$getInt(kotlin.ByteArray, kotlin.Int)/buf">buf</span><span class="symbol">:</span>&nbsp;<span class="identifier">ByteArray</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.DataIO$getInt(kotlin.ByteArray, kotlin.Int)/pos">pos</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="get-long.html">getLong</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">getLong</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$getLong(kotlin.ByteArray, kotlin.Int)/buf">buf</span><span class="symbol">:</span>&nbsp;<span class="identifier">ByteArray</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.DataIO$getLong(kotlin.ByteArray, kotlin.Int)/pos">pos</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="get-six-long.html">getSixLong</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">getSixLong</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$getSixLong(kotlin.ByteArray, kotlin.Int)/buf">buf</span><span class="symbol">:</span>&nbsp;<span class="identifier">ByteArray</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.DataIO$getSixLong(kotlin.ByteArray, kotlin.Int)/pos">pos</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="int-hash.html">intHash</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">intHash</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$intHash(kotlin.Int)/h">h</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="int-to-long.html">intToLong</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">intToLong</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$intToLong(kotlin.Int)/i">i</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code><p>converts 4 int bytes to lowest 4 long bytes. Does not preserve negative flag </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="long-hash.html">longHash</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">longHash</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$longHash(kotlin.Long)/h">h</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="next-pow-two.html">nextPowTwo</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">nextPowTwo</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$nextPowTwo(kotlin.Long)/a">a</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code><br/>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">nextPowTwo</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$nextPowTwo(kotlin.Int)/a">a</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="pack-int.html">packInt</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">packInt</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$packInt(java.io.DataOutput, kotlin.Int)/out">out</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/io/DataOutput.html"><span class="identifier">DataOutput</span></a><span class="symbol">, </span><span class="identifier" id="org.mapdb.DataIO$packInt(java.io.DataOutput, kotlin.Int)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code><p>Pack int into an output stream. It will occupy 1-5 bytes depending on value (lower values occupy smaller space) </p>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">packInt</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$packInt(kotlin.ByteArray, kotlin.Int, kotlin.Int)/buf">buf</span><span class="symbol">:</span>&nbsp;<span class="identifier">ByteArray</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.DataIO$packInt(kotlin.ByteArray, kotlin.Int, kotlin.Int)/pos">pos</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.DataIO$packInt(kotlin.ByteArray, kotlin.Int, kotlin.Int)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="pack-int-bigger.html">packIntBigger</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">packIntBigger</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$packIntBigger(java.io.DataOutput, kotlin.Int)/out">out</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/io/DataOutput.html"><span class="identifier">DataOutput</span></a><span class="symbol">, </span><span class="identifier" id="org.mapdb.DataIO$packIntBigger(java.io.DataOutput, kotlin.Int)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code><p>Pack int into an output stream. It will occupy 1-5 bytes depending on value (lower values occupy smaller space) This method is same as <code><a href="#">#packInt(DataOutput, int)</a></code>, but is optimized for values larger than 127. Usually it is recids. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="pack-long.html">packLong</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">packLong</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$packLong(java.io.DataOutput, kotlin.Long)/out">out</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/io/DataOutput.html"><span class="identifier">DataOutput</span></a><span class="symbol">, </span><span class="identifier" id="org.mapdb.DataIO$packLong(java.io.DataOutput, kotlin.Long)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code><br/>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">packLong</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$packLong(java.io.OutputStream, kotlin.Long)/out">out</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/io/OutputStream.html"><span class="identifier">OutputStream</span></a><span class="symbol">, </span><span class="identifier" id="org.mapdb.DataIO$packLong(java.io.OutputStream, kotlin.Long)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code><p>Pack long into output. It will occupy 1-10 bytes depending on value (lower values occupy smaller space) </p>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">packLong</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$packLong(kotlin.ByteArray, kotlin.Int, kotlin.Long)/buf">buf</span><span class="symbol">:</span>&nbsp;<span class="identifier">ByteArray</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.DataIO$packLong(kotlin.ByteArray, kotlin.Int, kotlin.Long)/pos">pos</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.DataIO$packLong(kotlin.ByteArray, kotlin.Int, kotlin.Long)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="pack-long-size.html">packLongSize</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">packLongSize</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$packLongSize(kotlin.Long)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code><p>Calculate how much bytes packed long consumes. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="pack-recid.html">packRecid</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">packRecid</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$packRecid(org.mapdb.DataOutput2, kotlin.Long)/out">out</span><span class="symbol">:</span>&nbsp;<a href="../-data-output2/index.html"><span class="identifier">DataOutput2</span></a><span class="symbol">, </span><span class="identifier" id="org.mapdb.DataIO$packRecid(org.mapdb.DataOutput2, kotlin.Long)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code><p>Pack RECID into output stream with 3 bit checksum. It will occupy 1-10 bytes depending on value (lower values occupy smaller space) </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="parity16-get.html">parity16Get</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">parity16Get</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$parity16Get(kotlin.Long)/i">i</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="parity16-set.html">parity16Set</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">parity16Set</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$parity16Set(kotlin.Long)/i">i</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="parity1-get.html">parity1Get</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">parity1Get</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$parity1Get(kotlin.Long)/i">i</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code><br/>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">parity1Get</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$parity1Get(kotlin.Int)/i">i</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="parity1-set.html">parity1Set</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">parity1Set</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$parity1Set(kotlin.Long)/i">i</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code><br/>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">parity1Set</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$parity1Set(kotlin.Int)/i">i</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="parity3-get.html">parity3Get</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">parity3Get</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$parity3Get(kotlin.Long)/i">i</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="parity3-set.html">parity3Set</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">parity3Set</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$parity3Set(kotlin.Long)/i">i</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="parity4-get.html">parity4Get</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">parity4Get</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$parity4Get(kotlin.Long)/i">i</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="parity4-set.html">parity4Set</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">parity4Set</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$parity4Set(kotlin.Long)/i">i</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="put-int.html">putInt</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">putInt</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$putInt(kotlin.ByteArray, kotlin.Int, kotlin.Int)/buf">buf</span><span class="symbol">:</span>&nbsp;<span class="identifier">ByteArray</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.DataIO$putInt(kotlin.ByteArray, kotlin.Int, kotlin.Int)/pos">pos</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.DataIO$putInt(kotlin.ByteArray, kotlin.Int, kotlin.Int)/v">v</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="put-long.html">putLong</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">putLong</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$putLong(kotlin.ByteArray, kotlin.Int, kotlin.Long)/buf">buf</span><span class="symbol">:</span>&nbsp;<span class="identifier">ByteArray</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.DataIO$putLong(kotlin.ByteArray, kotlin.Int, kotlin.Long)/pos">pos</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.DataIO$putLong(kotlin.ByteArray, kotlin.Int, kotlin.Long)/v">v</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code><br/>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">putLong</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$putLong(kotlin.ByteArray, kotlin.Int, kotlin.Long, kotlin.Int)/buf">buf</span><span class="symbol">:</span>&nbsp;<span class="identifier">ByteArray</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.DataIO$putLong(kotlin.ByteArray, kotlin.Int, kotlin.Long, kotlin.Int)/pos">pos</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.DataIO$putLong(kotlin.ByteArray, kotlin.Int, kotlin.Long, kotlin.Int)/v">v</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.DataIO$putLong(kotlin.ByteArray, kotlin.Int, kotlin.Long, kotlin.Int)/vSize">vSize</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="put-six-long.html">putSixLong</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">putSixLong</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$putSixLong(kotlin.ByteArray, kotlin.Int, kotlin.Long)/buf">buf</span><span class="symbol">:</span>&nbsp;<span class="identifier">ByteArray</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.DataIO$putSixLong(kotlin.ByteArray, kotlin.Int, kotlin.Long)/pos">pos</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.DataIO$putSixLong(kotlin.ByteArray, kotlin.Int, kotlin.Long)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="read-fully.html">readFully</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">readFully</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$readFully(java.io.InputStream, kotlin.ByteArray, kotlin.Int, kotlin.Int)/in">in</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/io/InputStream.html"><span class="identifier">InputStream</span></a><span class="symbol">, </span><span class="identifier" id="org.mapdb.DataIO$readFully(java.io.InputStream, kotlin.ByteArray, kotlin.Int, kotlin.Int)/data">data</span><span class="symbol">:</span>&nbsp;<span class="identifier">ByteArray</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.DataIO$readFully(java.io.InputStream, kotlin.ByteArray, kotlin.Int, kotlin.Int)/offset">offset</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.DataIO$readFully(java.io.InputStream, kotlin.ByteArray, kotlin.Int, kotlin.Int)/len">len</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code><br/>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">readFully</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$readFully(java.io.InputStream, kotlin.ByteArray)/in">in</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/io/InputStream.html"><span class="identifier">InputStream</span></a><span class="symbol">, </span><span class="identifier" id="org.mapdb.DataIO$readFully(java.io.InputStream, kotlin.ByteArray)/data">data</span><span class="symbol">:</span>&nbsp;<span class="identifier">ByteArray</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="round-down.html">roundDown</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">roundDown</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$roundDown(kotlin.Long, kotlin.Long)/number">number</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.DataIO$roundDown(kotlin.Long, kotlin.Long)/roundDownToMultipleOf">roundDownToMultipleOf</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code><br/>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">roundDown</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$roundDown(kotlin.Int, kotlin.Int)/number">number</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.DataIO$roundDown(kotlin.Int, kotlin.Int)/roundDownToMultipleOf">roundDownToMultipleOf</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="round-up.html">roundUp</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">roundUp</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$roundUp(kotlin.Long, kotlin.Long)/number">number</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.DataIO$roundUp(kotlin.Long, kotlin.Long)/roundUpToMultipleOf">roundUpToMultipleOf</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code><br/>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">roundUp</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$roundUp(kotlin.Int, kotlin.Int)/number">number</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.DataIO$roundUp(kotlin.Int, kotlin.Int)/roundUpToMultipleOf">roundUpToMultipleOf</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="shift.html">shift</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">shift</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$shift(kotlin.Int)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="skip-fully.html">skipFully</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">skipFully</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$skipFully(java.io.InputStream, kotlin.Long)/in">in</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/io/InputStream.html"><span class="identifier">InputStream</span></a><span class="symbol">, </span><span class="identifier" id="org.mapdb.DataIO$skipFully(java.io.InputStream, kotlin.Long)/length">length</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="to-hexa.html">toHexa</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">toHexa</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$toHexa(kotlin.ByteArray)/bb">bb</span><span class="symbol">:</span>&nbsp;<span class="identifier">ByteArray</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">String</span></code><p>Converts binary array into its hexadecimal representation. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="unpack-int.html">unpackInt</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">unpackInt</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$unpackInt(java.io.DataInput)/is">is</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/io/DataInput.html"><span class="identifier">DataInput</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code><br/>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">unpackInt</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$unpackInt(java.io.InputStream)/in">in</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/io/InputStream.html"><span class="identifier">InputStream</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code><p>Unpack int value from the input stream. </p>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">unpackInt</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$unpackInt(kotlin.ByteArray, kotlin.Int)/buf">buf</span><span class="symbol">:</span>&nbsp;<span class="identifier">ByteArray</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.DataIO$unpackInt(kotlin.ByteArray, kotlin.Int)/pos">pos</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="unpack-long.html">unpackLong</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">unpackLong</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$unpackLong(java.io.DataInput)/in">in</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/io/DataInput.html"><span class="identifier">DataInput</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code><br/>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">unpackLong</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$unpackLong(java.io.InputStream)/in">in</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/io/InputStream.html"><span class="identifier">InputStream</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code><p>Unpack long value from the input stream. </p>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">unpackLong</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$unpackLong(kotlin.ByteArray, kotlin.Int)/buf">buf</span><span class="symbol">:</span>&nbsp;<span class="identifier">ByteArray</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.DataIO$unpackLong(kotlin.ByteArray, kotlin.Int)/pos">pos</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="unpack-recid.html">unpackRecid</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">unpackRecid</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$unpackRecid(org.mapdb.DataInput2)/in">in</span><span class="symbol">:</span>&nbsp;<a href="../-data-input2/index.html"><span class="identifier">DataInput2</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code><p>Unpack RECID value from the input stream with 3 bit checksum. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="write-fully.html">writeFully</a></td>
+<td>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">writeFully</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$writeFully(java.nio.channels.FileChannel, java.nio.ByteBuffer)/f">f</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/nio/channels/FileChannel.html"><span class="identifier">FileChannel</span></a><span class="symbol">, </span><span class="identifier" id="org.mapdb.DataIO$writeFully(java.nio.channels.FileChannel, java.nio.ByteBuffer)/buf">buf</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/nio/ByteBuffer.html"><span class="identifier">ByteBuffer</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

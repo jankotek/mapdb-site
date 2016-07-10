@@ -1,0 +1,15 @@
+<HTML>
+<HEAD>
+<title>QueueLong.make - </title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">org.mapdb</a>&nbsp;/&nbsp;<a href="index.html">QueueLong</a>&nbsp;/&nbsp;<a href=".">make</a><br/>
+<br/>
+<h1>make</h1>
+<a name="org.mapdb.QueueLong.Companion$make(org.mapdb.Store, kotlin.Long, kotlin.Long, kotlin.Long)"></a>
+<code><span class="keyword">fun </span><span class="identifier">make</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.QueueLong.Companion$make(org.mapdb.Store, kotlin.Long, kotlin.Long, kotlin.Long)/store">store</span><span class="symbol">:</span>&nbsp;<a href="../-store/index.html"><span class="identifier">Store</span></a>&nbsp;<span class="symbol">=</span>&nbsp;StoreTrivial()<span class="symbol">, </span><span class="identifier" id="org.mapdb.QueueLong.Companion$make(org.mapdb.Store, kotlin.Long, kotlin.Long, kotlin.Long)/tailRecid">tailRecid</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span>&nbsp;<span class="symbol">=</span>&nbsp;store.put(store.put(null, Node.SERIALIZER), Serializer.RECID)<span class="symbol">, </span><span class="identifier" id="org.mapdb.QueueLong.Companion$make(org.mapdb.Store, kotlin.Long, kotlin.Long, kotlin.Long)/headRecid">headRecid</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span>&nbsp;<span class="symbol">=</span>&nbsp;store.put(store.get(tailRecid, Serializer.RECID), Serializer.RECID)<span class="symbol">, </span><span class="identifier" id="org.mapdb.QueueLong.Companion$make(org.mapdb.Store, kotlin.Long, kotlin.Long, kotlin.Long)/headPrevRecid">headPrevRecid</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span>&nbsp;<span class="symbol">=</span>&nbsp;store.put(0L, Serializer.RECID)<span class="symbol">)</span><span class="symbol">: </span><a href="index.html"><span class="identifier">QueueLong</span></a></code><br/>
+<br/>
+<br/>
+</BODY>
+</HTML>

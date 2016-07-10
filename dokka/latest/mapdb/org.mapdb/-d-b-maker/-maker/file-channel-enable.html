@@ -1,0 +1,20 @@
+<HTML>
+<HEAD>
+<title>DBMaker.Maker.fileChannelEnable - </title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">org.mapdb</a>&nbsp;/&nbsp;<a href="../index.html">DBMaker</a>&nbsp;/&nbsp;<a href="index.html">Maker</a>&nbsp;/&nbsp;<a href=".">fileChannelEnable</a><br/>
+<br/>
+<h1>fileChannelEnable</h1>
+<a name="org.mapdb.DBMaker.Maker$fileChannelEnable()"></a>
+<code><span class="keyword">fun </span><span class="identifier">fileChannelEnable</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="index.html"><span class="identifier">Maker</span></a></code><br/>
+<p>Enable FileChannel access. By default MapDB uses {@link java.io.RandomAccessFile}.
+whic is slower and more robust. but does not allow concurrent access (parallel read and writes). RAF is still thread-safe
+but has global lock.
+FileChannel does not have global lock, and is faster compared to RAF. However memory-mapped files are
+probably best choice.</p>
+<br/>
+<br/>
+</BODY>
+</HTML>

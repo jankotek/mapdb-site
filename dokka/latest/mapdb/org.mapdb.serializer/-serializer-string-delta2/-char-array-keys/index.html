@@ -1,0 +1,92 @@
+<HTML>
+<HEAD>
+<title>SerializerStringDelta2.CharArrayKeys - </title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">org.mapdb.serializer</a>&nbsp;/&nbsp;<a href="../index.html">SerializerStringDelta2</a>&nbsp;/&nbsp;<a href=".">CharArrayKeys</a><br/>
+<br/>
+<h1>CharArrayKeys</h1>
+<code><span class="keyword">class </span><span class="identifier">CharArrayKeys</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-string-array-keys/index.html"><span class="identifier">StringArrayKeys</span></a></code><br/>
+<br/>
+<br/>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="-init-.html">&lt;init&gt;</a></td>
+<td>
+<code><span class="identifier">CharArrayKeys</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.serializer.SerializerStringDelta2.CharArrayKeys$<init>(org.mapdb.DataInput2, kotlin.IntArray, kotlin.Int)/in">in</span><span class="symbol">:</span>&nbsp;<a href="../../../org.mapdb/-data-input2/index.html"><span class="identifier">DataInput2</span></a><span class="symbol">, </span><span class="identifier" id="org.mapdb.serializer.SerializerStringDelta2.CharArrayKeys$<init>(org.mapdb.DataInput2, kotlin.IntArray, kotlin.Int)/offsets">offsets</span><span class="symbol">:</span>&nbsp;<span class="identifier">IntArray</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.serializer.SerializerStringDelta2.CharArrayKeys$<init>(org.mapdb.DataInput2, kotlin.IntArray, kotlin.Int)/prefixLen">prefixLen</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="common-prefix-len.html">commonPrefixLen</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">commonPrefixLen</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="compare.html">compare</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">compare</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.serializer.SerializerStringDelta2.CharArrayKeys$compare(kotlin.Int, kotlin.String)/pos1">pos1</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.serializer.SerializerStringDelta2.CharArrayKeys$compare(kotlin.Int, kotlin.String)/string">string</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">compare</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.serializer.SerializerStringDelta2.CharArrayKeys$compare(kotlin.Int, kotlin.Int)/pos1">pos1</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.serializer.SerializerStringDelta2.CharArrayKeys$compare(kotlin.Int, kotlin.Int)/pos2">pos2</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="copy-of-range.html">copyOfRange</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">copyOfRange</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.serializer.SerializerStringDelta2.CharArrayKeys$copyOfRange(kotlin.Int, kotlin.Int)/from">from</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.serializer.SerializerStringDelta2.CharArrayKeys$copyOfRange(kotlin.Int, kotlin.Int)/to">to</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">CharArrayKeys</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="delete-key.html">deleteKey</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">deleteKey</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.serializer.SerializerStringDelta2.CharArrayKeys$deleteKey(kotlin.Int)/pos">pos</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">CharArrayKeys</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="get-key-string.html">getKeyString</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getKeyString</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.serializer.SerializerStringDelta2.CharArrayKeys$getKeyString(kotlin.Int)/pos">pos</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">String</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="get-offset.html">getOffset</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getOffset</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">IntArray</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="has-unicode-chars.html">hasUnicodeChars</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">hasUnicodeChars</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="length.html">length</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">length</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="put-key.html">putKey</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">putKey</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.serializer.SerializerStringDelta2.CharArrayKeys$putKey(kotlin.Int, kotlin.String)/pos">pos</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.serializer.SerializerStringDelta2.CharArrayKeys$putKey(kotlin.Int, kotlin.String)/newKey">newKey</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">CharArrayKeys</span></code><br/>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">putKey</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.serializer.SerializerStringDelta2.CharArrayKeys$putKey(org.mapdb.serializer.SerializerStringDelta2.ByteArrayKeys, kotlin.Int, kotlin.String)/kk">kk</span><span class="symbol">:</span>&nbsp;<a href="../-byte-array-keys/index.html"><span class="identifier">ByteArrayKeys</span></a><span class="symbol">, </span><span class="identifier" id="org.mapdb.serializer.SerializerStringDelta2.CharArrayKeys$putKey(org.mapdb.serializer.SerializerStringDelta2.ByteArrayKeys, kotlin.Int, kotlin.String)/pos">pos</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.serializer.SerializerStringDelta2.CharArrayKeys$putKey(org.mapdb.serializer.SerializerStringDelta2.ByteArrayKeys, kotlin.Int, kotlin.String)/newKey">newKey</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-string-array-keys/index.html"><span class="identifier">StringArrayKeys</span></a></code></td>
+</tr>
+<tr>
+<td>
+<a href="serialize.html">serialize</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">serialize</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.serializer.SerializerStringDelta2.CharArrayKeys$serialize(java.io.DataOutput, kotlin.Int)/out">out</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/io/DataOutput.html"><span class="identifier">DataOutput</span></a><span class="symbol">, </span><span class="identifier" id="org.mapdb.serializer.SerializerStringDelta2.CharArrayKeys$serialize(java.io.DataOutput, kotlin.Int)/prefixLen">prefixLen</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

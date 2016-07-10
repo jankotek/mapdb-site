@@ -1,0 +1,535 @@
+<HTML>
+<HEAD>
+<title>HTreeMap - </title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">org.mapdb</a>&nbsp;/&nbsp;<a href=".">HTreeMap</a><br/>
+<br/>
+<h1>HTreeMap</h1>
+<code><span class="keyword">class </span><span class="identifier">HTreeMap</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">, </span><span class="identifier">V</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/ConcurrentMap.html"><span class="identifier">ConcurrentMap</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">, </span><a href="../-concurrency-aware/index.html"><span class="identifier">ConcurrencyAware</span></a><span class="symbol">, </span><a href="../-map-extra/index.html"><span class="identifier">MapExtra</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">, </span><a href="../-verifiable/index.html"><span class="identifier">Verifiable</span></a><span class="symbol">, </span><a href="http://docs.oracle.com/javase/6/docs/api/java/io/Closeable.html"><span class="identifier">Closeable</span></a></code><br/>
+<p>Concurrent HashMap which uses IndexTree for hash table</p>
+<br/>
+<br/>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="-key-set/index.html">KeySet</a></td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">KeySet</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/util/AbstractSet.html"><span class="identifier">AbstractSet</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="-init-.html">&lt;init&gt;</a></td>
+<td>
+<code><span class="identifier">HTreeMap</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.HTreeMap$<init>(org.mapdb.Serializer((org.mapdb.HTreeMap.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)))), java.io.Closeable, kotlin.Boolean)/keySerializer">keySerializer</span><span class="symbol">:</span>&nbsp;<a href="../-serializer/index.html"><span class="identifier">Serializer</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$<init>(org.mapdb.Serializer((org.mapdb.HTreeMap.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)))), java.io.Closeable, kotlin.Boolean)/valueSerializer">valueSerializer</span><span class="symbol">:</span>&nbsp;<a href="../-serializer/index.html"><span class="identifier">Serializer</span></a><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$<init>(org.mapdb.Serializer((org.mapdb.HTreeMap.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)))), java.io.Closeable, kotlin.Boolean)/valueInline">valueInline</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$<init>(org.mapdb.Serializer((org.mapdb.HTreeMap.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)))), java.io.Closeable, kotlin.Boolean)/concShift">concShift</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$<init>(org.mapdb.Serializer((org.mapdb.HTreeMap.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)))), java.io.Closeable, kotlin.Boolean)/dirShift">dirShift</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$<init>(org.mapdb.Serializer((org.mapdb.HTreeMap.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)))), java.io.Closeable, kotlin.Boolean)/levels">levels</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$<init>(org.mapdb.Serializer((org.mapdb.HTreeMap.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)))), java.io.Closeable, kotlin.Boolean)/stores">stores</span><span class="symbol">:</span>&nbsp;<span class="identifier">Array</span><span class="symbol">&lt;</span><a href="../-store/index.html"><span class="identifier">Store</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$<init>(org.mapdb.Serializer((org.mapdb.HTreeMap.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)))), java.io.Closeable, kotlin.Boolean)/indexTrees">indexTrees</span><span class="symbol">:</span>&nbsp;<span class="identifier">Array</span><span class="symbol">&lt;</span><span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$<init>(org.mapdb.Serializer((org.mapdb.HTreeMap.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)))), java.io.Closeable, kotlin.Boolean)/hashSeed">hashSeed</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$<init>(org.mapdb.Serializer((org.mapdb.HTreeMap.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)))), java.io.Closeable, kotlin.Boolean)/counterRecids">counterRecids</span><span class="symbol">:</span>&nbsp;<span class="identifier">LongArray</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$<init>(org.mapdb.Serializer((org.mapdb.HTreeMap.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)))), java.io.Closeable, kotlin.Boolean)/expireCreateTTL">expireCreateTTL</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$<init>(org.mapdb.Serializer((org.mapdb.HTreeMap.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)))), java.io.Closeable, kotlin.Boolean)/expireUpdateTTL">expireUpdateTTL</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$<init>(org.mapdb.Serializer((org.mapdb.HTreeMap.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)))), java.io.Closeable, kotlin.Boolean)/expireGetTTL">expireGetTTL</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$<init>(org.mapdb.Serializer((org.mapdb.HTreeMap.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)))), java.io.Closeable, kotlin.Boolean)/expireMaxSize">expireMaxSize</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$<init>(org.mapdb.Serializer((org.mapdb.HTreeMap.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)))), java.io.Closeable, kotlin.Boolean)/expireStoreSize">expireStoreSize</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$<init>(org.mapdb.Serializer((org.mapdb.HTreeMap.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)))), java.io.Closeable, kotlin.Boolean)/expireCreateQueues">expireCreateQueues</span><span class="symbol">:</span>&nbsp;<span class="identifier">Array</span><span class="symbol">&lt;</span><a href="../-queue-long/index.html"><span class="identifier">QueueLong</span></a><span class="symbol">&gt;</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$<init>(org.mapdb.Serializer((org.mapdb.HTreeMap.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)))), java.io.Closeable, kotlin.Boolean)/expireUpdateQueues">expireUpdateQueues</span><span class="symbol">:</span>&nbsp;<span class="identifier">Array</span><span class="symbol">&lt;</span><a href="../-queue-long/index.html"><span class="identifier">QueueLong</span></a><span class="symbol">&gt;</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$<init>(org.mapdb.Serializer((org.mapdb.HTreeMap.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)))), java.io.Closeable, kotlin.Boolean)/expireGetQueues">expireGetQueues</span><span class="symbol">:</span>&nbsp;<span class="identifier">Array</span><span class="symbol">&lt;</span><a href="../-queue-long/index.html"><span class="identifier">QueueLong</span></a><span class="symbol">&gt;</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$<init>(org.mapdb.Serializer((org.mapdb.HTreeMap.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)))), java.io.Closeable, kotlin.Boolean)/expireExecutor">expireExecutor</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/ScheduledExecutorService.html"><span class="identifier">ScheduledExecutorService</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$<init>(org.mapdb.Serializer((org.mapdb.HTreeMap.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)))), java.io.Closeable, kotlin.Boolean)/expireExecutorPeriod">expireExecutorPeriod</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$<init>(org.mapdb.Serializer((org.mapdb.HTreeMap.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)))), java.io.Closeable, kotlin.Boolean)/expireCompactThreshold">expireCompactThreshold</span><span class="symbol">:</span>&nbsp;<span class="identifier">Double</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$<init>(org.mapdb.Serializer((org.mapdb.HTreeMap.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)))), java.io.Closeable, kotlin.Boolean)/isThreadSafe">isThreadSafe</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$<init>(org.mapdb.Serializer((org.mapdb.HTreeMap.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)))), java.io.Closeable, kotlin.Boolean)/valueLoader">valueLoader</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">K</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$<init>(org.mapdb.Serializer((org.mapdb.HTreeMap.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)))), java.io.Closeable, kotlin.Boolean)/modificationListeners">modificationListeners</span><span class="symbol">:</span>&nbsp;<span class="identifier">Array</span><span class="symbol">&lt;</span><a href="../-map-modification-listener/index.html"><span class="identifier">MapModificationListener</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$<init>(org.mapdb.Serializer((org.mapdb.HTreeMap.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)))), java.io.Closeable, kotlin.Boolean)/closeable">closeable</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/io/Closeable.html"><span class="identifier">Closeable</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$<init>(org.mapdb.Serializer((org.mapdb.HTreeMap.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)))), java.io.Closeable, kotlin.Boolean)/hasValues">hasValues</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">)</span></code><p>Concurrent HashMap which uses IndexTree for hash table</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="conc-shift.html">concShift</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">concShift</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="counter-recids.html">counterRecids</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">counterRecids</span><span class="symbol">: </span><span class="identifier">LongArray</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="dir-shift.html">dirShift</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">dirShift</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="entries.html">entries</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">entries</span><span class="symbol">: </span><span class="identifier">MutableSet</span><span class="symbol">&lt;</span><span class="identifier">MutableEntry</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">?</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="expire-compact-threshold.html">expireCompactThreshold</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">expireCompactThreshold</span><span class="symbol">: </span><span class="identifier">Double</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="expire-create-queues.html">expireCreateQueues</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">expireCreateQueues</span><span class="symbol">: </span><span class="identifier">Array</span><span class="symbol">&lt;</span><a href="../-queue-long/index.html"><span class="identifier">QueueLong</span></a><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="expire-create-t-t-l.html">expireCreateTTL</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">expireCreateTTL</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="expire-executor.html">expireExecutor</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">expireExecutor</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/ScheduledExecutorService.html"><span class="identifier">ScheduledExecutorService</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="expire-executor-period.html">expireExecutorPeriod</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">expireExecutorPeriod</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="expire-get-queues.html">expireGetQueues</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">expireGetQueues</span><span class="symbol">: </span><span class="identifier">Array</span><span class="symbol">&lt;</span><a href="../-queue-long/index.html"><span class="identifier">QueueLong</span></a><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="expire-get-t-t-l.html">expireGetTTL</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">expireGetTTL</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="expire-max-size.html">expireMaxSize</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">expireMaxSize</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="expire-store-size.html">expireStoreSize</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">expireStoreSize</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="expire-update-queues.html">expireUpdateQueues</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">expireUpdateQueues</span><span class="symbol">: </span><span class="identifier">Array</span><span class="symbol">&lt;</span><a href="../-queue-long/index.html"><span class="identifier">QueueLong</span></a><span class="symbol">&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="expire-update-t-t-l.html">expireUpdateTTL</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">expireUpdateTTL</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="has-values.html">hasValues</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">hasValues</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="index-trees.html">indexTrees</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">indexTrees</span><span class="symbol">: </span><span class="identifier">Array</span><span class="symbol">&lt;</span><span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="is-foreground-eviction.html">isForegroundEviction</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">isForegroundEviction</span><span class="symbol">: </span><span class="identifier">Boolean</span></code><p>true if Eviction is executed inside user thread, as part of get/put etc operations</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="is-thread-safe.html">isThreadSafe</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">isThreadSafe</span><span class="symbol">: </span><span class="identifier">Boolean</span></code><p>returns true if this is configured to be thread safe</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="key-serializer.html">keySerializer</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">keySerializer</span><span class="symbol">: </span><a href="../-serializer/index.html"><span class="identifier">Serializer</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="keys.html">keys</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">keys</span><span class="symbol">: </span><a href="-key-set/index.html"><span class="identifier">KeySet</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="leaf-serializer.html">leafSerializer</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">leafSerializer</span><span class="symbol">: </span><a href="../-serializer/index.html"><span class="identifier">Serializer</span></a><span class="symbol">&lt;</span><span class="identifier">Array</span><span class="symbol">&lt;</span><span class="identifier">Any</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="levels.html">levels</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">levels</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="locks.html">locks</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">locks</span><span class="symbol">: </span><span class="identifier">Array</span><span class="symbol">&lt;</span><a href="http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/locks/ReadWriteLock.html"><span class="identifier">ReadWriteLock</span></a><span class="symbol">?</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="size.html">size</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">size</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="stores.html">stores</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">stores</span><span class="symbol">: </span><span class="identifier">Array</span><span class="symbol">&lt;</span><a href="../-store/index.html"><span class="identifier">Store</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="value-inline.html">valueInline</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">valueInline</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="value-loader.html">valueLoader</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">valueLoader</span><span class="symbol">: </span><span class="symbol">(</span><span class="identifier">K</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="value-serializer.html">valueSerializer</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">valueSerializer</span><span class="symbol">: </span><a href="../-serializer/index.html"><span class="identifier">Serializer</span></a><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="values.html">values</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">values</span><span class="symbol">: </span><span class="identifier">MutableCollection</span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">?</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="calculate-collision-size.html">calculateCollisionSize</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">calculateCollisionSize</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">&lt;</span><span class="identifier">Long</span><span class="symbol">,</span>&nbsp;<span class="identifier">Long</span><span class="symbol">&gt;</span></code><p>calculates number of collisions and total size of this set.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="check-thread-safe.html">checkThreadSafe</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">checkThreadSafe</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code><p>checks all subcomponents, if this component is really thread safe, and throws an exception if not thread safe</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="clear.html">clear</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">clear</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">clear</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.HTreeMap$clear(kotlin.Int)/notifyListeners">notifyListeners</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span>&nbsp;<span class="symbol">=</span>&nbsp;1<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="clear2.html">clear2</a></td>
+<td>
+<code><span class="keyword">fun </span><s><span class="identifier">clear2</span></s><span class="symbol">(</span><span class="identifier" id="org.mapdb.HTreeMap$clear2(kotlin.Boolean)/notifyListeners">notifyListeners</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="clear-with-expire.html">clearWithExpire</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">clearWithExpire</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code><p>Removes all entries from this Map, and notifies listeners as if content has expired.
+This will cause expired content to overflow to secondary collections etc</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="clear-without-notification.html">clearWithoutNotification</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">clearWithoutNotification</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code><p>Removes all entries from this Map, but does not notify modification listeners</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="close.html">close</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">close</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="contains-key.html">containsKey</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">containsKey</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.HTreeMap$containsKey(org.mapdb.HTreeMap.K)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="contains-value.html">containsValue</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">containsValue</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.HTreeMap$containsValue(org.mapdb.HTreeMap.V)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="equals.html">equals</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">equals</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.HTreeMap$equals(kotlin.Any)/other">other</span><span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="expire-evict.html">expireEvict</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">expireEvict</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code><p>releases old stuff from queue</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="expire-evict-entry.html">expireEvictEntry</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">expireEvictEntry</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.HTreeMap$expireEvictEntry(kotlin.Int, kotlin.Long, kotlin.Long)/segment">segment</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$expireEvictEntry(kotlin.Int, kotlin.Long, kotlin.Long)/leafRecid">leafRecid</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$expireEvictEntry(kotlin.Int, kotlin.Long, kotlin.Long)/nodeRecid">nodeRecid</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="expire-evict-segment.html">expireEvictSegment</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">expireEvictSegment</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.HTreeMap$expireEvictSegment(kotlin.Int)/segment">segment</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="expire-id.html">expireId</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">expireId</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.HTreeMap$expireId(kotlin.Long, kotlin.Long)/nodeRecid">nodeRecid</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$expireId(kotlin.Long, kotlin.Long)/queue">queue</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="expire-node-recid-for.html">expireNodeRecidFor</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">expireNodeRecidFor</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.HTreeMap$expireNodeRecidFor(kotlin.Long)/expireId">expireId</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="expire-queue-for.html">expireQueueFor</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">expireQueueFor</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.HTreeMap$expireQueueFor(kotlin.Int, kotlin.Long)/segment">segment</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$expireQueueFor(kotlin.Int, kotlin.Long)/expireId">expireId</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-queue-long/index.html"><span class="identifier">QueueLong</span></a></code></td>
+</tr>
+<tr>
+<td>
+<a href="for-each.html">forEach</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">forEach</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.HTreeMap$forEach(java.util.function.BiConsumer((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)))/action">action</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/util/function/BiConsumer.html"><span class="identifier">BiConsumer</span></a><span class="symbol">&lt;</span><span class="keyword">in</span>&nbsp;<span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="keyword">in</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="for-each-key.html">forEachKey</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">forEachKey</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.HTreeMap$forEachKey(kotlin.Function1((org.mapdb.HTreeMap.K, kotlin.Unit)))/action">action</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">K</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">Unit</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="for-each-value.html">forEachValue</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">forEachValue</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.HTreeMap$forEachValue(kotlin.Function1((org.mapdb.HTreeMap.V, kotlin.Unit)))/action">action</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">V</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">Unit</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="get.html">get</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">get</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.HTreeMap$get(org.mapdb.HTreeMap.K)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">V</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="getprotected.html">getprotected</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getprotected</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.HTreeMap$getprotected(kotlin.Int, org.mapdb.HTreeMap.K, kotlin.Boolean)/hash">hash</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$getprotected(kotlin.Int, org.mapdb.HTreeMap.K, kotlin.Boolean)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$getprotected(kotlin.Int, org.mapdb.HTreeMap.K, kotlin.Boolean)/updateQueue">updateQueue</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">V</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="hash.html">hash</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">hash</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.HTreeMap$hash(org.mapdb.HTreeMap.K)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="hash-code.html">hashCode</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">hashCode</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="hash-to-index.html">hashToIndex</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">hashToIndex</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.HTreeMap$hashToIndex(kotlin.Int)/hash">hash</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="hash-to-segment.html">hashToSegment</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">hashToSegment</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.HTreeMap$hashToSegment(kotlin.Int)/hash">hash</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Int</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="htree-entry.html">htreeEntry</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">htreeEntry</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.HTreeMap$htreeEntry(org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$htreeEntry(org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)/valueOrig">valueOrig</span><span class="symbol">:</span>&nbsp;<span class="identifier">V</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableEntry</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">?</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="htree-iterator.html">htreeIterator</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">htreeIterator</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.HTreeMap$htreeIterator(kotlin.Int, kotlin.Function2((kotlin.Any, , org.mapdb.HTreeMap.htreeIterator.E)))/segment">segment</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$htreeIterator(kotlin.Int, kotlin.Function2((kotlin.Any, , org.mapdb.HTreeMap.htreeIterator.E)))/loadNext">loadNext</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">Any</span><span class="symbol">,</span>&nbsp;<span class="identifier">Any</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">E</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MutableIterator</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="is-closed.html">isClosed</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">isClosed</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="is-empty.html">isEmpty</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">isEmpty</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="leaf-get.html">leafGet</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">leafGet</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.HTreeMap$leafGet(org.mapdb.Store, kotlin.Long)/store">store</span><span class="symbol">:</span>&nbsp;<a href="../-store/index.html"><span class="identifier">Store</span></a><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$leafGet(org.mapdb.Store, kotlin.Long)/leafRecid">leafRecid</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Array</span><span class="symbol">&lt;</span><span class="identifier">Any</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="listener-notify.html">listenerNotify</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">listenerNotify</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.HTreeMap$listenerNotify(org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V, org.mapdb.HTreeMap.V, kotlin.Boolean)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$listenerNotify(org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V, org.mapdb.HTreeMap.V, kotlin.Boolean)/oldValue">oldValue</span><span class="symbol">:</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$listenerNotify(org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V, org.mapdb.HTreeMap.V, kotlin.Boolean)/newValue">newValue</span><span class="symbol">:</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$listenerNotify(org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V, org.mapdb.HTreeMap.V, kotlin.Boolean)/triggered">triggered</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="put.html">put</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">put</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.HTreeMap$put(org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$put(org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">V</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="put-all.html">putAll</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">putAll</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.HTreeMap$putAll(kotlin.collections.Map((org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)))/from">from</span><span class="symbol">:</span>&nbsp;<span class="identifier">Map</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="put-if-absent.html">putIfAbsent</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">putIfAbsent</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.HTreeMap$putIfAbsent(org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$putIfAbsent(org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">V</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="put-if-absent-boolean.html">putIfAbsentBoolean</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">putIfAbsentBoolean</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.HTreeMap$putIfAbsentBoolean(org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$putIfAbsentBoolean(org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code><p>Atomically associates the specified key with the given value if it is
+not already associated with a value.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="putprotected.html">putprotected</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">putprotected</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.HTreeMap$putprotected(kotlin.Int, org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V, kotlin.Boolean)/hash">hash</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$putprotected(kotlin.Int, org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V, kotlin.Boolean)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$putprotected(kotlin.Int, org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V, kotlin.Boolean)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">V</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$putprotected(kotlin.Int, org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V, kotlin.Boolean)/triggered">triggered</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">V</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="remove.html">remove</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">remove</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.HTreeMap$remove(org.mapdb.HTreeMap.K)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">V</span><span class="symbol">?</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">remove</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.HTreeMap$remove(kotlin.Any, kotlin.Any)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$remove(kotlin.Any, kotlin.Any)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="removeprotected.html">removeprotected</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">removeprotected</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.HTreeMap$removeprotected(kotlin.Int, org.mapdb.HTreeMap.K, kotlin.Boolean)/hash">hash</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$removeprotected(kotlin.Int, org.mapdb.HTreeMap.K, kotlin.Boolean)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$removeprotected(kotlin.Int, org.mapdb.HTreeMap.K, kotlin.Boolean)/evicted">evicted</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">V</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="replace.html">replace</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">replace</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.HTreeMap$replace(org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V, org.mapdb.HTreeMap.V)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$replace(org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V, org.mapdb.HTreeMap.V)/oldValue">oldValue</span><span class="symbol">:</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$replace(org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V, org.mapdb.HTreeMap.V)/newValue">newValue</span><span class="symbol">:</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">replace</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.HTreeMap$replace(org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">K</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$replace(org.mapdb.HTreeMap.K, org.mapdb.HTreeMap.V)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">V</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">V</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="size-long.html">sizeLong</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">sizeLong</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code><p>map size as long number</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="value-unwrap.html">valueUnwrap</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">valueUnwrap</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.HTreeMap$valueUnwrap(kotlin.Int, kotlin.Any)/segment">segment</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$valueUnwrap(kotlin.Int, kotlin.Any)/wrappedValue">wrappedValue</span><span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">V</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="value-wrap.html">valueWrap</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">valueWrap</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.HTreeMap$valueWrap(kotlin.Int, org.mapdb.HTreeMap.V)/segment">segment</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap$valueWrap(kotlin.Int, org.mapdb.HTreeMap.V)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">V</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Any</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="verify.html">verify</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">verify</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="-q-u-e-u-e_-c-r-e-a-t-e.html">QUEUE_CREATE</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">QUEUE_CREATE</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="-q-u-e-u-e_-g-e-t.html">QUEUE_GET</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">QUEUE_GET</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="-q-u-e-u-e_-u-p-d-a-t-e.html">QUEUE_UPDATE</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">QUEUE_UPDATE</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="make.html">make</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">, </span><span class="identifier">V</span><span class="symbol">&gt;</span> <span class="identifier">make</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.HTreeMap.Companion$make(org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)))), java.io.Closeable)/keySerializer">keySerializer</span><span class="symbol">:</span>&nbsp;<a href="../-serializer/index.html"><span class="identifier">Serializer</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;Serializer.ELSA as Serializer&lt;K&gt;<span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap.Companion$make(org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)))), java.io.Closeable)/valueSerializer">valueSerializer</span><span class="symbol">:</span>&nbsp;<a href="../-serializer/index.html"><span class="identifier">Serializer</span></a><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;Serializer.ELSA as Serializer&lt;V&gt;<span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap.Companion$make(org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)))), java.io.Closeable)/valueInline">valueInline</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap.Companion$make(org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)))), java.io.Closeable)/concShift">concShift</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span>&nbsp;<span class="symbol">=</span>&nbsp;CC.HTREEMAP_CONC_SHIFT<span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap.Companion$make(org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)))), java.io.Closeable)/dirShift">dirShift</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span>&nbsp;<span class="symbol">=</span>&nbsp;CC.HTREEMAP_DIR_SHIFT<span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap.Companion$make(org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)))), java.io.Closeable)/levels">levels</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span>&nbsp;<span class="symbol">=</span>&nbsp;CC.HTREEMAP_LEVELS<span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap.Companion$make(org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)))), java.io.Closeable)/stores">stores</span><span class="symbol">:</span>&nbsp;<span class="identifier">Array</span><span class="symbol">&lt;</span><a href="../-store/index.html"><span class="identifier">Store</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;Array(1.shl(concShift), {StoreTrivial()})<span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap.Companion$make(org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)))), java.io.Closeable)/indexTrees">indexTrees</span><span class="symbol">:</span>&nbsp;<span class="identifier">Array</span><span class="symbol">&lt;</span><span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;Array(1.shl(concShift), { i-&gt;IndexTreeLongLongMap.make(stores[i], levels=levels, dirShift = dirShift)})<span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap.Companion$make(org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)))), java.io.Closeable)/hashSeed">hashSeed</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span>&nbsp;<span class="symbol">=</span>&nbsp;SecureRandom().nextInt()<span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap.Companion$make(org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)))), java.io.Closeable)/counterRecids">counterRecids</span><span class="symbol">:</span>&nbsp;<span class="identifier">LongArray</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap.Companion$make(org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)))), java.io.Closeable)/expireCreateTTL">expireCreateTTL</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span>&nbsp;<span class="symbol">=</span>&nbsp;0L<span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap.Companion$make(org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)))), java.io.Closeable)/expireUpdateTTL">expireUpdateTTL</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span>&nbsp;<span class="symbol">=</span>&nbsp;0L<span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap.Companion$make(org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)))), java.io.Closeable)/expireGetTTL">expireGetTTL</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span>&nbsp;<span class="symbol">=</span>&nbsp;0L<span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap.Companion$make(org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)))), java.io.Closeable)/expireMaxSize">expireMaxSize</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span>&nbsp;<span class="symbol">=</span>&nbsp;0L<span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap.Companion$make(org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)))), java.io.Closeable)/expireStoreSize">expireStoreSize</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span>&nbsp;<span class="symbol">=</span>&nbsp;0L<span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap.Companion$make(org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)))), java.io.Closeable)/expireCreateQueues">expireCreateQueues</span><span class="symbol">:</span>&nbsp;<span class="identifier">Array</span><span class="symbol">&lt;</span><a href="../-queue-long/index.html"><span class="identifier">QueueLong</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;if(expireCreateTTL&lt;=0L) null else Array(stores.size, { i-&gt;QueueLong.make(store = stores[i])})<span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap.Companion$make(org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)))), java.io.Closeable)/expireUpdateQueues">expireUpdateQueues</span><span class="symbol">:</span>&nbsp;<span class="identifier">Array</span><span class="symbol">&lt;</span><a href="../-queue-long/index.html"><span class="identifier">QueueLong</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;if(expireUpdateTTL&lt;=0L) null else Array(stores.size, { i-&gt;QueueLong.make(store = stores[i])})<span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap.Companion$make(org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)))), java.io.Closeable)/expireGetQueues">expireGetQueues</span><span class="symbol">:</span>&nbsp;<span class="identifier">Array</span><span class="symbol">&lt;</span><a href="../-queue-long/index.html"><span class="identifier">QueueLong</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;if(expireGetTTL&lt;=0L) null else Array(stores.size, { i-&gt;QueueLong.make(store = stores[i])})<span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap.Companion$make(org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)))), java.io.Closeable)/expireExecutor">expireExecutor</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/ScheduledExecutorService.html"><span class="identifier">ScheduledExecutorService</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap.Companion$make(org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)))), java.io.Closeable)/expireExecutorPeriod">expireExecutorPeriod</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span>&nbsp;<span class="symbol">=</span>&nbsp;0<span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap.Companion$make(org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)))), java.io.Closeable)/expireCompactThreshold">expireCompactThreshold</span><span class="symbol">:</span>&nbsp;<span class="identifier">Double</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap.Companion$make(org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)))), java.io.Closeable)/isThreadSafe">isThreadSafe</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap.Companion$make(org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)))), java.io.Closeable)/valueLoader">valueLoader</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">K</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">V</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap.Companion$make(org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)))), java.io.Closeable)/modificationListeners">modificationListeners</span><span class="symbol">:</span>&nbsp;<span class="identifier">Array</span><span class="symbol">&lt;</span><a href="../-map-modification-listener/index.html"><span class="identifier">MapModificationListener</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="org.mapdb.HTreeMap.Companion$make(org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.K)), org.mapdb.Serializer((org.mapdb.HTreeMap.Companion.make.V)), kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Array((org.mapdb.Store)), kotlin.Array(()), kotlin.Int, kotlin.LongArray, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Long, kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), kotlin.Array((org.mapdb.QueueLong)), java.util.concurrent.ScheduledExecutorService, kotlin.Long, kotlin.Double, kotlin.Boolean, kotlin.Function1((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)), kotlin.Array((org.mapdb.MapModificationListener((org.mapdb.HTreeMap.Companion.make.K, org.mapdb.HTreeMap.Companion.make.V)))), java.io.Closeable)/closeable">closeable</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/io/Closeable.html"><span class="identifier">Closeable</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">HTreeMap</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code><p>constructor with default values</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

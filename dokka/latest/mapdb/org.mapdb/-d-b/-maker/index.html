@@ -1,0 +1,184 @@
+<HTML>
+<HEAD>
+<title>DB.Maker - </title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">org.mapdb</a>&nbsp;/&nbsp;<a href="../index.html">DB</a>&nbsp;/&nbsp;<a href=".">Maker</a><br/>
+<br/>
+<h1>Maker</h1>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">Maker</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span></code><br/>
+<br/>
+<br/>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="-init-.html">&lt;init&gt;</a></td>
+<td>
+<code><span class="identifier">Maker</span><span class="symbol">(</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="db.html">db</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">db</span><span class="symbol">: </span><a href="../index.html"><span class="identifier">DB</span></a></code></td>
+</tr>
+<tr>
+<td>
+<a href="name.html">name</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">name</span><span class="symbol">: </span><span class="identifier">String</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="type.html">type</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">type</span><span class="symbol">: </span><span class="identifier">String</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="create.html">create</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">create</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">E</span></code><p>Creates new collection if it does not exist, or throw {@link DBException.WrongConfiguration}
+if collection already exists.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="create2.html">create2</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">create2</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DB.Maker$create2(java.util.SortedMap((kotlin.String, )))/catalog">catalog</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/util/SortedMap.html"><span class="identifier">SortedMap</span></a><span class="symbol">&lt;</span><span class="identifier">String</span><span class="symbol">,</span>&nbsp;<span class="identifier">String</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">E</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="create-or-open.html">createOrOpen</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">createOrOpen</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">E</span></code><p>Create new collection or open existing.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="make.html">make</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><s><span class="identifier">make</span></s><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">E</span></code><p>Create new collection or open existing.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="make2.html">make2</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">make2</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DB.Maker$make2(kotlin.Boolean)/create">create</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">E</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="make-or-get.html">makeOrGet</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><s><span class="identifier">makeOrGet</span></s><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">E</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="open.html">open</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">open</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">E</span></code><p>Open existing collection, or throw {@link DBException.WrongConfiguration}
+if collection already exists.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="open2.html">open2</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">open2</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DB.Maker$open2(java.util.SortedMap((kotlin.String, )))/catalog">catalog</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/util/SortedMap.html"><span class="identifier">SortedMap</span></a><span class="symbol">&lt;</span><span class="identifier">String</span><span class="symbol">,</span>&nbsp;<span class="identifier">String</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">E</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="verify.html">verify</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">verify</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="../-atomic-boolean-maker/index.html">AtomicBooleanMaker</a></td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">AtomicBooleanMaker</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Maker</span><span class="symbol">&lt;</span><a href="../../-atomic/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-atomic-integer-maker/index.html">AtomicIntegerMaker</a></td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">AtomicIntegerMaker</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Maker</span><span class="symbol">&lt;</span><a href="../../-atomic/-integer/index.html"><span class="identifier">Integer</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-atomic-long-maker/index.html">AtomicLongMaker</a></td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">AtomicLongMaker</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Maker</span><span class="symbol">&lt;</span><a href="../../-atomic/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-atomic-string-maker/index.html">AtomicStringMaker</a></td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">AtomicStringMaker</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Maker</span><span class="symbol">&lt;</span><a href="../../-atomic/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-atomic-var-maker/index.html">AtomicVarMaker</a></td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">AtomicVarMaker</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Maker</span><span class="symbol">&lt;</span><a href="../../-atomic/-var/index.html"><span class="identifier">Var</span></a><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-hash-map-maker/index.html">HashMapMaker</a></td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">HashMapMaker</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">, </span><span class="identifier">V</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Maker</span><span class="symbol">&lt;</span><a href="../../-h-tree-map/index.html"><span class="identifier">HTreeMap</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-hash-set-maker/index.html">HashSetMaker</a></td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">HashSetMaker</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Maker</span><span class="symbol">&lt;</span><a href="../../-h-tree-map/-key-set/index.html"><span class="identifier">KeySet</span></a><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-index-tree-list-maker/index.html">IndexTreeListMaker</a></td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">IndexTreeListMaker</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Maker</span><span class="symbol">&lt;</span><a href="../../-index-tree-list/index.html"><span class="identifier">IndexTreeList</span></a><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-index-tree-long-long-map-maker/index.html">IndexTreeLongLongMapMaker</a></td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">IndexTreeLongLongMapMaker</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Maker</span><span class="symbol">&lt;</span><a href="../../-index-tree-long-long-map/index.html"><span class="identifier">IndexTreeLongLongMap</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-tree-map-maker/index.html">TreeMapMaker</a></td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">TreeMapMaker</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">, </span><span class="identifier">V</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Maker</span><span class="symbol">&lt;</span><a href="../../-b-tree-map/index.html"><span class="identifier">BTreeMap</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-tree-set-maker/index.html">TreeSetMaker</a></td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">TreeSetMaker</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Maker</span><span class="symbol">&lt;</span><a href="http://docs.oracle.com/javase/6/docs/api/java/util/NavigableSet.html"><span class="identifier">NavigableSet</span></a><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

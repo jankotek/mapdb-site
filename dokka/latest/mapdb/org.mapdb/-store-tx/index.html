@@ -1,0 +1,126 @@
+<HTML>
+<HEAD>
+<title>StoreTx - </title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">org.mapdb</a>&nbsp;/&nbsp;<a href=".">StoreTx</a><br/>
+<br/>
+<h1>StoreTx</h1>
+<code><span class="keyword">interface </span><span class="identifier">StoreTx</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-store/index.html"><span class="identifier">Store</span></a></code><br/>
+<p>Stores records, transactional version</p>
+<br/>
+<br/>
+<h3>Inherited Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="../-store/is-closed.html">isClosed</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">isClosed</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-store/is-read-only.html">isReadOnly</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">isReadOnly</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="rollback.html">rollback</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">rollback</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="../-store/close.html">close</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">close</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-store/commit.html">commit</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">commit</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-store/compact.html">compact</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">compact</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-store/compare-and-swap.html">compareAndSwap</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span> <span class="identifier">compareAndSwap</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.Store$compareAndSwap(kotlin.Long, org.mapdb.Store.compareAndSwap.R, org.mapdb.Store.compareAndSwap.R, org.mapdb.Serializer((org.mapdb.Store.compareAndSwap.R)))/recid">recid</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.Store$compareAndSwap(kotlin.Long, org.mapdb.Store.compareAndSwap.R, org.mapdb.Store.compareAndSwap.R, org.mapdb.Serializer((org.mapdb.Store.compareAndSwap.R)))/expectedOldRecord">expectedOldRecord</span><span class="symbol">:</span>&nbsp;<span class="identifier">R</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.Store$compareAndSwap(kotlin.Long, org.mapdb.Store.compareAndSwap.R, org.mapdb.Store.compareAndSwap.R, org.mapdb.Serializer((org.mapdb.Store.compareAndSwap.R)))/newRecord">newRecord</span><span class="symbol">:</span>&nbsp;<span class="identifier">R</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.Store$compareAndSwap(kotlin.Long, org.mapdb.Store.compareAndSwap.R, org.mapdb.Store.compareAndSwap.R, org.mapdb.Serializer((org.mapdb.Store.compareAndSwap.R)))/serializer">serializer</span><span class="symbol">:</span>&nbsp;<a href="../-serializer/index.html"><span class="identifier">Serializer</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-store/delete.html">delete</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span> <span class="identifier">delete</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.Store$delete(kotlin.Long, org.mapdb.Serializer((org.mapdb.Store.delete.R)))/recid">recid</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.Store$delete(kotlin.Long, org.mapdb.Serializer((org.mapdb.Store.delete.R)))/serializer">serializer</span><span class="symbol">:</span>&nbsp;<a href="../-serializer/index.html"><span class="identifier">Serializer</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-store/file-load.html">fileLoad</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">fileLoad</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-store/preallocate.html">preallocate</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">preallocate</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-store/put.html">put</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span> <span class="identifier">put</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.Store$put(org.mapdb.Store.put.R, org.mapdb.Serializer((org.mapdb.Store.put.R)))/record">record</span><span class="symbol">:</span>&nbsp;<span class="identifier">R</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.Store$put(org.mapdb.Store.put.R, org.mapdb.Serializer((org.mapdb.Store.put.R)))/serializer">serializer</span><span class="symbol">:</span>&nbsp;<a href="../-serializer/index.html"><span class="identifier">Serializer</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Long</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-store/update.html">update</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span> <span class="identifier">update</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.Store$update(kotlin.Long, org.mapdb.Store.update.R, org.mapdb.Serializer((org.mapdb.Store.update.R)))/recid">recid</span><span class="symbol">:</span>&nbsp;<span class="identifier">Long</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.Store$update(kotlin.Long, org.mapdb.Store.update.R, org.mapdb.Serializer((org.mapdb.Store.update.R)))/record">record</span><span class="symbol">:</span>&nbsp;<span class="identifier">R</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="org.mapdb.Store$update(kotlin.Long, org.mapdb.Store.update.R, org.mapdb.Serializer((org.mapdb.Store.update.R)))/serializer">serializer</span><span class="symbol">:</span>&nbsp;<a href="../-serializer/index.html"><span class="identifier">Serializer</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-store/verify.html">verify</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">verify</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="../-store-trivial-tx/index.html">StoreTrivialTx</a></td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">StoreTrivialTx</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-store-trivial/index.html"><span class="identifier">StoreTrivial</span></a><span class="symbol">, </span><span class="identifier">StoreTx</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="../-store-w-a-l/index.html">StoreWAL</a></td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">StoreWAL</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-store-direct-abstract/index.html"><span class="identifier">StoreDirectAbstract</span></a><span class="symbol">, </span><span class="identifier">StoreTx</span></code><p>StoreDirect with write ahead log</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

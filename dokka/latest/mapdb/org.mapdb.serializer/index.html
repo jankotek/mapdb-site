@@ -1,0 +1,356 @@
+<HTML>
+<HEAD>
+<title>org.mapdb.serializer - </title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href=".">org.mapdb.serializer</a><br/>
+<br/>
+<h2>Package org.mapdb.serializer</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="-group-serializer/index.html">GroupSerializer</a></td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">GroupSerializer</span><span class="symbol">&lt;</span><span class="identifier">A</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../org.mapdb/-serializer/index.html"><span class="identifier">Serializer</span></a><span class="symbol">&lt;</span><span class="identifier">A</span><span class="symbol">&gt;</span></code><p>Created by jan on 2/29/16. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-group-serializer-object-array/index.html">GroupSerializerObjectArray</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">GroupSerializerObjectArray</span><span class="symbol">&lt;</span><span class="identifier">A</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">A</span><span class="symbol">&gt;</span></code><p>Created by jan on 2/29/16. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-serializer-array/index.html">SerializerArray</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SerializerArray</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-group-serializer-object-array/index.html"><span class="identifier">GroupSerializerObjectArray</span></a><span class="symbol">&lt;</span><span class="identifier">Array</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code><p>Serializes an object array of non-primitive objects. This serializer takes two parameters: - serializer used for each component - componentType is class used to instantiate arrays. Generics are erased at runtime, this class controls what type of array will be instantiated. See <code><a href="#">java.lang.reflect.Array#newInstance(Class, int)</a></code> </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-serializer-array-delta/index.html">SerializerArrayDelta</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SerializerArrayDelta</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-serializer-array/index.html"><span class="identifier">SerializerArray</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code><p>Created by jan on 2/28/16. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-serializer-array-tuple/index.html">SerializerArrayTuple</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SerializerArrayTuple</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">Array</span><span class="symbol">&lt;</span><span class="identifier">Any</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code><p>Serializer for tuples. It serializes fixed size array, where each array index can use different serializer. It takes array of serializes in constructor parameter. All tuples (arrays) must have the same size. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-serializer-big-decimal/index.html">SerializerBigDecimal</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SerializerBigDecimal</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-group-serializer-object-array/index.html"><span class="identifier">GroupSerializerObjectArray</span></a><span class="symbol">&lt;</span><a href="http://docs.oracle.com/javase/6/docs/api/java/math/BigDecimal.html"><span class="identifier">BigDecimal</span></a><span class="symbol">&gt;</span></code><p>Created by jan on 2/28/16. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-serializer-big-integer/index.html">SerializerBigInteger</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SerializerBigInteger</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-group-serializer-object-array/index.html"><span class="identifier">GroupSerializerObjectArray</span></a><span class="symbol">&lt;</span><a href="http://docs.oracle.com/javase/6/docs/api/java/math/BigInteger.html"><span class="identifier">BigInteger</span></a><span class="symbol">&gt;</span></code><p>Created by jan on 2/28/16. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-serializer-boolean/index.html">SerializerBoolean</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SerializerBoolean</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">Boolean</span><span class="symbol">&gt;</span></code><p>Created by jan on 2/28/16. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-serializer-byte/index.html">SerializerByte</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SerializerByte</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-group-serializer-object-array/index.html"><span class="identifier">GroupSerializerObjectArray</span></a><span class="symbol">&lt;</span><span class="identifier">Byte</span><span class="symbol">&gt;</span></code><p>Created by jan on 2/28/16. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-serializer-byte-array/index.html">SerializerByteArray</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SerializerByteArray</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">ByteArray</span><span class="symbol">&gt;</span></code><p>Created by jan on 2/28/16. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-serializer-byte-array-delta/index.html">SerializerByteArrayDelta</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SerializerByteArrayDelta</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-serializer-byte-array/index.html"><span class="identifier">SerializerByteArray</span></a></code><p>Created by jan on 2/29/16. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-serializer-byte-array-delta2/index.html">SerializerByteArrayDelta2</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SerializerByteArrayDelta2</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">ByteArray</span><span class="symbol">&gt;</span></code><p>Created by jan on 2/29/16. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-serializer-byte-array-no-size/index.html">SerializerByteArrayNoSize</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SerializerByteArrayNoSize</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../org.mapdb/-serializer/index.html"><span class="identifier">Serializer</span></a><span class="symbol">&lt;</span><span class="identifier">ByteArray</span><span class="symbol">&gt;</span></code><p>Created by jan on 2/28/16. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-serializer-char/index.html">SerializerChar</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SerializerChar</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-group-serializer-object-array/index.html"><span class="identifier">GroupSerializerObjectArray</span></a><span class="symbol">&lt;</span><span class="identifier">Char</span><span class="symbol">&gt;</span></code><p>Created by jan on 2/28/16. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-serializer-char-array/index.html">SerializerCharArray</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SerializerCharArray</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-group-serializer-object-array/index.html"><span class="identifier">GroupSerializerObjectArray</span></a><span class="symbol">&lt;</span><span class="identifier">CharArray</span><span class="symbol">&gt;</span></code><p>Created by jan on 2/28/16. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-serializer-class/index.html">SerializerClass</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SerializerClass</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-group-serializer-object-array/index.html"><span class="identifier">GroupSerializerObjectArray</span></a><span class="symbol">&lt;</span><a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code><p>Serialier for class. It takes a class loader as constructor param, by default it uses <code>Thread.currentThread().getContextClassLoader()</code> </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-serializer-compression-deflate-wrapper/index.html">SerializerCompressionDeflateWrapper</a></td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">SerializerCompressionDeflateWrapper</span><span class="symbol">&lt;</span><span class="identifier">E</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span><span class="symbol">, </span><a href="http://docs.oracle.com/javase/6/docs/api/java/io/Serializable.html"><span class="identifier">Serializable</span></a></code><p>wraps another serializer and (de)compresses its output/input using Deflate</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-serializer-compression-wrapper/index.html">SerializerCompressionWrapper</a></td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">SerializerCompressionWrapper</span><span class="symbol">&lt;</span><span class="identifier">E</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span><span class="symbol">, </span><a href="http://docs.oracle.com/javase/6/docs/api/java/io/Serializable.html"><span class="identifier">Serializable</span></a></code><p>wraps another serializer and (de)compresses its output/input</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-serializer-date/index.html">SerializerDate</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SerializerDate</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-serializer-eight-byte/index.html"><span class="identifier">SerializerEightByte</span></a><span class="symbol">&lt;</span><a href="http://docs.oracle.com/javase/6/docs/api/java/util/Date.html"><span class="identifier">Date</span></a><span class="symbol">&gt;</span></code><p>Created by jan on 2/28/16. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-serializer-double/index.html">SerializerDouble</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SerializerDouble</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-serializer-eight-byte/index.html"><span class="identifier">SerializerEightByte</span></a><span class="symbol">&lt;</span><span class="identifier">Double</span><span class="symbol">&gt;</span></code><p>Created by jan on 2/28/16. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-serializer-double-array/index.html">SerializerDoubleArray</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SerializerDoubleArray</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-group-serializer-object-array/index.html"><span class="identifier">GroupSerializerObjectArray</span></a><span class="symbol">&lt;</span><span class="identifier">DoubleArray</span><span class="symbol">&gt;</span></code><p>Created by jan on 2/28/16. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-serializer-eight-byte/index.html">SerializerEightByte</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">SerializerEightByte</span><span class="symbol">&lt;</span><span class="identifier">E</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="-serializer-elsa/index.html">SerializerElsa</a></td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">SerializerElsa</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-group-serializer-object-array/index.html"><span class="identifier">GroupSerializerObjectArray</span></a><span class="symbol">&lt;</span><span class="identifier">Any</span><span class="symbol">?</span><span class="symbol">&gt;</span></code><p>Uses Elsa serialization: http://www.github.com/jankotek/elsa</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-serializer-float/index.html">SerializerFloat</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SerializerFloat</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-serializer-four-byte/index.html"><span class="identifier">SerializerFourByte</span></a><span class="symbol">&lt;</span><span class="identifier">Float</span><span class="symbol">&gt;</span></code><p>Created by jan on 2/28/16. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-serializer-float-array/index.html">SerializerFloatArray</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SerializerFloatArray</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-group-serializer-object-array/index.html"><span class="identifier">GroupSerializerObjectArray</span></a><span class="symbol">&lt;</span><span class="identifier">FloatArray</span><span class="symbol">&gt;</span></code><p>Created by jan on 2/28/16. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-serializer-four-byte/index.html">SerializerFourByte</a></td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">SerializerFourByte</span><span class="symbol">&lt;</span><span class="identifier">E</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span></code><p>Created by jan on 2/28/16. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-serializer-illegal-access/index.html">SerializerIllegalAccess</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SerializerIllegalAccess</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-group-serializer-object-array/index.html"><span class="identifier">GroupSerializerObjectArray</span></a><span class="symbol">&lt;</span><span class="identifier">Any</span><span class="symbol">&gt;</span></code><p>Created by jan on 2/28/16. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-serializer-int-array/index.html">SerializerIntArray</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SerializerIntArray</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-group-serializer-object-array/index.html"><span class="identifier">GroupSerializerObjectArray</span></a><span class="symbol">&lt;</span><span class="identifier">IntArray</span><span class="symbol">&gt;</span></code><p>Created by jan on 2/28/16. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-serializer-integer/index.html">SerializerInteger</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SerializerInteger</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-serializer-four-byte/index.html"><span class="identifier">SerializerFourByte</span></a><span class="symbol">&lt;</span><span class="identifier">Int</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="-serializer-integer-delta/index.html">SerializerIntegerDelta</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SerializerIntegerDelta</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-serializer-integer/index.html"><span class="identifier">SerializerInteger</span></a></code><p>Created by jan on 2/28/16. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-serializer-integer-packed/index.html">SerializerIntegerPacked</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SerializerIntegerPacked</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-serializer-integer/index.html"><span class="identifier">SerializerInteger</span></a></code><p>Created by jan on 2/28/16. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-serializer-java/index.html">SerializerJava</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SerializerJava</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-group-serializer-object-array/index.html"><span class="identifier">GroupSerializerObjectArray</span></a><span class="symbol">&lt;</span><span class="identifier">Any</span><span class="symbol">&gt;</span></code><p>Created by jan on 2/28/16. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-serializer-long/index.html">SerializerLong</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SerializerLong</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-serializer-eight-byte/index.html"><span class="identifier">SerializerEightByte</span></a><span class="symbol">&lt;</span><span class="identifier">Long</span><span class="symbol">&gt;</span></code><p>Created by jan on 2/28/16. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-serializer-long-array/index.html">SerializerLongArray</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SerializerLongArray</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-group-serializer-object-array/index.html"><span class="identifier">GroupSerializerObjectArray</span></a><span class="symbol">&lt;</span><span class="identifier">LongArray</span><span class="symbol">&gt;</span></code><p>Created by jan on 2/28/16. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-serializer-long-delta/index.html">SerializerLongDelta</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SerializerLongDelta</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-serializer-long/index.html"><span class="identifier">SerializerLong</span></a></code><p>Created by jan on 2/28/16. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-serializer-long-packed/index.html">SerializerLongPacked</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SerializerLongPacked</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-serializer-long/index.html"><span class="identifier">SerializerLong</span></a></code><p>Created by jan on 2/28/16. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-serializer-recid/index.html">SerializerRecid</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SerializerRecid</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-serializer-eight-byte/index.html"><span class="identifier">SerializerEightByte</span></a><span class="symbol">&lt;</span><span class="identifier">Long</span><span class="symbol">&gt;</span></code><p>Created by jan on 2/28/16. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-serializer-recid-array/index.html">SerializerRecidArray</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SerializerRecidArray</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-serializer-long-array/index.html"><span class="identifier">SerializerLongArray</span></a></code><p>Created by jan on 2/28/16. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-serializer-short/index.html">SerializerShort</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SerializerShort</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-group-serializer-object-array/index.html"><span class="identifier">GroupSerializerObjectArray</span></a><span class="symbol">&lt;</span><span class="identifier">Short</span><span class="symbol">&gt;</span></code><p>Created by jan on 2/28/16. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-serializer-short-array/index.html">SerializerShortArray</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SerializerShortArray</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-group-serializer-object-array/index.html"><span class="identifier">GroupSerializerObjectArray</span></a><span class="symbol">&lt;</span><span class="identifier">ShortArray</span><span class="symbol">&gt;</span></code><p>Created by jan on 2/28/16. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-serializer-string/index.html">SerializerString</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SerializerString</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">String</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="-serializer-string-ascii/index.html">SerializerStringAscii</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SerializerStringAscii</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-group-serializer-object-array/index.html"><span class="identifier">GroupSerializerObjectArray</span></a><span class="symbol">&lt;</span><span class="identifier">String</span><span class="symbol">&gt;</span></code><p>Created by jan on 2/28/16. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-serializer-string-delta/index.html">SerializerStringDelta</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SerializerStringDelta</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-serializer-string/index.html"><span class="identifier">SerializerString</span></a></code><p>Created by jan on 2/29/16. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-serializer-string-delta2/index.html">SerializerStringDelta2</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SerializerStringDelta2</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><span class="identifier">String</span><span class="symbol">&gt;</span></code><p>Created by jan on 2/29/16. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-serializer-string-intern/index.html">SerializerStringIntern</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SerializerStringIntern</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-group-serializer-object-array/index.html"><span class="identifier">GroupSerializerObjectArray</span></a><span class="symbol">&lt;</span><span class="identifier">String</span><span class="symbol">&gt;</span></code><p>Created by jan on 2/28/16. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-serializer-string-no-size/index.html">SerializerStringNoSize</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SerializerStringNoSize</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../org.mapdb/-serializer/index.html"><span class="identifier">Serializer</span></a><span class="symbol">&lt;</span><span class="identifier">String</span><span class="symbol">&gt;</span></code><p>Created by jan on 2/28/16. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-serializer-string-orig-hash/index.html">SerializerStringOrigHash</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SerializerStringOrigHash</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-serializer-string/index.html"><span class="identifier">SerializerString</span></a></code><p>Created by jan on 2/28/16. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-serializer-u-u-i-d/index.html">SerializerUUID</a></td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">SerializerUUID</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-group-serializer/index.html"><span class="identifier">GroupSerializer</span></a><span class="symbol">&lt;</span><a href="http://docs.oracle.com/javase/6/docs/api/java/util/UUID.html"><span class="identifier">UUID</span></a><span class="symbol">&gt;</span></code><p>Created by jan on 2/28/16. </p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="-serializer-utils/index.html">SerializerUtils</a></td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">SerializerUtils</span></code><p>Created by jan on 2/28/16. </p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

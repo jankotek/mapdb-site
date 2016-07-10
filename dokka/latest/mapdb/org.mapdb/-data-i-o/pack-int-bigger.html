@@ -1,0 +1,25 @@
+<HTML>
+<HEAD>
+<title>DataIO.packIntBigger - </title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">org.mapdb</a>&nbsp;/&nbsp;<a href="index.html">DataIO</a>&nbsp;/&nbsp;<a href=".">packIntBigger</a><br/>
+<br/>
+<h1>packIntBigger</h1>
+<a name="org.mapdb.DataIO$packIntBigger(java.io.DataOutput, kotlin.Int)"></a>
+<code><span class="keyword">static</span> <span class="keyword">fun </span><span class="identifier">packIntBigger</span><span class="symbol">(</span><span class="identifier" id="org.mapdb.DataIO$packIntBigger(java.io.DataOutput, kotlin.Int)/out">out</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/io/DataOutput.html"><span class="identifier">DataOutput</span></a><span class="symbol">, </span><span class="identifier" id="org.mapdb.DataIO$packIntBigger(java.io.DataOutput, kotlin.Int)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">Int</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code><br/>
+<p>Pack int into an output stream. It will occupy 1-5 bytes depending on value (lower values occupy smaller space) This method is same as <code><a href="#">#packInt(DataOutput, int)</a></code>, but is optimized for values larger than 127. Usually it is recids. </p>
+<h3>Parameters</h3>
+<a name="out"></a>
+<code>out</code> - String to put value into <br/>
+<br/>
+<a name="value"></a>
+<code>value</code> - to be serialized, must be non-negative <br/>
+<h3>Exceptions</h3>
+<a name="java.io.IOException"></a>
+<code>java.io.IOException</code> - in case of IO error<br/>
+<br/>
+<br/>
+</BODY>
+</HTML>
