@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
-import java.nio.file.StandardOpenOption;
 
 import static blog.mmap_and_jvm_crash.MMap_Crash.file;
 
@@ -15,12 +14,13 @@ import static blog.mmap_and_jvm_crash.MMap_Crash.file;
 public class MMap_Crash_Preclear_RAF {
 
     public static void main(String[] args) throws IOException {
+        //#a
         byte[] buffer = new byte[1024*1024];
 
         RandomAccessFile raf = new RandomAccessFile(file, "rws");
         FileChannel channel = raf.getChannel();
 
-        //allocate in infinite cycle
+        // allocate in infinite cycle
         for(long offset=0; ; offset+=buffer.length){
 
             //preclear space before it is mapped, so there is no sparse file
@@ -35,5 +35,6 @@ public class MMap_Crash_Preclear_RAF {
             //this causes JVM crash if there is no free disk space and delayed write fails
             mappedBuffer.put(buffer, 0, buffer.length);
         }
+        //#z
     }
 }

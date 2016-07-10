@@ -15,11 +15,11 @@ public class htreemap_expiration_create_update {
     public void run() {
 
         DB db = DBMaker.memoryDB().make();
-        //a
+        //#a
         HTreeMap cache = db
                 .hashMap("cache")
                 .expireAfterUpdate(1000)
                 .create();
-        //z
+        //#z
     }
 }

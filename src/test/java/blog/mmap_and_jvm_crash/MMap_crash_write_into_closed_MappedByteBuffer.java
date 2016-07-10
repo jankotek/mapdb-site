@@ -17,7 +17,7 @@ public class MMap_crash_write_into_closed_MappedByteBuffer {
 
 
     public static void main(String[] args) throws IOException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
-        //a
+        //#a
         byte[] buffer = new byte[1024*1024];
 
         FileChannel channel = FileChannel.open(file.toPath(),
@@ -39,7 +39,7 @@ public class MMap_crash_write_into_closed_MappedByteBuffer {
         //now write into closed buffer, JVM will crash
         mappedBuffer.rewind();
         mappedBuffer.put(buffer, 0, buffer.length);
-        //z
+        //#z
     }
 
     static void unmap(ByteBuffer b) throws InvocationTargetException, IllegalAccessException, NoSuchMethodException {

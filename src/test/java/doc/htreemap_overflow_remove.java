@@ -42,14 +42,14 @@ public class htreemap_overflow_remove {
                 //good idea is to enable background expiration
                 .expireExecutor(Executors.newScheduledThreadPool(2))
                 .create();
-        //a
+        //#a
         //insert entry manually into both maps for demonstration
         inMemory.put("key", "map");
 
         //first remove from inMemory
         inMemory.remove("key");
         onDisk.get("key"); // -> not found
-        //z
+        //#z
         assertFalse(onDisk.containsKey("key"));
         onDisk.close();
         inMemory.close();

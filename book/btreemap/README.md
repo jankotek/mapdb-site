@@ -15,7 +15,7 @@ BTreeMap has optional parameters which can be specified with the use of a maker.
 
 The most important among them are **serializers**. General serialization has some guessing and overhead, so better performance is always achieved if more specific serializers are used. To specify the key and value serializer, use the code bellow. There are dozens ready to use serializers available as static fields on `Serializer` interface:
 
-<!--- #file#btreemap_serializer.java--->
+<!--- #file#doc/btreemap_serializer.java--->
 ```java
 BTreeMap<Long, String> map = db.treeMap("map")
         .keySerializer(Serializer.LONG)
@@ -26,7 +26,7 @@ Another useful parameter is the **size counter**. By default, a BTreeMap does no
 
 BTrees store all their keys and values as part of a btree node. Node size affects the performance a lot. A large node means that many keys have to be deserialized on lookup. A smaller node loads faster, but makes large BTrees deeper and requires more operations. The default maximal node size is 32 entries and it can be changed in this way:
 
-<!--- #file#btreemap_counter.java--->
+<!--- #file#doc/btreemap_counter.java--->
 ```java
 BTreeMap<Long, String> map = db
         .treeMap("map", Serializer.LONG, Serializer.STRING)
@@ -38,7 +38,7 @@ Values are also stored as part of BTree leaf nodes. Large value means huge overh
 Large values can also be compressed to save space. This example stores values
 outside BTree Leaf Node and applies compression on each value:
 
-<!--- #file#btreemap_compressed.java--->
+<!--- #file#doc/btreemap_compressed.java--->
 ```java
 BTreeMap<Long, String> map = db.treeMap("map")
         .valuesOutsideNodesEnable()
@@ -47,7 +47,7 @@ BTreeMap<Long, String> map = db.treeMap("map")
 ```
 BTreeMap needs to sort its key somehow. By default it relies on the `Comparable` interface implemented by most Java classes. In case this interface is not implemented, a key serializer must be provided. One can for example compare Object arrays:
 
-<!--- #file#btreemap_object_array.java--->
+<!--- #file#doc/btreemap_object_array.java--->
 ```java
 BTreeMap<Object[], Long> map = db.treeMap("map")
         // use array serializer for unknown objects
@@ -59,7 +59,7 @@ BTreeMap<Object[], Long> map = db.treeMap("map")
 ```
 Also primitive arrays can be used as keys. One can replace `String` by `byte[]`, which directly leads to better performance:
 
-<!--- #file#btreemap_byte_array.java--->
+<!--- #file#doc/btreemap_byte_array.java--->
 ```java
 BTreeMap<byte[], Long> map = db.treeMap("map")
         .keySerializer(Serializer.BYTE_ARRAY)
@@ -106,7 +106,7 @@ Prefix submaps
 
 For array based keys (tuples, Strings, or arrays) MapDB provides prefix submap. It uses intervals, so prefix submap is lazy, it does not load all keys. Here as example which uses prefix on `byte[]` keys:
 
-<!--- #file#btreemap_prefix_submap.java--->
+<!--- #file#doc/btreemap_prefix_submap.java--->
 ```java
 BTreeMap<byte[], Integer> map = db
         .treeMap("towns", Serializer.BYTE_ARRAY, Serializer.INTEGER)
@@ -128,7 +128,7 @@ MapDB allows composite keys in the form of `Object[]`. Interval submaps can be u
 
 Here is an example which creates `Map<Tuple3<String, String, Integer>, Double>` in the form of Object\[\]. First component is town, second is street and third component is house number. It has more parts, source code is on [github](https://github.com/jankotek/mapdb-site/blob/master/src/test/java/doc/btreemap_composite_keys.java) To serialize and compare tuples use`SerializerArrayTuple` which takes serializer for each tuple component as s constructor parameter:
 
-<!--- #file#btreemap_composite_keys.java#a1#a2--->
+<!--- #file#doc/btreemap_composite_keys.java#java#1--->
 ```java
 // initialize db and map
 DB db = DBMaker.memoryDB().make();
@@ -140,7 +140,7 @@ BTreeMap<Object[], Integer> map = db.treeMap("towns")
 ```
 Once map is populated we can get all houses in the town of Cong by using prefix submap (town is first component in tuple):
 
-<!--- #file#btreemap_composite_keys.java#b1#b2--->
+<!--- #file#doc/btreemap_composite_keys.java#java#2--->
 ```java
 //get all houses in Cong (town is primary component in tuple)
 Map<Object[], Integer> cong =
@@ -150,16 +150,12 @@ The prefix submap is equal to the range query which uses submap method:
 
 Interval submap can only filter components on the left side. To get components in the middle we have to combine the submap with a forloop:
 
-<!--- #file#btreemap_composite_keys.java#d1#d2--->
+<!--- #file#doc/btreemap_composite_keys.java#java#3--->
 ```java
-int total = 0;
-for(String town:towns){ //first loop iterates over towns
-    for(Integer salary: //second loop iterates over all houses on main street
-            map.prefixSubMap(new Object[]{town, "Main Street"}).values()){
-        total+=salary; //and calculate sum
-    }
-}
-System.out.println("Salary sum for all Main Streets is: "+total);
+cong = map.subMap(
+        new Object[]{"Cong"},           //shorter array is 'negative infinity'
+        new Object[]{"Cong",null,null} // null is positive infinity'
+);
 ```
 Submaps are modifiable, so we could delete all the houses within a town by calling clear() on submap etc..
 
@@ -170,7 +166,7 @@ Multimap is a Map which associates multiple values with a single key. An example
 
 There is a plan to implement Multimap from Guava and EC directly in MapDB. But until then there is an option to use SortedSet in combination with tuples and interval subsets. Here is an example which constructs Set, inserts some data and gets all values (second tuple component) associated with key (first tuple component):
 
-<!--- #file#btreemap_multimap.java--->
+<!--- #file#doc/btreemap_multimap.java--->
 ```java
 // initialize multimap: Map<String,List<Integer>>
 NavigableSet<Object[]> multimap = db.treeSet("towns")

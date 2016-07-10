@@ -10,11 +10,11 @@ public class btreemap_counter {
 
     public static void main(String[] args) {
         DB db = DBMaker.memoryDB().make();
-        //a
+        //#a
         BTreeMap<Long, String> map = db
                 .treeMap("map", Serializer.LONG, Serializer.STRING)
                 .counterEnable()
                 .createOrOpen();
-        //z
+        //#z
     }
 }

@@ -12,7 +12,7 @@ public class htreemap_string {
     @Test
     public void run(){
         DB db = DBMaker.memoryDB().make();
-        //a
+        //#a
         //this will use strong XXHash for Strings
         HTreeMap<String, Long> map = db.hashMap("map")
                 // by default it uses strong XXHash
@@ -26,6 +26,6 @@ public class htreemap_string {
                 .keySerializer(Serializer.STRING_ORIGHASH)
                 .valueSerializer(Serializer.LONG)
                 .create();
-        //z
+        //#z
     }
 }

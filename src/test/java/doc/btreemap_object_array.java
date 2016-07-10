@@ -11,7 +11,7 @@ public class btreemap_object_array {
 
     public static void main(String[] args) {
         DB db = DBMaker.memoryDB().make();
-        //a
+        //#a
         BTreeMap<Object[], Long> map = db.treeMap("map")
                 // use array serializer for unknown objects
                 // TODO db.getDefaultSerializer()
@@ -19,6 +19,6 @@ public class btreemap_object_array {
                 // or use serializer for specific objects such as String
                 .keySerializer(new SerializerArray(Serializer.STRING))
                 .createOrOpen();
-        //z
+        //#z
     }
 }

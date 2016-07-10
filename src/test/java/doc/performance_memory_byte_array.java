@@ -11,10 +11,10 @@ public class performance_memory_byte_array {
 
     @Test
     public void run() throws IOException {
-        //a
+        //#a
         DB db = DBMaker
             .memoryDB()
             .make();
-        //z
+        //#z
     }
 }

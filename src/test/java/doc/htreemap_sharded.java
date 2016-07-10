@@ -10,7 +10,7 @@ public class htreemap_sharded {
 
     @Test
     public void run() {
-        //a
+        //#a
         HTreeMap<String, byte[]> map = DBMaker
                 //param is number of Stores (concurrency factor)
                .memoryShardedHashMap(8)
@@ -20,6 +20,6 @@ public class htreemap_sharded {
 
         //DB does not exist, so close map directly
         map.close();
-        //z
+        //#z
     }
 }

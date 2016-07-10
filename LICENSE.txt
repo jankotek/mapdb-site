@@ -1,3 +1,9 @@
+Content of this site is under OPEN PUBLICATION LICENSE. You are required to keep your changes open-source and give a credit to original authors.
+
+HTML theme is under MIT license, see: https://mmistakes.github.io/minimal-mistakes/docs/license/
+
+
+
 OPEN PUBLICATION LICENCE
 
 

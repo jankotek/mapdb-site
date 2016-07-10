@@ -12,11 +12,11 @@ public class htreemap_hashseed {
     @Test
     public void run(){
         DB db = DBMaker.memoryDB().make();
-        //a
+        //#a
         HTreeMap<String, Long> map = db
                 .hashMap("map", Serializer.STRING, Serializer.LONG)
                 .hashSeed(111) //force Hash Seed value
                 .create();
-        //z
+        //#z
     }
 }

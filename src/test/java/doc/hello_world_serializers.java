@@ -13,7 +13,7 @@ public class hello_world_serializers {
 
     @Test
     public void run() throws IOException {
-        //a
+        //#a
         DB db = DBMaker
                 .fileDB("file.db")
                 //TODO memory mapped files enable here
@@ -24,7 +24,7 @@ public class hello_world_serializers {
         map.put("something", 111L);
 
         db.close();
-        //z
+        //#z
         //cleanup, not part of example
         new File("file.db").delete();
     }

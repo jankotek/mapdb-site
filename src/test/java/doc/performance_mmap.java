@@ -15,7 +15,7 @@ public class performance_mmap {
     public void run() throws IOException {
         File file = File.createTempFile("mapdb","mapdb");
         file.delete();
-        //a
+        //#a
         DB db = DBMaker
             .fileDB(file)
             .fileMmapEnable()            // Always enable mmap
@@ -30,6 +30,6 @@ public class performance_mmap {
 
         //optionally preload file content into disk cache
         db.getStore().fileLoad();
-        //z
+        //#z
     }
 }

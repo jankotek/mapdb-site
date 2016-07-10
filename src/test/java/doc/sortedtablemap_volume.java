@@ -15,7 +15,7 @@ public class sortedtablemap_volume {
 
     @Test
     public void run() throws IOException {
-        //a
+        //#a
         //create in-memory volume over byte[]
         Volume byteArrayVolume = ByteArrayVol.FACTORY.makeVolume(null, false);
 
@@ -30,7 +30,7 @@ public class sortedtablemap_volume {
         mmapVolume.close();
         mmapVolume = MappedFileVol.FACTORY.makeVolume(file.getPath(), true);
                                                                           //read-only=true
-        //z
+        //#z
     }
 
 }

@@ -13,7 +13,7 @@
 //        TxMaker txMaker = DBMaker
 //                .memoryDB()
 //                .makeTxMaker();
-//        //a
+//        //#a
 //        DB tx0 = txMaker.makeTx();
 //        Map map0 = tx0.treeMap("testMap");
 //        map0.put(0,"zero");
@@ -36,6 +36,6 @@
 //        tx2.commit();
 //        // second commit fails  with write conflict, both maps share single BTree node,
 //        // this does not happen on large maps with sufficient number of BTree nodes.
-//        //z
+//        //#z
 //    }
 //}

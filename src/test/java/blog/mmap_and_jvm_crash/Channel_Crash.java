@@ -16,7 +16,7 @@ public class Channel_Crash {
     public static void main(String[] args) throws IOException {
         byte[] buffer = new byte[1024*1024];
 
-        //a
+        //#a
         FileChannel channel = FileChannel.open(file.toPath(),
                 StandardOpenOption.CREATE, StandardOpenOption.WRITE,
                 StandardOpenOption.READ);
@@ -32,6 +32,6 @@ public class Channel_Crash {
             //this causes JVM crash if delayed write fails
             mappedBuffer.put(buffer, 0, buffer.length);
         }
-        //z
+        //#z
     }
 }

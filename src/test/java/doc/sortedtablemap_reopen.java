@@ -47,7 +47,7 @@ public class sortedtablemap_reopen {
         // Now reopen Map
         //
 
-        //a
+        //#a
         //open existing  memory-mapped file in read-only mode
         Volume volume = MappedFileVol.FACTORY.makeVolume(file, true);
                                                                  //read-only=true
@@ -58,7 +58,7 @@ public class sortedtablemap_reopen {
                         Serializer.INTEGER,
                         Serializer.STRING
                         );
-        //z
+        //#z
 
         assertEquals(100000, map.size());
         for(int key=0; key<100000; key++){

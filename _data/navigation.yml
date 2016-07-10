@@ -1,0 +1,22 @@
+# main links links
+main:
+
+  - title: "Home"
+    url: /
+
+
+  - title: "Blog"
+    url: /blog
+
+
+  - title: "Support"
+    url: /support
+
+  - title: "Doc"
+    url: /doc
+
+#  - title: "FAQ"
+#    url: /faq
+
+  - title: "Github"
+    url: https://www.github.com/jankotek/mapdb/

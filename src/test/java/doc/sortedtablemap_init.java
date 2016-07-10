@@ -17,7 +17,7 @@ public class sortedtablemap_init {
         File file0 = File.createTempFile("mapdb","mapdb");
         file0.delete();
         String file = file0.getPath();
-        //a
+        //#a
         //create memory mapped volume
         Volume volume = MappedFileVol.FACTORY.makeVolume(file, false);
 
@@ -36,7 +36,7 @@ public class sortedtablemap_init {
 
         // finally open created map
         SortedTableMap<Integer, String> map = sink.create();
-        //z
+        //#z
 
         assertEquals(100000, map.size());
         for(int key=0; key<100000; key++){

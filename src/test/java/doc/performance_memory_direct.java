@@ -11,11 +11,11 @@ public class performance_memory_direct {
 
     @Test
     public void run() throws IOException {
-        //a
+        //#a
         // run with: java -XX:MaxDirectMemorySize=10G
         DB db = DBMaker
             .memoryDirectDB()
             .make();
-        //z
+        //#z
     }
 }

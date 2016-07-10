@@ -18,7 +18,7 @@ public class sortedtablemap_params {
         File file0 = File.createTempFile("mapdb","mapdb");
         file0.delete();
         String file = file0.getPath();
-        //a
+        //#a
         //create memory mapped volume
         Volume volume = MappedFileVol.FACTORY.makeVolume(file, false);
 
@@ -48,7 +48,7 @@ public class sortedtablemap_params {
         volume = MappedFileVol.FACTORY.makeVolume(file, true);
                                                              // read-only=true
         map = SortedTableMap.open(volume, Serializer.INTEGER, Serializer.STRING);
-        //z
+        //#z
 
         assertEquals(100000, map.size());
         for(int key=0; key<100000; key++){

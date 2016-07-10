@@ -11,11 +11,11 @@ public class htreemap_noserializer {
 
     @Test public void run() {
         DB db = DBMaker.memoryDB().make();
-        //a
+        //#a
         HTreeMap<String, Long> map =
                 (HTreeMap<String,Long>)db
                 .hashMap("name_of_map")
                 .create();
-        //z
+        //#z
     }
 }

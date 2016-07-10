@@ -12,7 +12,7 @@ public class htreemap_expiration_sharded2 {
     @Test
     public void run() {
 
-        //a
+        //#a
         HTreeMap cache = DBMaker
                 .memoryShardedHashMap(16)
                 .expireAfterUpdate()
@@ -26,6 +26,6 @@ public class htreemap_expiration_sharded2 {
                 .expireCompactThreshold(0.4)
 
                 .create();
-        //z
+        //#z
     }
 }

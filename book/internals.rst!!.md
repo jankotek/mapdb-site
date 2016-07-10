@@ -7,13 +7,13 @@ MapDB originally evolved as a store for astronomical desktop applications. Over 
 
 What makes MapDB most different is that the serialization lifecycle is very different here. In most DB engines the user has to serialize data himself and pass binary data into db. API that looks similar to this:
 
-``` sourceCode
+```
 engine.update(long recid, byte[] data);
 ```
 
 But MapDB serializes data itself by using a user supplied serializer:
 
-``` sourceCode
+```
 engine.update(long recid, Person data, Serializer<Person> serializer);
 ```
 
@@ -82,7 +82,7 @@ DBMaker and DB
 
 MapDB collections use `Engine` (simple key-value store) to persist its data and state. Most of the functionality comes from mixing `Engine` implementations and wrappers. For example, off-heap store with asynchronous writes and instance cache could be instantiated by this pseudo-code:
 
-``` sourceCode
+```
 //TODO this is obsolete, cache and async are integrated to Store
 
 Engine engine = new Caches.HashTable(         //instance cache
@@ -124,7 +124,7 @@ Store
 
 [Engine](http://www.mapdb.org/apidocs/org/mapdb/Engine.html) (and [Store](http://www.mapdb.org/apidocs/org/mapdb/Store.html)) is a primitive key-value store which maps recid (8-byte long record id) to some data (record). It has 4 methods for CRUD operations and 2 transaction methods:
 
-``` sourceCode
+```
 long put(A, Serializer<A>)
 A get(long, Serializer<A>)
 void update(long, A, Serializer<A>)

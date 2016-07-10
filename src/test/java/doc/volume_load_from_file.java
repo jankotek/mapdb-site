@@ -11,7 +11,7 @@ public class volume_load_from_file {
 
     @Test
     public void run() throws IOException {
-        //a
+        //#a
         //open file volume
         String file = "pom.xml";
         Volume fileVolume = MappedFileVol.FACTORY.makeVolume(file,false);
@@ -21,7 +21,7 @@ public class volume_load_from_file {
 
         //and copy content from file to memory
         fileVolume.copyTo(memoryVolume);
-        //z
+        //#z
         fileVolume.close();
     }
 

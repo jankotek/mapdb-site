@@ -14,12 +14,12 @@ public class htreemap_compressed {
     public void run() {
 
         DB db = DBMaker.memoryDB().make();
-        //a
+        //#a
         HTreeMap<Long, String> map = db.hashMap("map")
                 .valueSerializer(
                         new SerializerCompressionWrapper(Serializer.STRING))
                 .create();
-        //z
+        //#z
         //TODO add Serializer.compressed() method?
     }
 }

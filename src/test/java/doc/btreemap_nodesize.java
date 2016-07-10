@@ -9,11 +9,11 @@ public class btreemap_nodesize {
 
     public static void main(String[] args) {
         DB db = DBMaker.memoryDB().make();
-        //a
+        //#a
         BTreeMap<Long, String> map = db
                 .treeMap("map", Serializer.LONG, Serializer.STRING)
                 .maxNodeSize(64)
                 .createOrOpen();
-        //z
+        //#z
     }
 }

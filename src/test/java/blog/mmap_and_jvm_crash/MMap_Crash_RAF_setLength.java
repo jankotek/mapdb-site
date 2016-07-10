@@ -16,11 +16,11 @@ public class MMap_Crash_RAF_setLength {
     public static void main(String[] args) throws IOException {
         byte[] buffer = new byte[1024*1024];
 
-        //a
+        //#a
         RandomAccessFile raf = new RandomAccessFile(file, "rws");
         FileChannel channel = raf.getChannel();
 
-        //allocate in infinite cycle
+        // allocate in infinite cycle
         for(long offset=0; ; offset+=buffer.length){
 
             //set file size using RandomAccessFile
@@ -34,6 +34,6 @@ public class MMap_Crash_RAF_setLength {
             //this causes JVM crash if there is no free disk space and delayed write fails
             mappedBuffer.put(buffer, 0, buffer.length);
         }
-        //z
+        //#z
     }
 }

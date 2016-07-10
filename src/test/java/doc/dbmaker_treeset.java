@@ -12,8 +12,8 @@ public class dbmaker_treeset {
         DB db = DBMaker
                 .memoryDB()
                 .make();
-        //a
+        //#a
         NavigableSet treeSet = db.treeSet("treeSet").make();
-        //z
+        //#z
     }
 }

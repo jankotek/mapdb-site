@@ -13,7 +13,7 @@ public class dbmaker_basic_tx {
         DB db = DBMaker
                 .memoryDB()
                 .make();
-        //a
+        //#a
         ConcurrentNavigableMap<Integer,String> map = db
                 .treeMap("collectionName", Serializer.INTEGER, Serializer.STRING)
                 .make();
@@ -30,6 +30,6 @@ public class dbmaker_basic_tx {
         //map.keySet() is now [1,2]
 
         db.close();
-        //z
+        //#z
     }
 }

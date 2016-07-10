@@ -13,12 +13,12 @@ public class hello_world_file {
 
     @Test
     public void run() throws IOException {
-        //a
+        //#a
         DB db = DBMaker.fileDB("file.db").make();
         ConcurrentMap map = db.hashMap("map").make();
         map.put("something", "here");
         db.close();
-        //z
+        //#z
         //cleanup, not part of example
         new File("file.db").delete();
     }

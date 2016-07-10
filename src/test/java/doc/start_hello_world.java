@@ -13,7 +13,7 @@ import java.util.concurrent.ConcurrentMap;
 public class start_hello_world {
 
     @Test public void hello_world(){
-        //a
+        //#a
 
         // import org.mapdb.*
 
@@ -38,6 +38,6 @@ public class start_hello_world {
         // Once finished close DB.
         // This will release resources (open files, background threads etc...)
         db.close();
-        //z
+        //#z
     }
 }

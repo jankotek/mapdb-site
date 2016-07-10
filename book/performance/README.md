@@ -14,7 +14,7 @@ To protect file from corruption, MapDB offers Write Ahead Log (WAL). It is relia
 
 WAL is disabled by default. It can be enabled with `DBMaker.transactionEnable()`:
 
-<!--- #file#performance_transaction_enable.java--->
+<!--- #file#doc/performance_transaction_enable.java--->
 ```java
 DB db = DBMaker
         .fileDB(file)
@@ -48,7 +48,7 @@ There is a workaround for this bug using undocumented API. But it was linked to 
 
 Here is example with all mmap related options:
 
-<!--- #file#performance_mmap.java--->
+<!--- #file#doc/performance_mmap.java--->
 ```java
 DB db = DBMaker
     .fileDB(file)
@@ -74,7 +74,7 @@ FileChannel was causing problems in combination with `Thread.interrupt`. If thre
 
 To use FileChannel use `DBMaker.fileChannelEnable()` option:
 
-<!--- #file#performance_filechannel.java--->
+<!--- #file#doc/performance_filechannel.java--->
 ```java
 DB db = DBMaker
     .fileDB(file)
@@ -88,7 +88,7 @@ MapDB has three in-memory stores:
 
 On-heap which stores objects in `Map<recid,Object>` and does not use serialization. This mode is very fast for small datasets, but is affected by GC, so performance drops from cliff after a few gigabytes. It is activated with:
 
-<!--- #file#performance_memory_heap.java--->
+<!--- #file#doc/performance_memory_heap.java--->
 ```java
 DB db = DBMaker
     .heapDB()
@@ -96,7 +96,7 @@ DB db = DBMaker
 ```
 Store based on `byte[]`. In this mode data are serialized and stored into 1MB large byte\[\]. Technically this is still on-heap, but is not affected by GC overhead, since data are not visible to GC. This mode is recommended by default, since it does not require any additional JVM settings. Increasing maximal heap memory with `-Xmx10G` JVM parameter is enough.
 
-<!--- #file#performance_memory_byte_array.java--->
+<!--- #file#doc/performance_memory_byte_array.java--->
 ```java
 DB db = DBMaker
     .memoryDB()
@@ -104,7 +104,7 @@ DB db = DBMaker
 ```
 Store based on `DirectByteBuffer`. In this case data are stored completely off-heap. in 1MB DirectByteBuffers created with `ByteBuffer.allocateDirect(size)`. You should increase maximal direct memory with JVM parameter. This mode allows you to decrease maximal heap size to very small size (`-Xmx128M`). Small heap size has usually better and more predictable performance.
 
-<!--- #file#performance_memory_direct.java--->
+<!--- #file#doc/performance_memory_direct.java--->
 ```java
 // run with: java -XX:MaxDirectMemorySize=10G
 DB db = DBMaker
@@ -116,7 +116,7 @@ Allocation options
 
 By default MapDB tries minimize space usage and allocates space in 1MB increments. This additional allocations might be slower than single large allocation. There are two options to control storage initial size and size increment. This example will allocate 10GB initially and then increment size in 512MB chunks:
 
-<!--- #file#performance_allocation.java--->
+<!--- #file#doc/performance_allocation.java--->
 ```java
 DB db = DBMaker
     .fileDB(file)

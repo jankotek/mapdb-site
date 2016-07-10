@@ -10,7 +10,7 @@ public class volume_input_output_streams {
 
     @Test
     public void run() throws IOException {
-        //a
+        //#a
         InputStream input = new FileInputStream("pom.xml");
 
         Volume volume = new ByteArrayVol();
@@ -18,7 +18,7 @@ public class volume_input_output_streams {
 
         OutputStream out = new ByteArrayOutputStream();
         volume.copyTo(out);
-        //z
+        //#z
     }
 
 }

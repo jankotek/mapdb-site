@@ -15,13 +15,13 @@ public class volume_db {
 
     @Test
     public void run() throws IOException {
-        //a
+        //#a
         File f = File.createTempFile("some","file");
         Volume volume = MappedFileVol.FACTORY.makeVolume(f.getPath(),false);
 
         boolean contentAlreadyExists = false;
         DB db = DBMaker.volumeDB(volume, contentAlreadyExists).make();
-        //z
+        //#z
     }
 
 }

@@ -12,11 +12,11 @@ public class htreemap_byte_array {
     @Test
     public void run(){
         DB db = DBMaker.memoryDB().make();
-        //a
+        //#a
         HTreeMap<byte[], Long> map = db.hashMap("map")
                 .keySerializer(Serializer.BYTE_ARRAY)
                 .valueSerializer(Serializer.LONG)
                 .create();
-        //z
+        //#z
     }
 }

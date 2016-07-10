@@ -11,11 +11,11 @@ public class btreemap_compressed {
 
     public static void main(String[] args) {
         DB db = DBMaker.memoryDB().make();
-        //a
+        //#a
         BTreeMap<Long, String> map = db.treeMap("map")
                 .valuesOutsideNodesEnable()
                 .valueSerializer(new SerializerCompressionWrapper(Serializer.STRING))
                 .createOrOpen();
-        //z
+        //#z
     }
 }

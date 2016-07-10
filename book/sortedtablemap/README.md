@@ -7,7 +7,7 @@ Sorted Table Map
 
 `SortedTableMap` is read-only. Its created and filled with content by Data Pump and Consumer:
 
-<!--- #file#sortedtablemap_init.java--->
+<!--- #file#doc/sortedtablemap_init.java--->
 ```java
 //create memory mapped volume
 Volume volume = MappedFileVol.FACTORY.makeVolume(file, false);
@@ -30,7 +30,7 @@ SortedTableMap<Integer, String> map = sink.create();
 ```
 Once file is created, it can be reopened:
 
-<!--- #file#sortedtablemap_reopen.java--->
+<!--- #file#doc/sortedtablemap_reopen.java--->
 ```java
 //open existing  memory-mapped file in read-only mode
 Volume volume = MappedFileVol.FACTORY.makeVolume(file, true);
@@ -69,7 +69,7 @@ And finally there is **Node Size**. It has similar implications as BTreeMap node
 
 Parameters are set following way
 
-<!--- #file#sortedtablemap_params.java--->
+<!--- #file#doc/sortedtablemap_params.java--->
 ```java
 //create memory mapped volume
 Volume volume = MappedFileVol.FACTORY.makeVolume(file, false);
@@ -106,7 +106,7 @@ Volume
 
 `SortedTableMap` does not use `DB` object, but operates directly on `Volume` (MapDB abstraction over ByteBuffer). Following example show how to construct various `Volume` using in-memory byte array or memory-mapped file:
 
-<!--- #file#sortedtablemap_volume.java--->
+<!--- #file#doc/sortedtablemap_volume.java--->
 ```java
 //create in-memory volume over byte[]
 Volume byteArrayVolume = ByteArrayVol.FACTORY.makeVolume(null, false);

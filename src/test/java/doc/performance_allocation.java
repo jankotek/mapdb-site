@@ -14,13 +14,13 @@ public class performance_allocation {
     public void run() throws IOException {
         File file = File.createTempFile("mapdb","mapdb");
         file.delete();
-        //a
+        //#a
         DB db = DBMaker
             .fileDB(file)
             .fileMmapEnable()
             .allocateStartSize( 10 * 1024*1024*1024)  // 10GB
             .allocateIncrement(512 * 1024*1024)       // 512MB
             .make();
-        //z
+        //#z
     }
 }

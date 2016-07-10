@@ -9,7 +9,7 @@ public class performance_async_write {
 
     @Test
     public void run(){
-        //a
+        //#a
         DB db = DBMaker
             .memoryDB()
             //TODO async writes example
@@ -17,6 +17,6 @@ public class performance_async_write {
             //.asyncWriteQueueSize(10000) //optionally change queue size
             .executorEnable()   //enable background threads to flush data
             .make();
-        //z
+        //#z
     }
 }

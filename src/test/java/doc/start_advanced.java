@@ -9,7 +9,7 @@ import java.util.concurrent.ConcurrentNavigableMap;
 
 public class start_advanced {
     public static void main(String[] args) {
-        //a
+        //#a
         // import org.mapdb.*;
 
         // configure and open database using builder pattern.
@@ -36,6 +36,6 @@ public class start_advanced {
         // map.keySet() is now [1,2]
 
         db.close();
-        //z
+        //#z
     }
 }

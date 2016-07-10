@@ -13,12 +13,12 @@ public class dbmaker_treeset_create {
         DB db = DBMaker
                 .memoryDB()
                 .make();
-        //a
+        //#a
         NavigableSet<String> treeSet = db
                 .treeSet("treeSet")
                 .maxNodeSize(112)
                 .serializer(Serializer.STRING)
                 .make();
-        //z
+        //#z
     }
 }

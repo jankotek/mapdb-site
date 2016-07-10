@@ -14,7 +14,7 @@ public class htreemap_expiration_ttl_limit {
     public void run() {
 
         DB db = DBMaker.memoryDB().make();
-        //a
+        //#a
         // remove entries 10 minutes  after their last modification,
         // or 1 minute after last get()
         HTreeMap cache = db
@@ -23,6 +23,6 @@ public class htreemap_expiration_ttl_limit {
                 .expireAfterCreate(10, TimeUnit.HOURS)
                 .expireAfterGet(1, TimeUnit.MINUTES)
                 .create();
-        //z
+        //#z
     }
 }

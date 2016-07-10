@@ -12,12 +12,12 @@ public class hello_world {
 
     @Test
     public void run() throws IOException {
-        //a
+        //#a
         //import org.mapdb.*
         DB db = DBMaker.memoryDB().make();
         ConcurrentMap map = db.hashMap("map").make();
         map.put("something", "here");
-        //z
+        //#z
     }
 
 }

@@ -14,7 +14,7 @@ public class htreemap_value_loader {
     @Test
     public void run(){
         DB db = DBMaker.memoryDB().make();
-        //a
+        //#a
         HTreeMap<String,Long> map = db
                 .hashMap("map", Serializer.STRING, Serializer.LONG)
                 .valueLoader(s -> 1L)
@@ -25,7 +25,7 @@ public class htreemap_value_loader {
 
         // Value Creator output was added to Map
         map.size(); //  => 1
-        //z
+        //#z
 
         assertEquals(1l, one.longValue());
         assertEquals(1, map.size());

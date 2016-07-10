@@ -14,12 +14,12 @@ public class performance_crc32 {
     public void run() throws IOException {
         File file = File.createTempFile("mapdb","mapdb");
         file.delete();
-        //a
+        //#a
         DB db = DBMaker
             .fileDB(file)
             //TODO checksum enable
             //.checksumEnable()
             .make();
-        //z
+        //#z
     }
 }

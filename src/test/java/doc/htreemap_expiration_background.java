@@ -14,7 +14,7 @@ public class htreemap_expiration_background {
 
     @Test public void run() {
 
-        //a
+        //#a
         DB db = DBMaker.memoryDB().make();
 
         ScheduledExecutorService executor =
@@ -30,6 +30,6 @@ public class htreemap_expiration_background {
 
         //once we are done, background threads needs to be stopped
         db.close();
-        //z
+        //#z
     }
 }

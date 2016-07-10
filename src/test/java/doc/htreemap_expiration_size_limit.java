@@ -12,12 +12,12 @@ public class htreemap_expiration_size_limit {
     public void run() {
 
         DB db = DBMaker.memoryDB().make();
-        //a
+        //#a
         HTreeMap cache = db
                 .hashMap("cache")
                 .expireMaxSize(128)
                 .expireAfterGet()
                 .create();
-        //z
+        //#z
     }
 }

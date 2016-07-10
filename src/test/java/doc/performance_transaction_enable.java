@@ -14,12 +14,12 @@ public class performance_transaction_enable {
     public void run() throws IOException {
         File file = File.createTempFile("mapdb","mapdb");
         file.delete();
-        //a
+        //#a
         DB db = DBMaker
                 .fileDB(file)
                 .transactionEnable()
                 .make();
-        //z
+        //#z
         file.delete();
     }
 }

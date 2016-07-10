@@ -32,14 +32,14 @@ public class htreemap_overflow_clear {
                 .expireAfterCreate(1, TimeUnit.DAYS) //very long expiration
                 .expireOverflow(onDisk)
                 .create();
-        //a
+        //#a
         inMemory.put(1,11);
         inMemory.put(2,11);
 
         //expire entire content of inMemory Map
         inMemory.clearWithExpire();
 
-        //z
+        //#z
         assertEquals(0, inMemory.size());
         assertEquals(2, onDisk.size());
     }

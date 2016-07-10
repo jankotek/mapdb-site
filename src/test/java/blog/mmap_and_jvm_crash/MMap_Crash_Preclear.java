@@ -13,13 +13,14 @@ import static blog.mmap_and_jvm_crash.MMap_Crash.file;
 public class MMap_Crash_Preclear {
 
     public static void main(String[] args) throws IOException {
+        //#a
         byte[] buffer = new byte[1024*1024];
 
         FileChannel channel = FileChannel.open(file.toPath(),
                 StandardOpenOption.CREATE, StandardOpenOption.WRITE,
                 StandardOpenOption.READ);
 
-        //allocate in infinite cycle
+        // allocate in infinite cycle
         for(long offset=0; ; offset+=buffer.length){
 
             //preclear space before it is mapped, so there is no sparse file
@@ -41,5 +42,6 @@ public class MMap_Crash_Preclear {
             //this causes JVM crash if there is no free disk space and delayed write fails
             mappedBuffer.put(buffer, 0, buffer.length);
         }
+        //#z
     }
 }

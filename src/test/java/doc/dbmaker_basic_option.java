@@ -9,12 +9,12 @@ import java.io.File;
 public class dbmaker_basic_option {
 
     public static void main(String[] args) {
-        //a
+        //#a
         DB db = DBMaker
                 .fileDB("/some/file")
                 //TODO encryption API
                 //.encryptionEnable("password")
                 .make();
-        //z
+        //#z
     }
 }

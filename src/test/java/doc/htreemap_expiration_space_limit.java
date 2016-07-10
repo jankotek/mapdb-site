@@ -13,13 +13,13 @@ public class htreemap_expiration_space_limit {
     public void run() {
 
         DB db = DBMaker.memoryDB().make();
-        //a
+        //#a
         // Off-heap map with max size 16GB
         Map cache = db
                 .hashMap("map")
                 .expireMaxSize(16 * 1024*1024*1024)
                 .expireAfterGet()
                 .create();
-        //z
+        //#z
     }
 }

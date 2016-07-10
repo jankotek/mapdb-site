@@ -11,7 +11,7 @@ To open (or create) a store, use one of the `DBMaker.xxxDB()` static methods. Ma
 
 A `xxxDB()` method is followed by one or several configuration options and finally a `make()` method which applies all options, opens the selected storage and returns a `DB` object. This example opens a file storage with encryption enabled:
 
-<!--- #file#dbmaker_basic_option.java--->
+<!--- #file#doc/dbmaker_basic_option.java--->
 ```java
 DB db = DBMaker
         .fileDB("/some/file")

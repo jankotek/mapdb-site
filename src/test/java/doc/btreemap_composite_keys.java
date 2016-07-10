@@ -13,7 +13,7 @@ public class btreemap_composite_keys {
     @Test
     public void irish_towns() {
 
-        //a1
+        //#a1
         // initialize db and map
         DB db = DBMaker.memoryDB().make();
         BTreeMap<Object[], Integer> map = db.treeMap("towns")
@@ -21,7 +21,7 @@ public class btreemap_composite_keys {
                         Serializer.STRING, Serializer.STRING, Serializer.INTEGER))
                 .valueSerializer(Serializer.INTEGER)
                 .createOrOpen();
-        //a2
+        //#z1
 
         //initial values
         String[] towns = {"Galway", "Ennis", "Gort", "Cong", "Tuam"};
@@ -35,22 +35,22 @@ public class btreemap_composite_keys {
                     map.put(new Object[]{town, street, house}, income);
                 }
 
-        //b1
+        //#a2
         //get all houses in Cong (town is primary component in tuple)
         Map<Object[], Integer> cong =
                 map.prefixSubMap(new Object[]{"Cong"});
-        //b2
+        //#z2
         assertEquals(houseNums.length*streets.length, cong.size());
 
-        //c1
+        //#a3
         cong = map.subMap(
                 new Object[]{"Cong"},           //shorter array is 'negative infinity'
                 new Object[]{"Cong",null,null} // null is positive infinity'
         );
-        //c2
+        //#z3
         assertEquals(houseNums.length*streets.length, cong.size());
 
-        //d1
+        //#a4
         int total = 0;
         for(String town:towns){ //first loop iterates over towns
             for(Integer salary: //second loop iterates over all houses on main street
@@ -59,7 +59,7 @@ public class btreemap_composite_keys {
             }
         }
         System.out.println("Salary sum for all Main Streets is: "+total);
-        //d2
+        //#z4
         assertEquals(30000*towns.length*houseNums.length, total);
     }
 }

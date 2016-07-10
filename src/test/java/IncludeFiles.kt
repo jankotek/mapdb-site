@@ -33,8 +33,8 @@ class IncludeFiles{
 
                 //get stuff
                 val sourceFile = marks[2]
-                val startSign = marks.getOrElse(3, { "a" })
-                val endSign = marks.getOrElse(4, { "z" })
+                val syntax = marks.getOrElse(3, { "java" })
+                val sign = marks.getOrElse(4, { "" })
 
                 //pass mark
                 res += "<!---$tag--->\n"
@@ -49,12 +49,12 @@ class IncludeFiles{
                 val prefix = 8
 
                 //read file content
-                var source = File("src/test/java/doc/" + sourceFile)
+                var source = File("src/test/java/" + sourceFile)
                         .readText()
-                        .split("//" + startSign)[1]
-                        .split("//" + endSign)[0]
+                        .split("//#a" + sign)[1]
+                        .split("//#z" + sign)[0]
 
-                res += "```java"
+                res += "```"+syntax
                 for (line in source.lines().dropLast(1)) {
                     val index = if (line.length > prefix && line.substring(0, prefix).replace(" ", "").isEmpty()) prefix else 0
                     res += line.substring(index) + "\n"

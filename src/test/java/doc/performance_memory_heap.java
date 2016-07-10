@@ -11,10 +11,10 @@ public class performance_memory_heap {
 
     @Test
     public void run() throws IOException {
-        //a
+        //#a
         DB db = DBMaker
             .heapDB()
             .make();
-        //z
+        //#z
     }
 }

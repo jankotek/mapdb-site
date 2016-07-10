@@ -47,7 +47,7 @@ Hello World
 
 Hereafter is a simple example. It opens in-memory HashMap, it uses off-heap store and it is not limited by Garbage Collection:
 
-<!--- #file#hello_world.java--->
+<!--- #file#doc/hello_world.java--->
 ```java
 //import org.mapdb.*
 DB db = DBMaker.memoryDB().make();
@@ -56,7 +56,7 @@ map.put("something", "here");
 ```
 HashMap (and other collections) can be also stored in file. In this case the content can be preserved between JVM restarts. It is necessary to call `DB.close()` to protect file from data corruption. Other option is to enable transactions with write ahead log.
 
-<!--- #file#hello_world_file.java--->
+<!--- #file#doc/hello_world_file.java--->
 ```java
 DB db = DBMaker.fileDB("file.db").make();
 ConcurrentMap map = db.hashMap("map").make();
@@ -67,7 +67,7 @@ db.close();
 
 By default, MapDB uses generic serialization, which can serialize any data type. It is faster and more memory efficient to use specialized serializers. Also we can enable faster memory-mapped files on 64bit operating systems:
 
-<!--- #file#hello_world_serializers.java--->
+<!--- #file#doc/hello_world_serializers.java--->
 ```java
 DB db = DBMaker
         .fileDB("file.db")

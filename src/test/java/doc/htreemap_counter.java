@@ -12,11 +12,11 @@ public class htreemap_counter {
     @Test
     public void run() {
         DB db = DBMaker.memoryDB().make();
-        //a
+        //#a
         HTreeMap<String, Long> map = db
                 .hashMap("map", Serializer.STRING, Serializer.LONG)
                 .counterEnable()
                 .create();
-        //z
+        //#z
     }
 }

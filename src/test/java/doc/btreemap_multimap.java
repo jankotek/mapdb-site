@@ -19,7 +19,7 @@ public class btreemap_multimap {
     @Test
     public void multimap() {
         DB db = DBMaker.memoryDB().make();
-        //a
+        //#a
         // initialize multimap: Map<String,List<Integer>>
         NavigableSet<Object[]> multimap = db.treeSet("towns")
                 //set tuple serializer
@@ -35,7 +35,7 @@ public class btreemap_multimap {
         Set johnSubset = multimap.subSet(
                 new Object[]{"John"},         // lower interval bound
                 new Object[]{"John", null});  // upper interval bound, null is positive infinity
-        //z
+        //#z
         assertEquals(2,johnSubset.size());
     }
 }

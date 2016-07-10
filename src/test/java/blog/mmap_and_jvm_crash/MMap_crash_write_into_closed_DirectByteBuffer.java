@@ -15,7 +15,7 @@ public class MMap_crash_write_into_closed_DirectByteBuffer {
 
     public static void main(String[] args) throws IOException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
 
-        //a
+        //#a
         byte[] buffer = new byte[1024*1024];
 
         ByteBuffer directBuffer = ByteBuffer.allocateDirect(buffer.length);
@@ -30,7 +30,7 @@ public class MMap_crash_write_into_closed_DirectByteBuffer {
         //now write into closed buffer, JVM will crash
         directBuffer.rewind();
         directBuffer.put(buffer, 0, buffer.length);
-        //z
+        //#z
     }
 
 }

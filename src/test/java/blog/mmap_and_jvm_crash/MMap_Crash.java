@@ -16,7 +16,7 @@ public class MMap_Crash {
 
     public static void main(String[] args) throws IOException {
 
-        //a
+        //#a
         byte[] buffer = new byte[1024*1024];
 
         FileChannel channel = FileChannel.open(file.toPath(),
@@ -33,6 +33,6 @@ public class MMap_Crash {
             //this causes JVM crash if there is no free disk space and delayed write fails
             mappedBuffer.put(buffer, 0, buffer.length);
         }
-        //z
+        //#z
     }
 }

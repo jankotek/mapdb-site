@@ -20,7 +20,7 @@ public class htreemap_overflow_init {
         file2.delete();
         String file = file2.getPath();
 
-        //a
+        //#a
         DB dbDisk = DBMaker
                 .fileDB(file)
                 .make();
@@ -43,7 +43,7 @@ public class htreemap_overflow_init {
                 //good idea is to enable background expiration
                 .expireExecutor(Executors.newScheduledThreadPool(2))
                 .create();
-        //z
+        //#z
         onDisk.close();
         inMemory.close();
     }

@@ -18,7 +18,7 @@ public class btreemap_prefix_submap {
     @Test
     public void multimap() {
         DB db = DBMaker.memoryDB().make();
-        //a
+        //#a
         BTreeMap<byte[], Integer> map = db
                 .treeMap("towns", Serializer.BYTE_ARRAY, Serializer.INTEGER)
                 .createOrOpen();
@@ -29,7 +29,7 @@ public class btreemap_prefix_submap {
 
         //get all New* cities
         Map<byte[], Integer> newCities = map.prefixSubMap("New".getBytes());
-        //z
+        //#z
         assertEquals(2,newCities.size());
     }
 }

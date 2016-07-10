@@ -11,12 +11,12 @@ public class htreemap_expiration_sharded {
     @Test
     public void run() {
 
-        //a
+        //#a
         HTreeMap cache = DBMaker
                 .memoryShardedHashMap(16)
                 .expireAfterUpdate()
                 .expireStoreSize(128*1024*1024)
                 .create();
-        //z
+        //#z
     }
 }

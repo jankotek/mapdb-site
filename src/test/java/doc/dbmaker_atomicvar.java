@@ -27,8 +27,8 @@ public class dbmaker_atomicvar {
         DB db = DBMaker
                 .memoryDB()
                 .make();
-        //a
+        //#a
         Atomic.Var<Person> var = db.atomicVar("mainPerson",Person.SERIALIZER).make();
-        //z
+        //#z
     }
 }

@@ -42,14 +42,14 @@ public class htreemap_overflow_get {
                 //good idea is to enable background expiration
                 .expireExecutor(Executors.newScheduledThreadPool(2))
                 .create();
-        //a
+        //#a
         onDisk.put(1,"one");    //onDisk has content, inMemory is empty
         inMemory.size();        //> 0
         // get method will not find value inMemory, and will get value from onDisk
         inMemory.get(1);        //> "one"
         // inMemory now caches result, it will latter expire and move to onDisk
         inMemory.size();        //> 1
-        //z
+        //#z
         assertEquals("one", inMemory.get(1));
         onDisk.close();
         inMemory.close();
