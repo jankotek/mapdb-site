@@ -203,7 +203,7 @@ HTreeMap cache = db
         .expireAfterGet()
         .create();
 ```
-HTreeMap maintains LIFO Expiration Queue for each segment, eviction traverses queue and removes oldest entries. Not all Map entries are placed into Expiration Queue. For illustration, in this example the new entrues never expire, only after update (value change) entry is placed into Expiration Queue.
+HTreeMap maintains LIFO Expiration Queue for each segment, eviction traverses queue and removes oldest entries. Not all Map entries are placed into Expiration Queue. For illustration, in this example the new entries never expire, only after update (value change) entry is placed into Expiration Queue.
 
 <!--- #file#doc/htreemap_expiration_create_update.java--->
 ```java
