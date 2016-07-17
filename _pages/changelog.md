@@ -5,7 +5,19 @@ layout: "single"
 permalink: "/changelog/"
 ---
 
-TODO what to do with this page? migrate to github
+
+3.0.1 released
+--------------
+
+Maven version number: `3.0.1`, release date 2016-07-17
+
+Fixed two critical data corruption bugs. Update highly recommended. No changes in API or storage format. 
+
+Changes:
+
+- Fix #743, BTreeMap returns wrong values after clear and reinsert.
+- Fix #746, StoreWAL: delete() could corrupt data store. 
+
 
 3.0.0 released
 --------------

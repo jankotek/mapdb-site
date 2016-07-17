@@ -4,9 +4,6 @@ excerpt: "Support"
 layout: "single"
 permalink: "/support/"
 ---
-
-
-Support
 =======
 
 MapDB community provides free support via following sites:
