@@ -25,4 +25,5 @@ TODO archive links to older versions of Javadoc and Dokka.
 1.0 and 2.0 documentation
 -------------------------------
 
-1.0 and 2.0 branches are no longer supported. Here is [PDF documentation](/down/mapdb-manual-20.pdf) for those older versions.
+1.0 and 2.0 branches are no longer supported. Here is  archived [PDF documentation](/down/mapdb-manual-20.pdf) and
+  [older version examples](https://github.com/jankotek/mapdb/tree/release-2.0/src/test/java/examples).
