@@ -13,7 +13,7 @@ public class dbmaker_treeset {
                 .memoryDB()
                 .make();
         //#a
-        NavigableSet treeSet = db.treeSet("treeSet").make();
+        NavigableSet treeSet = db.treeSet("example").createOrOpen();
         //#z
     }
 }

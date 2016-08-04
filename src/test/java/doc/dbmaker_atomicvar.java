@@ -2,8 +2,6 @@ package doc;
 
 import org.mapdb.*;
 
-import java.io.DataInput;
-import java.io.DataOutput;
 import java.io.IOException;
 
 
@@ -28,7 +26,7 @@ public class dbmaker_atomicvar {
                 .memoryDB()
                 .make();
         //#a
-        Atomic.Var<Person> var = db.atomicVar("mainPerson",Person.SERIALIZER).make();
+        Atomic.Var<Person> var = db.atomicVar("mainPerson",Person.SERIALIZER).createOrOpen();
         //#z
     }
 }

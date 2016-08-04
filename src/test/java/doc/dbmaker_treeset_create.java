@@ -18,7 +18,7 @@ public class dbmaker_treeset_create {
                 .treeSet("treeSet")
                 .maxNodeSize(112)
                 .serializer(Serializer.STRING)
-                .make();
+                .createOrOpen();
         //#z
     }
 }
