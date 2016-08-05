@@ -172,6 +172,9 @@ There is a plan to implement Multimap from Guava and EC directly in MapDB. But u
 NavigableSet<Object[]> multimap = db.treeSet("towns")
         //set tuple serializer
         .serializer(new SerializerArrayTuple(Serializer.STRING, Serializer.INTEGER))
+        .counterEnable()
+        .counterEnable()
+        .counterEnable()
         .createOrOpen();
 
 // populate, key is first component in tuple (array), value is second

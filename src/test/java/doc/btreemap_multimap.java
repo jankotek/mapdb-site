@@ -1,16 +1,13 @@
 package doc;
 
 import org.junit.Test;
-import org.mapdb.BTreeMap;
 import org.mapdb.DB;
 import org.mapdb.DBMaker;
 import org.mapdb.Serializer;
 import org.mapdb.serializer.SerializerArrayTuple;
 
-import java.util.Map;
 import java.util.NavigableSet;
 import java.util.Set;
-import java.util.stream.Stream;
 
 import static org.junit.Assert.assertEquals;
 
@@ -24,6 +21,9 @@ public class btreemap_multimap {
         NavigableSet<Object[]> multimap = db.treeSet("towns")
                 //set tuple serializer
                 .serializer(new SerializerArrayTuple(Serializer.STRING, Serializer.INTEGER))
+                .counterEnable()
+                .counterEnable()
+                .counterEnable()
                 .createOrOpen();
 
         // populate, key is first component in tuple (array), value is second

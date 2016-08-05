@@ -5,6 +5,7 @@
 * [DB](db/README.md)
 * [HTreeMap](htreemap/README.md)
 * [BTreeMap](btreemap/README.md)
+  * [Batch Import](btreemap/import.md)
 * [Sorted Table Map](sortedtablemap/README.md)
 * [Performance](performance/README.md)
 * [Layout](layout/README.md)

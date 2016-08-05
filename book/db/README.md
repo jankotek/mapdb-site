@@ -42,7 +42,7 @@ NavigableSet<String> treeSet = db
         .treeSet("treeSet")
         .maxNodeSize(112)
         .serializer(Serializer.STRING)
-        .create();
+        .createOrOpen();
 ```
 The builder can end with three different methods: 
 
@@ -54,7 +54,7 @@ The builder can end with three different methods:
 
 <!--- #file#doc/dbmaker_atomicvar.java--->
 ```java
-Atomic.Var<Person> var = db.atomicVar("mainPerson",Person.SERIALIZER).make();
+Atomic.Var<Person> var = db.atomicVar("mainPerson",Person.SERIALIZER).createOrOpen();
 ```
  
 Transactions

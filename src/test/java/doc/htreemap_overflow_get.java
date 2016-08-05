@@ -34,7 +34,7 @@ public class htreemap_overflow_get {
                 .create();
 
         // fast in-memory collection with limited size
-        HTreeMap inMemory = dbMemory
+        HTreeMap<String,String> inMemory = dbMemory
                 .hashMap("inMemory")
                 .expireAfterGet(1, TimeUnit.SECONDS)
                 //this registers overflow to `onDisk`
