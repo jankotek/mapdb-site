@@ -17,7 +17,7 @@ public class htreemap_expiration_space_limit {
         // Off-heap map with max size 16GB
         Map cache = db
                 .hashMap("map")
-                .expireMaxSize(16 * 1024*1024*1024)
+                .expireStoreSize(16 * 1024*1024*1024)
                 .expireAfterGet()
                 .create();
         //#z
