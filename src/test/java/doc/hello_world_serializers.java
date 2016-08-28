@@ -20,7 +20,7 @@ public class hello_world_serializers {
                 .make();
         ConcurrentMap<String,Long> map = db
                 .hashMap("map", Serializer.STRING, Serializer.LONG)
-                .make();
+                .createOrOpen();
         map.put("something", 111L);
 
         db.close();

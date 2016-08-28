@@ -68,7 +68,7 @@ One `DB` object represents single transaction. The example above uses single glo
 ```java
 ConcurrentNavigableMap<Integer,String> map = db
         .treeMap("collectionName", Serializer.INTEGER, Serializer.STRING)
-        .make();
+        .createOrOpen();
 
 map.put(1,"one");
 map.put(2,"two");

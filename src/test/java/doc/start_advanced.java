@@ -4,7 +4,6 @@ import org.mapdb.DB;
 import org.mapdb.DBMaker;
 import org.mapdb.Serializer;
 
-import java.io.File;
 import java.util.concurrent.ConcurrentNavigableMap;
 
 public class start_advanced {
@@ -22,7 +21,7 @@ public class start_advanced {
         // open existing an collection (or create new)
         ConcurrentNavigableMap<Integer,String> map = db
                 .treeMap("collectionName", Serializer.INTEGER, Serializer.STRING)
-                .make();
+                .createOrOpen();
 
         map.put(1, "one");
         map.put(2, "two");

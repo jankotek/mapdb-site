@@ -24,7 +24,7 @@ public class start_hello_world {
                 .make();
 
         // Creates new Map, it uses builder pattern to apply configuration.
-        // Each collection has name, and some other settings, such as Serializers.
+        // Each collection has firstname, and some other settings, such as Serializers.
         // Serializer converts object into binary form, but also provides hash.
         ConcurrentMap<String, Long> map =
                 db.hashMap("map")

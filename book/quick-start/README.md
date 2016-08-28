@@ -51,7 +51,7 @@ Hereafter is a simple example. It opens in-memory HashMap, it uses off-heap stor
 ```java
 //import org.mapdb.*
 DB db = DBMaker.memoryDB().make();
-ConcurrentMap map = db.hashMap("map").make();
+ConcurrentMap map = db.hashMap("map").createOrOpen();
 map.put("something", "here");
 ```
 HashMap (and other collections) can be also stored in file. In this case the content can be preserved between JVM restarts. It is necessary to call `DB.close()` to protect file from data corruption. Other option is to enable transactions with write ahead log.
@@ -59,7 +59,7 @@ HashMap (and other collections) can be also stored in file. In this case the con
 <!--- #file#doc/hello_world_file.java--->
 ```java
 DB db = DBMaker.fileDB("file.db").make();
-ConcurrentMap map = db.hashMap("map").make();
+ConcurrentMap map = db.hashMap("map").createOrOpen();
 map.put("something", "here");
 db.close();
 ```
@@ -75,7 +75,7 @@ DB db = DBMaker
         .make();
 ConcurrentMap<String,Long> map = db
         .hashMap("map", Serializer.STRING, Serializer.LONG)
-        .make();
+        .createOrOpen();
 map.put("something", 111L);
 
 db.close();

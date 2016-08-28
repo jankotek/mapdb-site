@@ -4,7 +4,6 @@ import org.junit.Test;
 import org.mapdb.DB;
 import org.mapdb.DBMaker;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.ConcurrentMap;
 
@@ -15,7 +14,7 @@ public class hello_world {
         //#a
         //import org.mapdb.*
         DB db = DBMaker.memoryDB().make();
-        ConcurrentMap map = db.hashMap("map").make();
+        ConcurrentMap map = db.hashMap("map").createOrOpen();
         map.put("something", "here");
         //#z
     }

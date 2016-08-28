@@ -1,13 +1,12 @@
 package doc;
 
 import org.junit.Test;
-import org.mapdb.*;
+import org.mapdb.DB;
+import org.mapdb.DBMaker;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.ConcurrentMap;
-
-import static org.junit.Assert.assertEquals;
 
 public class hello_world_file {
 
@@ -15,7 +14,7 @@ public class hello_world_file {
     public void run() throws IOException {
         //#a
         DB db = DBMaker.fileDB("file.db").make();
-        ConcurrentMap map = db.hashMap("map").make();
+        ConcurrentMap map = db.hashMap("map").createOrOpen();
         map.put("something", "here");
         db.close();
         //#z

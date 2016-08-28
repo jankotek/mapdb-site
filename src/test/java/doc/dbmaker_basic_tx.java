@@ -16,7 +16,7 @@ public class dbmaker_basic_tx {
         //#a
         ConcurrentNavigableMap<Integer,String> map = db
                 .treeMap("collectionName", Serializer.INTEGER, Serializer.STRING)
-                .make();
+                .createOrOpen();
 
         map.put(1,"one");
         map.put(2,"two");

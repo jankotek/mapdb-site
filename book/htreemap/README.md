@@ -30,8 +30,7 @@ It is also possible to skip serializer definition, but MapDB will use slower gen
 
 <!--- #file#doc/htreemap_noserializer.java--->
 ```java
-HTreeMap<String, Long> map =
-        (HTreeMap<String,Long>)db
+HTreeMap map = db
         .hashMap("name_of_map")
         .create();
 ```
@@ -189,7 +188,7 @@ This will create `HTreeMap` with 16GB space limit:
 // Off-heap map with max size 16GB
 Map cache = db
         .hashMap("map")
-        .expireMaxSize(16 * 1024*1024*1024)
+        .expireStoreSize(16 * 1024*1024*1024)
         .expireAfterGet()
         .create();
 ```
