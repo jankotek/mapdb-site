@@ -50,7 +50,7 @@ Storage is split into pages. Page size is power of two, with maximal size 1MB. F
 
 Each page contains several nodes composed of keys and values. Those are very similar to BTreeMap Leaf nodes. Node offsets are known, so fast seek to beginning of node is used.
 
-Each node contains several key-value pairs (by default 32). Their organization depends on serializer, but typically are compressed together (delta compression, LZF..) to save space. So to find single entry, one has to load/traverse entire node. Some fixed-lenght serializer (Serializer.LONG...) do not have to load entire node to find single entry.
+Each node contains several key-value pairs (by default 32). Their organization depends on serializer, but typically are compressed together (delta compression, LZF..) to save space. So to find single entry, one has to load/traverse entire node. Some fixed-length serializer (Serializer.LONG...) do not have to load entire node to find single entry.
 
 Binary search on `SortedTableMap` is performed in three steps:
 
