@@ -15,20 +15,6 @@ MapDB community provides free support via following sites:
 
 Anything with stack trace goes to Issue Tracker. Mailing list and Reddit forum are for general questions. Documentation for MapDB is [here](http://www.mapdb.org/doc/).
 
-Free phone call
----------------
-
-To help new users and to speedup MapDB adoption, MapDB author provides a quick phone call. Direct communication is the fastest way to answer some questions and solve some problems.
-
-This call is free, up to 20 minutes long. However it is not a support line, and both sides should benefit from it. Author is happy to help, if you are:
-
--   Having troubles, even after reading all [documentation](/doc) and [code examples](https://github.com/jankotek/mapdb-site/tree/master/src/test/java/doc).
--   Evaluating MapDB and need to compare different projects.
--   Solving unique problem, where traditional solutions do not work.
--   Working on interesting open-source project.
-
-Schedule free [phone call](http://www.meetme.so/mapdb).
-
 Consulting and professional support
 -----------------------------------
 
