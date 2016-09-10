@@ -1,7 +1,10 @@
-TODO what to do with this page?
-
-Credits
-=======
+---
+title: "Credits"
+excerpt: "Who contributed to MapDB"
+layout: "single"
+permalink: "/credits/"
+---
+<!-- TODO outdated -->
 
 Most of MapDB was written by Jan Kotek. He started this project and pretty much runs the show.
 
