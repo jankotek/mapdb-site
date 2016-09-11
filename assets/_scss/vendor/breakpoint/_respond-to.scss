@@ -36,7 +36,6 @@ $BREAKPOINTS: () !default;
 
 //////////////////////////////
 // Add Breakpoint to Breakpoints
-// TODO: Remove function in next release
 //////////////////////////////
 @function add-breakpoint($name, $bkpt, $overwrite: false) {
   $output: ($name: $bkpt);

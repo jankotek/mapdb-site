@@ -14,9 +14,8 @@ public class btreemap_object_array {
         //#a
         BTreeMap<Object[], Long> map = db.treeMap("map")
                 // use array serializer for unknown objects
-                // TODO db.getDefaultSerializer()
-                .keySerializer(new SerializerArray(Serializer.JAVA))
-                // or use serializer for specific objects such as String
+                .keySerializer(new SerializerArray())
+                // or use wrapped serializer for specific objects such as String
                 .keySerializer(new SerializerArray(Serializer.STRING))
                 .createOrOpen();
         //#z

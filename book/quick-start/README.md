@@ -71,7 +71,7 @@ By default, MapDB uses generic serialization, which can serialize any data type.
 ```java
 DB db = DBMaker
         .fileDB("file.db")
-        //TODO memory mapped files enable here
+        .fileMmapEnable()
         .make();
 ConcurrentMap<String,Long> map = db
         .hashMap("map", Serializer.STRING, Serializer.LONG)

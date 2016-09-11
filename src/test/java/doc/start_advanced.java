@@ -14,9 +14,9 @@ public class start_advanced {
         // configure and open database using builder pattern.
         // all options are available with code auto-completion.
         DB db = DBMaker.fileDB("test.db")
-        //        .closeOnJvmShutdown() TODO this settings
-        //        .encryptionEnable("password")
-                .make();
+          .closeOnJvmShutdown()
+        //.encryptionEnable("password")
+          .make();
 
         // open existing an collection (or create new)
         ConcurrentNavigableMap<Integer,String> map = db

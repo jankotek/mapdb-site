@@ -16,7 +16,7 @@ public class hello_world_serializers {
         //#a
         DB db = DBMaker
                 .fileDB("file.db")
-                //TODO memory mapped files enable here
+                .fileMmapEnable()
                 .make();
         ConcurrentMap<String,Long> map = db
                 .hashMap("map", Serializer.STRING, Serializer.LONG)
