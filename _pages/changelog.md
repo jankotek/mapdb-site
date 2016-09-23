@@ -6,6 +6,19 @@ permalink: "/changelog/"
 ---
 
 
+3.0.2 released
+--------------
+
+Maven version number: `3.0.2`, release date 2016-09-23
+
+Fixed two critical data corruption bugs. No changes in API or storage format. 
+
+Changes:
+
+- [Fix #765](https://github.com/jankotek/mapdb/issues/765), Data corruption from long stack
+- [Fix #760](https://github.com/jankotek/mapdb/issues/760), `StoreDirect#compact()` and `StoreDirect#put()` had race condition which caused data corruption
+
+
 3.0.1 released
 --------------
 
