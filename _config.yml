@@ -18,9 +18,9 @@ teaser                   : # filename of teaser fallback teaser image placed in 
 breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
 comments:
-  provider               : disqus # false (default), "disqus", "discourse", "facebook", "google-plus", custom"
+  provider               : "disqus" # false (default), "disqus", "discourse", "facebook", "google-plus", custom"
   disqus:
-    shortname            : mapdb
+    shortname            : "mapdb"
   discourse:
     server               : # https://meta.discourse.org/t/embedding-discourse-comments-via-javascript/31963 , e.g.: meta.discourse.org
   facebook:
@@ -37,7 +37,7 @@ yandex_site_verification :
 
 # Social Sharing
 twitter:
-  username               : jankotek
+  username               : "jankotek"
 facebook:
   username               :
   app_id                 :
@@ -52,9 +52,9 @@ social:
 
 # Analytics
 analytics:
-  provider               : google # false (default), "google", "google-universal", "custom"
+  provider               : "google" # false (default), "google", "google-universal", "custom"
   google:
-    tracking_id          : UA-42074659-1
+    tracking_id          : "UA-42074659-1"
 
 # Google AdSense
 google_ad_client         :

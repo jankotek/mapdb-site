@@ -4,8 +4,6 @@ excerpt: "Support"
 layout: "single"
 permalink: "/support/"
 ---
-=======
-
 MapDB community provides free support via following sites:
 
 -   Issue tracker on [Github](https://www.github.com/jankotek/mapdb/issues/)
@@ -18,4 +16,4 @@ Anything with stack trace goes to Issue Tracker. Mailing list and Reddit forum a
 Consulting and professional support
 -----------------------------------
 
-MapDB is sponsored by [consulting services](http://kotek.net/consulting). Author provides services centered around MapDB and Java storage engines. Send an [direct email](mailto:jan@kotek.net?subject=MapDB%20Consulting) or schedule [discovery call](http://www.meetme.so/mapdb).
+MapDB is sponsored by [consulting services](http://kotek.net/consulting). Author provides services centered around MapDB and Java storage engines. Send an [direct email](mailto:jan@kotek.net?subject=MapDB%20Consulting) 
