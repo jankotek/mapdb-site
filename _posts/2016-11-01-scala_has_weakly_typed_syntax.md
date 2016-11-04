@@ -117,7 +117,7 @@ val str:String = {
 
 Here is a reason why I wrote this blog post. 
 In example bellow, the first lambda is not invoked at all. 
-The problem is in `() =>` part, it renders the lamda as unexecutable. 
+The problem is in `() =>` part, it renders the lambda as unexecutable. 
 I will leave it as homework for reader to find out why. 
 We did not found this problem at quick code review, it was latter discovered by unit tests.
 
