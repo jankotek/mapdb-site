@@ -135,7 +135,7 @@ stopwatch{ () =>
 
 stopwatch{
   println("Second called")  // << this is executed
-}.
+}
 ```
 
 And in the end, something for your own amusement. 
