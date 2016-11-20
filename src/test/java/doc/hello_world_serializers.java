@@ -9,6 +9,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.ConcurrentMap;
 
+//TODO document DataOutput.writeUTF incompatibilities between MapDB and JVM
+
 public class hello_world_serializers {
 
     @Test
