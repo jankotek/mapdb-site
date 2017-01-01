@@ -1,5 +1,5 @@
 ---
-title: LSM Store and Log Files
+title: LSM Store and Updates
 layout: single
 ---
 This is the first part of a small series of blog posts about the upcoming `StoreLSM` and its design.
