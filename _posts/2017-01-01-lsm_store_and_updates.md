@@ -37,7 +37,7 @@ so all traversals have to go from  head to  tail (from the most recent Update to
 Traversal in the opposite direction (from tail to head) is not possible.
 Special lazy-N-way merge is used to retrieve all persisted keys for given version
 
-![Log File structure](../images/blog/lsm-logfile.jpeg)
+![Log File structure](/images/blog/lsm-logfile.jpeg)
 
 *Sequence of updates as linked-list*
 
@@ -64,7 +64,7 @@ If a tombstone is found in the linked-list, it means that a key was deleted, and
 If a key does not exist (was never inserted or deleted), the entire linked-list is traversed and we reach tail (initial empty update).
 In this case the search also returns 'not found'. 
 
-![Find key in Log File](../images/blog/lsm-find.jpeg)
+![Find key in Log File](/images/blog/lsm-find.jpeg)
 
 *Search for the key in a sequence of Updates*
 
@@ -97,7 +97,7 @@ Both problems are solved by merging older updates into a single update.
 The merge is typically performed by a compaction process, 
 which runs on the background in a separate thread.
 
-![Start next file with merged content](../images/blog/lsm-merge.jpeg)
+![Start next file with merged content](/images/blog/lsm-merge.jpeg)
 
 *Merge three updates into a new file*
 
@@ -164,7 +164,7 @@ When rollback happens, the linked-list becomes a linked-tree with multiple heads
 one branch of updates.
 
 
-![Rollback and Log Files](../images/blog/lsm-rollback.jpeg)
+![Rollback and Log Files](/images/blog/lsm-rollback.jpeg)
 
 *Rollback V3*
 
