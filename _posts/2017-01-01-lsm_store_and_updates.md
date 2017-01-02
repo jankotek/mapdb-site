@@ -25,7 +25,7 @@ Log as Linked List of Updates
 
 In Log-Structured store the current state (set of all persisted keys and values) is not stored on disk.
 Instead it contains a list of all Updates (CRUD operations).
-We can retreive all entries for given version,  
+We can retrieve all entries for given version,  
 by replaying all Updates from the start (when store was empty) to the most recent update. 
 
 In my interpretation, the Updates are organized in a linked-list. 
@@ -130,7 +130,7 @@ this collision is resolved once the old file is deleted.
 Merge algorithm
 -----------------
 
-The analogy with compaction and `TreeSet` secton is broken. A linked-list cannot really be traversed from tail to head,
+The analogy with compaction and `TreeSet` section is broken. A linked-list cannot really be traversed from tail to head,
 as all links go only in opposite directions. Also `TreeSet` is inefficient and all keys would not fit into memory.
 
 Instead, compaction uses more effective lazy-N-way merge. I will describe it in more detail in a future blog post. 
@@ -142,7 +142,7 @@ In short:
 
 - The time complexity is `O(N*log(M))`, where `N` is the total number of keys in all Updates and `M` is the number of Updates (versions) in merge.
   
-- Compaction is streaming data; it never loads all keys into memory. But it needs to store `M` keys in memory for comparation.
+- Compaction is streaming data; it never loads all keys into memory. But it needs to store `M` keys in memory for comparison.
  
 - If `M` is too large, the compaction process can be performed in stages. 
 
@@ -157,7 +157,7 @@ you may decide to rollback or commit dirty (not yet saved) data.
 LSM Store supports this scenario in more powerful way. Each update (commit) creates its own snapshot. 
 It is possible to rollback several existing commits, and revert the store to an older version.
 This older version can then me modified independently in a separate branch. 
-Original (rolledback) data are not really lost, but are preserved in separate snapshot.
+Original (rolled-back) data are not really lost, but are preserved in separate snapshot.
 Version Control System, such as Git, works in a similar way.
 
 When rollback happens, the linked-list becomes a linked-tree with multiple heads. Each head represents
