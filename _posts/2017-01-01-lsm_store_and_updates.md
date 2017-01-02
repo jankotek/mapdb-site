@@ -14,11 +14,11 @@ MapDB will eventually get a new `StoreLSM` engine, it will replace the old `Stor
 List of terms
 -------------
 
-First small list of terms used in thos blog post (and series).
+First small list of terms used in this blog post (and this series).
 
-**Update** is single atomic modification to store. It inserts or deletes multiple keys. Synonym is Commit. Each Update creates Snapshot identified by version such as V0 or V1.
+**Update** is single atomic modification made on store. It inserts or deletes multiple keys. Synonym is Commit. Each Update creates Snapshot identified by version such as V0 or V1.
 
-The **linked-list** is sequence of Updates linked together. Synonym could be append-only Log 
+The **linked-list** is sequence of Updates linked together. Synonym could be append-only Log.
 
 Log as Linked List of Updates
 ---------------------------
