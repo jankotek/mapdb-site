@@ -6,6 +6,14 @@ permalink: "/changelog/"
 ---
 
 
+3.0.3 released
+--------------
+
+Maven version number: `3.0.3`, release date 2017-01-12
+
+- [Fix #794](https://github.com/jankotek/mapdb/issues/794), `TreeMap.createFromSink` with external values causes `DBException$PointerChecksumBroken: Broken bit parity`
+- Upgrade Kotlin compiler and library to 1.0.6
+
 3.0.2 released
 --------------
 
