@@ -9,7 +9,9 @@ Today we will discus shards and better compaction.
 
 
 Articles in this series:
+
 - [1. LSM Store and Updates](http://www.mapdb.org/blog/lsm_store_and_updates/)
+
 - [2. LSM Store and Shards](http://www.mapdb.org/blog/lsm_store_and_shards/)
 
 

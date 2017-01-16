@@ -6,7 +6,9 @@ This is the first part of a small series of blog posts about the upcoming `Store
 My take on append-only log files, their compaction, snapshots and rollback.
 
 Articles in this series:
+
 - [1. LSM Store and Updates](http://www.mapdb.org/blog/lsm_store_and_updates/)
+
 - [2. LSM Store and Shards](http://www.mapdb.org/blog/lsm_store_and_shards/)
 
 During the past few months I have been working for [IOHK](http://iohk.io) on a new storage engine codenamed  [IODB](https://github.com/input-output-hk/iodb). 
