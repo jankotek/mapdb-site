@@ -70,7 +70,7 @@ at each level you search all files for given key.
  
  
 ![RocksDB](/images/blog/lsm2-rocksdb.jpeg)
-*RocksDB multilevel store; it also shows key search in green*
+*RocksDB multilevel store; it also shows key search in green, all files have to be traversed to find a key*
 
 RocksBD multi-level design has some problems:
  
