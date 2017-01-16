@@ -5,6 +5,10 @@ layout: single
 This is the first part of a small series of blog posts about the upcoming `StoreLSM` and its design.
 My take on append-only log files, their compaction, snapshots and rollback.
 
+Articles in this series:
+- [1. LSM Store and Updates](http://www.mapdb.org/blog/lsm_store_and_updates/)
+- [2. LSM Store and Shards](http://www.mapdb.org/blog/lsm_store_and_shards/)
+
 During the past few months I have been working for [IOHK](http://iohk.io) on a new storage engine codenamed  [IODB](https://github.com/input-output-hk/iodb). 
 It is based on Log-Structured-Merge Tree and inspired by [RocksDB](http://rocksdb.org/) from Facebook. 
 IODB will be mostly used by block-chain applications. 
@@ -54,6 +58,9 @@ The most recent version of the store is **V2**, with keys 1, 3 and 4. Key 2 has 
 Find key
 ---------------
 
+Key Search needs to find most recent version of key, in other words: it needs to find most recent Update 
+when key was inserted, modified or deleted.
+
 To find a key, we traverse a linked-list from the head (most recent update) to the tail (initial empty update).
 A linked-list traversal finishes when the most recent version
 of a key is found.
@@ -71,7 +78,7 @@ In this case the search also returns 'not found'.
 The figure above shows a simple store with three updates: 
 
 - **V1** adds 1,2; 
-- **V2** deletes 2, 
+- **V2** deletes 2, vv
 - **V3** adds 4. 
 
 In the most recent version the store contains keys 1 and 4
@@ -140,11 +147,11 @@ In short:
 
 - Compaction reads content of all  Updates  in parallel, and produces the result by comparing keys from all updates. 
 
-- The time complexity is `O(N*log(M))`, where `N` is the total number of keys in all Updates and `M` is the number of Updates (versions) in merge.
+- The time complexity is `O(N*log(U))`, where `N` is the total number of keys in all Updates and `U` is the number of Updates (versions) in merge.
   
-- Compaction is streaming data; it never loads all keys into memory. But it needs to store `M` keys in memory for comparison.
+- Compaction is streaming data; it never loads all keys into memory. But it needs to store `U` keys in memory for comparison.
  
-- If `M` is too large, the compaction process can be performed in stages. 
+- If `U` is too large, the compaction process can be performed in stages. 
 
 - No random IO, as all reads are sequential and all writes are append-only.
 
