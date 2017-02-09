@@ -1,6 +1,7 @@
 ---
 title: Scala has weakly typed syntax
 layout: single
+tags: [Scala, Kotlin]
 ---
 
 I recently gave a talk named "Scala vs Kotlin vs Java8" at  [Geecon conference](http://2016.geecon.cz).

@@ -1,6 +1,8 @@
 ---
 title: Milestone 2 is out and 3.0 roadmap
 layout: single
+tags: [Roadmap, Release]
+
 ---
 
 MapDB 3.0 milestone 2 was released today. M2 adds BTreeMap, Data Pump and new faster SortedTableMap.

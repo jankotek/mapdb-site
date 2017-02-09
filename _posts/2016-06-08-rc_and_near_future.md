@@ -1,6 +1,8 @@
 ---
 title: MapDB 3 Release Candidate and near future
 layout: single
+tags: [Release, Roadmap]
+
 ---
 
 MapDB 3.0 Release Candidate 1 [is out](/changelog). In about two weeks it will become stable release. Right now the priority is to fix bugs and improve documentation. Now lets talk about near future of MapDB.

@@ -1,6 +1,7 @@
 ---
 title: Migrating to MapDB 3.0
 layout: single
+tags: [Migration, 3.0]
 ---
 
 MapDB 3 is now usable, so lets talk about differences from older releases and howto migrate into new release.

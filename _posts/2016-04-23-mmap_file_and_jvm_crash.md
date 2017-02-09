@@ -1,6 +1,8 @@
 ---
 title: Memory mapped file and JVM crash
 layout: single
+tags: [MMap]
+
 ---
 
 Memory mapped (mmap) file reatly improves performance over traditional `RandomAccessFile` or `FileChannel`. However it has quirks and could cause JVM crash. MapDB contains some workarounds to make it more stable.

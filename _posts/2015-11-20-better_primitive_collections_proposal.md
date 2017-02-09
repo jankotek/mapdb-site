@@ -1,6 +1,8 @@
 ---
 title: Better primitive collections
 layout: single
+tags: [MMap, Collections]
+
 ---
 
 

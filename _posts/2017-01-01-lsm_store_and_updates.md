@@ -1,6 +1,8 @@
 ---
 title: LSM Store and Updates
 layout: single
+tags: [LSM, Store]
+
 ---
 This is the first part of a small series of blog posts about the upcoming `StoreLSM` and its design.
 My take on append-only log files, their compaction, snapshots and rollback.

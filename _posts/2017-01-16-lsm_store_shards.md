@@ -1,6 +1,7 @@
 ---
 title: LSM Store and Shards
 layout: single
+tags: [LSM, Store]
 ---
 
 In [last post](http://www.mapdb.org/blog/lsm_store_and_updates/).

@@ -1,6 +1,7 @@
 ---
 title: Unit testing multi-threaded code with Thread Weaver
 layout: single
+tags: [Test]
 ---
 
 MapDB uses [Thread Weaver](https://github.com/google/thread-weaver) for verifying multi-threaded code. It was written by Google developers and has pretty impressive features. Thread Weaver executes code in multiple threads, adds breakpoints into each thread, and pauses thread execution, until other thread progresses. In theory that should catch all race conditions, because all possible combinations of delays are executed and verified.
