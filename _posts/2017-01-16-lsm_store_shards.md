@@ -8,20 +8,7 @@ In [last post](http://www.mapdb.org/blog/lsm_store_and_updates/).
 I explained how Updates are chained in linked-list and organized into log files. 
 Today we will discus shards and better compaction.
 
-
-Articles in this series:
-
-<ul>
-{% for post in posts %}
-  {% if post.tags contains "LSM" %}
-  <li>
-    <a href="{{ post.url }}">{{ post.title }}</a>
-    <span class="date">{{ post.date | date: "%B %-d, %Y"  }}</span>
-  </li>
-  {% endif %}
-{% endfor %}
-</ul>
-
+[Articles in this series are here](http://www.mapdb.org/blog/tag/#LSM). 
 
 Dictionary
 ---------------

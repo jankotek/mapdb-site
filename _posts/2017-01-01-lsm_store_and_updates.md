@@ -7,20 +7,7 @@ tags: [LSM, Store]
 This is the first part of a small series of blog posts about the upcoming `StoreLSM` and its design.
 My take on append-only log files, their compaction, snapshots and rollback.
 
-Articles in this series:
-
-<ul>
-{% for post in posts %}
-  {% if post.tags contains "LSM" %}
-  <li>
-    <a href="{{ post.url }}">{{ post.title }}</a>
-    <span class="date">{{ post.date | date: "%B %-d, %Y"  }}</span>
-  </li>
-  {% endif %}
-{% endfor %}
-</ul>
-
-
+[Articles in this series are here](http://www.mapdb.org/blog/tag/#LSM).
 
 During the past few months I have been working for [IOHK](http://iohk.io) on a new storage engine codenamed  [IODB](https://github.com/input-output-hk/iodb). 
 It is based on Log-Structured-Merge Tree and inspired by [RocksDB](http://rocksdb.org/) from Facebook. 

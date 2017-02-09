@@ -9,7 +9,7 @@ Click on a tag to see relevant list of posts.
 <ul class="tags">
 {% for tag in site.tags %}
   {% assign t = tag | first %}
-  <li><a href="/tag/#{{t | replace:" ","-" }}">{{ t }}</a></li>
+  <li><a href="/blog/tag/#{{t | replace:" ","-" }}">{{ t }}</a></li>
 {% endfor %}
 </ul>
 
