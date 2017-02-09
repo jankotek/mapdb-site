@@ -1,6 +1,6 @@
 ---
 title: Better primitive collections
-layout: single
+layout: comments
 tags: [MMap, Collections]
 
 ---
