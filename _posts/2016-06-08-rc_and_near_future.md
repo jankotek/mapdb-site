@@ -1,6 +1,6 @@
 ---
 title: MapDB 3 Release Candidate and near future
-layout: single
+layout: comments
 tags: [Release, Roadmap]
 
 ---

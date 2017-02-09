@@ -1,6 +1,6 @@
 ---
 title: Milestone 2 is out and 3.0 roadmap
-layout: single
+layout: comments
 tags: [Roadmap, Release]
 
 ---

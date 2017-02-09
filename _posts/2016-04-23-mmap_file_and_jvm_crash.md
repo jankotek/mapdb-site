@@ -1,6 +1,6 @@
 ---
 title: Memory mapped file and JVM crash
-layout: single
+layout: comments
 tags: [MMap]
 
 ---

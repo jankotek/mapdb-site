@@ -1,6 +1,6 @@
 ---
 title: LSM Store and Updates
-layout: single
+layout: comments
 tags: [LSM, Store]
 
 ---
