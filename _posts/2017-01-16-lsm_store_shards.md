@@ -11,9 +11,16 @@ Today we will discus shards and better compaction.
 
 Articles in this series:
 
-- [1. LSM Store and Updates](http://www.mapdb.org/blog/lsm_store_and_updates/)
-
-- [2. LSM Store and Shards](http://www.mapdb.org/blog/lsm_store_and_shards/)
+<ul>
+{% for post in posts %}
+  {% if post.tags contains "LSM" %}
+  <li>
+    <a href="{{ post.url }}">{{ post.title }}</a>
+    <span class="date">{{ post.date | date: "%B %-d, %Y"  }}</span>
+  </li>
+  {% endif %}
+{% endfor %}
+</ul>
 
 
 Dictionary

@@ -9,9 +9,18 @@ My take on append-only log files, their compaction, snapshots and rollback.
 
 Articles in this series:
 
-- [1. LSM Store and Updates](http://www.mapdb.org/blog/lsm_store_and_updates/)
+<ul>
+{% for post in posts %}
+  {% if post.tags contains "LSM" %}
+  <li>
+    <a href="{{ post.url }}">{{ post.title }}</a>
+    <span class="date">{{ post.date | date: "%B %-d, %Y"  }}</span>
+  </li>
+  {% endif %}
+{% endfor %}
+</ul>
 
-- [2. LSM Store and Shards](http://www.mapdb.org/blog/lsm_store_and_shards/)
+
 
 During the past few months I have been working for [IOHK](http://iohk.io) on a new storage engine codenamed  [IODB](https://github.com/input-output-hk/iodb). 
 It is based on Log-Structured-Merge Tree and inspired by [RocksDB](http://rocksdb.org/) from Facebook. 
