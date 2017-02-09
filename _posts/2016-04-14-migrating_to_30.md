@@ -1,6 +1,6 @@
 ---
 title: Migrating to MapDB 3.0
-layout: comments
+layout: single
 tags: [Migration, 3.0]
 ---
 

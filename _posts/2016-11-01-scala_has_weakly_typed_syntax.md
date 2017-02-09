@@ -1,6 +1,6 @@
 ---
 title: Scala has weakly typed syntax
-layout: comments
+layout: single
 tags: [Scala, Kotlin]
 ---
 

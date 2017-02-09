@@ -1,6 +1,6 @@
 ---
 title: LSM Store and Shards
-layout: comments
+layout: single
 tags: [LSM, Store]
 ---
 

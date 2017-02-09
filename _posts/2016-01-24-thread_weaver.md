@@ -1,6 +1,6 @@
 ---
 title: Unit testing multi-threaded code with Thread Weaver
-layout: comments
+layout: single
 tags: [Test]
 ---
 
