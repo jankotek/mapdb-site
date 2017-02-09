@@ -7,7 +7,7 @@ tags: [LSM, Store]
 This is the first part of a small series of blog posts about the upcoming `StoreLSM` and its design.
 My take on append-only log files, their compaction, snapshots and rollback.
 
-[Articles in this series are here](http://www.mapdb.org/blog/tag/#LSM).
+All articles from 'LSM Store' series are under [LSM tag](http://www.mapdb.org/blog/tag/#LSM).
 
 During the past few months I have been working for [IOHK](http://iohk.io) on a new storage engine codenamed  [IODB](https://github.com/input-output-hk/iodb). 
 It is based on Log-Structured-Merge Tree and inspired by [RocksDB](http://rocksdb.org/) from Facebook. 

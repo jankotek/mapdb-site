@@ -8,7 +8,7 @@ In [last post](http://www.mapdb.org/blog/lsm_store_and_updates/).
 I explained how Updates are chained in linked-list and organized into log files. 
 Today we will discus shards and better compaction.
 
-[Articles in this series are here](http://www.mapdb.org/blog/tag/#LSM). 
+All articles from 'LSM Store' series are under [LSM tag](http://www.mapdb.org/blog/tag/#LSM).
 
 Dictionary
 ---------------
