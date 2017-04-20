@@ -36,9 +36,9 @@ MapDB was designed from ground to take advantage of mmap files. However on 32bit
 
 Mmap files are much faster compared to RAF. The exact speed bonus depends on the operating system and disk case management, but is typically between 10% and 300%.
 
-Memory mapped files are activated with `DBMaker.mmapFileEnable()` setting.
+Memory mapped files are activated with `DBMaker.fileMmapEnable()` setting.
 
-One can also activate mmap files only if a 64bit platform is detected: `DBMaker.mmapFileEnableIfSupported()`.
+One can also activate mmap files only if a 64bit platform is detected: `DBMaker.fileMmapEnableIfSupported()`.
 
 Mmap files are highly dependent on the operating system. For example, on Windows you cannot delete a mmap file while it is locked by JVM. If Windows JVM dies without closing the mmap file, you have to restart Windows to release the file lock.
 

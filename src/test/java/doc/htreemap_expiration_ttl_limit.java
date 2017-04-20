@@ -19,8 +19,8 @@ public class htreemap_expiration_ttl_limit {
         // or 1 minute after last get()
         HTreeMap cache = db
                 .hashMap("cache")
-                .expireAfterUpdate(10, TimeUnit.HOURS)
-                .expireAfterCreate(10, TimeUnit.HOURS)
+                .expireAfterUpdate(10, TimeUnit.MINUTES)
+                .expireAfterCreate(10, TimeUnit.MINUTES)
                 .expireAfterGet(1, TimeUnit.MINUTES)
                 .create();
         //#z
