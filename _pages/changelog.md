@@ -6,6 +6,30 @@ permalink: "/changelog/"
 ---
 
 
+3.0.4 released
+--------------
+
+Maven version number: `3.0.4`, release date 2017-04-24
+
+- [Fix #819](https://github.com/jankotek/mapdb/issues/819), HTreeMap Concurrency Layout was persited wrong way
+
+
+- [Fix #816](https://github.com/jankotek/mapdb/issues/816), BTreeMap and HTreeMap.KeySet.add has incorrect return value 
+
+- Update Kotlin compiler and library to 1.0.7, fix relevant compilation errors
+
+- [Fix #815](https://github.com/jankotek/mapdb/issues/815), SortedTableMap Page Size had wrong check
+
+- [Fix #781](https://github.com/jankotek/mapdb/issues/781), fix deadlock in `Utils.lock*All()`
+
+- [Fix #780](https://github.com/jankotek/mapdb/issues/780), 
+    `DBMaker.make()` blocks without throwing `FileLockedException` when fileLockWait timeout specified. Use `FileChannel#tryLock()` when locking a store.
+
+- [Fix #800](https://github.com/jankotek/mapdb/issues/800), NPE in `SortedableMap` subsets
+
+- [Fix #776](https://github.com/jankotek/mapdb/issues/776), `StackOverflowError` on unmapping mmap files
+
+
 3.0.3 released
 --------------
 

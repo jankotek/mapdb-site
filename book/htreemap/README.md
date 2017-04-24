@@ -176,8 +176,8 @@ This will set expiration time since the creation, last update and since the last
 // or 1 minute after last get()
 HTreeMap cache = db
         .hashMap("cache")
-        .expireAfterUpdate(10, TimeUnit.HOURS)
-        .expireAfterCreate(10, TimeUnit.HOURS)
+        .expireAfterUpdate(10, TimeUnit.MINUTES)
+        .expireAfterCreate(10, TimeUnit.MINUTES)
         .expireAfterGet(1, TimeUnit.MINUTES)
         .create();
 ```
