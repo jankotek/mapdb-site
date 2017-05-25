@@ -5,7 +5,7 @@ tags: [Kotlin]
 ---
 
 A few months ago ago I wrote post named [Scala has weakly typed syntax](http://www.mapdb.org/blog/scala_has_weakly_typed_syntax/). 
-I should expand it a bit: Scala is excellent language, but Kotlin is better. 
+I should expand it a bit: Scala is excellent language, but Kotlin is far better. 
 When comparing Kotlin to other languages, you only see nicer syntax. 
 But Kotlin really shines, once you start using  for daily tasks, I programmed in Kotlin for 3 years. 
 So I am starting small blog series, to describe less known advantages of Kotlin programming language. 
@@ -25,13 +25,13 @@ try{
 }
 ```
 This works reasonably well. 
-It is easy to refactor old (thread unsafe) code to use this construct.    
-But errors may be introduced, 
-for example if different lock variable is unlocked, `ReadWriteLock` uses read lock instead of write lock etc... 
+It is easy to refactor old (thread unsafe) code to use this new construct.    
+But it is easy to introduce errors, 
+for example if a different lock variable is unlocked, or `ReadWriteLock` unlocks readLock instead of writeLock... 
 
-Usual way is to wrap thread safe code into lambda, and specify lock only once.
+One way is to wrap thread safe code into lambda, and specify lock only once.
+
 It would be nice to have `withLock` [directly on Lock interface](https://stackoverflow.com/questions/24034240/why-didnt-java-8-add-withlock-default-methods-to-the-java-util-concurrent-lo), but maybe in Java 9. 
-
 In Java8 we have to specify our own method which takes lock and lambda:
 
 ```java
@@ -51,11 +51,11 @@ withLock(lock, () -> {
 });
 ```        
 
-It works, lock is specified only once, but this creates new problems:
+It works, lock is specified only once, but this creates some new problems:
 
-* New `Runnable` (lambda) is allocated on every invocation. I do not think that is problem for modern JVMs.
+* New `Runnable` (lambda) is allocated on every invocation. I do not think that is a problem for modern JVM with good GC.
 
-* Lambda invocation inside method adds three new stack frames. That is big overhead, JIT can not work that well.
+* Lambda invocation inside method adds three new stack frames. That is big overhead, and it prevents JIT.
 
 * It breaks local context; because lambda is executed somewhere else, one can not return from method or continue local cycle.
   
@@ -66,7 +66,7 @@ It works, lock is specified only once, but this creates new problems:
 
 ### Try finally in local frame
 
-Some method can not be refactored to use lambdas with lock. Lets take this simple method, to return variable:
+Things get complicated once you need more than code wrapping. Lets take simple getter:
 ```java
 public String getName(){
     lock.lock();
@@ -77,7 +77,7 @@ public String getName(){
     }
 }
 ```
-We can not use simple runnable lambda, this does not compile:
+We can not use simple `Runnable` lambda, this does not compile:
 
 ```java
 public String getName(){
