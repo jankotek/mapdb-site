@@ -135,12 +135,12 @@ Write order is important to prevent data corruption. If LMDB would use mmap file
 
 So this could be a new way to write append-only files such as Write Ahead Log. 
 
-## Truncated mmap files
+## MMap beond end of file
 
 Here is solution to another problem: how to increase size of mmaped `ByteBuffer`, if the underlying file expands, but buffers are fixed size?
 MapDB maps file in 1MB increments, but that is very slow and requires too many resources (file handles).
 
-Solution is very simple, and works pretty well on Linux. We mmap beyond the end of file:
+Solution is very simple, and works pretty well on Linux. Let's mmap beyond the end of file:
 
 * create empty file
 * open writable `FileChannel` for this file
@@ -148,18 +148,15 @@ Solution is very simple, and works pretty well on Linux. We mmap beyond the end 
 * file size grows to 2GB, but it is sparse file, no disk space is actually used
 * call [FileChannel#truncate()](https://docs.oracle.com/javase/8/docs/api/java/nio/channels/FileChannel.html#truncate-long-) to shrink file size back to zero
 
-Now we have empty file, with large read-only `ByteBuffer` mmaped over it. 
-We can safely expand file by writing with `FileeChannel`.
-As file grows, the changes will be visible in `ByteBuffer`. 
-Parts of file which are beyond enf-of-file are visible in `ByteBuffer` as zeroes. 
+Now there is an empty file, with large read-only `ByteBuffer` mmaped over it. 
+File can be safely modified (and expanded) with `FileeChannel`.
+File changes will be visible in  mmaped`ByteBuffer`. 
 
-Once file grows over 2GB, we mmap another 2GB region and use `FileChannel#truncate()` again. 
 
-In this example we used read-only mmap region. But with some care the writable mmaped `ByteBuffer` could be used. 
-The most important is that `FileChannel` will write changes that cause file to expand.
+Once file grows over 2GB,  mmap another 2GB region and use `FileChannel#truncate()` again. 
 
 This approach does not work on all operating systems. In Windows, the `FileChannel.truncate()` does not shrink file, 
-`empty file` still has 1GB. This method can still be usable on Windows, we just use smaller regions (128MB vs 2GB) and 
+`empty file` still has 2GB. This method can still be usable on Windows, we just use smaller regions (128MB vs 2GB) and 
  file can be truncated when store is closed (after unmap).
 
 ## Fast disk space allocation
@@ -172,13 +169,13 @@ Until recently I though that region of sparse file have only two states:
 But apparently on Linux there is a third state, where the disk space is allocated, but no data were written yet.
 There is `fallocate` call which [handles that](http://man7.org/linux/man-pages/man2/fallocate.2.html)
 
-In JVM we can not access this call directly. There are other options: 
+JVM does not provide any “legal” way to call `fallocate` directly. There are other options: 
 
-* We could use JNA call, for example in [this library](https://github.com/Nithanim/mmf4j).
+* JNA call, for example in [this library](https://github.com/Nithanim/mmf4j).
 * Another option is to execute `/usr/lib/fallocate` command. 
 * And finally the `FileChannel.transferFrom()` from sparse file seems to have [the same effect](https://groups.google.com/forum/#!topic/mechanical-sympathy/UMrKt75yOmg
 ).
 
-Why this is excellent? If we have sparse file in this allocated state, the delayed write can not fail when disk is full. 
+Why this is excellent? If sparse file is in this allocated state, the delayed write can not fail when disk is full. 
 So when the file expands, we do not have to overwrite new region with zeroes, but can use `fallocate` instead.
 That is much faster. 
