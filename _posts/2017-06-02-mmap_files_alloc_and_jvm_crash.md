@@ -126,8 +126,8 @@ This approach has some interesting features:
 
 * There is no JVM crash if disk becomes full and delayed write fails
 
-* `FileChannel` preserves order of writes; data are flushed to disk in the same order they were written to `FileChannel`. 
-Write order is important to prevent data corruption. If LMDB would use mmap files for write, it would require  write-ahead-log exactly for crash protection. 
+* `FileChannel` preserves write order; data are flushed to disk in the same order they were written to `FileChannel`. 
+Write order is important to prevent data corruption. If LMDB would use mmap files for write, it would require  write-ahead-log for crash protection 
 
 * Performance difference between writable mmap files and `FileChannel` is minimal if larger blocks are used. 
 
