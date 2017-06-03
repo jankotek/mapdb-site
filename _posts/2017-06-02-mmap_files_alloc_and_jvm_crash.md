@@ -135,7 +135,7 @@ Write order is important to prevent data corruption. If LMDB would use mmap file
 
 So this could be a new way to write append-only files such as Write Ahead Log. 
 
-## MMap beond end of file
+## MMap beyond end of file
 
 Here is solution to another problem: how to increase size of mmaped `ByteBuffer`, if the underlying file expands, but buffers are fixed size?
 MapDB maps file in 1MB increments, but that is very slow and requires too many resources (file handles).
