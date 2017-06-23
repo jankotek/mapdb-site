@@ -164,7 +164,7 @@ This approach does not work on all operating systems. In Windows, the `FileChann
 
 ## Fast disk space allocation
 
-Until recently I though that region of sparse file have only two states:
+Until recently I though that region of a sparse file has only two states:
 
 * Large file exists, its disk space is not allocated, data were not written yet
 * Large file exists, its disk space is allocated and data were written
