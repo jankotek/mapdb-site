@@ -5,6 +5,16 @@ layout: "single"
 permalink: "/changelog/"
 ---
 
+3.0.5 released
+--------------
+
+Maven version number: `3.0.5`, release date 2017-07-08
+    
+- [Fix #836](https://github.com/jankotek/mapdb/issues/836), HTreeMap.keySet performs linear scan
+
+- [Fix #778](https://github.com/jankotek/mapdb/issues/778), BTreeMap counter wrong after `BTreeMap.clear()` called several times
+
+- Replace SingleEntry locks with Reentrant Locks. 5x performance improvement in most cases
 
 3.0.4 released
 --------------
