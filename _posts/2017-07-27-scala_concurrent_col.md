@@ -141,7 +141,7 @@ compiler found concurrency issue :-)
 Code above does not compile. If we unlock wrong file (not yet locked), value is null and `else value-1` would throw NPE.
 
 So we need to handle case when wrong file is unlocked. 
-This version is correct compiles:
+This version is correct and compiles:
 
 ```kotlin
 // kotlin code
