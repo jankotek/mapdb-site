@@ -138,7 +138,7 @@ Long one = map.get("Non Existent");
 // Value Creator output was added to Map
 map.size(); //  => 1
 ```
-Shard Stores for better concurrency
+Sharded Stores for better concurrency
 -----------------------------------
 
 `HTreeMap` is split into separate segments. Each segment is independent and does not share any state with other segments. However they still share underlying `Store` and that affects performance under concurrent load. It is possible to make segments truly independent, by using separate `Store` for each segment.
