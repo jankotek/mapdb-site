@@ -71,3 +71,4 @@ Fixed and variable sizes
 Array like structures can only work with fixed size records. For variable sized records collection can use `StoreDirect` class from MapDB. It operates over mmap file and provides space allocator, compaction, free space reuse etc..
 
 Collection such as `HashMap<long,Object>` would combine two files: an array of longs for hash table, and second file for values which managed by `StoreDirect`.
+
