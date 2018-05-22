@@ -5,6 +5,20 @@ layout: "single"
 permalink: "/changelog/"
 ---
 
+
+3.0.6 released
+--------------
+
+Maven version number: `3.0.6`, release date 2018-05-16
+    
+- Update Kotlin to 1.2.x
+
+- Update Eclipse Collections to latest version
+
+- Use wildcards on Maven dependencies versions (Guava, Eclipse Collections) to allow more flexible dependencies
+
+- [Fix #841](https://github.com/jankotek/mapdb/issues/841), `HashSet.add()` returns wrong value
+
 3.0.5 released
 --------------
 
