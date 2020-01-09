@@ -5,6 +5,20 @@ layout: "single"
 permalink: "/changelog/"
 ---
 
+3.0.8 released
+--------------
+Maven version number: `3.0.8`, release date 2020-01-08
+
+- [Fix #965](https://github.com/jankotek/mapdb/issues/965) Memory leak in `StoreWAL`
+
+- [Fix #964](https://github.com/jankotek/mapdb/issues/964) EC added new method into interface, MapDB would not compile
+
+- [Fix #939](https://github.com/jankotek/mapdb/issues/939) Compile with JDK 10 and JDK 11, better support for cleaner hack
+
+- [Fix #898](https://github.com/jankotek/mapdb/issues/898) Add a classloader parameter to SerializerJava
+
+- Add OpenJDK 10 and OpenJDK 11 into Travis  
+
 
 3.0.6 released
 --------------
