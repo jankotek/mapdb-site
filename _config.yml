@@ -11,7 +11,7 @@ title                    : "MapDB"
 title_separator          : "-"
 name                     : "MapDB"
 description              : "Embedded Java Database Engine"
-url                      : https://www.mapdb.org/
+url                      : https://mapdb.org/
 baseurl                  : /
 gh_repo                  : http://www.github.com/jankotek/mapdb/
 teaser                   : # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
