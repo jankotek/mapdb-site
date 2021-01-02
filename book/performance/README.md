@@ -121,7 +121,7 @@ By default MapDB tries minimize space usage and allocates space in 1MB increment
 DB db = DBMaker
     .fileDB(file)
     .fileMmapEnable()
-    .allocateStartSize( 10 * 1024*1024*1024)  // 10GB
+    .allocateStartSize(10L * 1024*1024*1024)  // 10GB
     .allocateIncrement(512 * 1024*1024)       // 512MB
     .make();
 ```
