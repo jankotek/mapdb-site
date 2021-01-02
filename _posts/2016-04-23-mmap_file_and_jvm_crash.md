@@ -20,7 +20,7 @@ Sparse files and free disk space
 
 Most modern filesystems use [sparse files](https://en.wikipedia.org/wiki/Sparse_file). In short: if you allocate 1GB file, it is filled with zeroes and consumes zero space. Sparse file allocates disk space lazily allocated once data are written. Sparse file presents problem for mmap files in MapDB. JVM crashes if lazy allocation fails, and it always happens if there is no free disk space.
 
-I made some debugging to see how this manifests. The source code for all examples is [on github](https://github.com/jankotek/mapdb-site/tree/master/src/test/java/blog/mmap_and_jvm_crash).
+I made some debugging to see how this manifests. The source code for all examples is [on github](https://github.com/jankotek/mapdb-site/tree/gh-pages/src/test/java/blog/mmap_and_jvm_crash).
 
 First lets create file `disk-image` filled with zeroes, format it as a filesystem, and mount it as a loopback device:
 

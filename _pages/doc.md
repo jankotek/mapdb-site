@@ -8,7 +8,7 @@ permalink: "/doc/"
 MapDB documentation is [hosted on Git Books](https://jankotek.gitbooks.io/mapdb/content/).
 There are  [PDF and ebook versions](https://www.gitbook.com/book/jankotek/mapdb/details) available for download.
 
-Code examples from documentation are available in [Github repository](https://github.com/jankotek/mapdb-site/tree/master/src/test/java/doc).
+Code examples from documentation are available in [Github repository](https://github.com/jankotek/mapdb-site/tree/gh-pages/src/test/java/doc).
 
 
 Javadoc
