@@ -18,8 +18,8 @@ public class performance_allocation {
         DB db = DBMaker
             .fileDB(file)
             .fileMmapEnable()
-            .allocateStartSize( 10 * 1024*1024*1024)  // 10GB
-            .allocateIncrement(512 * 1024*1024)       // 512MB
+            .allocateStartSize( 10L * 1024*1024*1024)  // 10GB
+            .allocateIncrement(512L * 1024*1024)       // 512MB
             .make();
         //#z
     }
