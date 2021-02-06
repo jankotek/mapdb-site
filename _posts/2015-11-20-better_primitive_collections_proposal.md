@@ -72,3 +72,12 @@ Array like structures can only work with fixed size records. For variable sized 
 
 Collection such as `HashMap<long,Object>` would combine two files: an array of longs for hash table, and second file for values which managed by `StoreDirect`.
 
+
+
+<script src="https://utteranc.es/client.js"
+        repo="https://github.com/mapdb/mapdb-site-comments"
+        issue-term="2015-11-20-better_primitive_collections_proposal"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
