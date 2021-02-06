@@ -145,3 +145,78 @@ But Java8 and Kotlin have decided to use `->` arrow instead, and here is the why
 ```scala
 List(1).filter{i=>1<=i}
 ```
+
+
+Comments
+---
+
+```
+James Ward • 4 years ago
+
+In your stopwatch() example the parameter isn't actually a lambda. 
+It is a by-name parameter.
+
+If you want to take a lambda that is Unit => Unit then you'd need 
+to do:
+
+def stopwatch(computation: () => Unit): Long = {
+val s = System.currentTimeMillis()
+computation()
+System.currentTimeMillis() - s
+}
+
+More good info from https://tpolecat.github.io/...
+
+•
+Reply
+•
+Share ›
+
+Avatar
+Blatant_Bolt • 4 years ago
+
+your computation lambda example is an issue, but I noticed it 
+instantly.
+
+However, I'm not sure it is better in other languages once you
+go past this Unit example --
+
+def stopwatch(computation: Task[Unit]): Long = {
+val s = System.currentTimeMillis()
+computation
+System.currentTimeMillis() - s
+}
+
+where Task has a 'run' method. One may forget to run it --
+ any code lifted up into a context and lazily executed can have this issue. All of the built in functions, etc. All 'function-ish' types have this problem and no language you mention here solves it.
+
+There was a discussion on scala-internals not too long ago
+ about having a type be able to declare that it should not be left as an 'unused' value in a statement without a compiler warning. => Unit could be one such built-in type, and users could say '@functionType class Task ...' Then, the compiler would not allow the type to dangle in a statement without being executed.
+
+After all, this is valid java:
+
+long stopwatch(Runnable computation) = {
+long s = System.currentTimeMillis();
+computation;
+return System.currentTimeMillis() - s;
+}
+
+'=> Unit' is just a syntactic sugar tool for '() => Unit' with 
+slightly different syntactical behavior in various positions in the source.
+
+•
+Reply
+•
+Share ›
+
+        −
+    Avatar
+    Jan Kotek Blatant_Bolt • 4 years ago
+
+    Problem with lambda code in Scala is that there are two ways, 
+    and one of them is not working. We wrote unit test for `stopwatch` method and it worked (with second case from blogpost). Than it stopped to work when first case was used.
+
+    Java code where `computation.run() `is never invoked would not 
+    pass `stopwatch` unit tests. It would be much easier to 
+    discover it problem.
+```

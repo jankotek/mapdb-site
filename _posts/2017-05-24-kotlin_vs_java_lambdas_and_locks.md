@@ -197,3 +197,18 @@ fun hasZeros(ints: List<Int>): Boolean {
     return false
 }
 ```
+
+
+Comments
+----
+
+Vladimir Dvorak • 3 years ago
+
+I'm not advocate of Java, but what about make custom Closeable Lock in java?
+
+--
+
+
+jefferygriffith • 4 years ago
+
+Thanks for the post - I hope you'll write about concurrency in Kotlin in your new series! Lots of options with a/w, CompletableFuture, rx, etc and would appreciate your experience.

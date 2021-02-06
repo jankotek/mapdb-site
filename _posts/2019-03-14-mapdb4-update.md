@@ -88,4 +88,20 @@ Not much. I have many notes, some code and design.
   - POJO serialization is too complex to handle with default configuration 
     - class rename, performance overhead....
     - POJO serialization must be configured separately
-          
+
+
+Commends:
+-----------------
+
+Pranas • a year ago
+
+Sounds like real-logic/agrona could love both 2G limitations (buffers) and provide small packages size (primitive collections to replace Eclipse collections) and provide some more concurrency wise clever primitives.
+
+Money Manager • 2 years ago
+
+Will JSON handling be added as well ? XPATH like query etc.
+
+
+Pranas -> Money Manager • a year ago
+
+https://commons.apache.org/... could be used as wrapper on top of the stores. It's nice not to have bloated library ...

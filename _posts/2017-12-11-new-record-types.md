@@ -281,3 +281,9 @@ What will be in MapDB 4.0
          
 
 
+Comments
+-------------------
+
+Frolov Aleksey • 2 years ago
+
+Where is secondary key from mapdb v1/v2?

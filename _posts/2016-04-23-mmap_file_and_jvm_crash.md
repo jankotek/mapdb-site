@@ -205,3 +205,18 @@ directBuffer.put(buffer, 0, buffer.length);
 MapDB supports unmap hack, it is disabled by default and can be enabled with `cleanerHackEnable()`. However enabling Cleaner Hack opens race condition, where concurrent access to store, while its being closed will cause JVM crash.
 
 Future versions of MapDB will add another option, where this race condition is removed at price of extra concurrent locking and reduced performance.
+
+
+Comments
+----
+
+Vaishali Patni • 2 years ago
+
+How can I implement queue using mapdb?
+
+--
+
+
+Lisa May • 4 years ago
+
+I think that wouldn't happen if the files were opened like this: https://www.mindjet.com/mma... in MindManager because it is their native software. I am not sure why that happens to you, I use the native software and I never had problems :/

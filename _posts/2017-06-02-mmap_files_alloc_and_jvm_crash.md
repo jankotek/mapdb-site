@@ -182,3 +182,34 @@ JVM does not provide any “legal” way to call `fallocate` directly. There are
 Why this is excellent? If sparse file is in this allocated state, the delayed write can not fail when disk is full. 
 So when the file expands, we do not have to overwrite new region with zeroes, but can use `fallocate` instead.
 That is much faster. 
+
+
+Comments
+-----------
+András Turi • 4 years ago
+
+Hi!
+
+About the "Windows file delete" part, I tried to reproduce the problem on Windows 7, but it didn't seem to be that bad; after killing the JVM process manually while having a file memory-mapped, I was able to delete the file when the process was gone. I also tried the example code from the linked bug-report, indeed the mapped file is not deletable while the process is still running. However, after the process is gone, the file can be deleted. So I agree that there is the annoying problem of undeletable files, but an OS restart is not necessary, only killing the JVM process. Or am I missing something? Maybe this was worse in older Windows versions?
+Thanks
+Andras
+
+--
+
+Avatar
+David Bridges • 4 years ago
+
+Awesome, thanks for sharing! I just recently discovered mmap files after running across this: https://www.mindjet.com/mma... and I cannot believe no one told me before how helpful they are, and the software itself! But since I just started, I needed some helpful tips to progress and this is amazing!!!
+
+
+--
+
+Francesco Nigro • 4 years ago
+
+Hi!!
+Thanks to have shared, it is full of valuable informations!
+Just a couple of questions..
+You mentioned that "FileChannel preserves write order": MappedByteBuffer writes do not provide the same guarantees?
+
+The content of a read-only mapping is in sync with what FileChannel has written only after a fsync? AFAIK on >2.6 Linux there is an unified page cache so I'm expecting that FileChannel and the read-only mapping are using the same pages, hence the content will be the same..am I missing something?
+

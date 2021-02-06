@@ -156,3 +156,32 @@ fun unlock(file:File):Unit{
 ```
 
 PS: Keep on mind that `ConcurrentMap` is interface defined in Java code. Nullability information was added latter with external annotations :-)
+
+
+Comments
+-------------
+    Avatar
+    Tse-Wen Wang (Tom) • 3 years ago • edited
+
+    Scala supports nullable Long through its support of Java classes. Here's how I would use nullable Long.
+
+    import java.lang.{Long => JLong} // JLong will be alias for java.lang.Long
+
+    null.asInstanceOf[JLong] // returns null
+
+    --
+
+    Mateusz Maciaszek • 4 years ago
+
+    Wouldn't using AtomicRef with Optional type help to resolve all of these problems?
+
+
+        Avatar
+        Jan Kotek Mateusz Maciaszek • 4 years ago
+
+        I guess you mean in combination with immutable Scala Map. It would not, it generates too much GC garbage.
+                −
+            Avatar
+            Mateusz Maciaszek Jan Kotek • 4 years ago
+
+            Not really, mutable version should be ok as well once dealing with concurrency control mechanism (hence not sure about GC pressure).

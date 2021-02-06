@@ -78,3 +78,15 @@ In this post I will outline mistakes I made over the years, while working on Map
     - MapDB needs way more code examples
     
     
+  
+Comments
+------------
+
+xamde ⬣ • 4 years ago
+Thanks for sharing. I watched the Java embedded database space thoroughly, there are few real candidates, MapDB always looking like the best of them. My main problem was stability. I needed far less features, cared less about ultra-performance, but need a stable, reliable, somewhat scalable (otherwise I could use in-memory) key-value store first. I am happy to see MapDB lives on and I hope there will be stable, maintained, releases with stable on-disk formats.
+
+--
+
+Nick Apperley • 3 years ago
+
+Since Kotlin is being used with MapDB have Kotlin Coroutines ( https://www.youtube.com/wat... ) been considered for non blocking concurrency? Some NoSQL DB systems use Coroutines ( https://en.wikipedia.org/wi... ) to handle concurrency ( https://medium.com/software... ).
