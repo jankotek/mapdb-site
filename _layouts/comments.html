@@ -69,7 +69,7 @@ $(document).ready(function () {
         headers: {Accept: "application/vnd.github.v3.html+json"},
         dataType: "json",
         success: function(comments) {
-            $("#gh-comments-list").append("Visit the <b><a href='" + url + "'>Github Issue</a></b> to comment on this post");
+            $("#page__comments").append("Visit the <b><a href='" + url + "'>Github Issue</a></b> to comment on this post");
             $.each(comments, function(i, comment) {
 
                 var date = new Date(comment.created_at);
@@ -82,11 +82,11 @@ $(document).ready(function () {
                 t += "<div id='gh-comment-hr'></div>";
                 t += comment.body_html;
                 t += "</div>";
-                $("#gh-comments-list").append(t);
+                $("#page__comments").append(t);
             });
         },
         error: function() {
-            $("#gh-comments-list").append("Comments are not open for this post yet.");
+            $("#page__comments").append("Comments are not open for this post yet.");
         }
     });
 });
