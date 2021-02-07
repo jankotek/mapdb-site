@@ -75,6 +75,7 @@ $(document).ready(function () {
                 t += "<b><a href='" + comment.user.html_url + "'>" + comment.user.login + "</a></b>";
                 t += " posted at ";
                 t += "<em>" + date.toUTCString() + "</em>";
+                t += " |  <a href='comment.html_url'>direct link</a>";
                 t += "<div id='gh-comment-hr'></div>";
                 t += comment.body_html;
                 t += "</div>";
