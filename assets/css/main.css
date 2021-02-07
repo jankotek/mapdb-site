@@ -5,6 +5,12 @@ a:focus{outline:thin dotted #9bc995;outline:5px auto #9bc995;outline-offset:-2px
 
 
 
+#gh-link {
+  text-align: center;
+  border:1px solid #333;
+  background-color:#aaaaaa;
+}
+
 
 #gh-comments {
   text-align: center;
@@ -12,9 +18,7 @@ a:focus{outline:thin dotted #9bc995;outline:5px auto #9bc995;outline-offset:-2px
 
 #gh-comment {
   text-align: left;
-  color:#FFF;
-  background-color:#272822;
-  border:1px solid #b3b3b3;
+  border:1px solid #333;
   margin:2.5em 0;
   padding:10px;
 }
