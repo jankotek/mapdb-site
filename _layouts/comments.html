@@ -60,8 +60,8 @@ layout: default
   <div class="page__comments">
     <script>
     <!--
-    var url = "https://github.com/mapdb/mapdb-site-comments/issues/" + {{ $.Params.ghcommentid }}
-    var api_url = "https://api.github.com/repos/mapdb/mapdb-site-comments/issues/" + {{ $.Params.ghcommentid }} + "/comments"
+    var url = "https://github.com/mapdb/mapdb-site-comments/issues/" + {{ page.ghcommentid }}
+    var api_url = "https://api.github.com/repos/mapdb/mapdb-site-comments/issues/" + {{ page.ghcommentid }} + "/comments"
 
     $(document).ready(function () {
     $.ajax(api_url, {
