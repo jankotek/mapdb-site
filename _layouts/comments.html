@@ -69,12 +69,12 @@ $(document).ready(function () {
         headers: {Accept: "application/vnd.github.v3.html+json"},
         dataType: "json",
         success: function(comments) {
-            $("#gh-comments").append("<br/><br/><div id='gh-link'>Visit the <b><a href='" + url + "'>Github Issue</a></b> to comment on this post</div>");
+            $("#gh-comments").append("<br/><br/><div id='gh-link' class='page__content'>Visit the <b><a href='" + url + "'>Github Issue</a></b> to comment on this post</div>");
             $.each(comments, function(i, comment) {
 
                 var date = new Date(comment.created_at);
 
-                var t = "<div id='gh-comment'>";
+                var t = "<div id='gh-comment' class='page__content'>";
                 t += "<img src='" + comment.user.avatar_url + "' width='24px'>";
                 t += "<b><a href='" + comment.user.html_url + "'>" + comment.user.login + "</a></b>";
                 t += " posted at ";
