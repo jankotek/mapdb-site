@@ -2,7 +2,7 @@
 title: Better primitive collections
 layout: comments
 tags: [MMap, Collections]
-
+ghcommentid: 1
 ---
 
 

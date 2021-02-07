@@ -57,16 +57,10 @@ layout: default
   </article>
 
 
-  <div class="page__comments">
-  <script src="https://utteranc.es/client.js"
-          repo="mapdb/mapdb-site-comments"
-          issue-term="blog"
-          label="blog"
-          theme="github-light"
-          crossorigin="anonymous"
-          async>
-  </script>
-  </div>
+  {% if $.Params.ghcommentid %}
+  comment defined
+  {% endif %}
+
 
 
   {% comment %}<!-- only show related on a post page when not disabled -->{% endcomment %}
