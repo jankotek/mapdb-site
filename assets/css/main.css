@@ -28,6 +28,12 @@ a:focus{outline:thin dotted #9bc995;outline:5px auto #9bc995;outline-offset:-2px
   margin: 8px 0px;
 }
 
+
+#gh-comment pre {
+  border:1px solid #333;
+  background: #ddd;
+}
+
 #gh-comment p {
   margin:0px;
 }
