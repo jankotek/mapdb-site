@@ -73,7 +73,7 @@ $(document).ready(function () {
                 var t = "<div id='gh-comment' class='page__content'>";
                 t += "<img src='" + comment.user.avatar_url + "' width='24px'>";
                 t += "<b><a href='" + comment.user.html_url + "'>" + comment.user.login + "</a></b>";
-                t += " made <a href='comment.html_url'>comment</a>";
+                t += " made <a href='" + comment.html_url + "'>comment</a>";
                 t += "<div id='gh-comment-hr'></div>";
                 t += comment.body_html;
                 t += "</div>";
