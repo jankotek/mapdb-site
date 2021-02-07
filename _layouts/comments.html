@@ -56,12 +56,13 @@ layout: default
 
   </article>
 
+  Update 1
 
   {% if page.ghcommentid %}
   comment defined
   {% endif %}
 
-
+  {{ $.Params.ghcommentid }}
 
   {% comment %}<!-- only show related on a post page when not disabled -->{% endcomment %}
   {% if page.id and page.related and site.related_posts.size > 0 %}
