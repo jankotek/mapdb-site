@@ -52,10 +52,6 @@ layout: default
 
       {% if page.share %}{% include social-share.html %}{% endif %}
 
-    </div>
-
-  </article>
-
   {% if page.ghcommentid %}
   <div class="page__comments" id="gh-comments">
     <script src="https://mapdb.org/assets/js/jquery.min.js"></script>
@@ -93,6 +89,11 @@ $(document).ready(function () {
 </script>
   </div>
   {% endif %}
+
+
+    </div>
+
+  </article>
 
 
   {% comment %}<!-- only show related on a post page when not disabled -->{% endcomment %}
