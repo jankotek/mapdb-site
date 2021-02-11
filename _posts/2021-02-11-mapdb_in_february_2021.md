@@ -50,7 +50,7 @@ MapDB uses serializers with `DataInput` and `DataOutput` so using `ByteBuffer` i
 After some thinking I decided to eliminate entire serialization layer 
 and (de)serialize into `ByteBuffer`s directly.
  
-There is **new page based store** inspired by LMBD. It uses fixed
+There is **new page based store** inspired by LMDB. It uses fixed
 size pages and tighly integrates with serializers. Data structure is aware of page size,
 so  BTree Nodes will split in a way to fit onto page. 
 Serializers will be also able to use free space on page, for example for write buffer, 
