@@ -116,7 +116,7 @@ Funding
 ---------
 
 I support this project from my consulting work. It is enough to keep lights on, but things could move faster. 
-If you feel like [support me on Github](https://github.com/sponsors/jankotek), or throw me some [mailto:jan@kotek.net](crypto).  
+If you feel like [support me on Github](https://github.com/sponsors/jankotek), or throw me some [crypto](mailto:jan@kotek.net).  
 
 That is all for now.
 
