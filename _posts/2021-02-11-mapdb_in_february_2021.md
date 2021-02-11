@@ -29,7 +29,7 @@ and basic functionality equivalent to MapDB1 (minus TX):
 
 I am also slowly rebranding MapDB.
 I picked cute little rocket back in 2012, but that is a bit obsolete now. 
-Today it is time fir a brand new less dynamic logo [Map<D,B>](https://logocaster.com/logo-design/Map%26lt%3BD%2CB%26gt%3B?seed=601469432&compoundIndex=),
+Today it is time for a brand new less dynamic logo [Map<D,B>](https://logocaster.com/logo-design/Map%26lt%3BD%2CB%26gt%3B?seed=601469432&compoundIndex=),
 that captures good old boring Java values.
 
 
@@ -51,7 +51,7 @@ After some thinking I decided to eliminate entire serialization layer
 and (de)serialize into `ByteBuffer`s directly.
  
 There is **new page based store** inspired by LMDB. It uses fixed
-size pages and tighly integrates with serializers. Data structure is aware of page size,
+size pages and tightly integrates with serializers. Data structure is aware of page size,
 so  BTree Nodes will split in a way to fit onto page. 
 Serializers will be also able to use free space on page, for example for write buffer, 
 or sparse node arrays (faster random btree inserts).
