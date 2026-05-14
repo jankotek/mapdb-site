@@ -12,7 +12,7 @@ title_separator          : "-"
 name                     : "MapDB"
 description              : "Embedded Java Database Engine"
 url                      : https://mapdb.org
-baseurl                  : /
+baseurl                  : ""
 gh_repo                  : http://www.github.com/jankotek/mapdb/
 teaser                   : # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
 breadcrumbs            : false # true, false (default)
@@ -154,7 +154,7 @@ timezone: # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 
 # Plugins
-gems:
+plugins:
   - jekyll-paginate
   - jekyll-sitemap
   - jekyll-gist
@@ -205,5 +205,3 @@ compress_html:
   clippings: all
   ignore:
     envs: development
-
-theme: jekyll-theme-cayman
